@@ -1,0 +1,6 @@
+**/datasets/
+/pipettemovie/
+**/runs/
+**/myrobot/
+**/realsense-ros/
+*.png
