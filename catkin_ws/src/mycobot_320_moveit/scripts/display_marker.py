@@ -11,6 +11,8 @@ y = 0
 z = 0
 def callback(pub, data:PoseStamped):
     global x,y,z
+    if data.header.frame_id != "PipetteHead":
+        return
     if (rospy.Time.now() - data.header.stamp).to_sec() > 0.1:
         return
     marker = Marker()
