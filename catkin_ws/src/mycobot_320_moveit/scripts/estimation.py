@@ -207,8 +207,11 @@ def main():
     estimator = CVEstimator()
     while not rospy.is_shutdown():
         color_image,depth_frame = estimator.getRSImages()
-        estimator.pipetteChecker(color_image,depth_frame)
-        estimator.armChecker(color_image,depth_frame)
+        try:
+            estimator.pipetteChecker(color_image,depth_frame)
+            estimator.armChecker(color_image,depth_frame)
+        except Exception as e:
+            rospy.logwarn(e)
         cv2.imshow('color', color_image)
         cv2.waitKey(1)
 if __name__ == '__main__':
