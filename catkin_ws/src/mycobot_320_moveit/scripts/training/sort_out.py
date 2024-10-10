@@ -4,10 +4,11 @@ import glob
 import os
 import random
 import roslib.packages
-pkg_dir = roslib.packages.get_pkg_dir('mycobot_320_moveit')
+
+pkg_dir = roslib.packages.get_pkg_dir("mycobot_320_moveit")
 dataset_dir = pkg_dir + "/datasets"
 
-img_list = glob.glob(os.path.join(dataset_dir+"/annotation", "*.txt"))
+img_list = glob.glob(os.path.join(dataset_dir + "/annotation", "*.txt"))
 random.shuffle(img_list)
 
 # 80% for training, 10% for validation, 10% for testing
@@ -19,8 +20,8 @@ num_test = num_data - num_train - num_val
 
 split_dict = {}
 split_dict["train"] = img_list[:num_train]
-split_dict["val"] = img_list[num_train:num_train+num_val]
-split_dict["test"] = img_list[num_train+num_val:]
+split_dict["val"] = img_list[num_train : num_train + num_val]
+split_dict["test"] = img_list[num_train + num_val :]
 
 for name in ["train", "val", "test"]:
     # create folder
@@ -35,15 +36,23 @@ for name in ["train", "val", "test"]:
             os.makedirs(dir_path)
         for path in split_dict[name]:
             txt_path = path
-            img_path = txt_path.replace("annotation", "original_data").replace("txt", "png")
+            img_path = txt_path.replace("annotation", "original_data").replace(
+                "txt", "png"
+            )
             if os.path.basename(txt_path) == "classes.txt":
                 continue
             if os.path.exists(img_path) or os.path.exists(txt_path):
                 pass
             if folder == "images":
-                os.system("cp {} {}".format(img_path, os.path.join(dir_path, os.path.basename(img_path))))
+                os.system(
+                    "cp {} {}".format(
+                        img_path, os.path.join(dir_path, os.path.basename(img_path))
+                    )
+                )
             else:
-                os.system("cp {} {}".format(txt_path, os.path.join(dir_path, os.path.basename(txt_path))))
+                os.system(
+                    "cp {} {}".format(
+                        txt_path, os.path.join(dir_path, os.path.basename(txt_path))
+                    )
+                )
 print("Done!")
-            
-        

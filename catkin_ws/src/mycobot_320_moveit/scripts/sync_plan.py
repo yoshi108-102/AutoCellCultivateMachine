@@ -7,13 +7,15 @@ from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 from pymycobot.mycobot import MyCobot
 
 
-mc:MyCobot = None
+mc: MyCobot = None
 
 
-def callback(data:JointTrajectory):
+def callback(data: JointTrajectory):
     # rospy.loginfo(rospy.get_caller_id() + "%s", data.position)
     radians = data.points[0].positions
     mc.send_radians(radians, 20)
+
+
 def listener():
     global mc
     rospy.init_node("mycobot_reciver", anonymous=True)

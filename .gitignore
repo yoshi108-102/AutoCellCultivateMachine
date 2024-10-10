@@ -4,3 +4,5 @@
 **/myrobot/
 **/realsense-ros/
 *.png
+**/record/
+**.bag

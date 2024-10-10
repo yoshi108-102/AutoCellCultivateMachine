@@ -1,8 +1,7 @@
 <launch>
-    <!-- mycobot_pro_moveit のブランチをmain-->
     <!--BotのURDFモデルをパラメータサーバにロードする-->
     <arg name="mode" default="gazebo" />
-    <arg name="model" default="$(find myrobot)/urdf/mycobot_pro.urdf.xacro" />
+    <arg name="model" default="$(find mycobot_320_moveit)/urdf/mycobot_320.urdf.xacro" />
     <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
 
     <!--空のワールドでGazeboを開始する-->
