@@ -14,10 +14,10 @@
 
         <param name="sensor_model/max_range" value="100.0" />
 
-        <remap from="cloud_in" to="/livox/lidar" />
+        <remap from="cloud_in" to="/extra_indices/outoput" />
     
     </node>
     <node name="octomap_updater" type="octomap_updater.py" pkg="mycobot_320_moveit" output="screen">
-        <param name="update_rate" value="0.1" />
+        <param name="update_rate" value="1" />
     </node>
 </launch>

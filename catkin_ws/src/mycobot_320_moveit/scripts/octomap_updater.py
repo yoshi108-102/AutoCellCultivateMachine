@@ -2,7 +2,6 @@
 import rospy
 from std_srvs.srv import Empty
 
-
 def clear_octomap(event):
     rospy.wait_for_service('/octomap_server/reset')
     try:
