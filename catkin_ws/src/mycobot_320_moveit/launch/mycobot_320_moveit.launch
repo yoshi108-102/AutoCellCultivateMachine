@@ -20,12 +20,13 @@
     </include>
 
     <group unless="$(eval mode=='gazebo')">
-        <include file="$(find myrobot)/launch/mycobot_pro_control.launch" />
+        <include file="$(find mycobot_320_moveit
+        )/launch/mycobot_pro_control.launch" />
     </group>
 
     <!--コントローラをROSのパラメータサーバに読み込む-->
-    <rosparam file="$(find myrobot)/yaml/mycobot_moveit_controllers.yaml" command="load" />
-    <rosparam file="$(find myrobot)/yaml/joint_state_controller.yaml" command="load" />
+    <rosparam file="$(find mycobot_320_moveit)/yaml/mycobot_moveit_controllers.yaml" command="load" />
+    <rosparam file="$(find mycobot_320_moveit)/yaml/joint_state_controller.yaml" command="load" />
 
     <!--コントローラ作成-->
     <node name="controller_spawner" pkg="controller_manager" type="spawner"
@@ -35,7 +36,9 @@
     <!--robot_state_publisher:
     順運動学を計算し，tfメッセージを生成する-->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
-    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find myrobot)/config/moveit_rviz.rviz"
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mycobot_320_moveit)/config/moveit_rviz.rviz"
     />
+
+    <!--lidarから取得した点群データをmoveitで利用-->
 
 </launch>

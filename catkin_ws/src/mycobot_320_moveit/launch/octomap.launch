@@ -14,7 +14,7 @@
 
         <param name="sensor_model/max_range" value="100.0" />
 
-        <remap from="cloud_in" to="/extra_indices/outoput" />
+        <remap from="cloud_in" to="/extract_indices/output" />
     
     </node>
     <node name="octomap_updater" type="octomap_updater.py" pkg="mycobot_320_moveit" output="screen">
