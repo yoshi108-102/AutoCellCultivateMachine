@@ -126,6 +126,7 @@ class My1cobotOperator:
 def main():
     rospy.init_node("joint_controller")
     mcOperator = My1cobotOperator("/dev/ttyUSB0", 115200)
+    rospy.loginfo(mcOperator.scene.get_known_object_names())
     rospy.spin()
 
 
