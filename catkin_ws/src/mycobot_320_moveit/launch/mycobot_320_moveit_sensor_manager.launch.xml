@@ -1,0 +1,3 @@
+<launch>
+    <rosparam load="$(find mycobot_320_moveit)/yaml/sensors_livox_mid360.yaml" />
+</launch>

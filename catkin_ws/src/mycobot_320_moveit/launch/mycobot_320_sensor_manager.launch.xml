@@ -1,8 +1,0 @@
-<launch>
-
-<!--moveitで使うセンサはこれで管理する-->
-
-<!--lidarのデータ-->
-<arg name="moveit_octomap_lidar_params_file" default="$(find mycobot_320_moveit)/config/sensors_livox_mid360.yaml" />
-
-</launch>

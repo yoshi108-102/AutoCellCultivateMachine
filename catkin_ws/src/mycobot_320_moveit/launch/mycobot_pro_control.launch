@@ -1,9 +1,9 @@
 <launch>
-    <node name="mycobot_pro_control" pkg="myrobot" type="mycobot_pro_control" output="screen"
+    <node name="mycobot_pro_control" pkg="mycobot_320_moveit" type="mycobot_pro_control" output="screen"
         respawn="false" />
 
     <!-- HW Interface -->
-    <node name="hardware_interface" pkg="myrobot" type="mycobot_pro_hw.py"
+    <node name="hardware_interface" pkg="mycobot_320_moveit" type="mycobot_pro_hw.py"
         output="screen">
         <param name="mycobot_port" value="/dev/usb-mycobot-pro" />
     </node>

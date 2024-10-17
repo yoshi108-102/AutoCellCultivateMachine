@@ -2,4 +2,4 @@
 source_root_dir = '/home/tw017/Desktop/PipetteDetect/catkin_ws/src'
 whitelisted_packages = ''.split(';') if '' != '' else []
 blacklisted_packages = ''.split(';') if '' != '' else []
-underlay_workspaces = '/home/tw017/Desktop/PipetteDetect/catkin_ws/devel;/opt/ros/noetic'.split(';') if '/home/tw017/Desktop/PipetteDetect/catkin_ws/devel;/opt/ros/noetic' != '' else []
+underlay_workspaces = '/home/tw017/ros/livox/devel;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel;/opt/ros/noetic'.split(';') if '/home/tw017/ros/livox/devel;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel;/opt/ros/noetic' != '' else []

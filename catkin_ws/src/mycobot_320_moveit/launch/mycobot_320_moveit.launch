@@ -11,7 +11,7 @@
         </include>
         <!--GazeboでMyCobotを生成し，パラメータサーバからのその記述を受ける-->
         <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model"
-            args="-param robot_description -urdf -model myrobot" />
+            args="-param robot_description -urdf -model mycobot_320" />
     </group>
     <include file="$(find mycobot_320_moveit)/launch/move_group.launch">
         <arg name="allow_trajectory_execution" value="true" />

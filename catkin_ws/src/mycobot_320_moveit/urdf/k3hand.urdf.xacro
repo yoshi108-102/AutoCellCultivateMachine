@@ -4,7 +4,7 @@
   <link name="wrist">
     <visual>
       <geometry>
-        <mesh filename="package://myrobot/urdf/k3_urdf/wrist.dae" />
+        <mesh filename="package://mycobot_320_moveit/urdf/k3_urdf/wrist.dae" />
       </geometry>
       <origin xyz="0 0 0" rpy="0 0 0" />
     </visual>
@@ -22,7 +22,7 @@
   <link name="thumb_met">
     <visual>
       <geometry>
-        <mesh filename="package://myrobot/urdf/k3_urdf/thumb_met.dae" />
+        <mesh filename="package://mycobot_320_moveit/urdf/k3_urdf/thumb_met.dae" />
       </geometry>
       <origin xyz="0.0 0.0080 0.043" rpy="0 0 0" />
     </visual>
@@ -40,7 +40,7 @@
   <link name="thumb_middle_1">
     <visual>
       <geometry>
-        <mesh filename="package://myrobot/urdf/k3_urdf/thumb_middle_1.dae" />
+        <mesh filename="package://mycobot_320_moveit/urdf/k3_urdf/thumb_middle_1.dae" />
       </geometry>
       <origin xyz="0.0 0.0225 0.0607" />
     </visual>
@@ -58,7 +58,7 @@
   <link name="thumb_middle_2">
     <visual>
       <geometry>
-        <mesh filename="package://myrobot/urdf/k3_urdf/thumb_middle_2.dae" />
+        <mesh filename="package://mycobot_320_moveit/urdf/k3_urdf/thumb_middle_2.dae" />
       </geometry>
       <origin xyz="0.0 0.0225 0.0965" />
     </visual>
@@ -78,7 +78,7 @@
   <link name="thumb_tip">
     <visual>
       <geometry>
-        <mesh filename="package://myrobot/urdf/k3_urdf/thumb_tip.dae" />
+        <mesh filename="package://mycobot_320_moveit/urdf/k3_urdf/thumb_tip.dae" />
       </geometry>
       <origin xyz="0.0 0.0225 0.1325" />
     </visual>
@@ -97,7 +97,7 @@
   <link name="fing_met_1">
     <visual>
       <geometry>
-        <mesh filename="package://myrobot/urdf/k3_urdf/fing_met_1.dae" />
+        <mesh filename="package://mycobot_320_moveit/urdf/k3_urdf/fing_met_1.dae" />
         <!-- <box size="0.020 0.030 0.012" /> -->
       </geometry>
       <origin xyz="0.0225 0.0225 0.00" rpy="0.0 0.0 0.0" />
@@ -118,7 +118,7 @@
   <link name="fing_base_1">
     <visual>
       <geometry>
-        <mesh filename="package://myrobot/urdf/k3_urdf/fing_base_1.dae" />
+        <mesh filename="package://mycobot_320_moveit/urdf/k3_urdf/fing_base_1.dae" />
       </geometry>
       <origin xyz="0.015 0.0225 -0.022" />
     </visual>
@@ -137,7 +137,7 @@
   <link name="fing_middle_1">
     <visual>
       <geometry>
-        <mesh filename="package://myrobot/urdf/k3_urdf/fing_middle_1.dae" />
+        <mesh filename="package://mycobot_320_moveit/urdf/k3_urdf/fing_middle_1.dae" />
       </geometry>
       <origin xyz="0.015 0.0225 -0.022" />
     </visual>
@@ -155,7 +155,7 @@
   <link name="fing_tip_1">
     <visual>
       <geometry>
-        <mesh filename="package://myrobot/urdf/k3_urdf/fing_tip_1.dae" />
+        <mesh filename="package://mycobot_320_moveit/urdf/k3_urdf/fing_tip_1.dae" />
       </geometry>
       <origin xyz="0.015 0.0225 -0.022" />
     </visual>
@@ -174,7 +174,7 @@
   <link name="fing_met_2">
     <visual>
       <geometry>
-        <mesh filename="package://myrobot/urdf/k3_urdf/fing_met_2.dae" />
+        <mesh filename="package://mycobot_320_moveit/urdf/k3_urdf/fing_met_2.dae" />
       </geometry>
       <origin xyz="-0.0225 0.0225 0.00" rpy="0.0 0.0 0.0" />
     </visual>
@@ -193,7 +193,7 @@
   <link name="fing_base_2">
     <visual>
       <geometry>
-        <mesh filename="package://myrobot/urdf/k3_urdf/fing_base_2.dae" />
+        <mesh filename="package://mycobot_320_moveit/urdf/k3_urdf/fing_base_2.dae" />
       </geometry>
       <origin xyz="-0.015 0.0225 -0.022" />
     </visual>
@@ -212,7 +212,7 @@
   <link name="fing_middle_2">
     <visual>
       <geometry>
-        <mesh filename="package://myrobot/urdf/k3_urdf/fing_middle_2.dae" />
+        <mesh filename="package://mycobot_320_moveit/urdf/k3_urdf/fing_middle_2.dae" />
       </geometry>
       <origin xyz="-0.015 0.0225 -0.022" />
     </visual>
@@ -230,7 +230,7 @@
   <link name="fing_tip_2">
     <visual>
       <geometry>
-        <mesh filename="package://myrobot/urdf/k3_urdf/fing_tip_2.dae" />
+        <mesh filename="package://mycobot_320_moveit/urdf/k3_urdf/fing_tip_2.dae" />
       </geometry>
       <origin xyz="-0.015 0.0225 -0.022" />
     </visual>
