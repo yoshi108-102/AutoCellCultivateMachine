@@ -1,6 +1,1 @@
-(cl:in-package realsense2_camera-msg)
-(cl:export '(HEADER-VAL
-          HEADER
-          JSON_DATA-VAL
-          JSON_DATA
-))
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/realsense2_camera/share/common-lisp/ros/realsense2_camera/msg/_package_Metadata.lisp

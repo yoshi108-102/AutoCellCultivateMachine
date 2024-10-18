@@ -1,0 +1,6 @@
+(cl:in-package denso_robot_core-msg)
+(cl:export '(POSE-VAL
+          POSE
+          OPTION-VAL
+          OPTION
+))

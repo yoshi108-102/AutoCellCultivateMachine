@@ -1,0 +1,1 @@
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_core/share/denso_robot_core/msg/MoveStringAction.msg

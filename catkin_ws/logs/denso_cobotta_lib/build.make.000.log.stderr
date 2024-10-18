@@ -1,0 +1,8 @@
+[01m[K/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_cobotta_ros/denso_cobotta_lib/src/motor.cpp:[m[K In member function ‘[01m[Kbool denso_cobotta_lib::cobotta::Motor::update(denso_cobotta_lib::cobotta::MotorState)[m[K’:
+[01m[K/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_cobotta_ros/denso_cobotta_lib/src/motor.cpp:66:1:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K-Wreturn-type[m[K]
+   66 | [01;35m[K}[m[K
+      | [01;35m[K^[m[K
+[01m[K/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_cobotta_ros/denso_cobotta_lib/src/message.cpp:[m[K In static member function ‘[01m[Kstatic bool denso_cobotta_lib::cobotta::Message::isWatchdogTimerError(uint32_t)[m[K’:
+[01m[K/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_cobotta_ros/denso_cobotta_lib/src/message.cpp:152:1:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K-Wreturn-type[m[K]
+  152 | [01;35m[K}[m[K
+      | [01;35m[K^[m[K

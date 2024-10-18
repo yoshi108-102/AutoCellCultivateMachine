@@ -1,0 +1,28 @@
+[35m[1mScanning dependencies of target _gripper_ntlab_msgs_generate_messages_check_deps_JointPosition[0m
+[35m[1mScanning dependencies of target _gripper_ntlab_msgs_generate_messages_check_deps_CartesianPosition[0m
+[  0%] Built target _gripper_ntlab_msgs_generate_messages_check_deps_JointPosition
+[  0%] Built target _gripper_ntlab_msgs_generate_messages_check_deps_CartesianPosition
+[35m[1mScanning dependencies of target gripper_ntlab_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target gripper_ntlab_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target gripper_ntlab_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target gripper_ntlab_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target gripper_ntlab_msgs_generate_messages_lisp[0m
+[  8%] [34m[1mGenerating EusLisp code from gripper_ntlab_msgs/JointPosition.msg[0m
+[ 16%] [34m[1mGenerating EusLisp code from gripper_ntlab_msgs/CartesianPosition.msg[0m
+[ 25%] [34m[1mGenerating Python from MSG gripper_ntlab_msgs/CartesianPosition[0m
+[ 33%] [34m[1mGenerating EusLisp manifest code for gripper_ntlab_msgs[0m
+[ 41%] [34m[1mGenerating Python from MSG gripper_ntlab_msgs/JointPosition[0m
+[ 50%] [34m[1mGenerating C++ code from gripper_ntlab_msgs/JointPosition.msg[0m
+[ 58%] [34m[1mGenerating Javascript code from gripper_ntlab_msgs/JointPosition.msg[0m
+[ 75%] [34m[1mGenerating Javascript code from gripper_ntlab_msgs/CartesianPosition.msg[0m
+[ 75%] [34m[1mGenerating C++ code from gripper_ntlab_msgs/CartesianPosition.msg[0m
+[ 83%] [34m[1mGenerating Lisp code from gripper_ntlab_msgs/JointPosition.msg[0m
+[ 91%] [34m[1mGenerating Lisp code from gripper_ntlab_msgs/CartesianPosition.msg[0m
+[ 91%] Built target gripper_ntlab_msgs_generate_messages_nodejs
+[ 91%] Built target gripper_ntlab_msgs_generate_messages_lisp
+[100%] [34m[1mGenerating Python msg __init__.py for gripper_ntlab_msgs[0m
+[100%] Built target gripper_ntlab_msgs_generate_messages_cpp
+[100%] Built target gripper_ntlab_msgs_generate_messages_py
+[100%] Built target gripper_ntlab_msgs_generate_messages_eus
+[35m[1mScanning dependencies of target gripper_ntlab_msgs_generate_messages[0m
+[100%] Built target gripper_ntlab_msgs_generate_messages

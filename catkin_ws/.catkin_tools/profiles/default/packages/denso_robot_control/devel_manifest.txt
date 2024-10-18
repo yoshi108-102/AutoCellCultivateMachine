@@ -1,0 +1,6 @@
+denso_robot_ros/denso_robot_control
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_control/cmake.lock /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/./cmake.lock
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_control/share/denso_robot_control/cmake/denso_robot_controlConfig-version.cmake /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/denso_robot_control/cmake/denso_robot_controlConfig-version.cmake
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_control/share/denso_robot_control/cmake/denso_robot_controlConfig.cmake /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/denso_robot_control/cmake/denso_robot_controlConfig.cmake
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_control/lib/denso_robot_control/denso_robot_control /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/denso_robot_control/denso_robot_control
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_control/lib/pkgconfig/denso_robot_control.pc /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/pkgconfig/denso_robot_control.pc

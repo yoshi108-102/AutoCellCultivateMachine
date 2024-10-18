@@ -1,0 +1,1 @@
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/gripper_ntlab_sensor/share/gripper_ntlab_sensor/cmake/gripper_ntlab_sensorConfig.cmake

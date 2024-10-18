@@ -1,0 +1,8 @@
+prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/install
+
+Name: gripper_ntlab_controller
+Description: Description of gripper_ntlab_controller
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lgripper_ntlab_controller
+Requires: message_runtime

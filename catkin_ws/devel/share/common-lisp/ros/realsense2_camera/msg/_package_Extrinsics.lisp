@@ -1,8 +1,1 @@
-(cl:in-package realsense2_camera-msg)
-(cl:export '(HEADER-VAL
-          HEADER
-          ROTATION-VAL
-          ROTATION
-          TRANSLATION-VAL
-          TRANSLATION
-))
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/realsense2_camera/share/common-lisp/ros/realsense2_camera/msg/_package_Extrinsics.lisp

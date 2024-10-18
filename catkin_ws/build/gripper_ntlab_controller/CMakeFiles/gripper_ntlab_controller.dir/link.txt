@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC   -shared -Wl,-soname,libgripper_ntlab_controller.so -o /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/gripper_ntlab_controller/lib/libgripper_ntlab_controller.so CMakeFiles/gripper_ntlab_controller.dir/src/gripper_ntlab_controller.cpp.o 

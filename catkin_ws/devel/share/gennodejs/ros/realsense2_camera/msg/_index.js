@@ -1,12 +1,1 @@
-
-"use strict";
-
-let Metadata = require('./Metadata.js');
-let Extrinsics = require('./Extrinsics.js');
-let IMUInfo = require('./IMUInfo.js');
-
-module.exports = {
-  Metadata: Metadata,
-  Extrinsics: Extrinsics,
-  IMUInfo: IMUInfo,
-};
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/realsense2_camera/share/gennodejs/ros/realsense2_camera/msg/_index.js

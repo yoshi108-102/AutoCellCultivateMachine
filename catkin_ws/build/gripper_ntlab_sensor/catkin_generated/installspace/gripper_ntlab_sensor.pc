@@ -1,0 +1,8 @@
+prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/install
+
+Name: gripper_ntlab_sensor
+Description: Description of gripper_ntlab_sensor
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

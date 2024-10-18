@@ -1,0 +1,8 @@
+prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/install
+
+Name: denso_cobotta_gripper
+Description: Description of denso_cobotta_gripper
+Version: 1.2.4
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -ldenso_cobotta_gripper
+Requires: controller_manager hardware_interface joint_limits_interface message_runtime roscpp std_msgs transmission_interface actionlib actionlib_msgs denso_cobotta_lib

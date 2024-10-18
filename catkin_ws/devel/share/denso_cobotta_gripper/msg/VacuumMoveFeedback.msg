@@ -1,0 +1,1 @@
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg

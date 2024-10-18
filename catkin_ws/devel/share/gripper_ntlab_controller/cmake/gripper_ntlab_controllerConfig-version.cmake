@@ -1,0 +1,1 @@
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/gripper_ntlab_controller/share/gripper_ntlab_controller/cmake/gripper_ntlab_controllerConfig-version.cmake

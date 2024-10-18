@@ -1,0 +1,8 @@
+prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gazebo
+
+Name: denso_cobotta_gazebo
+Description: Description of denso_cobotta_gazebo
+Version: 1.2.4
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

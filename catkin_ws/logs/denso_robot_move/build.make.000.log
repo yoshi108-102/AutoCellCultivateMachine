@@ -1,0 +1,77 @@
+[35m[1mScanning dependencies of target move_group_in_hand_manipulation_limit[0m
+[35m[1mScanning dependencies of target move_group_in_hand_manipulation_hor[0m
+[35m[1mScanning dependencies of target move_group_in_hand_manipulation_data[0m
+[35m[1mScanning dependencies of target move_group_interface_two_points[0m
+[  7%] [32mBuilding CXX object CMakeFiles/move_group_interface_two_points.dir/src/move_group_interface_two_points.cpp.o[0m
+[ 14%] [32mBuilding CXX object CMakeFiles/move_group_in_hand_manipulation_limit.dir/src/move_group_in_hand_manipulation_limit.cpp.o[0m
+[ 21%] [32mBuilding CXX object CMakeFiles/move_group_in_hand_manipulation_hor.dir/src/move_group_in_hand_manipulation_hor.cpp.o[0m
+[ 28%] [32mBuilding CXX object CMakeFiles/move_group_in_hand_manipulation_data.dir/src/move_group_in_hand_manipulation_data.cpp.o[0m
+[35m[1mScanning dependencies of target move_group_in_hand_manipulation[0m
+[35m[1mScanning dependencies of target move_group_in_hand_manipulation_hor_data[0m
+[35m[1mScanning dependencies of target ik_grip[0m
+[ 35%] [32mBuilding CXX object CMakeFiles/move_group_in_hand_manipulation.dir/src/move_group_in_hand_manipulation.cpp.o[0m
+[ 42%] [32mBuilding CXX object CMakeFiles/move_group_in_hand_manipulation_hor_data.dir/src/move_group_in_hand_manipulation_hor_data.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/ik_grip.dir/src/ik_grip.cpp.o[0m
+[ 57%] [32m[1mLinking CXX executable /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_move/lib/denso_robot_move/move_group_interface_two_points[0m
+[ 64%] [32m[1mLinking CXX executable /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_move/lib/denso_robot_move/move_group_in_hand_manipulation_limit[0m
+[ 71%] [32m[1mLinking CXX executable /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_move/lib/denso_robot_move/move_group_in_hand_manipulation_hor[0m
+/usr/bin/ld: warning: libmoveit_planning_scene_monitor.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_model.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_transforms.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_state.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_trajectory.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_collision_detection.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_planning_scene.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+[ 71%] Built target move_group_interface_two_points
+[ 78%] [32m[1mLinking CXX executable /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_move/lib/denso_robot_move/move_group_in_hand_manipulation[0m
+[ 85%] [32m[1mLinking CXX executable /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_move/lib/denso_robot_move/move_group_in_hand_manipulation_data[0m
+[ 92%] [32m[1mLinking CXX executable /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_move/lib/denso_robot_move/move_group_in_hand_manipulation_hor_data[0m
+/usr/bin/ld: warning: libmoveit_planning_scene_monitor.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_model.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_transforms.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_state.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_trajectory.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_collision_detection.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_planning_scene.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+[ 92%] Built target move_group_in_hand_manipulation_hor
+[100%] [32m[1mLinking CXX executable /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_move/lib/denso_robot_move/ik_grip[0m
+/usr/bin/ld: warning: libmoveit_planning_scene_monitor.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_model.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_transforms.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_state.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_trajectory.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_collision_detection.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_planning_scene.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+[100%] Built target move_group_in_hand_manipulation_limit
+/usr/bin/ld: warning: libmoveit_planning_scene_monitor.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_model.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_transforms.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_state.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_trajectory.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_collision_detection.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_planning_scene.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+[100%] Built target move_group_in_hand_manipulation
+/usr/bin/ld: warning: libmoveit_planning_scene_monitor.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_model.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_transforms.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_state.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_trajectory.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_collision_detection.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_planning_scene.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+[100%] Built target move_group_in_hand_manipulation_data
+/usr/bin/ld: warning: libmoveit_planning_scene_monitor.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_model.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_transforms.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_state.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_trajectory.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_collision_detection.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_planning_scene.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+[100%] Built target move_group_in_hand_manipulation_hor_data
+/usr/bin/ld: warning: libmoveit_planning_scene_monitor.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_model.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_transforms.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_state.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_robot_trajectory.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_collision_detection.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+/usr/bin/ld: warning: libmoveit_planning_scene.so.1.1.16, needed by /opt/ros/noetic/lib/libmoveit_visual_tools.so, not found (try using -rpath or -rpath-link)
+[100%] Built target ik_grip

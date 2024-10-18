@@ -1,14 +1,1 @@
-(cl:in-package realsense2_camera-srv)
-(cl:export '(DEVICE_NAME-VAL
-          DEVICE_NAME
-          SERIAL_NUMBER-VAL
-          SERIAL_NUMBER
-          FIRMWARE_VERSION-VAL
-          FIRMWARE_VERSION
-          USB_TYPE_DESCRIPTOR-VAL
-          USB_TYPE_DESCRIPTOR
-          FIRMWARE_UPDATE_ID-VAL
-          FIRMWARE_UPDATE_ID
-          SENSORS-VAL
-          SENSORS
-))
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/realsense2_camera/share/common-lisp/ros/realsense2_camera/srv/_package_DeviceInfo.lisp

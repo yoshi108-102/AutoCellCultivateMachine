@@ -1,10 +1,1 @@
-(cl:in-package realsense2_camera-msg)
-(cl:export '(FRAME_ID-VAL
-          FRAME_ID
-          DATA-VAL
-          DATA
-          NOISE_VARIANCES-VAL
-          NOISE_VARIANCES
-          BIAS_VARIANCES-VAL
-          BIAS_VARIANCES
-))
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/realsense2_camera/share/common-lisp/ros/realsense2_camera/msg/_package_IMUInfo.lisp

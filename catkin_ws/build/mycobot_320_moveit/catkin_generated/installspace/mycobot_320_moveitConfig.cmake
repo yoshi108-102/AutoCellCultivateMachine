@@ -68,7 +68,7 @@ set(mycobot_320_moveit_CONFIG_INCLUDED TRUE)
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
   set(mycobot_320_moveit_SOURCE_PREFIX /home/tw017/Desktop/PipetteDetect/catkin_ws/src/mycobot_320_moveit)
-  set(mycobot_320_moveit_DEVEL_PREFIX /home/tw017/Desktop/PipetteDetect/catkin_ws/devel)
+  set(mycobot_320_moveit_DEVEL_PREFIX /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/mycobot_320_moveit)
   set(mycobot_320_moveit_INSTALL_PREFIX "")
   set(mycobot_320_moveit_PREFIX ${mycobot_320_moveit_DEVEL_PREFIX})
 else()

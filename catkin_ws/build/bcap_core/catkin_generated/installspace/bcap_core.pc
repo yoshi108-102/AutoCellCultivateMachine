@@ -1,0 +1,8 @@
+prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/install
+
+Name: bcap_core
+Description: Description of bcap_core
+Version: 3.2.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -lbcap_client -lbcap_server -ltpcomm -lrac_string
+Requires: 

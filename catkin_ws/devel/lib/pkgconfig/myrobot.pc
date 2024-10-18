@@ -1,8 +1,1 @@
-prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/devel
-
-Name: myrobot
-Description: Description of myrobot
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/myrobot/lib/pkgconfig/myrobot.pc

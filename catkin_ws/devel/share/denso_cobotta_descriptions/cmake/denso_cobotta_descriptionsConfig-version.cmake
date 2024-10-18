@@ -1,0 +1,1 @@
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_descriptions/share/denso_cobotta_descriptions/cmake/denso_cobotta_descriptionsConfig-version.cmake

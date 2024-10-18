@@ -1,8 +1,1 @@
-
-"use strict";
-
-let DeviceInfo = require('./DeviceInfo.js')
-
-module.exports = {
-  DeviceInfo: DeviceInfo,
-};
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/realsense2_camera/share/gennodejs/ros/realsense2_camera/srv/_index.js

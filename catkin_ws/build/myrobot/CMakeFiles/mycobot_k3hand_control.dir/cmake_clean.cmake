@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/myrobot/mycobot_k3hand_control"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/myrobot/mycobot_k3hand_control.pdb"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/myrobot/lib/myrobot/mycobot_k3hand_control"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/myrobot/lib/myrobot/mycobot_k3hand_control.pdb"
   "CMakeFiles/mycobot_k3hand_control.dir/src/mycobot_k3hand_control.cpp.o"
 )
 

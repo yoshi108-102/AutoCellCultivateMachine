@@ -1,0 +1,7 @@
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/gripper_ntlab_sensor/cmake/gripper_ntlab_sensorConfig.cmake
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/gripper_ntlab_sensor/cmake/gripper_ntlab_sensorConfig-version.cmake
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/gripper_ntlab_sensor/fs_read_node
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/gripper_ntlab_sensor/cop_calculate_node
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/gripper_ntlab_sensor/cmake.lock
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/python3/dist-packages/gripper_ntlab_sensor/__init__.py
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/pkgconfig/gripper_ntlab_sensor.pc

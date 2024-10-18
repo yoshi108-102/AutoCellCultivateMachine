@@ -1,9 +1,1 @@
-
-(cl:in-package :asdf)
-
-(defsystem "realsense2_camera-srv"
-  :depends-on (:roslisp-msg-protocol :roslisp-utils )
-  :components ((:file "_package")
-    (:file "DeviceInfo" :depends-on ("_package_DeviceInfo"))
-    (:file "_package_DeviceInfo" :depends-on ("_package"))
-  ))
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/realsense2_camera/share/common-lisp/ros/realsense2_camera/srv/realsense2_camera-srv.asd

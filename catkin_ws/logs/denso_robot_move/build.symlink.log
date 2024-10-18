@@ -1,0 +1,15 @@
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/denso_robot_move/cmake/denso_robot_moveConfig.cmake
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/denso_robot_move/cmake/denso_robot_moveConfig-version.cmake
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/pkgconfig/denso_robot_move.pc
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/denso_robot_move/ik_grip
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/denso_robot_move/move_group_in_hand_manipulation_limit
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/denso_robot_move/move_group_in_hand_manipulation_data
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/denso_robot_move/cop_test_adjust.py
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/denso_robot_move/move_group_in_hand_manipulation
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/denso_robot_move/cop_test.py
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/denso_robot_move/move_interface.py
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/denso_robot_move/cmake.lock
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/denso_robot_move/cor_test.py
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/denso_robot_move/move_group_interface_two_points
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/denso_robot_move/move_group_in_hand_manipulation_hor_data
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/denso_robot_move/move_group_in_hand_manipulation_hor

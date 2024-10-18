@@ -1,0 +1,8 @@
+prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_move
+
+Name: denso_robot_move
+Description: Description of denso_robot_move
+Version: 0.1.0
+Cflags: -I/usr/include/eigen3
+Libs: -L${prefix}/lib 
+Requires: moveit_core moveit_visual_tools moveit_ros_planning_interface interactive_markers tf2_geometry_msgs gripper_ntlab_controller gripper_ntlab_msgs

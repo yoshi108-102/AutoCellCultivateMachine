@@ -1,0 +1,8 @@
+prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/gripper_ntlab_msgs
+
+Name: gripper_ntlab_msgs
+Description: Description of gripper_ntlab_msgs
+Version: 0.0.0
+Cflags: -I/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/gripper_ntlab_msgs/include
+Libs: -L${prefix}/lib 
+Requires: message_runtime
