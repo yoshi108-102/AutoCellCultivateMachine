@@ -1,0 +1,4 @@
+[submodule "catkin_ws/src/denso_cobotta_ros"]
+	path = catkin_ws/src/denso_cobotta_ros
+	url = https://github.com/DENSORobot/denso_cobotta_ros
+	branch = melodic-devel
