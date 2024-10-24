@@ -1,0 +1,1 @@
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_driver/lib/python3/dist-packages/denso_cobotta_driver/msg/_RobotState.py

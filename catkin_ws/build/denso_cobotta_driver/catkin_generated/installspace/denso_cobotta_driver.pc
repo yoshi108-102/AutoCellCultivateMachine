@@ -1,0 +1,8 @@
+prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/install
+
+Name: denso_cobotta_driver
+Description: Description of denso_cobotta_driver
+Version: 1.2.4
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib -ldenso_cobotta_lib
+Requires: message_runtime roscpp std_msgs

@@ -1,0 +1,1 @@
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_driver/share/common-lisp/ros/denso_cobotta_driver/msg/_package_RobotState.lisp

@@ -1,0 +1,5 @@
+denso_cobotta_ros/denso_cobotta_bringup
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_bringup/cmake.lock /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/./cmake.lock
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_bringup/share/denso_cobotta_bringup/cmake/denso_cobotta_bringupConfig.cmake /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/denso_cobotta_bringup/cmake/denso_cobotta_bringupConfig.cmake
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_bringup/share/denso_cobotta_bringup/cmake/denso_cobotta_bringupConfig-version.cmake /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/denso_cobotta_bringup/cmake/denso_cobotta_bringupConfig-version.cmake
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_bringup/lib/pkgconfig/denso_cobotta_bringup.pc /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/pkgconfig/denso_cobotta_bringup.pc

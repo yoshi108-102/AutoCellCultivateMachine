@@ -1,3 +1,1 @@
-from ._Extrinsics import *
-from ._IMUInfo import *
-from ._Metadata import *
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/realsense2_camera/lib/python3/dist-packages/realsense2_camera/msg/__init__.py

@@ -68,7 +68,7 @@ set(myrobot_CONFIG_INCLUDED TRUE)
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
   set(myrobot_SOURCE_PREFIX /home/tw017/Desktop/PipetteDetect/catkin_ws/src/myrobot)
-  set(myrobot_DEVEL_PREFIX /home/tw017/Desktop/PipetteDetect/catkin_ws/devel)
+  set(myrobot_DEVEL_PREFIX /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/myrobot)
   set(myrobot_INSTALL_PREFIX "")
   set(myrobot_PREFIX ${myrobot_DEVEL_PREFIX})
 else()

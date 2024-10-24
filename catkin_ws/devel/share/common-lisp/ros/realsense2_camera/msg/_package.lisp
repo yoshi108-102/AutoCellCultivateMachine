@@ -1,11 +1,1 @@
-(cl:defpackage realsense2_camera-msg
-  (:use )
-  (:export
-   "<EXTRINSICS>"
-   "EXTRINSICS"
-   "<IMUINFO>"
-   "IMUINFO"
-   "<METADATA>"
-   "METADATA"
-  ))
-
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/realsense2_camera/share/common-lisp/ros/realsense2_camera/msg/_package.lisp
