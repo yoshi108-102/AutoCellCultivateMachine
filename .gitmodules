@@ -1,14 +1,4 @@
-<<<<<<< HEAD
-[submodule "catkin_ws/src/denso_robot_ros"]
-	path = catkin_ws/src/denso_robot_ros
-	url = https://github.com/rizgiak/denso_robot_ros.git
-	branch = noetic-devel-gripper-ntlab
-[submodule "catkin_ws/denso_robot_ros"]
-	path = catkin_ws/denso_robot_ros
-	url = https://github.com/rizgiak/denso_robot_ros.git
-=======
 [submodule "catkin_ws/src/denso_cobotta_ros"]
 	path = catkin_ws/src/denso_cobotta_ros
 	url = https://github.com/DENSORobot/denso_cobotta_ros
 	branch = melodic-devel
->>>>>>> k3hand_with_official_branch
