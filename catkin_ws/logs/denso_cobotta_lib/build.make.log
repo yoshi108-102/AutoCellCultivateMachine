@@ -1,23 +1,23 @@
 [35m[1mScanning dependencies of target denso_cobotta_lib[0m
-[ 30%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/cobotta.cpp.o[0m
-[ 23%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/buttons.cpp.o[0m
-[ 30%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/mini_io.cpp.o[0m
-[ 30%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/driver.cpp.o[0m
-[ 38%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/safety_mcu.cpp.o[0m
-[ 46%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/gripper.cpp.o[0m
-[ 53%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/led.cpp.o[0m
+[  7%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/cobotta.cpp.o[0m
+[ 23%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/publish_info.cpp.o[0m
+[ 23%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/led.cpp.o[0m
+[ 30%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/gripper.cpp.o[0m
+[ 38%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/brake.cpp.o[0m
+[ 46%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/cobotta_exception.cpp.o[0m
+[ 53%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/buttons.cpp.o[0m
 [ 61%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/message.cpp.o[0m
-[ 69%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/motor.cpp.o[0m
-[ 76%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/brake.cpp.o[0m
-[ 84%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/cobotta_exception.cpp.o[0m
-[ 92%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/publish_info.cpp.o[0m
-[01m[K/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_cobotta_ros/denso_cobotta_lib/src/message.cpp:[m[K In static member function ‘[01m[Kstatic bool denso_cobotta_lib::cobotta::Message::isWatchdogTimerError(uint32_t)[m[K’:
-[01m[K/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_cobotta_ros/denso_cobotta_lib/src/message.cpp:152:1:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K-Wreturn-type[m[K]
-  152 | [01;35m[K}[m[K
-      | [01;35m[K^[m[K
+[ 69%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/safety_mcu.cpp.o[0m
+[ 76%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/motor.cpp.o[0m
+[ 92%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/driver.cpp.o[0m
+[ 92%] [32mBuilding CXX object CMakeFiles/denso_cobotta_lib.dir/src/mini_io.cpp.o[0m
 [01m[K/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_cobotta_ros/denso_cobotta_lib/src/motor.cpp:[m[K In member function ‘[01m[Kbool denso_cobotta_lib::cobotta::Motor::update(denso_cobotta_lib::cobotta::MotorState)[m[K’:
 [01m[K/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_cobotta_ros/denso_cobotta_lib/src/motor.cpp:66:1:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K-Wreturn-type[m[K]
    66 | [01;35m[K}[m[K
+      | [01;35m[K^[m[K
+[01m[K/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_cobotta_ros/denso_cobotta_lib/src/message.cpp:[m[K In static member function ‘[01m[Kstatic bool denso_cobotta_lib::cobotta::Message::isWatchdogTimerError(uint32_t)[m[K’:
+[01m[K/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_cobotta_ros/denso_cobotta_lib/src/message.cpp:152:1:[m[K [01;35m[Kwarning: [m[Kcontrol reaches end of non-void function [[01;35m[K-Wreturn-type[m[K]
+  152 | [01;35m[K}[m[K
       | [01;35m[K^[m[K
 [100%] [32m[1mLinking CXX shared library /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_lib/lib/libdenso_cobotta_lib.so[0m
 [100%] Built target denso_cobotta_lib

@@ -1,0 +1,1 @@
+set(ORDERED_PATHS "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/bcap_core/lib;/opt/ros/noetic/lib")
