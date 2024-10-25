@@ -1,1 +1,0 @@
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/gripper_ntlab_msgs/include/gripper_ntlab_msgs/CartesianPosition.h

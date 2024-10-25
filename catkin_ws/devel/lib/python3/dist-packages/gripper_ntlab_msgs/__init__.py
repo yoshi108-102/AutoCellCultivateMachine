@@ -1,1 +1,0 @@
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/gripper_ntlab_msgs/lib/python3/dist-packages/gripper_ntlab_msgs/__init__.py

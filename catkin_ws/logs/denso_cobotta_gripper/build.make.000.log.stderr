@@ -1,4 +1,0 @@
-[01m[K/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_cobotta_ros/denso_cobotta_gripper/src/gripper_parallel.cpp:[m[K In member function ‘[01m[Kvirtual bool denso_cobotta_gripper::GripperParallel::publish()[m[K’:
-[01m[K/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_cobotta_ros/denso_cobotta_gripper/src/gripper_parallel.cpp:96:1:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K-Wreturn-type[m[K]
-   96 | [01;35m[K}[m[K
-      | [01;35m[K^[m[K

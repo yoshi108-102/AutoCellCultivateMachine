@@ -1,8 +1,0 @@
-prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/install
-
-Name: bcap_service_test
-Description: Description of bcap_service_test
-Version: 3.2.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: roscpp

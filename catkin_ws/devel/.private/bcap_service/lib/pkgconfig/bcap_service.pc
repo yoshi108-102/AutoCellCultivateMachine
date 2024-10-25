@@ -1,8 +1,0 @@
-prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/bcap_service
-
-Name: bcap_service
-Description: Description of bcap_service
-Version: 3.2.0
-Cflags: -I/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/bcap_service/include -I/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/bcap_service/include
-Libs: -L${prefix}/lib -lbcap_service
-Requires: bcap_core message_runtime roscpp std_msgs

@@ -1,1 +1,0 @@
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/realsense2_camera/share/roseus/ros/realsense2_camera/msg/Extrinsics.l

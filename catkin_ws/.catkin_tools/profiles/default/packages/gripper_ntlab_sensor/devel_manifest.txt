@@ -1,9 +1,0 @@
-gripper_ntlab/gripper_ntlab_sensor
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/gripper_ntlab_sensor/cmake.lock /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/./cmake.lock
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/gripper_ntlab_sensor/share/gripper_ntlab_sensor/cmake/gripper_ntlab_sensorConfig.cmake /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/gripper_ntlab_sensor/cmake/gripper_ntlab_sensorConfig.cmake
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/gripper_ntlab_sensor/share/gripper_ntlab_sensor/cmake/gripper_ntlab_sensorConfig-version.cmake /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/gripper_ntlab_sensor/cmake/gripper_ntlab_sensorConfig-version.cmake
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/gripper_ntlab_sensor/lib/gripper_ntlab_sensor/fs_read_node /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/gripper_ntlab_sensor/fs_read_node
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/gripper_ntlab_sensor/lib/gripper_ntlab_sensor/cop_calculate_node /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/gripper_ntlab_sensor/cop_calculate_node
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/gripper_ntlab_sensor/lib/gripper_ntlab_sensor/cmake.lock /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/gripper_ntlab_sensor/cmake.lock
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/gripper_ntlab_sensor/lib/python3/dist-packages/gripper_ntlab_sensor/__init__.py /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/python3/dist-packages/gripper_ntlab_sensor/__init__.py
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/gripper_ntlab_sensor/lib/pkgconfig/gripper_ntlab_sensor.pc /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/pkgconfig/gripper_ntlab_sensor.pc

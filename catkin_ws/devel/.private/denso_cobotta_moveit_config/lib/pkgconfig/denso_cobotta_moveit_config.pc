@@ -1,8 +1,0 @@
-prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_moveit_config
-
-Name: denso_cobotta_moveit_config
-Description: Description of denso_cobotta_moveit_config
-Version: 1.2.4
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

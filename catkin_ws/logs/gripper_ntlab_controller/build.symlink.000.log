@@ -1,7 +1,0 @@
-Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/gripper_ntlab_controller/cmake/gripper_ntlab_controllerConfig-version.cmake
-Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/gripper_ntlab_controller/cmake/gripper_ntlab_controllerConfig.cmake
-Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/libgripper_ntlab_controller.so
-Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/gripper_ntlab_controller/move_gripper_ik_test
-Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/gripper_ntlab_controller/move_gripper
-Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/gripper_ntlab_controller/cobotta_gripper_ntlab_controller
-Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/pkgconfig/gripper_ntlab_controller.pc

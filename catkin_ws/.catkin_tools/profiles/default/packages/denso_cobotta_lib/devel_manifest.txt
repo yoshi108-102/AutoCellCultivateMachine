@@ -1,6 +1,0 @@
-denso_cobotta_ros/denso_cobotta_lib
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_lib/cmake.lock /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/./cmake.lock
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_lib/share/denso_cobotta_lib/cmake/denso_cobotta_libConfig.cmake /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/denso_cobotta_lib/cmake/denso_cobotta_libConfig.cmake
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_lib/share/denso_cobotta_lib/cmake/denso_cobotta_libConfig-version.cmake /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/denso_cobotta_lib/cmake/denso_cobotta_libConfig-version.cmake
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_lib/lib/libdenso_cobotta_lib.so /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/libdenso_cobotta_lib.so
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_lib/lib/pkgconfig/denso_cobotta_lib.pc /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/pkgconfig/denso_cobotta_lib.pc

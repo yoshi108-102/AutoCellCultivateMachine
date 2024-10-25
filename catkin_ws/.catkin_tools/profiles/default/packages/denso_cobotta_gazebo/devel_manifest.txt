@@ -1,5 +1,0 @@
-denso_cobotta_ros/denso_cobotta_gazebo
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gazebo/cmake.lock /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/./cmake.lock
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gazebo/share/denso_cobotta_gazebo/cmake/denso_cobotta_gazeboConfig-version.cmake /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/denso_cobotta_gazebo/cmake/denso_cobotta_gazeboConfig-version.cmake
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gazebo/share/denso_cobotta_gazebo/cmake/denso_cobotta_gazeboConfig.cmake /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/denso_cobotta_gazebo/cmake/denso_cobotta_gazeboConfig.cmake
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gazebo/lib/pkgconfig/denso_cobotta_gazebo.pc /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/pkgconfig/denso_cobotta_gazebo.pc

@@ -1,8 +1,0 @@
-prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/install
-
-Name: denso_robot_bringup
-Description: Description of denso_robot_bringup
-Version: 3.2.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

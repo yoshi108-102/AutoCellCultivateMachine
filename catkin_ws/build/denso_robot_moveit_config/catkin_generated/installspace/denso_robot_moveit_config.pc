@@ -1,8 +1,0 @@
-prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/install
-
-Name: denso_robot_moveit_config
-Description: Description of denso_robot_moveit_config
-Version: 3.2.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

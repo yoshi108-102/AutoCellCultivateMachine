@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC   -shared -Wl,-soname,libmycobot_pro_hw.so -o /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/myrobot/lib/libmycobot_pro_hw.so CMakeFiles/mycobot_pro_hw.dir/src/mycobot_pro_hw.cpp.o 

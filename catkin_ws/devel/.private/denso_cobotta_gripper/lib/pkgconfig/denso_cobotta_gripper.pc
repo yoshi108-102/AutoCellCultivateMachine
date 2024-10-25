@@ -1,8 +1,0 @@
-prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper
-
-Name: denso_cobotta_gripper
-Description: Description of denso_cobotta_gripper
-Version: 1.2.4
-Cflags: -I/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/include -I/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_cobotta_ros/denso_cobotta_gripper/include
-Libs: -L${prefix}/lib -ldenso_cobotta_gripper
-Requires: controller_manager hardware_interface joint_limits_interface message_runtime roscpp std_msgs transmission_interface actionlib actionlib_msgs denso_cobotta_lib
