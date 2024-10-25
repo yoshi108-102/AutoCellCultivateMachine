@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/./cmake.lock 33
-=======
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/./cmake.lock 41
->>>>>>> k3hand_with_official_branch
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/./cmake.lock 54
