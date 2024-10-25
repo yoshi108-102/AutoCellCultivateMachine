@@ -1,8 +1,0 @@
-prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_control
-
-Name: denso_robot_control
-Description: Description of denso_robot_control
-Version: 3.3.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: bcap_core bcap_service controller_manager denso_robot_core hardware_interface joint_limits_interface roscpp std_msgs transmission_interface
