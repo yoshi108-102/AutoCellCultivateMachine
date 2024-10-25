@@ -141,8 +141,8 @@ gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest.dir/clean
 # Target rules for target CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir
 
 # All Build rule for target.
-CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/all: CMakeFiles/clean_test_results_realsense2_description.dir/all
 CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/all: CMakeFiles/tests.dir/all
+CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/all: CMakeFiles/clean_test_results_realsense2_description.dir/all
 	$(MAKE) -f CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/build.make CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/depend
 	$(MAKE) -f CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/build.make CMakeFiles/_run_tests_realsense2_description_nosetests_tests.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/tw017/Desktop/PipetteDetect/catkin_ws/build/realsense2_description/CMakeFiles --progress-num= "Built target _run_tests_realsense2_description_nosetests_tests"

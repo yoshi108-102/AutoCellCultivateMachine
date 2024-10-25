@@ -1,0 +1,6 @@
+denso_robot_ros/denso_robot_core_test
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_core_test/cmake.lock /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/./cmake.lock
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_core_test/share/denso_robot_core_test/cmake/denso_robot_core_testConfig-version.cmake /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/denso_robot_core_test/cmake/denso_robot_core_testConfig-version.cmake
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_core_test/share/denso_robot_core_test/cmake/denso_robot_core_testConfig.cmake /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/denso_robot_core_test/cmake/denso_robot_core_testConfig.cmake
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_core_test/lib/denso_robot_core_test/denso_robot_core_test /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/denso_robot_core_test/denso_robot_core_test
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_core_test/lib/pkgconfig/denso_robot_core_test.pc /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/pkgconfig/denso_robot_core_test.pc
