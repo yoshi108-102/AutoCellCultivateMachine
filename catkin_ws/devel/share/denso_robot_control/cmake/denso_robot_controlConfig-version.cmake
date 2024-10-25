@@ -1,1 +1,0 @@
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_control/share/denso_robot_control/cmake/denso_robot_controlConfig-version.cmake

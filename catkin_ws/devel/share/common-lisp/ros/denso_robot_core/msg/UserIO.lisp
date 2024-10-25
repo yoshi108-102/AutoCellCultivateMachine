@@ -1,1 +1,0 @@
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_core/share/common-lisp/ros/denso_robot_core/msg/UserIO.lisp

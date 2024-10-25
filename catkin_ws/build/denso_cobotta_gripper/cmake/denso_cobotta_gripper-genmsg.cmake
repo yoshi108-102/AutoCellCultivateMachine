@@ -19,22 +19,38 @@ add_custom_target(denso_cobotta_gripper_generate_messages ALL)
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveAction.msg" NAME_WE)
 add_custom_target(_denso_cobotta_gripper_generate_messages_check_deps_${_filename}
+<<<<<<< HEAD
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_cobotta_gripper" "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveAction.msg" "denso_cobotta_gripper/GripperMoveGoal:std_msgs/Header:denso_cobotta_gripper/GripperMoveActionResult:denso_cobotta_gripper/GripperMoveActionFeedback:denso_cobotta_gripper/GripperMoveActionGoal:actionlib_msgs/GoalStatus:denso_cobotta_gripper/GripperMoveResult:denso_cobotta_gripper/GripperMoveFeedback:actionlib_msgs/GoalID"
+=======
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_cobotta_gripper" "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveAction.msg" "denso_cobotta_gripper/GripperMoveActionFeedback:denso_cobotta_gripper/GripperMoveResult:actionlib_msgs/GoalStatus:std_msgs/Header:denso_cobotta_gripper/GripperMoveFeedback:denso_cobotta_gripper/GripperMoveActionGoal:denso_cobotta_gripper/GripperMoveGoal:actionlib_msgs/GoalID:denso_cobotta_gripper/GripperMoveActionResult"
+>>>>>>> ビルドし直す
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionGoal.msg" NAME_WE)
 add_custom_target(_denso_cobotta_gripper_generate_messages_check_deps_${_filename}
+<<<<<<< HEAD
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_cobotta_gripper" "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionGoal.msg" "denso_cobotta_gripper/GripperMoveGoal:actionlib_msgs/GoalID:std_msgs/Header"
+=======
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_cobotta_gripper" "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionGoal.msg" "denso_cobotta_gripper/GripperMoveGoal:std_msgs/Header:actionlib_msgs/GoalID"
+>>>>>>> ビルドし直す
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionResult.msg" NAME_WE)
 add_custom_target(_denso_cobotta_gripper_generate_messages_check_deps_${_filename}
+<<<<<<< HEAD
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_cobotta_gripper" "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionResult.msg" "actionlib_msgs/GoalID:actionlib_msgs/GoalStatus:std_msgs/Header:denso_cobotta_gripper/GripperMoveResult"
+=======
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_cobotta_gripper" "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionResult.msg" "std_msgs/Header:actionlib_msgs/GoalID:denso_cobotta_gripper/GripperMoveResult:actionlib_msgs/GoalStatus"
+>>>>>>> ビルドし直す
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionFeedback.msg" NAME_WE)
 add_custom_target(_denso_cobotta_gripper_generate_messages_check_deps_${_filename}
+<<<<<<< HEAD
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_cobotta_gripper" "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionFeedback.msg" "actionlib_msgs/GoalID:actionlib_msgs/GoalStatus:std_msgs/Header:denso_cobotta_gripper/GripperMoveFeedback"
+=======
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_cobotta_gripper" "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionFeedback.msg" "std_msgs/Header:actionlib_msgs/GoalID:denso_cobotta_gripper/GripperMoveFeedback:actionlib_msgs/GoalStatus"
+>>>>>>> ビルドし直す
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg" NAME_WE)
@@ -54,12 +70,20 @@ add_custom_target(_denso_cobotta_gripper_generate_messages_check_deps_${_filenam
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveAction.msg" NAME_WE)
 add_custom_target(_denso_cobotta_gripper_generate_messages_check_deps_${_filename}
+<<<<<<< HEAD
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_cobotta_gripper" "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveAction.msg" "std_msgs/Header:denso_cobotta_gripper/VacuumMoveGoal:denso_cobotta_gripper/VacuumMoveActionFeedback:actionlib_msgs/GoalStatus:actionlib_msgs/GoalID:denso_cobotta_gripper/VacuumMoveActionGoal:denso_cobotta_gripper/VacuumMoveFeedback:denso_cobotta_gripper/VacuumMoveResult:denso_cobotta_gripper/VacuumMoveActionResult"
+=======
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_cobotta_gripper" "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveAction.msg" "denso_cobotta_gripper/VacuumMoveGoal:denso_cobotta_gripper/VacuumMoveResult:denso_cobotta_gripper/VacuumMoveActionGoal:actionlib_msgs/GoalStatus:std_msgs/Header:denso_cobotta_gripper/VacuumMoveActionResult:denso_cobotta_gripper/VacuumMoveFeedback:denso_cobotta_gripper/VacuumMoveActionFeedback:actionlib_msgs/GoalID"
+>>>>>>> ビルドし直す
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionGoal.msg" NAME_WE)
 add_custom_target(_denso_cobotta_gripper_generate_messages_check_deps_${_filename}
+<<<<<<< HEAD
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_cobotta_gripper" "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionGoal.msg" "actionlib_msgs/GoalID:std_msgs/Header:denso_cobotta_gripper/VacuumMoveGoal"
+=======
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_cobotta_gripper" "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionGoal.msg" "denso_cobotta_gripper/VacuumMoveGoal:std_msgs/Header:actionlib_msgs/GoalID"
+>>>>>>> ビルドし直す
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionResult.msg" NAME_WE)
@@ -69,7 +93,11 @@ add_custom_target(_denso_cobotta_gripper_generate_messages_check_deps_${_filenam
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionFeedback.msg" NAME_WE)
 add_custom_target(_denso_cobotta_gripper_generate_messages_check_deps_${_filename}
+<<<<<<< HEAD
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_cobotta_gripper" "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionFeedback.msg" "denso_cobotta_gripper/VacuumMoveFeedback:actionlib_msgs/GoalID:actionlib_msgs/GoalStatus:std_msgs/Header"
+=======
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_cobotta_gripper" "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionFeedback.msg" "std_msgs/Header:actionlib_msgs/GoalID:denso_cobotta_gripper/VacuumMoveFeedback:actionlib_msgs/GoalStatus"
+>>>>>>> ビルドし直す
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg" NAME_WE)
@@ -96,25 +124,41 @@ add_custom_target(_denso_cobotta_gripper_generate_messages_check_deps_${_filenam
 _generate_msg_cpp(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveAction.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+=======
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionResult.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_cpp(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionGoal.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+=======
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_cpp(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionResult.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveResult.msg"
+=======
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_cpp(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionFeedback.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveFeedback.msg"
+=======
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_cpp(denso_cobotta_gripper
@@ -138,13 +182,21 @@ _generate_msg_cpp(denso_cobotta_gripper
 _generate_msg_cpp(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveAction.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionResult.msg"
+=======
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_cpp(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionGoal.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg"
+=======
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_cpp(denso_cobotta_gripper
@@ -156,7 +208,11 @@ _generate_msg_cpp(denso_cobotta_gripper
 _generate_msg_cpp(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionFeedback.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+=======
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_cpp(denso_cobotta_gripper
@@ -233,25 +289,41 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS denso_cobotta_gripper_generate_mess
 _generate_msg_eus(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveAction.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+=======
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionResult.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_eus(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionGoal.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+=======
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_eus(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionResult.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveResult.msg"
+=======
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_eus(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionFeedback.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveFeedback.msg"
+=======
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_eus(denso_cobotta_gripper
@@ -275,13 +347,21 @@ _generate_msg_eus(denso_cobotta_gripper
 _generate_msg_eus(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveAction.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionResult.msg"
+=======
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_eus(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionGoal.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg"
+=======
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_eus(denso_cobotta_gripper
@@ -293,7 +373,11 @@ _generate_msg_eus(denso_cobotta_gripper
 _generate_msg_eus(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionFeedback.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+=======
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_eus(denso_cobotta_gripper
@@ -370,25 +454,41 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS denso_cobotta_gripper_generate_mess
 _generate_msg_lisp(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveAction.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+=======
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionResult.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_lisp(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionGoal.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+=======
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_lisp(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionResult.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveResult.msg"
+=======
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_lisp(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionFeedback.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveFeedback.msg"
+=======
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_lisp(denso_cobotta_gripper
@@ -412,13 +512,21 @@ _generate_msg_lisp(denso_cobotta_gripper
 _generate_msg_lisp(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveAction.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionResult.msg"
+=======
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_lisp(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionGoal.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg"
+=======
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_lisp(denso_cobotta_gripper
@@ -430,7 +538,11 @@ _generate_msg_lisp(denso_cobotta_gripper
 _generate_msg_lisp(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionFeedback.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+=======
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_lisp(denso_cobotta_gripper
@@ -507,25 +619,41 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS denso_cobotta_gripper_generate_mess
 _generate_msg_nodejs(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveAction.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+=======
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionResult.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_nodejs(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionGoal.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+=======
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_nodejs(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionResult.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveResult.msg"
+=======
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_nodejs(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionFeedback.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveFeedback.msg"
+=======
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_nodejs(denso_cobotta_gripper
@@ -549,13 +677,21 @@ _generate_msg_nodejs(denso_cobotta_gripper
 _generate_msg_nodejs(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveAction.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionResult.msg"
+=======
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_nodejs(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionGoal.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg"
+=======
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_nodejs(denso_cobotta_gripper
@@ -567,7 +703,11 @@ _generate_msg_nodejs(denso_cobotta_gripper
 _generate_msg_nodejs(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionFeedback.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+=======
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_nodejs(denso_cobotta_gripper
@@ -644,25 +784,41 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS denso_cobotta_gripper_generate_mess
 _generate_msg_py(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveAction.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+=======
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionResult.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_py(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionGoal.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+=======
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_py(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionResult.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveResult.msg"
+=======
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_py(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveActionFeedback.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveFeedback.msg"
+=======
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/GripperMoveFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_py(denso_cobotta_gripper
@@ -686,13 +842,21 @@ _generate_msg_py(denso_cobotta_gripper
 _generate_msg_py(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveAction.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionResult.msg"
+=======
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_py(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionGoal.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg"
+=======
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_py(denso_cobotta_gripper
@@ -704,7 +868,11 @@ _generate_msg_py(denso_cobotta_gripper
 _generate_msg_py(denso_cobotta_gripper
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveActionFeedback.msg"
   "${MSG_I_FLAGS}"
+<<<<<<< HEAD
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+=======
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/denso_cobotta_gripper/msg/VacuumMoveFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg"
+>>>>>>> ビルドし直す
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_cobotta_gripper
 )
 _generate_msg_py(denso_cobotta_gripper

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [35m[1mScanning dependencies of target _denso_cobotta_driver_generate_messages_check_deps_ClearSafeState[0m
 [35m[1mScanning dependencies of target std_msgs_generate_messages_nodejs[0m
 [35m[1mScanning dependencies of target _denso_cobotta_driver_generate_messages_check_deps_RobotState[0m
@@ -99,6 +100,109 @@
 [ 96%] [34m[1mGenerating Python msg __init__.py for denso_cobotta_driver[0m
 [ 98%] [34m[1mGenerating Python srv __init__.py for denso_cobotta_driver[0m
 [ 98%] Built target denso_cobotta_driver_generate_messages_py
+=======
+[35m[1mScanning dependencies of target _denso_cobotta_driver_generate_messages_check_deps_RobotState[0m
+[35m[1mScanning dependencies of target _denso_cobotta_driver_generate_messages_check_deps_SetLEDState[0m
+[35m[1mScanning dependencies of target _denso_cobotta_driver_generate_messages_check_deps_ExecCalset[0m
+[35m[1mScanning dependencies of target _denso_cobotta_driver_generate_messages_check_deps_ClearError[0m
+[35m[1mScanning dependencies of target _denso_cobotta_driver_generate_messages_check_deps_ClearRobotError[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target _denso_cobotta_driver_generate_messages_check_deps_SetBrakeState[0m
+[35m[1mScanning dependencies of target _denso_cobotta_driver_generate_messages_check_deps_GetBrakeState[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target _denso_cobotta_driver_generate_messages_check_deps_ClearSafeState[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target _denso_cobotta_driver_generate_messages_check_deps_GetMotorState[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target _denso_cobotta_driver_generate_messages_check_deps_SafeState[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target _denso_cobotta_driver_generate_messages_check_deps_SetMotorState[0m
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_py
+[  0%] Built target _denso_cobotta_driver_generate_messages_check_deps_ClearError
+[  0%] Built target _denso_cobotta_driver_generate_messages_check_deps_RobotState
+[  0%] Built target _denso_cobotta_driver_generate_messages_check_deps_ClearSafeState
+[  0%] Built target _denso_cobotta_driver_generate_messages_check_deps_ClearRobotError
+[  0%] Built target _denso_cobotta_driver_generate_messages_check_deps_SetBrakeState
+[  0%] Built target _denso_cobotta_driver_generate_messages_check_deps_ExecCalset
+[  0%] Built target _denso_cobotta_driver_generate_messages_check_deps_SafeState
+[  0%] Built target _denso_cobotta_driver_generate_messages_check_deps_SetLEDState
+[  0%] Built target _denso_cobotta_driver_generate_messages_check_deps_SetMotorState
+[  0%] Built target _denso_cobotta_driver_generate_messages_check_deps_GetBrakeState
+[  0%] Built target _denso_cobotta_driver_generate_messages_check_deps_GetMotorState
+[35m[1mScanning dependencies of target denso_cobotta_driver_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target denso_cobotta_driver_generate_messages_py[0m
+[35m[1mScanning dependencies of target denso_cobotta_driver_generate_messages_eus[0m
+[35m[1mScanning dependencies of target denso_cobotta_driver_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target denso_cobotta_driver_generate_messages_nodejs[0m
+[  1%] [34m[1mGenerating EusLisp code from denso_cobotta_driver/RobotState.msg[0m
+[  5%] [34m[1mGenerating Lisp code from denso_cobotta_driver/SafeState.msg[0m
+[  8%] [34m[1mGenerating Lisp code from denso_cobotta_driver/ClearError.srv[0m
+[  8%] [34m[1mGenerating Lisp code from denso_cobotta_driver/GetMotorState.srv[0m
+[ 10%] [34m[1mGenerating Python from MSG denso_cobotta_driver/SafeState[0m
+[ 13%] [34m[1mGenerating Lisp code from denso_cobotta_driver/GetBrakeState.srv[0m
+[ 13%] [34m[1mGenerating EusLisp code from denso_cobotta_driver/GetMotorState.srv[0m
+[ 15%] [34m[1mGenerating Lisp code from denso_cobotta_driver/ClearSafeState.srv[0m
+[ 16%] [34m[1mGenerating Lisp code from denso_cobotta_driver/RobotState.msg[0m
+[ 18%] [34m[1mGenerating Python from MSG denso_cobotta_driver/RobotState[0m
+[ 21%] [34m[1mGenerating Python code from SRV denso_cobotta_driver/ClearError[0m
+[ 21%] [34m[1mGenerating EusLisp code from denso_cobotta_driver/SetMotorState.srv[0m
+[ 23%] [34m[1mGenerating Python code from SRV denso_cobotta_driver/GetMotorState[0m
+[ 25%] [34m[1mGenerating EusLisp code from denso_cobotta_driver/ClearRobotError.srv[0m
+[ 26%] [34m[1mGenerating Python code from SRV denso_cobotta_driver/ClearRobotError[0m
+[ 28%] [34m[1mGenerating Lisp code from denso_cobotta_driver/SetMotorState.srv[0m
+[ 30%] [34m[1mGenerating C++ code from denso_cobotta_driver/SafeState.msg[0m
+[ 31%] [34m[1mGenerating EusLisp code from denso_cobotta_driver/ClearError.srv[0m
+[ 31%] [34m[1mGenerating EusLisp code from denso_cobotta_driver/SafeState.msg[0m
+[ 33%] [34m[1mGenerating C++ code from denso_cobotta_driver/RobotState.msg[0m
+[ 35%] [34m[1mGenerating Python code from SRV denso_cobotta_driver/SetMotorState[0m
+[ 36%] [34m[1mGenerating Javascript code from denso_cobotta_driver/RobotState.msg[0m
+[ 38%] [34m[1mGenerating Javascript code from denso_cobotta_driver/SafeState.msg[0m
+[ 40%] [34m[1mGenerating EusLisp code from denso_cobotta_driver/ClearSafeState.srv[0m
+[ 43%] [34m[1mGenerating Lisp code from denso_cobotta_driver/SetLEDState.srv[0m
+[ 45%] [34m[1mGenerating Lisp code from denso_cobotta_driver/ClearRobotError.srv[0m
+[ 45%] [34m[1mGenerating Lisp code from denso_cobotta_driver/SetBrakeState.srv[0m
+[ 46%] [34m[1mGenerating Lisp code from denso_cobotta_driver/ExecCalset.srv[0m
+[ 51%] [34m[1mGenerating Python code from SRV denso_cobotta_driver/ClearSafeState[0m
+[ 51%] [34m[1mGenerating Javascript code from denso_cobotta_driver/SetMotorState.srv[0m
+[ 51%] [34m[1mGenerating EusLisp code from denso_cobotta_driver/SetBrakeState.srv[0m
+[ 53%] [34m[1mGenerating C++ code from denso_cobotta_driver/SetMotorState.srv[0m
+[ 55%] [34m[1mGenerating Javascript code from denso_cobotta_driver/GetMotorState.srv[0m
+[ 56%] [34m[1mGenerating Python code from SRV denso_cobotta_driver/SetBrakeState[0m
+[ 58%] [34m[1mGenerating EusLisp code from denso_cobotta_driver/GetBrakeState.srv[0m
+[ 60%] [34m[1mGenerating Python code from SRV denso_cobotta_driver/SetLEDState[0m
+[ 61%] [34m[1mGenerating Python code from SRV denso_cobotta_driver/GetBrakeState[0m
+[ 63%] [34m[1mGenerating Python code from SRV denso_cobotta_driver/ExecCalset[0m
+[ 65%] [34m[1mGenerating Javascript code from denso_cobotta_driver/ClearSafeState.srv[0m
+[ 66%] [34m[1mGenerating Javascript code from denso_cobotta_driver/ClearError.srv[0m
+[ 68%] [34m[1mGenerating Javascript code from denso_cobotta_driver/SetBrakeState.srv[0m
+[ 70%] [34m[1mGenerating C++ code from denso_cobotta_driver/GetMotorState.srv[0m
+[ 71%] [34m[1mGenerating EusLisp code from denso_cobotta_driver/SetLEDState.srv[0m
+[ 73%] [34m[1mGenerating C++ code from denso_cobotta_driver/ClearError.srv[0m
+[ 75%] [34m[1mGenerating Javascript code from denso_cobotta_driver/ClearRobotError.srv[0m
+[ 75%] Built target denso_cobotta_driver_generate_messages_lisp
+[ 76%] [34m[1mGenerating EusLisp manifest code for denso_cobotta_driver[0m
+[ 78%] [34m[1mGenerating Javascript code from denso_cobotta_driver/GetBrakeState.srv[0m
+[ 80%] [34m[1mGenerating EusLisp code from denso_cobotta_driver/ExecCalset.srv[0m
+[ 83%] [34m[1mGenerating C++ code from denso_cobotta_driver/GetBrakeState.srv[0m
+[ 83%] [34m[1mGenerating C++ code from denso_cobotta_driver/ClearSafeState.srv[0m
+[ 85%] [34m[1mGenerating C++ code from denso_cobotta_driver/ClearRobotError.srv[0m
+[ 86%] [34m[1mGenerating Javascript code from denso_cobotta_driver/SetLEDState.srv[0m
+[ 88%] [34m[1mGenerating Javascript code from denso_cobotta_driver/ExecCalset.srv[0m
+[ 90%] [34m[1mGenerating C++ code from denso_cobotta_driver/SetBrakeState.srv[0m
+[ 91%] [34m[1mGenerating C++ code from denso_cobotta_driver/SetLEDState.srv[0m
+[ 93%] [34m[1mGenerating C++ code from denso_cobotta_driver/ExecCalset.srv[0m
+[ 93%] Built target denso_cobotta_driver_generate_messages_nodejs
+[ 95%] [34m[1mGenerating Python msg __init__.py for denso_cobotta_driver[0m
+[ 96%] [34m[1mGenerating Python srv __init__.py for denso_cobotta_driver[0m
+[ 96%] Built target denso_cobotta_driver_generate_messages_cpp
+[ 96%] Built target denso_cobotta_driver_generate_messages_py
+[35m[1mScanning dependencies of target denso_cobotta_driver[0m
+[ 98%] [32mBuilding CXX object CMakeFiles/denso_cobotta_driver.dir/src/denso_cobotta_driver.cpp.o[0m
+>>>>>>> ビルドし直す
 [ 98%] Built target denso_cobotta_driver_generate_messages_eus
 [35m[1mScanning dependencies of target denso_cobotta_driver_generate_messages[0m
 [ 98%] Built target denso_cobotta_driver_generate_messages
