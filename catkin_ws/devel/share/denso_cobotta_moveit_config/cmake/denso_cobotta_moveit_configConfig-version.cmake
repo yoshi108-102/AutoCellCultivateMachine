@@ -1,1 +1,0 @@
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_moveit_config/share/denso_cobotta_moveit_config/cmake/denso_cobotta_moveit_configConfig-version.cmake

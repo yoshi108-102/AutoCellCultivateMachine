@@ -1,1 +1,0 @@
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/mycobot_320_moveit/share/mycobot_320_moveit/cmake/mycobot_320_moveitConfig-version.cmake

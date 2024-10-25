@@ -1,1 +1,0 @@
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/common-lisp/ros/denso_cobotta_gripper/msg/GripperMoveResult.lisp

@@ -1,1 +1,0 @@
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/myrobot/share/myrobot/cmake/myrobotConfig-version.cmake

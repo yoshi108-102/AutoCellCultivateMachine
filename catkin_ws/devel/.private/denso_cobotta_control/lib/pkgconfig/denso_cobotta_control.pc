@@ -1,8 +1,0 @@
-prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_control
-
-Name: denso_cobotta_control
-Description: Description of denso_cobotta_control
-Version: 1.2.4
-Cflags: -I/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_cobotta_ros/denso_cobotta_control/include
-Libs: -L${prefix}/lib -ldenso_cobotta_control
-Requires: controller_manager hardware_interface joint_limits_interface roscpp std_msgs transmission_interface denso_cobotta_lib

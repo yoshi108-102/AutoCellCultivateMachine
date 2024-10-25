@@ -1,1 +1,0 @@
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/include/denso_cobotta_gripper/GripperMoveFeedback.h

@@ -1,7 +1,0 @@
-[35m[1mScanning dependencies of target denso_cobotta_driver_generate_messages_cpp[0m
-[  0%] Built target denso_cobotta_driver_generate_messages_cpp
-[35m[1mScanning dependencies of target denso_cobotta_control[0m
-[ 33%] [32mBuilding CXX object CMakeFiles/denso_cobotta_control.dir/src/denso_cobotta_control.cpp.o[0m
-[ 66%] [32mBuilding CXX object CMakeFiles/denso_cobotta_control.dir/src/denso_cobotta_hw.cpp.o[0m
-[100%] [32m[1mLinking CXX executable /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_control/lib/denso_cobotta_control/denso_cobotta_control[0m
-[100%] Built target denso_cobotta_control

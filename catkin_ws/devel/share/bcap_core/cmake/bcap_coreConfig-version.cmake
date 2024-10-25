@@ -1,1 +1,0 @@
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/bcap_core/share/bcap_core/cmake/bcap_coreConfig-version.cmake

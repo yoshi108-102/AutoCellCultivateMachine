@@ -1,1 +1,0 @@
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_bringup/share/denso_cobotta_bringup/cmake/denso_cobotta_bringupConfig-version.cmake
