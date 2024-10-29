@@ -1,0 +1,8 @@
+prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_gazebo
+
+Name: denso_robot_gazebo
+Description: Description of denso_robot_gazebo
+Version: 3.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

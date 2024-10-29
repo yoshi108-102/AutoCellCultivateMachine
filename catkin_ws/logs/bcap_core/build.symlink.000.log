@@ -1,0 +1,7 @@
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/bcap_core/cmake/bcap_coreConfig.cmake
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/bcap_core/cmake/bcap_coreConfig-version.cmake
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/libtpcomm.so
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/librac_string.so
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/libbcap_client.so
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/libbcap_server.so
+Symlinking /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/pkgconfig/bcap_core.pc

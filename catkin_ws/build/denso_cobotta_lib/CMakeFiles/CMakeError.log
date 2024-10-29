@@ -1,38 +1,21 @@
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
 Change Dir: /home/tw017/Desktop/PipetteDetect/catkin_ws/build/denso_cobotta_lib/CMakeFiles/CMakeTmp
 
-<<<<<<< HEAD
-Run Build Command(s):/usr/bin/make cmTC_afaed/fast && /usr/bin/make -f CMakeFiles/cmTC_afaed.dir/build.make CMakeFiles/cmTC_afaed.dir/build
+Run Build Command(s):/usr/bin/make cmTC_e078d/fast && /usr/bin/make -f CMakeFiles/cmTC_e078d.dir/build.make CMakeFiles/cmTC_e078d.dir/build
 make[1]: Entering directory '/home/tw017/Desktop/PipetteDetect/catkin_ws/build/denso_cobotta_lib/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_afaed.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_afaed.dir/src.c.o   -c /home/tw017/Desktop/PipetteDetect/catkin_ws/build/denso_cobotta_lib/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_afaed
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_afaed.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_afaed.dir/src.c.o  -o cmTC_afaed 
-/usr/bin/ld: CMakeFiles/cmTC_afaed.dir/src.c.o: in function `main':
-=======
-Run Build Command(s):/usr/bin/make cmTC_1fd4d/fast && /usr/bin/make -f CMakeFiles/cmTC_1fd4d.dir/build.make CMakeFiles/cmTC_1fd4d.dir/build
-make[1]: Entering directory '/home/tw017/Desktop/PipetteDetect/catkin_ws/build/denso_cobotta_lib/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_1fd4d.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_1fd4d.dir/src.c.o   -c /home/tw017/Desktop/PipetteDetect/catkin_ws/build/denso_cobotta_lib/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_1fd4d
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1fd4d.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_1fd4d.dir/src.c.o  -o cmTC_1fd4d 
-/usr/bin/ld: CMakeFiles/cmTC_1fd4d.dir/src.c.o: in function `main':
->>>>>>> ビルドし直す
+Building C object CMakeFiles/cmTC_e078d.dir/src.c.o
+/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_e078d.dir/src.c.o   -c /home/tw017/Desktop/PipetteDetect/catkin_ws/build/denso_cobotta_lib/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_e078d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e078d.dir/link.txt --verbose=1
+/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    -rdynamic CMakeFiles/cmTC_e078d.dir/src.c.o  -o cmTC_e078d 
+/usr/bin/ld: CMakeFiles/cmTC_e078d.dir/src.c.o: in function `main':
 src.c:(.text+0x46): undefined reference to `pthread_create'
 /usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
 /usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-<<<<<<< HEAD
-make[1]: *** [CMakeFiles/cmTC_afaed.dir/build.make:87: cmTC_afaed] Error 1
+make[1]: *** [CMakeFiles/cmTC_e078d.dir/build.make:87: cmTC_e078d] Error 1
 make[1]: Leaving directory '/home/tw017/Desktop/PipetteDetect/catkin_ws/build/denso_cobotta_lib/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_afaed/fast] Error 2
-=======
-make[1]: *** [CMakeFiles/cmTC_1fd4d.dir/build.make:87: cmTC_1fd4d] Error 1
-make[1]: Leaving directory '/home/tw017/Desktop/PipetteDetect/catkin_ws/build/denso_cobotta_lib/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_1fd4d/fast] Error 2
->>>>>>> ビルドし直す
+make: *** [Makefile:121: cmTC_e078d/fast] Error 2
 
 
 Source file was:
@@ -58,33 +41,18 @@ int main(void)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/tw017/Desktop/PipetteDetect/catkin_ws/build/denso_cobotta_lib/CMakeFiles/CMakeTmp
 
-<<<<<<< HEAD
-Run Build Command(s):/usr/bin/make cmTC_b040b/fast && /usr/bin/make -f CMakeFiles/cmTC_b040b.dir/build.make CMakeFiles/cmTC_b040b.dir/build
+Run Build Command(s):/usr/bin/make cmTC_29d51/fast && /usr/bin/make -f CMakeFiles/cmTC_29d51.dir/build.make CMakeFiles/cmTC_29d51.dir/build
 make[1]: Entering directory '/home/tw017/Desktop/PipetteDetect/catkin_ws/build/denso_cobotta_lib/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_b040b.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_b040b.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_b040b
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b040b.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_b040b.dir/CheckFunctionExists.c.o  -o cmTC_b040b  -lpthreads 
+Building C object CMakeFiles/cmTC_29d51.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_29d51.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
+Linking C executable cmTC_29d51
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_29d51.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_29d51.dir/CheckFunctionExists.c.o  -o cmTC_29d51  -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_b040b.dir/build.make:87: cmTC_b040b] Error 1
+make[1]: *** [CMakeFiles/cmTC_29d51.dir/build.make:87: cmTC_29d51] Error 1
 make[1]: Leaving directory '/home/tw017/Desktop/PipetteDetect/catkin_ws/build/denso_cobotta_lib/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_b040b/fast] Error 2
-=======
-Run Build Command(s):/usr/bin/make cmTC_c7fe4/fast && /usr/bin/make -f CMakeFiles/cmTC_c7fe4.dir/build.make CMakeFiles/cmTC_c7fe4.dir/build
-make[1]: Entering directory '/home/tw017/Desktop/PipetteDetect/catkin_ws/build/denso_cobotta_lib/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_c7fe4.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_c7fe4.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_c7fe4
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c7fe4.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_c7fe4.dir/CheckFunctionExists.c.o  -o cmTC_c7fe4  -lpthreads 
-/usr/bin/ld: cannot find -lpthreads
-collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_c7fe4.dir/build.make:87: cmTC_c7fe4] Error 1
-make[1]: Leaving directory '/home/tw017/Desktop/PipetteDetect/catkin_ws/build/denso_cobotta_lib/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_c7fe4/fast] Error 2
->>>>>>> ビルドし直す
+make: *** [Makefile:121: cmTC_29d51/fast] Error 2
 
 
 

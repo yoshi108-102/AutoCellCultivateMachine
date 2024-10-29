@@ -1,0 +1,1 @@
+/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_robot_core_test/lib/pkgconfig/denso_robot_core_test.pc
