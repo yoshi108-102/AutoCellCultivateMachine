@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: denso_robot_core_test
+Description: Description of denso_robot_core_test
+Version: 3.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: actionlib roscpp std_msgs
