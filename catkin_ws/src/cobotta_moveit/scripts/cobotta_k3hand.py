@@ -2,7 +2,7 @@ import rospy
 from bcap_service.msg import variant
 from bcap_service.srv import bcap,bcapRequest,bcapResponse
 from typing import overload
-from hresult_error import HRESULT_error
+from cobotta_moveit.scripts.hresult import HRESULT
 from constants import VARIANT_TYPES,FUNC_ID
 class K3HandinCobotta():
     """cobottaに接続されたK3Handを操作するためのクラス。
@@ -31,7 +31,7 @@ class K3HandinCobotta():
     @overload
     def movej(self,all_pose: list[int]) -> None:
         ...
-    def movej(self,arg):
+    def movej(self,arg) -> None:
         """
         K3Handを指定した位置に移動させる関数。
 
@@ -41,9 +41,6 @@ class K3HandinCobotta():
             location_point_number (int): virtual TPで指定した位置番号。
             each_pose (list[tuple[int, int]]): K3Handの各関節の角度を指定するリスト。各要素はタプル形式で、(関節番号, 角度)。
             all_pose (list[int]): K3Handの全関節の角度を指定するリスト。6つの要素から成り、各要素は対応する関節の角度。
-
-        Returns:
-            bool: 操作が成功した場合はTrue、失敗した場合はFalse。
 
         Raises:
             ValueError: 引数が無効な場合に発生。
@@ -57,7 +54,7 @@ class K3HandinCobotta():
         """
         if self.k3HandControllerHandle == "-1":
             rospy.logerr("cobotta/movej: you don't get k3hand controller hundle")
-            return False
+            return
         bcapReq = bcapRequest()
         bcapReq.func_id = FUNC_ID.ID_EXTENSION_EXECUTE
         bcapReq.vntArgs.append(variant(vt=self.handleVt,value=self.handleValue))
@@ -95,8 +92,7 @@ class K3HandinCobotta():
             _ = bcapService(bcapReq)
         except rospy.ServiceException as e:
             rospy.logerr("cobotta/movej: Service call failed: %s", e)
-            return False
-        if bcapRes.vntRet[0].vt < 0:
-            HRESULT_error(bcapRes.vntRet[0].vt,bcapRes.vntRet[0].value)
-            return False
-        return True
+            return
+        
+        HRESULT(bcapRes.vntRet[0].vt,bcapRes.vntRet[0].value)
+            

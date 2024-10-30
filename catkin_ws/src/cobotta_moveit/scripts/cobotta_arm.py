@@ -1,5 +1,5 @@
 from cobotta_k3hand import K3HandinCobotta as K3Hand
-from hresult_error import HRESULT_error
+from cobotta_moveit.scripts.hresult import HRESULT
 import rospy
 
 from bcap_service.srv import bcapRequest, bcapResponse,bcap
@@ -22,15 +22,21 @@ class CobottaArm():
     スレーブモードでは動かないため、cobotta_bringup.launchをsim:=falseで実行している場合は使用できない。
     
     Attributes:
-        k3Hand (K3Hand): cobottaに接続されたK3Handのインスタンス。
-        hControllerHandle (str): cobottaのハンドル。
+        k3Hand (K3Hand): cobottaに接続されたK3Handのインスタンス。初期状態では空のK3Handインスタンスが設定されている。vtが-1の場合は接続に失敗している。
+        hControllerHandleVt (int): cobottaのコントローラハンドルのvt。各種値の取得等に使用する。
+        hControllerHandleValue (str): cobottaのコントローラハンドルの値。各種値の取得等に使用する。
+        hRobotHandleVt (int): cobottaのロボットハンドルのvt。アーム等の制御権を取得する際に使用する。
+        hRobotHandleValue (str): cobottaのロボットハンドルの値。アーム等の制御権を取得する際に使用する。
+        hArmHandleVt (int): cobottaのアームハンドルのvt。アームの操作
         ip_address (str): cobottaのipアドレス。デフォルトでは192.168.0.1。変更した場合はコンストラクタで指定する。
     
     """
     def __init__(self,ip_address="192.168.0.1"):
-        self.k3Hand = None
+        self.k3Hand = K3Hand(-1,"")
         self.hControllerHandleVt = -1
         self.hControllerHandleValue = ""
+        self.hRobotHandleVt = -1
+        self.hRobotHandleValue = ""
         self.ip_address = ip_address
     
     def controller_connect(self) -> None:
@@ -60,8 +66,9 @@ class CobottaArm():
         except rospy.ServiceException as e:
             raise RuntimeError("cobotta/controller_connect: failed to connect cobotta controller")
         
+        HRESULT(bcapRes.vntRet[0].vt,bcapRes.vntRet[0].value)
+        
         if bcapRes.vntRet[0].vt < 0:
-            HRESULT_error(bcapRes.vntRet[0].vt,bcapRes.vntRet[0].value)
             return
         self.hControllerHandleVt = bcapRes.vntRet[0].vt
         self.hControllerHandleValue = bcapRes.vntRet[0].value
@@ -92,8 +99,10 @@ class CobottaArm():
         except rospy.ServiceException as e:
             raise RuntimeError("cobotta/add_k3hand: failed to connect k3hand controller")
         
+        HRESULT(bcapRes.vntRet[0].vt,bcapRes.vntRet[0].value)
+        
         if bcapRes.vntRet[0].vt != 0:
-            HRESULT_error(bcapRes.vntRet[0].vt,bcapRes.vntRet[0].value)
+            
             return
         self.k3Hand = K3Hand(bcapRes.vntRet[0].vt,bcapRes.vntRet[0].value)
     
@@ -120,6 +129,35 @@ class CobottaArm():
         except rospy.ServiceException as e:
             raise RuntimeError("cobotta/clear_error: failed to clear error")
         
+        HRESULT(bcapRes.vntRet[0].vt,bcapRes.vntRet[0].value)
+        
         if bcapRes.vntRet[0].vt != 0:
-            HRESULT_error(bcapRes.vntRet[0].vt,bcapRes.vntRet[0].value)
             return
+    def controller_get_robot(self) -> None:
+        """
+        cobottaのロボットハンドルを取得する。
+        
+        Raises:
+            RuntimeError: ハンドルの取得に失敗した場合に発生。
+        """
+        bcapReq = bcapRequest()
+        bcapReq.func_id = FUNC_ID.ID_CONTROLLER_GETROBOT
+        if self.hControllerHandleVt == -1:
+            rospy.logerr("cobotta/controller_get_robot: you don't get controller handle")
+            return
+        bcapReq.vntArgs.append(variant(vt=self.hControllerHandleVt,value=self.hControllerHandleValue))
+        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value="Arm"))
+        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=""))
+        
+        try:
+            bcapSrv = rospy.ServiceProxy("/bcap_service",bcap)
+            bcapRes: bcapResponse = bcapSrv(bcapReq)
+        except rospy.ServiceException as e:
+            raise RuntimeError("cobotta/controller_get_robot: failed to get robot handle")
+        
+        HRESULT(bcapRes.vntRet[0].vt,bcapRes.vntRet[0].value)
+        
+        if bcapRes.vntRet[0].vt != 0:
+            return
+        self.hRobotHandleVt = bcapRes.vntRet[0].vt
+        self.hRobotHandleValue = bcapRes.vntRet[0].value
