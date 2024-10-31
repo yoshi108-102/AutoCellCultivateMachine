@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: denso_robot_descriptions
+Description: Description of denso_robot_descriptions
+Version: 3.3.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

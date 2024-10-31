@@ -1,0 +1,8 @@
+prefix=/usr/local
+
+Name: denso_cobotta_bringup
+Description: Description of denso_cobotta_bringup
+Version: 1.2.4
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
