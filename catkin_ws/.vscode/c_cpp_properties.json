@@ -15,7 +15,9 @@
         "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_cobotta_ros/denso_cobotta_lib/include/**",
         "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/myrobot/include/**",
         "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/realsense-ros/realsense2_camera/include/**",
-        "/usr/include/**"
+        "/usr/include/**",
+        "/opt/ros/noetic/include/**",
+        "${workspaceFolder}/**"
       ],
       "name": "ROS",
       "intelliSenseMode": "gcc-x64",

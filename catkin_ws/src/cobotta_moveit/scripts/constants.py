@@ -1,6 +1,4 @@
-
-from collections import namedtuple
-
+#!/usr/bin/env python3
 from collections import namedtuple
 
 """

@@ -1,8 +1,9 @@
+#! /usr/bin/env python3
 import rospy
 from bcap_service.msg import variant
 from bcap_service.srv import bcap,bcapRequest,bcapResponse
 from typing import overload
-from cobotta_moveit.scripts.hresult import HRESULT
+from hresult import HRESULT
 from constants import VARIANT_TYPES,FUNC_ID
 class K3HandinCobotta():
     """cobottaに接続されたK3Handを操作するためのクラス。
@@ -26,12 +27,10 @@ class K3HandinCobotta():
     def movej(self,location_point_number: int) -> None:
         ... 
     @overload
-    def movej(self,seeach_pose: list[int,int]) -> None:
-        ...
-    @overload
-    def movej(self,all_pose: list[int]) -> None:
+    def movej(self,seeach_pose: list) -> None:
         ...
     def movej(self,arg) -> None:
+        rospy.loginfo(self.handleVt)
         """
         K3Handを指定した位置に移動させる関数。
 
@@ -52,7 +51,7 @@ class K3HandinCobotta():
             movej([0, 0, 0, 0, 0, 0])  # 全関節の角度を0度に設定
             ```
         """
-        if self.k3HandControllerHandle == "-1":
+        if self.handleVt == "-1":
             rospy.logerr("cobotta/movej: you don't get k3hand controller hundle")
             return
         bcapReq = bcapRequest()
@@ -60,7 +59,7 @@ class K3HandinCobotta():
         bcapReq.vntArgs.append(variant(vt=self.handleVt,value=self.handleValue))
         bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value="MoveJ"))
         if type(arg) == int:
-            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_I4,value=arg))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_I4,value=str(arg)))
         elif type(arg) == list:
             if arg.len() == 0:
                 raise ValueError("cobotta/movej: arg is empty")
@@ -86,13 +85,14 @@ class K3HandinCobotta():
         else:
             raise ValueError("cobotta/movej: arg type is invalid")
         bcapRes = bcapResponse()
-        rospy.wait_for_service("bcap_service")
+        
+        rospy.wait_for_service("/bcap_service")
         try:
-            bcapService = rospy.ServiceProxy("bcap_service",bcap)
-            _ = bcapService(bcapReq)
+            bcapService = rospy.ServiceProxy("/bcap_service",bcap)
+            bcapRes = bcapService(bcapReq)
         except rospy.ServiceException as e:
             rospy.logerr("cobotta/movej: Service call failed: %s", e)
             return
         
-        HRESULT(bcapRes.vntRet[0].vt,bcapRes.vntRet[0].value)
+        HRESULT(bcapRes,"movej")
             

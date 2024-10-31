@@ -1,0 +1,18 @@
+<!-- cobotta_controllerと接続 -->
+rosservice call /bcap_service '{func_id: 3, vntArgs: [{vt: 8, value: ""}, {vt: 8, value: "CaoProv.DENSO.RC8"}, {vt: 8, value: ""}, {vt: 8, value: "Server=192.168.0.1"}] }'
+<!-- k3Handと接続　vntArgs[0]はcobotta_controllerと接続したときに得たvtとvalueが入る -->
+rosservice call /bcap_service '{func_id: 5, vntArgs: [{vt: 19, value: ""}, {vt: 8, value: "K3Hand"}, {vt: 8, value: ""}]}'
+<!-- ロボットと接続　vntArgs[0]はcobotta_controllerと接続したときに得たvtとvalueが入る -->
+rosservice call /bcap_service '{func_id: 7, vntArgs: [{vt: 19, value: ""}, {vt: 8, value: "Arm"}, {vt: 8, value: ""}]}'
+<!-- ハンドの制御権を取得 vntArgs[0]はrobotと接続したときに得たvtとvalueが入る-->
+rosservice call /bcap_service '{func_id: 64, vntArgs: [{vt: 19, value: ""}, {vt: 8, value: "Takearm"}, {vt: 8, value: ""}]}'
+<!-- ハンドの制御権を解放 vntArgs[0]はrobotと接続したときに得たvtとvalueが入る-->
+rosservice call /bcap_service '{func_id: 64, vntArgs: [{vt: 19, value: ""}, {vt: 8, value: "Givearm"}, {vt: 8, value: ""}]}'
+<!-- K3Handを動かす vntArgs[0]はK3Handと接続したときに得たvtとvalueが入る -->
+rosservice call /bcap_service '{func_id: 28, vntArgs: [{vt: 19, value: ""}, {vt: 8, value: "MoveJ"}, {vt: 3, value: "1"}]}'
+<!-- ClearErrorを行う vntArgs[0]はcobotta_controllerと接続したときに得たvtとvalueが入る -->
+rosservice call /bcap_service '{func_id: 17, vntArgs: [{vt: 19, value: ""}, {vt: 8, value: "ClearError"}, {vt: 8, value: ""}]}'
+<!-- motorをonにする vntArgs[0]はrobotと接続したときに得たvtとvalueが入る-->
+rosservice call /bcap_service '{func_id: 64, vntArgs: [{vt: 19, value: ""}, {vt: 8, value: "Motor"}, {vt: 8, value: "1"}]}'
+<!-- motorをoffにする vntArgs[0]はrobotと接続したときに得たvtとvalueが入る-->
+rosservice call /bcap_service '{func_id: 64, vntArgs: [{vt: 19, value: ""}, {vt: 8, value: "Motor"}, {vt: 8, value: "0"}]}'
