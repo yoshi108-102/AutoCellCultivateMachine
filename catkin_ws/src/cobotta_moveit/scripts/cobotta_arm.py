@@ -386,7 +386,7 @@ class CobottaArm():
             return
         
         bcapReq.vntArgs.append(variant(vt=self.hRobotVt,value=self.hRobotValue))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_I4,value=location_comp))
+        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_I4,value=str(location_comp)))
         bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=vntPose))
         bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=bstrOption))
         
@@ -399,18 +399,162 @@ class CobottaArm():
 
         HRESULT(bcapRes,"move")
     
+    def approach(self,location_comp:int,vntPoseBase:str,vntPoseLen:str,strOpt:str) -> None:
+        """
+        cobottaのアームを指定位置に近づける。
+        事前にロボットハンドルを取得している必要がある。
+        事前にアーム制御権を取得している必要がある。
+        事前にモータがオンになっている必要がある。
+        具体的な指定方法はPacScriptのマニュアルを参照。
+        
+        Args:
+            location_comp : 補完指定番号を表す。
+            
+                1: Move P 
+                
+                2: Move C 
+            
+            vntPoseBase: ポーズ列を指定する。
+            
+            vntPoseLen: ポーズ列を指定する。
+            
+            strOpt: 動作オプションを指定する。
+        
+        Raises:
+            RuntimeError: 近づけに失敗した場合に発生。
+
+        Examples:
+            ```python
+            todo
+            ```
+        """
+        bcapReq = bcapRequest()
+        bcapReq.func_id = FUNC_ID.ID_ROBOT_EXECUTE
+        if self.hRobotVt == -1:
+            rospy.logerr("cobotta/approach: you don't get robot handle")
+            return
+        if self.is_takeArm == False:
+            rospy.logerr("cobotta/approach: you don't take arm")
+            return
+        if self.is_motor_on == False:
+            rospy.logerr("cobotta/approach: you don't motor on")
+            return
+        
+        bcapReq.vntArgs.append(variant(vt=self.hRobotVt,value=self.hRobotValue))
+        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value="Approach"))
+        """  bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_I4,value=str(location_comp)))
+        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=vntPoseBase))
+        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=vntPoseLen))
+        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=strOpt)) 
+        """
+        value= ""
+        value += "(" + str(VARIANT_TYPES.VT_I4) + "," + str(location_comp) + ")"
+        value += ","
+        value += "(" + str(VARIANT_TYPES.VT_BSTR) + "," + vntPoseBase + ")"
+        value += ","
+        value += "(" + str(VARIANT_TYPES.VT_BSTR) + "," + vntPoseLen + ")"
+        value += ","
+        value += "(" + str(VARIANT_TYPES.VT_BSTR) + "," + strOpt + ")"
+        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_VARIANT | VARIANT_TYPES.VT_ARRAY,value=value))
+        
+        rospy.wait_for_service("/bcap_service")
+        
+        bcapRes: bcapResponse = bcapResponse()
+        
+        try:
+            bcapSrv = rospy.ServiceProxy("/bcap_service",bcap)
+            bcapRes: bcapResponse = bcapSrv(bcapReq)
+        except rospy.ServiceException as e:
+            raise RuntimeError("cobotta/approach: failed to approach")
+        
+        HRESULT(bcapRes,"approach")
+        
+    def depart(self,location_comp:int,vntPoseLen:str,strOpt:str) -> None:
+        """
+        cobottaのアームを指定位置から離れる。
+        事前にロボットハンドルを取得している必要がある。
+        事前にアーム制御権を取得している必要がある。
+        事前にモータがオンになっている必要がある。
+        具体的な指定方法はPacScriptのマニュアルを参照。
+        
+        Args:
+            location_comp : 補完指定番号を表す。
+            
+                1: Move P 
+                
+                2: Move C 
+            
+            vntPoseLen: ポーズ列を指定する。
+            
+            strOpt: 動作オプションを指定する。
+        
+        Raises:
+            RuntimeError: 離れるに失敗した場合に発生。
+
+        Examples:
+            ```python
+            todo
+            ```
+        """
+        bcapReq = bcapRequest()
+        bcapReq.func_id = FUNC_ID.ID_ROBOT_EXECUTE
+        if self.hRobotVt == -1:
+            rospy.logerr("cobotta/depart: you don't get robot handle")
+            return
+        if self.is_takeArm == False:
+            rospy.logerr("cobotta/depart: you don't take arm")
+            return
+        if self.is_motor_on == False:
+            rospy.logerr("cobotta/depart: you don't motor on")
+            return
+        
+        bcapReq.vntArgs.append(variant(vt=self.hRobotVt,value=self.hRobotValue))
+        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value="Depart"))
+        """  
+        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_I4,value=str(location_comp)))
+        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=vntPoseLen))
+        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=strOpt)) """
+        
+        value = ""
+        value += "(" + str(VARIANT_TYPES.VT_I4) + "," + str(location_comp) + ")"
+        value += ","
+        value += "(" + str(VARIANT_TYPES.VT_BSTR) + "," + vntPoseLen + ")"
+        value += ","
+        value += "(" + str(VARIANT_TYPES.VT_BSTR) + "," + strOpt + ")"
+        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_VARIANT | VARIANT_TYPES.VT_ARRAY,value=value))
+        
+        rospy.wait_for_service("/bcap_service")
+        
+        bcapRes: bcapResponse = bcapResponse()
+        
+        try:
+            bcapSrv = rospy.ServiceProxy("/bcap_service",bcap)
+            bcapRes: bcapResponse = bcapSrv(bcapReq)
+        except rospy.ServiceException as e:
+            raise RuntimeError("cobotta/depart: failed to depart")
+        
+        HRESULT(bcapRes,"depart")
 if __name__ == "__main__":
     rospy.init_node("cobotta_arm")
+    rospy.loginfo("dish_grasp_test")
     cobotta = CobottaArm()
     cobotta.controller_connect()
-    cobotta.clear_error()
     cobotta.controller_get_robot()
+    cobotta.clear_error()
     cobotta.motor_on()
     cobotta.take_arm()
-    #cobotta.move(1,"P1","NEXT")
+    cobotta.move(1,"@0 P5","")
+    cobotta.approach(1,"P11","@0 50","")
     cobotta.add_k3hand()
-    #rospy.wait_for_service("/bcap_service")
-    cobotta.k3Hand.movej(3)
-    #rospy.wait_for_service("/bcap_service")
+    cobotta.k3Hand.movej(10)
+    cobotta.move(2,"@0 P11","")
+    cobotta.k3Hand.movej(11)
+    rospy.sleep(1)
+    cobotta.depart(1, "@0 50","")
+    rospy.sleep(1)
+    cobotta.move(2, "@0 P11","")
+    cobotta.k3Hand.movej(10)
+    cobotta.depart(1, "@0 50","")
     cobotta.give_arm()
     cobotta.motor_off()
+    
