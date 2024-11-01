@@ -39,22 +39,22 @@ add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringAction.msg" NAME_WE)
 add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringAction.msg" "denso_robot_core/DriveStringActionFeedback:std_msgs/Header:denso_robot_core/DriveStringResult:actionlib_msgs/GoalStatus:denso_robot_core/DriveStringActionGoal:denso_robot_core/DriveStringActionResult:denso_robot_core/DriveStringFeedback:actionlib_msgs/GoalID:denso_robot_core/DriveStringGoal"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringAction.msg" "denso_robot_core/DriveStringActionGoal:denso_robot_core/DriveStringGoal:actionlib_msgs/GoalStatus:denso_robot_core/DriveStringActionResult:denso_robot_core/DriveStringActionFeedback:denso_robot_core/DriveStringResult:denso_robot_core/DriveStringFeedback:std_msgs/Header:actionlib_msgs/GoalID"
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionGoal.msg" NAME_WE)
 add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionGoal.msg" "actionlib_msgs/GoalID:std_msgs/Header:denso_robot_core/DriveStringGoal"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionGoal.msg" "denso_robot_core/DriveStringGoal:std_msgs/Header:actionlib_msgs/GoalID"
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionResult.msg" NAME_WE)
 add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionResult.msg" "actionlib_msgs/GoalStatus:denso_robot_core/DriveStringResult:actionlib_msgs/GoalID:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionResult.msg" "actionlib_msgs/GoalStatus:std_msgs/Header:actionlib_msgs/GoalID:denso_robot_core/DriveStringResult"
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionFeedback.msg" NAME_WE)
 add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionFeedback.msg" "actionlib_msgs/GoalStatus:denso_robot_core/DriveStringFeedback:actionlib_msgs/GoalID:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionFeedback.msg" "actionlib_msgs/GoalStatus:denso_robot_core/DriveStringFeedback:std_msgs/Header:actionlib_msgs/GoalID"
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg" NAME_WE)
@@ -74,22 +74,22 @@ add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueAction.msg" NAME_WE)
 add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueAction.msg" "std_msgs/Header:actionlib_msgs/GoalStatus:denso_robot_core/DriveValueResult:denso_robot_core/Joints:denso_robot_core/DriveValueActionFeedback:denso_robot_core/DriveValueActionResult:denso_robot_core/DriveValueGoal:denso_robot_core/DriveValueActionGoal:actionlib_msgs/GoalID:denso_robot_core/DriveValueFeedback"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueAction.msg" "denso_robot_core/DriveValueActionGoal:denso_robot_core/DriveValueGoal:denso_robot_core/DriveValueActionResult:actionlib_msgs/GoalStatus:denso_robot_core/Joints:denso_robot_core/DriveValueFeedback:denso_robot_core/DriveValueResult:denso_robot_core/DriveValueActionFeedback:std_msgs/Header:actionlib_msgs/GoalID"
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionGoal.msg" NAME_WE)
 add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionGoal.msg" "denso_robot_core/DriveValueGoal:actionlib_msgs/GoalID:denso_robot_core/Joints:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionGoal.msg" "denso_robot_core/DriveValueGoal:denso_robot_core/Joints:std_msgs/Header:actionlib_msgs/GoalID"
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionResult.msg" NAME_WE)
 add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionResult.msg" "actionlib_msgs/GoalStatus:actionlib_msgs/GoalID:denso_robot_core/DriveValueResult:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionResult.msg" "denso_robot_core/DriveValueResult:actionlib_msgs/GoalStatus:std_msgs/Header:actionlib_msgs/GoalID"
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionFeedback.msg" NAME_WE)
 add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionFeedback.msg" "actionlib_msgs/GoalStatus:actionlib_msgs/GoalID:denso_robot_core/DriveValueFeedback:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionFeedback.msg" "actionlib_msgs/GoalStatus:std_msgs/Header:actionlib_msgs/GoalID:denso_robot_core/DriveValueFeedback"
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg" NAME_WE)
@@ -109,22 +109,22 @@ add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringAction.msg" NAME_WE)
 add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringAction.msg" "denso_robot_core/MoveStringActionResult:denso_robot_core/MoveStringGoal:std_msgs/Header:actionlib_msgs/GoalStatus:denso_robot_core/MoveStringActionFeedback:denso_robot_core/MoveStringResult:actionlib_msgs/GoalID:denso_robot_core/MoveStringActionGoal:denso_robot_core/MoveStringFeedback"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringAction.msg" "denso_robot_core/MoveStringActionFeedback:denso_robot_core/MoveStringResult:denso_robot_core/MoveStringActionResult:denso_robot_core/MoveStringFeedback:actionlib_msgs/GoalStatus:denso_robot_core/MoveStringGoal:denso_robot_core/MoveStringActionGoal:std_msgs/Header:actionlib_msgs/GoalID"
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionGoal.msg" NAME_WE)
 add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionGoal.msg" "denso_robot_core/MoveStringGoal:actionlib_msgs/GoalID:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionGoal.msg" "std_msgs/Header:actionlib_msgs/GoalID:denso_robot_core/MoveStringGoal"
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionResult.msg" NAME_WE)
 add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionResult.msg" "actionlib_msgs/GoalStatus:actionlib_msgs/GoalID:std_msgs/Header:denso_robot_core/MoveStringResult"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionResult.msg" "denso_robot_core/MoveStringResult:actionlib_msgs/GoalStatus:std_msgs/Header:actionlib_msgs/GoalID"
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionFeedback.msg" NAME_WE)
 add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionFeedback.msg" "denso_robot_core/MoveStringFeedback:actionlib_msgs/GoalStatus:actionlib_msgs/GoalID:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionFeedback.msg" "denso_robot_core/MoveStringFeedback:actionlib_msgs/GoalStatus:std_msgs/Header:actionlib_msgs/GoalID"
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg" NAME_WE)
@@ -144,27 +144,27 @@ add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueAction.msg" NAME_WE)
 add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueAction.msg" "denso_robot_core/MoveValueFeedback:denso_robot_core/MoveValueGoal:std_msgs/Header:denso_robot_core/PoseData:actionlib_msgs/GoalStatus:denso_robot_core/MoveValueResult:denso_robot_core/Joints:denso_robot_core/MoveValueActionGoal:denso_robot_core/MoveValueActionFeedback:denso_robot_core/ExJoints:actionlib_msgs/GoalID:denso_robot_core/MoveValueActionResult"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueAction.msg" "denso_robot_core/PoseData:denso_robot_core/ExJoints:denso_robot_core/MoveValueActionResult:denso_robot_core/MoveValueActionGoal:denso_robot_core/MoveValueFeedback:denso_robot_core/MoveValueResult:denso_robot_core/MoveValueActionFeedback:actionlib_msgs/GoalStatus:denso_robot_core/Joints:denso_robot_core/MoveValueGoal:std_msgs/Header:actionlib_msgs/GoalID"
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionGoal.msg" NAME_WE)
 add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionGoal.msg" "denso_robot_core/MoveValueGoal:std_msgs/Header:denso_robot_core/PoseData:denso_robot_core/Joints:denso_robot_core/ExJoints:actionlib_msgs/GoalID"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionGoal.msg" "denso_robot_core/ExJoints:denso_robot_core/PoseData:denso_robot_core/Joints:denso_robot_core/MoveValueGoal:std_msgs/Header:actionlib_msgs/GoalID"
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionResult.msg" NAME_WE)
 add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionResult.msg" "actionlib_msgs/GoalStatus:denso_robot_core/MoveValueResult:actionlib_msgs/GoalID:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionResult.msg" "denso_robot_core/MoveValueResult:actionlib_msgs/GoalStatus:std_msgs/Header:actionlib_msgs/GoalID"
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionFeedback.msg" NAME_WE)
 add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionFeedback.msg" "actionlib_msgs/GoalStatus:denso_robot_core/MoveValueFeedback:actionlib_msgs/GoalID:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionFeedback.msg" "denso_robot_core/MoveValueFeedback:actionlib_msgs/GoalStatus:std_msgs/Header:actionlib_msgs/GoalID"
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg" NAME_WE)
 add_custom_target(_denso_robot_core_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg" "denso_robot_core/PoseData:denso_robot_core/ExJoints:denso_robot_core/Joints"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "denso_robot_core" "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg" "denso_robot_core/PoseData:denso_robot_core/Joints:denso_robot_core/ExJoints"
 )
 
 get_filename_component(_filename "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg" NAME_WE)
@@ -210,25 +210,25 @@ _generate_msg_cpp(denso_robot_core
 _generate_msg_cpp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_cpp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_cpp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringResult.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_cpp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_cpp(denso_robot_core
@@ -252,25 +252,25 @@ _generate_msg_cpp(denso_robot_core
 _generate_msg_cpp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueAction.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueFeedback.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_cpp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_cpp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_cpp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_cpp(denso_robot_core
@@ -294,25 +294,25 @@ _generate_msg_cpp(denso_robot_core
 _generate_msg_cpp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringFeedback.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_cpp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_cpp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringResult.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_cpp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_cpp(denso_robot_core
@@ -336,31 +336,31 @@ _generate_msg_cpp(denso_robot_core
 _generate_msg_cpp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionResult.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_cpp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_cpp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_cpp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_cpp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_cpp(denso_robot_core
@@ -491,25 +491,25 @@ _generate_msg_eus(denso_robot_core
 _generate_msg_eus(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_eus(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_eus(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringResult.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_eus(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_eus(denso_robot_core
@@ -533,25 +533,25 @@ _generate_msg_eus(denso_robot_core
 _generate_msg_eus(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueAction.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueFeedback.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_eus(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_eus(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_eus(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_eus(denso_robot_core
@@ -575,25 +575,25 @@ _generate_msg_eus(denso_robot_core
 _generate_msg_eus(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringFeedback.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_eus(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_eus(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringResult.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_eus(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_eus(denso_robot_core
@@ -617,31 +617,31 @@ _generate_msg_eus(denso_robot_core
 _generate_msg_eus(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionResult.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_eus(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_eus(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_eus(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_eus(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_eus(denso_robot_core
@@ -772,25 +772,25 @@ _generate_msg_lisp(denso_robot_core
 _generate_msg_lisp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_lisp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_lisp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringResult.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_lisp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_lisp(denso_robot_core
@@ -814,25 +814,25 @@ _generate_msg_lisp(denso_robot_core
 _generate_msg_lisp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueAction.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueFeedback.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_lisp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_lisp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_lisp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_lisp(denso_robot_core
@@ -856,25 +856,25 @@ _generate_msg_lisp(denso_robot_core
 _generate_msg_lisp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringFeedback.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_lisp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_lisp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringResult.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_lisp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_lisp(denso_robot_core
@@ -898,31 +898,31 @@ _generate_msg_lisp(denso_robot_core
 _generate_msg_lisp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionResult.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_lisp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_lisp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_lisp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_lisp(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_lisp(denso_robot_core
@@ -1053,25 +1053,25 @@ _generate_msg_nodejs(denso_robot_core
 _generate_msg_nodejs(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_nodejs(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_nodejs(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringResult.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_nodejs(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_nodejs(denso_robot_core
@@ -1095,25 +1095,25 @@ _generate_msg_nodejs(denso_robot_core
 _generate_msg_nodejs(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueAction.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueFeedback.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_nodejs(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_nodejs(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_nodejs(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_nodejs(denso_robot_core
@@ -1137,25 +1137,25 @@ _generate_msg_nodejs(denso_robot_core
 _generate_msg_nodejs(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringFeedback.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_nodejs(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_nodejs(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringResult.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_nodejs(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_nodejs(denso_robot_core
@@ -1179,31 +1179,31 @@ _generate_msg_nodejs(denso_robot_core
 _generate_msg_nodejs(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionResult.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_nodejs(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_nodejs(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_nodejs(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_nodejs(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_nodejs(denso_robot_core
@@ -1334,25 +1334,25 @@ _generate_msg_py(denso_robot_core
 _generate_msg_py(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_py(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_py(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringResult.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_py(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveStringFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_py(denso_robot_core
@@ -1376,25 +1376,25 @@ _generate_msg_py(denso_robot_core
 _generate_msg_py(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueAction.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueFeedback.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_py(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_py(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueResult.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_py(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueFeedback.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/DriveValueFeedback.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_py(denso_robot_core
@@ -1418,25 +1418,25 @@ _generate_msg_py(denso_robot_core
 _generate_msg_py(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringFeedback.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_py(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringGoal.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_py(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringResult.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_py(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveStringFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_py(denso_robot_core
@@ -1460,31 +1460,31 @@ _generate_msg_py(denso_robot_core
 _generate_msg_py(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueAction.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionResult.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionGoal.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueFeedback.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_py(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_py(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionResult.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueResult.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_py(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueActionFeedback.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueFeedback.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalStatus.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/actionlib_msgs/cmake/../msg/GoalID.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_py(denso_robot_core
   "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel/share/denso_robot_core/msg/MoveValueGoal.msg"
   "${MSG_I_FLAGS}"
-  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg"
+  "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/PoseData.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/Joints.msg;/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/msg/ExJoints.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/denso_robot_core
 )
 _generate_msg_py(denso_robot_core

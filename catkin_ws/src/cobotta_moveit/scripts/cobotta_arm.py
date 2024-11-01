@@ -6,7 +6,6 @@ import rospy
 from bcap_service.srv import bcapRequest, bcapResponse,bcap
 from bcap_service.msg import variant
 from constants import FUNC_ID,VARIANT_TYPES
-
 class CobottaArm():
     """cobottaのアームを操作および拡張アイテム（K3Handなど）にアクセスするためのクラス。
     
@@ -79,7 +78,24 @@ class CobottaArm():
             return
         self.hControllerVt = bcapRes.vntRet.vt
         self.hControllerValue = bcapRes.vntRet.value
+    
+    def free(self):
+        """
+        cobottaのアーム制御権を解放し、モータをオフにする。
+        事前にcobottaのコントローラに接続している必要がある。
         
+        Raises:
+            RuntimeError: 解放に失敗した場合に発生。
+        
+        Examples:
+            ```python
+            cobotta = CobottaArm()
+            cobotta.controller_connect()
+            cobotta.free()
+            ```
+        """
+        self.give_arm()
+        self.motor_off()
     def add_k3hand(self) -> None:
         """
         cobottaに接続されたK3Handのコントローラに接続し、ハンドルを取得する。成功したらK3Handのインスタンスを作成する。
@@ -94,24 +110,27 @@ class CobottaArm():
             cobotta.add_k3hand()
             ```
         """
-        bcapReq = bcapRequest()
-        bcapReq.func_id = FUNC_ID.ID_CONTROLLER_GETEXTENSION
-        if self.hControllerVt == -1:
-            rospy.logerr("cobotta/add_k3hand: you don't get controller handle")
-            return
-        bcapReq.vntArgs.append(variant(vt=self.hControllerVt,value=self.hControllerValue))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value="K3Hand"))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=""))
-        
-        rospy.wait_for_service("/bcap_service")
         try:
+            bcapReq = bcapRequest()
+            bcapReq.func_id = FUNC_ID.ID_CONTROLLER_GETEXTENSION
+            if self.hControllerVt == -1:
+                rospy.logerr("cobotta/add_k3hand: you don't get controller handle")
+                return
+            bcapReq.vntArgs.append(variant(vt=self.hControllerVt,value=self.hControllerValue))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value="K3Hand"))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=""))
+            
+            rospy.wait_for_service("/bcap_service")
             bcapSrv = rospy.ServiceProxy("/bcap_service",bcap)
             bcapRes: bcapResponse = bcapSrv(bcapReq)
-        except rospy.ServiceException as e:
-            raise RuntimeError("cobotta/add_k3hand: failed to connect k3hand controller")
-        
-        HRESULT(bcapRes,"add_k3hand")
-        self.k3Hand = K3Hand(bcapRes.vntRet.vt,bcapRes.vntRet.value)
+            
+            HRESULT(bcapRes,"add_k3hand")
+            self.k3Hand = K3Hand(bcapRes.vntRet.vt,bcapRes.vntRet.value)
+        except Exception as e:
+            self.free()
+            rospy.logerr(e.args)
+            raise RuntimeError("cobotta/add_k3hand: failed to add k3hand")
+            
     def clear_error(self):
         """
         cobottaのエラーをクリアする。
@@ -127,27 +146,27 @@ class CobottaArm():
             cobotta.clear_error()
             ```
         """
-        bcapReq = bcapRequest()
-        bcapReq.func_id = FUNC_ID.ID_CONTROLLER_EXECUTE
-        if self.hControllerVt == -1:
-            rospy.logerr("cobotta/clear_error: you don't get controller handle")
-            return
-        
-        bcapReq.vntArgs.append(variant(vt=self.hControllerVt,value=self.hControllerValue))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value="ClearError"))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=""))
-        
-        rospy.wait_for_service("/bcap_service")
         try:
+            bcapReq = bcapRequest()
+            bcapReq.func_id = FUNC_ID.ID_CONTROLLER_EXECUTE
+            if self.hControllerVt == -1:
+                rospy.logerr("cobotta/clear_error: you don't get controller handle")
+                return
+            
+            bcapReq.vntArgs.append(variant(vt=self.hControllerVt,value=self.hControllerValue))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value="ClearError"))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=""))
+            
+            rospy.wait_for_service("/bcap_service")
             bcapSrv = rospy.ServiceProxy("/bcap_service",bcap)
             bcapRes: bcapResponse = bcapSrv(bcapReq)
-        except rospy.ServiceException as e:
+            self.free()
+            HRESULT(bcapRes,"clear_error")
+            
+        except Exception as e:
+            self.free()
+            rospy.logerr(e.args)
             raise RuntimeError("cobotta/clear_error: failed to clear error")
-        
-        HRESULT(bcapRes,"clear_error")
-        
-        if bcapRes.vntRet.vt != 0:
-            return
     def controller_get_robot(self) -> None:
         """
         cobottaのロボットハンドルを取得する。
@@ -163,26 +182,27 @@ class CobottaArm():
             cobotta.controller_get_robot()
             ```
         """
-        bcapReq = bcapRequest()
-        bcapReq.func_id = FUNC_ID.ID_CONTROLLER_GETROBOT
-        if self.hControllerVt == -1:
-            rospy.logerr("cobotta/controller_get_robot: you don't get controller handle")
-            return
-        bcapReq.vntArgs.append(variant(vt=self.hControllerVt,value=self.hControllerValue))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value="Arm"))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=""))
-        
-        rospy.wait_for_service("/bcap_service")
         try:
+            bcapReq = bcapRequest()
+            bcapReq.func_id = FUNC_ID.ID_CONTROLLER_GETROBOT
+            if self.hControllerVt == -1:
+                rospy.logerr("cobotta/controller_get_robot: you don't get controller handle")
+                return
+            bcapReq.vntArgs.append(variant(vt=self.hControllerVt,value=self.hControllerValue))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value="Arm"))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=""))
+            
+            rospy.wait_for_service("/bcap_service")
             bcapSrv = rospy.ServiceProxy("/bcap_service",bcap)
             bcapRes: bcapResponse = bcapSrv(bcapReq)
-        except rospy.ServiceException as e:
+            
+            HRESULT(bcapRes,"controller_get_robot")
+            self.hRobotVt = bcapRes.vntRet.vt
+            self.hRobotValue = bcapRes.vntRet.value
+        except Exception as e:
+            self.free()
+            rospy.logerr(e.args)
             raise RuntimeError("cobotta/controller_get_robot: failed to get robot handle")
-        
-        HRESULT(bcapRes,"controller_get_robot")
-
-        self.hRobotVt = bcapRes.vntRet.vt
-        self.hRobotValue = bcapRes.vntRet.value
     def take_arm(self) -> None:
         """
         cobottaのアーム制御権を取得する。
@@ -199,27 +219,29 @@ class CobottaArm():
             cobotta.take_arm()
             ```
         """
-        if self.is_takeArm:
-            rospy.loginfo("cobotta/take_arm: you already take arm")
-            return
-        bcapReq = bcapRequest()
-        bcapReq.func_id = FUNC_ID.ID_ROBOT_EXECUTE
-        if self.hRobotVt == -1:
-            rospy.logerr("cobotta/take_arm: you don't get robot handle")
-            return
-        bcapReq.vntArgs.append(variant(vt=self.hRobotVt,value=self.hRobotValue))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value="Takearm"))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=""))
-        
-        rospy.wait_for_service("/bcap_service")
         try:
+            if self.is_takeArm:
+                rospy.loginfo("cobotta/take_arm: you already take arm")
+                return
+            bcapReq = bcapRequest()
+            bcapReq.func_id = FUNC_ID.ID_ROBOT_EXECUTE
+            if self.hRobotVt == -1:
+                rospy.logerr("cobotta/take_arm: you don't get robot handle")
+                return
+            bcapReq.vntArgs.append(variant(vt=self.hRobotVt,value=self.hRobotValue))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value="Takearm"))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=""))
+            
+            rospy.wait_for_service("/bcap_service")
             bcapSrv = rospy.ServiceProxy("/bcap_service",bcap)
             bcapRes: bcapResponse = bcapSrv(bcapReq)
             self.is_takeArm = True
-        except rospy.ServiceException as e:
             raise RuntimeError("cobotta/take_arm: failed to take arm")
-
-        HRESULT(bcapRes,"take_arm")
+            HRESULT(bcapRes,"take_arm")
+        except Exception as e:
+            self.free()
+            rospy.logerr(e.args)
+            raise RuntimeError("cobotta/take_arm: failed to take arm")
     
     def give_arm(self) -> None:
         """
@@ -280,28 +302,28 @@ class CobottaArm():
             ```
             
         """
-        if self.is_motor_on:
-            rospy.loginfo("cobotta/motor_on: you already motor on")
-            return
-        bcapReq = bcapRequest()
-        bcapReq.func_id = FUNC_ID.ID_ROBOT_EXECUTE
-        if self.hRobotVt == -1:
-            rospy.logerr("cobotta/motor_on: you don't get robot handle")
-            return
-        bcapReq.vntArgs.append(variant(vt=self.hRobotVt,value=self.hRobotValue))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value="Motor"))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value="1"))        
-        
-        rospy.wait_for_service("/bcap_service")
         try:
+            if self.is_motor_on:
+                rospy.loginfo("cobotta/motor_on: you already motor on")
+                return
+            bcapReq = bcapRequest()
+            bcapReq.func_id = FUNC_ID.ID_ROBOT_EXECUTE
+            if self.hRobotVt == -1:
+                rospy.logerr("cobotta/motor_on: you don't get robot handle")
+                return
+            bcapReq.vntArgs.append(variant(vt=self.hRobotVt,value=self.hRobotValue))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value="Motor"))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value="1"))        
+            
+            rospy.wait_for_service("/bcap_service")
             bcapSrv = rospy.ServiceProxy("/bcap_service",bcap)
             bcapRes: bcapResponse = bcapSrv(bcapReq)
             self.is_motor_on = True
+            HRESULT(bcapRes,"motor_on")
         except rospy.ServiceException as e:
+            self.free()
+            rospy.logerr(e.args)
             raise RuntimeError("cobotta/motor_on: failed to motor on")
-        
-        HRESULT(bcapRes,"motor_on")
-    
     def motor_off(self):
         """
         cobottaのモータをオフにする。
@@ -373,31 +395,32 @@ class CobottaArm():
             todo
             ```
         """
-        bcapReq = bcapRequest()
-        bcapReq.func_id = FUNC_ID.ID_ROBOT_MOVE
-        if self.hRobotVt == -1:
-            rospy.logerr("cobotta/move: you don't get robot handle")
-            return
-        if self.is_takeArm == False:
-            rospy.logerr("cobotta/move: you don't take arm")
-            return
-        if self.is_motor_on == False:
-            rospy.logerr("cobotta/move: you don't motor on")
-            return
-        
-        bcapReq.vntArgs.append(variant(vt=self.hRobotVt,value=self.hRobotValue))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_I4,value=str(location_comp)))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=vntPose))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=bstrOption))
-        
-        rospy.wait_for_service("/bcap_service")
         try:
+            bcapReq = bcapRequest()
+            bcapReq.func_id = FUNC_ID.ID_ROBOT_MOVE
+            if self.hRobotVt == -1:
+                rospy.logerr("cobotta/move: you don't get robot handle")
+                return
+            if self.is_takeArm == False:
+                rospy.logerr("cobotta/move: you don't take arm")
+                return
+            if self.is_motor_on == False:
+                rospy.logerr("cobotta/move: you don't motor on")
+                return
+            
+            bcapReq.vntArgs.append(variant(vt=self.hRobotVt,value=self.hRobotValue))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_I4,value=str(location_comp)))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=vntPose))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=bstrOption))
+            
+            rospy.wait_for_service("/bcap_service")
             bcapSrv = rospy.ServiceProxy("/bcap_service",bcap)
             bcapRes: bcapResponse = bcapSrv(bcapReq)
+            HRESULT(bcapRes,"move")
         except rospy.ServiceException as e:
+            self.free()
+            rospy.logerr(e.args)
             raise RuntimeError("cobotta/move: failed to move")
-
-        HRESULT(bcapRes,"move")
     
     def approach(self,location_comp:int,vntPoseBase:str,vntPoseLen:str,strOpt:str) -> None:
         """
@@ -428,46 +451,47 @@ class CobottaArm():
             todo
             ```
         """
-        bcapReq = bcapRequest()
-        bcapReq.func_id = FUNC_ID.ID_ROBOT_EXECUTE
-        if self.hRobotVt == -1:
-            rospy.logerr("cobotta/approach: you don't get robot handle")
-            return
-        if self.is_takeArm == False:
-            rospy.logerr("cobotta/approach: you don't take arm")
-            return
-        if self.is_motor_on == False:
-            rospy.logerr("cobotta/approach: you don't motor on")
-            return
-        
-        bcapReq.vntArgs.append(variant(vt=self.hRobotVt,value=self.hRobotValue))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value="Approach"))
-        """  bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_I4,value=str(location_comp)))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=vntPoseBase))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=vntPoseLen))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=strOpt)) 
-        """
-        value= ""
-        value += "(" + str(VARIANT_TYPES.VT_I4) + "," + str(location_comp) + ")"
-        value += ","
-        value += "(" + str(VARIANT_TYPES.VT_BSTR) + "," + vntPoseBase + ")"
-        value += ","
-        value += "(" + str(VARIANT_TYPES.VT_BSTR) + "," + vntPoseLen + ")"
-        value += ","
-        value += "(" + str(VARIANT_TYPES.VT_BSTR) + "," + strOpt + ")"
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_VARIANT | VARIANT_TYPES.VT_ARRAY,value=value))
-        
-        rospy.wait_for_service("/bcap_service")
-        
-        bcapRes: bcapResponse = bcapResponse()
-        
         try:
+            bcapReq = bcapRequest()
+            bcapReq.func_id = FUNC_ID.ID_ROBOT_EXECUTE
+            if self.hRobotVt == -1:
+                rospy.logerr("cobotta/approach: you don't get robot handle")
+                return
+            if self.is_takeArm == False:
+                rospy.logerr("cobotta/approach: you don't take arm")
+                return
+            if self.is_motor_on == False:
+                rospy.logerr("cobotta/approach: you don't motor on")
+                return
+            
+            bcapReq.vntArgs.append(variant(vt=self.hRobotVt,value=self.hRobotValue))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value="Approach"))
+            """  bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_I4,value=str(location_comp)))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=vntPoseBase))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=vntPoseLen))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=strOpt)) 
+            """
+            value= ""
+            value += "(" + str(VARIANT_TYPES.VT_I4) + "," + str(location_comp) + ")"
+            value += ","
+            value += "(" + str(VARIANT_TYPES.VT_BSTR) + "," + vntPoseBase + ")"
+            value += ","
+            value += "(" + str(VARIANT_TYPES.VT_BSTR) + "," + vntPoseLen + ")"
+            value += ","
+            value += "(" + str(VARIANT_TYPES.VT_BSTR) + "," + strOpt + ")"
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_VARIANT | VARIANT_TYPES.VT_ARRAY,value=value))
+            
+            rospy.wait_for_service("/bcap_service")
+            
+            bcapRes: bcapResponse = bcapResponse()
             bcapSrv = rospy.ServiceProxy("/bcap_service",bcap)
             bcapRes: bcapResponse = bcapSrv(bcapReq)
+            
+            HRESULT(bcapRes,"approach")
         except rospy.ServiceException as e:
+            self.free()
+            rospy.logerr(e.args)
             raise RuntimeError("cobotta/approach: failed to approach")
-        
-        HRESULT(bcapRes,"approach")
         
     def depart(self,location_comp:int,vntPoseLen:str,strOpt:str) -> None:
         """
@@ -496,44 +520,46 @@ class CobottaArm():
             todo
             ```
         """
-        bcapReq = bcapRequest()
-        bcapReq.func_id = FUNC_ID.ID_ROBOT_EXECUTE
-        if self.hRobotVt == -1:
-            rospy.logerr("cobotta/depart: you don't get robot handle")
-            return
-        if self.is_takeArm == False:
-            rospy.logerr("cobotta/depart: you don't take arm")
-            return
-        if self.is_motor_on == False:
-            rospy.logerr("cobotta/depart: you don't motor on")
-            return
-        
-        bcapReq.vntArgs.append(variant(vt=self.hRobotVt,value=self.hRobotValue))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value="Depart"))
-        """  
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_I4,value=str(location_comp)))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=vntPoseLen))
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=strOpt)) """
-        
-        value = ""
-        value += "(" + str(VARIANT_TYPES.VT_I4) + "," + str(location_comp) + ")"
-        value += ","
-        value += "(" + str(VARIANT_TYPES.VT_BSTR) + "," + vntPoseLen + ")"
-        value += ","
-        value += "(" + str(VARIANT_TYPES.VT_BSTR) + "," + strOpt + ")"
-        bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_VARIANT | VARIANT_TYPES.VT_ARRAY,value=value))
-        
-        rospy.wait_for_service("/bcap_service")
-        
-        bcapRes: bcapResponse = bcapResponse()
-        
         try:
+            bcapReq = bcapRequest()
+            bcapReq.func_id = FUNC_ID.ID_ROBOT_EXECUTE
+            if self.hRobotVt == -1:
+                rospy.logerr("cobotta/depart: you don't get robot handle")
+                return
+            if self.is_takeArm == False:
+                rospy.logerr("cobotta/depart: you don't take arm")
+                return
+            if self.is_motor_on == False:
+                rospy.logerr("cobotta/depart: you don't motor on")
+                return
+            
+            bcapReq.vntArgs.append(variant(vt=self.hRobotVt,value=self.hRobotValue))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value="Depart"))
+            """  
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_I4,value=str(location_comp)))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=vntPoseLen))
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=strOpt)) """
+            
+            value = ""
+            value += "(" + str(VARIANT_TYPES.VT_I4) + "," + str(location_comp) + ")"
+            value += ","
+            value += "(" + str(VARIANT_TYPES.VT_BSTR) + "," + vntPoseLen + ")"
+            value += ","
+            value += "(" + str(VARIANT_TYPES.VT_BSTR) + "," + strOpt + ")"
+            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_VARIANT | VARIANT_TYPES.VT_ARRAY,value=value))
+            
+            rospy.wait_for_service("/bcap_service")
+            
+            bcapRes: bcapResponse = bcapResponse()
             bcapSrv = rospy.ServiceProxy("/bcap_service",bcap)
             bcapRes: bcapResponse = bcapSrv(bcapReq)
-        except rospy.ServiceException as e:
+        except Exception as e:
+            self.free()
+            rospy.logerr(e.args)
             raise RuntimeError("cobotta/depart: failed to depart")
         
         HRESULT(bcapRes,"depart")
+
 if __name__ == "__main__":
     rospy.init_node("cobotta_arm")
     rospy.loginfo("dish_grasp_test")
