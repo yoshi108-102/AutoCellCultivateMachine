@@ -1,4 +1,4 @@
-prefix=/usr/local
+prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/install
 
 Name: cobotta_moveit
 Description: Description of cobotta_moveit

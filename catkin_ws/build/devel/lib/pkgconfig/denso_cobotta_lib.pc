@@ -1,8 +1,0 @@
-prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/build/devel
-
-Name: denso_cobotta_lib
-Description: Description of denso_cobotta_lib
-Version: 1.2.4
-Cflags: -I/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_cobotta_ros/denso_cobotta_lib/include
-Libs: -L${prefix}/lib -ldenso_cobotta_lib
-Requires: roscpp

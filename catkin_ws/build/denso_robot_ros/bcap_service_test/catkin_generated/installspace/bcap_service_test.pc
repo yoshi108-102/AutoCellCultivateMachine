@@ -1,8 +1,0 @@
-prefix=/usr/local
-
-Name: bcap_service_test
-Description: Description of bcap_service_test
-Version: 3.3.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: roscpp

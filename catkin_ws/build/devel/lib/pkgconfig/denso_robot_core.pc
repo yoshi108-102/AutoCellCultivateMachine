@@ -1,8 +1,0 @@
-prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/build/devel
-
-Name: denso_robot_core
-Description: Description of denso_robot_core
-Version: 3.3.0
-Cflags: -I/home/tw017/Desktop/PipetteDetect/catkin_ws/build/devel/include -I/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/denso_robot_core/include
-Libs: -L${prefix}/lib -ldenso_robot_core
-Requires: actionlib actionlib_msgs bcap_core bcap_service message_runtime roscpp std_msgs

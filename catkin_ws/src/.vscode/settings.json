@@ -4,5 +4,12 @@
     ],
     "python.analysis.extraPaths": [
         "/opt/ros/noetic/lib/python3/dist-packages"
-    ]
+    ],
+    "clangd.arguments": [
+        "--compile-commands-dir=${workspaceFolder}/**",
+        "--header-insertion=never",
+        "--clang-tidy",
+        "--enable-config"
+    ],
+    
 }

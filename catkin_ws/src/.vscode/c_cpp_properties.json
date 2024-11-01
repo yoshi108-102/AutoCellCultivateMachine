@@ -7,8 +7,10 @@
       },
       "includePath": [
         "/opt/ros/noetic/include/**",
-        "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/myrobot/include/**",
-        "/usr/include/**"
+        "/home/tw017/Desktop/PipetteDetect/catkin_ws/**",
+        "/usr/include/**",
+        "${workspaceFolder}/**",
+        "/usr/include/c++/9/**"
       ],
       "name": "ROS",
       "intelliSenseMode": "gcc-x64",

@@ -1,8 +1,0 @@
-prefix=/usr/local
-
-Name: denso_cobotta_lib
-Description: Description of denso_cobotta_lib
-Version: 1.2.4
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib -ldenso_cobotta_lib
-Requires: roscpp

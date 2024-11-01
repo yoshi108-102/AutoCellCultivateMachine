@@ -1,4 +1,4 @@
-prefix=/usr/local
+prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/install
 
 Name: mycobot_320_moveit
 Description: Description of mycobot_320_moveit
