@@ -236,7 +236,6 @@ class CobottaArm():
             bcapSrv = rospy.ServiceProxy("/bcap_service",bcap)
             bcapRes: bcapResponse = bcapSrv(bcapReq)
             self.is_takeArm = True
-            raise RuntimeError("cobotta/take_arm: failed to take arm")
             HRESULT(bcapRes,"take_arm")
         except Exception as e:
             self.free()
@@ -567,7 +566,7 @@ if __name__ == "__main__":
     cobotta.controller_connect()
     cobotta.controller_get_robot()
     cobotta.clear_error()
-    cobotta.motor_on()
+    """ cobotta.motor_on()
     cobotta.take_arm()
     cobotta.move(1,"@0 P5","")
     cobotta.approach(1,"P11","@0 50","")
@@ -583,4 +582,4 @@ if __name__ == "__main__":
     cobotta.depart(1, "@0 50","")
     cobotta.give_arm()
     cobotta.motor_off()
-    
+     """
