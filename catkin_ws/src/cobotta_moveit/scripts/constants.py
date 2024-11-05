@@ -332,3 +332,15 @@ FUNC_ID = func_ids(
     ID_MESSAGE_GETVALUE=136,
     ID_MESSAGE_RELEASE=137,
 )
+"""
+mode: cobottaのモードを定義するための名前付きタプル
+"""
+mode = namedtuple('ModeConstants', [
+    "NORMAL",
+    "SLAVE",
+])
+
+MODE = mode(
+    NORMAL=0,
+    SLAVE=514,
+)

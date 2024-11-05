@@ -70,7 +70,7 @@ ros/message_operations.h
 ros/ros.h
 -
 bcap_service/bcap.h
-/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/bcap_service_test/src/bcap_service/bcap.h
+-
 
 /opt/ros/noetic/include/ros/advertise_options.h
 ros/forwards.h

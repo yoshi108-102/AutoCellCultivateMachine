@@ -1,47 +1,47 @@
-[35m[1mScanning dependencies of target _bcap_service_generate_messages_check_deps_variant[0m
-[35m[1mScanning dependencies of target std_msgs_generate_messages_cpp[0m
-[35m[1mScanning dependencies of target std_msgs_generate_messages_eus[0m
-[35m[1mScanning dependencies of target _bcap_service_generate_messages_check_deps_bcap[0m
-[35m[1mScanning dependencies of target std_msgs_generate_messages_nodejs[0m
-[35m[1mScanning dependencies of target std_msgs_generate_messages_lisp[0m
 [35m[1mScanning dependencies of target std_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target _bcap_service_generate_messages_check_deps_bcap[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target _bcap_service_generate_messages_check_deps_variant[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_nodejs[0m
 [  0%] Built target std_msgs_generate_messages_py
-[  0%] Built target std_msgs_generate_messages_nodejs
-[  0%] Built target std_msgs_generate_messages_lisp
 [  0%] Built target std_msgs_generate_messages_eus
+[  0%] Built target std_msgs_generate_messages_lisp
+[  0%] Built target std_msgs_generate_messages_nodejs
 [  0%] Built target std_msgs_generate_messages_cpp
 [  0%] Built target _bcap_service_generate_messages_check_deps_variant
 [  0%] Built target _bcap_service_generate_messages_check_deps_bcap
-[35m[1mScanning dependencies of target bcap_service_generate_messages_cpp[0m
 [35m[1mScanning dependencies of target bcap_service_generate_messages_eus[0m
-[35m[1mScanning dependencies of target bcap_service_generate_messages_py[0m
-[35m[1mScanning dependencies of target bcap_service_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target bcap_service_generate_messages_cpp[0m
 [35m[1mScanning dependencies of target bcap_service_generate_messages_lisp[0m
-[  5%] [34m[1mGenerating C++ code from bcap_service/variant.msg[0m
+[35m[1mScanning dependencies of target bcap_service_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target bcap_service_generate_messages_py[0m
+[  5%] [34m[1mGenerating Lisp code from bcap_service/variant.msg[0m
 [ 11%] [34m[1mGenerating EusLisp manifest code for bcap_service[0m
-[ 17%] [34m[1mGenerating Python code from SRV bcap_service/bcap[0m
-[ 23%] [34m[1mGenerating EusLisp code from bcap_service/bcap.srv[0m
+[ 23%] [34m[1mGenerating Python code from SRV bcap_service/bcap[0m
+[ 23%] [34m[1mGenerating Javascript code from bcap_service/bcap.srv[0m
 [ 29%] [34m[1mGenerating C++ code from bcap_service/bcap.srv[0m
-[ 35%] [34m[1mGenerating Javascript code from bcap_service/variant.msg[0m
-[ 47%] [34m[1mGenerating Javascript code from bcap_service/bcap.srv[0m
-[ 47%] [34m[1mGenerating EusLisp code from bcap_service/variant.msg[0m
-[ 52%] [34m[1mGenerating Lisp code from bcap_service/bcap.srv[0m
-[ 58%] [34m[1mGenerating Lisp code from bcap_service/variant.msg[0m
+[ 35%] [34m[1mGenerating EusLisp code from bcap_service/variant.msg[0m
+[ 41%] [34m[1mGenerating EusLisp code from bcap_service/bcap.srv[0m
+[ 47%] [34m[1mGenerating C++ code from bcap_service/variant.msg[0m
+[ 58%] [34m[1mGenerating Lisp code from bcap_service/bcap.srv[0m
+[ 58%] [34m[1mGenerating Javascript code from bcap_service/variant.msg[0m
 [ 64%] [34m[1mGenerating Python from MSG bcap_service/variant[0m
 [ 64%] Built target bcap_service_generate_messages_nodejs
 [ 64%] Built target bcap_service_generate_messages_lisp
-[ 70%] [34m[1mGenerating Python srv __init__.py for bcap_service[0m
 [ 76%] [34m[1mGenerating Python msg __init__.py for bcap_service[0m
+[ 76%] [34m[1mGenerating Python srv __init__.py for bcap_service[0m
 [ 76%] Built target bcap_service_generate_messages_cpp
 [35m[1mScanning dependencies of target bcap_service_exec[0m
 [35m[1mScanning dependencies of target bcap_service[0m
-[ 82%] [32mBuilding CXX object CMakeFiles/bcap_service_exec.dir/src/bcap_service.cpp.o[0m
-[ 88%] [32mBuilding CXX object CMakeFiles/bcap_service.dir/src/bcap_service.cpp.o[0m
+[ 82%] [32mBuilding CXX object CMakeFiles/bcap_service.dir/src/bcap_service.cpp.o[0m
+[ 88%] [32mBuilding CXX object CMakeFiles/bcap_service_exec.dir/src/bcap_service.cpp.o[0m
 [ 88%] Built target bcap_service_generate_messages_py
 [ 88%] Built target bcap_service_generate_messages_eus
 [35m[1mScanning dependencies of target bcap_service_generate_messages[0m
 [ 88%] Built target bcap_service_generate_messages
-[ 94%] [32m[1mLinking CXX shared library /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/bcap_service/lib/libbcap_service.so[0m
-[100%] [32m[1mLinking CXX executable /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/bcap_service/lib/bcap_service/bcap_service_exec[0m
+[ 94%] [32m[1mLinking CXX executable /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/bcap_service/lib/bcap_service/bcap_service_exec[0m
+[100%] [32m[1mLinking CXX shared library /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/bcap_service/lib/libbcap_service.so[0m
 [100%] Built target bcap_service
 [100%] Built target bcap_service_exec

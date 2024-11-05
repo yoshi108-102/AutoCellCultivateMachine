@@ -3,9 +3,11 @@ from cobotta_k3hand import K3HandinCobotta as K3Hand
 from hresult import HRESULT
 import rospy
 
+from std_msgs.msg import Int32
+
 from bcap_service.srv import bcapRequest, bcapResponse,bcap
 from bcap_service.msg import variant
-from constants import FUNC_ID,VARIANT_TYPES
+from constants import FUNC_ID,VARIANT_TYPES,MODE
 class CobottaArm():
     """cobottaのアームを操作および拡張アイテム（K3Handなど）にアクセスするためのクラス。
     
@@ -32,17 +34,65 @@ class CobottaArm():
         ip_address (str): cobottaのipアドレス。デフォルトでは192.168.0.1。変更した場合はコンストラクタで指定する。
         is_takeArm (bool): cobottaのアーム制御権を取得したかどうかのフラグ。初期状態ではFalse。
         is_motor_on (bool): cobottaのモータがオンになっているかどうかのフラグ。初期状態ではFalse。
+        changeModePub (rospy.Publisher): cobottaのモード変更を行うためのPublisher。Int32型のメッセージを送信する。なぜか一度空振りさせないと機能しないので、初期化の際に一度だけ送信を行う。
+        curModeSub (rospy.Subscriber): cobottaのモード変更を行うためのSubscriber。Int32型のメッセージを受信する。モード変更を正確に検知する
+        mode: 0: normal mode, 514: slave mode
     
     """
     def __init__(self,ip_address="192.168.0.1"):
         self.k3Hand = K3Hand(-1,"")
+        
         self.hControllerVt = -1
         self.hControllerValue = ""
         self.hRobotVt = -1
         self.hRobotValue = ""
+        
         self.ip_address = ip_address
         self.is_takeArm = False
         self.is_motor_on = False
+        
+        self.changeModePub = rospy.Publisher("/cobotta/ChangeMode",Int32,queue_size=10)
+        self.changeModePub.publish(0) # 一度空振りさせる。実機への影響はない。
+        self.curModeSub = rospy.Subscriber("/cobotta/CurrentMode",Int32,self.curModeCallback)
+        self.mode = MODE.SLAVE
+    
+    def setup(self):
+        """
+        cobottaのセットアップを行う。
+        cobottaのコントローラに接続し、ロボットハンドルを取得する。
+        
+        Raises:
+            RuntimeError: セットアップに失敗した場合に発生。
+        
+        Examples:
+            ```python
+            cobotta = CobottaArm()
+            cobotta.cobotta_setup()
+            ```
+        """
+        self.controller_connect()
+        self.controller_get_robot()
+        self.clear_error()
+        
+    def free(self):
+        """
+        cobottaの解放を行う。
+        cobottaのロボットハンドルを解放し、コントローラとの接続を切断する。
+        
+        Raises:
+            RuntimeError: 解放に失敗した場合に発生。
+        
+        Examples:
+            ```python
+            cobotta = CobottaArm()
+            cobotta.cobotta_setup()
+            cobotta.cobotta_free()
+            ```
+        """
+        self.give_arm()
+        self.motor_off()
+        self.robot_release()
+        self.controller_disconnect()
         
     def controller_connect(self) -> None:
         """
@@ -78,10 +128,45 @@ class CobottaArm():
             return
         self.hControllerVt = bcapRes.vntRet.vt
         self.hControllerValue = bcapRes.vntRet.value
-    
-    def free(self):
+        
+    def controller_disconnect(self) -> None:
         """
-        cobottaのアーム制御権を解放し、モータをオフにする。
+        
+        controller_connectで接続したcobottaのコントローラとの接続を切断する。
+        事前にcobottaのコントローラに接続している必要がある。
+        
+        Raises:
+            RuntimeError: 切断に失敗した場合に発生。発生した場合はターミナルからcobottaのコントローラハンドル番号を確認した上で、ターミナル上で
+            
+            rosservice call /bcap_service '{func_id: 4, vntArgs: [{vt: (取得したvt), value: (取得したvalue)}] }'
+            
+            と実行して手動で切断する。
+            
+        
+        Examples:
+            ```python   
+            cobotta = CobottaArm()
+            cobotta.controller_connect()
+            cobotta.controller_disconnect()
+            ```
+        """
+        bcapReq = bcapRequest()
+        bcapReq.func_id = FUNC_ID.ID_CONTROLLER_DISCONNECT
+        if self.hControllerVt == -1:
+            rospy.logerr("cobotta/controller_disconnect: you don't get controller handle")
+            return
+        bcapReq.vntArgs.append(variant(vt=self.hControllerVt,value=self.hControllerValue))
+        
+        rospy.wait_for_service("/bcap_service")
+        try:
+            bcapSrv = rospy.ServiceProxy("/bcap_service",bcap)
+            bcapRes: bcapResponse = bcapSrv(bcapReq)
+            HRESULT(bcapRes,"controller_disconnect")
+        except rospy.ServiceException as e:
+            raise RuntimeError("cobotta/controller_disconnect: failed to disconnect cobotta controller")
+    def robot_release(self) -> None:
+        """
+        cobottaのロボットハンドルを解放する。
         事前にcobottaのコントローラに接続している必要がある。
         
         Raises:
@@ -91,11 +176,27 @@ class CobottaArm():
             ```python
             cobotta = CobottaArm()
             cobotta.controller_connect()
-            cobotta.free()
+            cobotta.robot_release()
             ```
         """
-        self.give_arm()
-        self.motor_off()
+        try:
+            bcapReq = bcapRequest()
+            bcapReq.func_id = FUNC_ID.ID_ROBOT_RELEASE
+            if self.hRobotVt == -1:
+                rospy.logerr("cobotta/robot_release: you don't get robot handle")
+                return
+            bcapReq.vntArgs.append(variant(vt=self.hRobotVt,value=self.hRobotValue))
+            
+            rospy.wait_for_service("/bcap_service")
+            bcapSrv = rospy.ServiceProxy("/bcap_service",bcap)
+            bcapRes: bcapResponse = bcapSrv(bcapReq)
+            self.hRobotVt = -1
+            self.hRobotValue = ""
+            HRESULT(bcapRes,"robot_release")
+        except Exception as e:
+            self.free()
+            rospy.logerr(e.args)
+            raise RuntimeError("cobotta/robot_release: failed to release robot")
     def add_k3hand(self) -> None:
         """
         cobottaに接続されたK3Handのコントローラに接続し、ハンドルを取得する。成功したらK3Handのインスタンスを作成する。
@@ -583,3 +684,4 @@ if __name__ == "__main__":
     cobotta.give_arm()
     cobotta.motor_off()
      """
+    cobotta.free()

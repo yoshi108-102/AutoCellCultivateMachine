@@ -1,137 +1,137 @@
-[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_cpp[0m
-[35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveResult[0m
-[35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveFeedback[0m
-[35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveGoal[0m
 [35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveActionGoal[0m
-[35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveAction[0m
-[35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveFeedback[0m
-[35m[1mScanning dependencies of target std_msgs_generate_messages_lisp[0m
-[35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveActionResult[0m
-[35m[1mScanning dependencies of target std_msgs_generate_messages_nodejs[0m
-[35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveActionFeedback[0m
-[35m[1mScanning dependencies of target std_msgs_generate_messages_eus[0m
-[35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveAction[0m
-[35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveResult[0m
-[35m[1mScanning dependencies of target std_msgs_generate_messages_cpp[0m
 [35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveActionResult[0m
-[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_nodejs[0m
 [35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveActionGoal[0m
-[35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveGoal[0m
+[35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveAction[0m
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveGoal[0m
 [35m[1mScanning dependencies of target actionlib_msgs_generate_messages_py[0m
-[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveAction[0m
+[35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveResult[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_nodejs[0m
 [35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveActionFeedback[0m
-[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveActionResult[0m
+[35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveFeedback[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveGoal[0m
 [35m[1mScanning dependencies of target std_msgs_generate_messages_py[0m
+[35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveFeedback[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveActionFeedback[0m
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_eus[0m
+[35m[1mScanning dependencies of target std_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_lisp[0m
+[35m[1mScanning dependencies of target actionlib_msgs_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveResult[0m
 [  0%] Built target actionlib_msgs_generate_messages_cpp
-[  0%] Built target std_msgs_generate_messages_lisp
-[  0%] Built target std_msgs_generate_messages_eus
-[  0%] Built target std_msgs_generate_messages_nodejs
-[  0%] Built target std_msgs_generate_messages_cpp
 [  0%] Built target actionlib_msgs_generate_messages_py
-[  0%] Built target actionlib_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_cpp
+[  0%] Built target std_msgs_generate_messages_eus
 [  0%] Built target actionlib_msgs_generate_messages_eus
-[  0%] Built target actionlib_msgs_generate_messages_lisp
+[  0%] Built target actionlib_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_nodejs
+[  0%] Built target std_msgs_generate_messages_lisp
 [  0%] Built target std_msgs_generate_messages_py
-[  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveFeedback
-[  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveGoal
+[  0%] Built target actionlib_msgs_generate_messages_lisp
 [  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveAction
-[  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveGoal
-[  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveFeedback
+[  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveActionGoal
 [  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveActionGoal
 [  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveActionResult
-[  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveResult
-[  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveAction
-[  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveActionFeedback
-[  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveResult
-[  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveActionGoal
 [  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveActionFeedback
+[  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveAction
+[  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveGoal
+[  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveActionFeedback
+[  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveResult
+[  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveFeedback
 [  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_VacuumMoveActionResult
-[35m[1mScanning dependencies of target denso_cobotta_gripper_generate_messages_cpp[0m
-[35m[1mScanning dependencies of target denso_cobotta_gripper_generate_messages_nodejs[0m
-[35m[1mScanning dependencies of target denso_cobotta_gripper_generate_messages_lisp[0m
+[  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveGoal
+[  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveFeedback
+[  0%] Built target _denso_cobotta_gripper_generate_messages_check_deps_GripperMoveResult
 [35m[1mScanning dependencies of target denso_cobotta_gripper_generate_messages_py[0m
 [35m[1mScanning dependencies of target denso_cobotta_gripper_generate_messages_eus[0m
-[  1%] [34m[1mGenerating C++ code from denso_cobotta_gripper/GripperMoveResult.msg[0m
-[  2%] [34m[1mGenerating C++ code from denso_cobotta_gripper/VacuumMoveAction.msg[0m
-[  6%] [34m[1mGenerating C++ code from denso_cobotta_gripper/GripperMoveActionGoal.msg[0m
-[  6%] [34m[1mGenerating C++ code from denso_cobotta_gripper/GripperMoveGoal.msg[0m
-[  6%] [34m[1mGenerating C++ code from denso_cobotta_gripper/GripperMoveActionFeedback.msg[0m
-[  7%] [34m[1mGenerating C++ code from denso_cobotta_gripper/VacuumMoveActionGoal.msg[0m
-[  9%] [34m[1mGenerating C++ code from denso_cobotta_gripper/VacuumMoveActionResult.msg[0m
-[ 10%] [34m[1mGenerating C++ code from denso_cobotta_gripper/VacuumMoveGoal.msg[0m
-[ 11%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/GripperMoveActionGoal.msg[0m
-[ 12%] [34m[1mGenerating C++ code from denso_cobotta_gripper/GripperMoveAction.msg[0m
-[ 14%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/GripperMoveActionResult.msg[0m
-[ 15%] [34m[1mGenerating C++ code from denso_cobotta_gripper/VacuumMoveFeedback.msg[0m
-[ 16%] [34m[1mGenerating C++ code from denso_cobotta_gripper/GripperMoveFeedback.msg[0m
-[ 18%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/GripperMoveAction.msg[0m
-[ 19%] [34m[1mGenerating C++ code from denso_cobotta_gripper/VacuumMoveActionFeedback.msg[0m
-[ 20%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/GripperMoveFeedback.msg[0m
-[ 22%] [34m[1mGenerating C++ code from denso_cobotta_gripper/GripperMoveActionResult.msg[0m
-[ 23%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/GripperMoveActionFeedback.msg[0m
-[ 24%] [34m[1mGenerating C++ code from denso_cobotta_gripper/VacuumMoveResult.msg[0m
-[ 25%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/GripperMoveGoal.msg[0m
-[ 27%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/GripperMoveAction.msg[0m
-[ 29%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/GripperMoveActionGoal.msg[0m
-[ 29%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/GripperMoveAction[0m
-[ 31%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/GripperMoveResult.msg[0m
-[ 32%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/GripperMoveAction.msg[0m
-[ 33%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/VacuumMoveAction.msg[0m
-[ 36%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/GripperMoveActionFeedback.msg[0m
-[ 36%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/VacuumMoveActionGoal.msg[0m
-[ 38%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/GripperMoveActionGoal.msg[0m
-[ 38%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/GripperMoveActionResult.msg[0m
-[ 41%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/VacuumMoveGoal.msg[0m
-[ 41%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/VacuumMoveActionFeedback.msg[0m
-[ 42%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/VacuumMoveResult.msg[0m
-[ 44%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/VacuumMoveActionResult.msg[0m
-[ 45%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/GripperMoveGoal.msg[0m
-[ 46%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/VacuumMoveFeedback.msg[0m
-[ 48%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/GripperMoveActionGoal[0m
-[ 49%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/GripperMoveActionResult[0m
-[ 50%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/GripperMoveGoal[0m
-[ 51%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/GripperMoveResult[0m
-[ 57%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/VacuumMoveAction[0m
-[ 57%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/GripperMoveFeedback[0m
-[ 57%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/VacuumMoveActionGoal[0m
-[ 57%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/GripperMoveActionResult.msg[0m
-[ 58%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/GripperMoveActionFeedback.msg[0m
-[ 59%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/GripperMoveActionFeedback[0m
-[ 62%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/VacuumMoveActionResult[0m
-[ 62%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/VacuumMoveActionFeedback[0m
-[ 63%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/VacuumMoveAction.msg[0m
-[ 64%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/GripperMoveResult.msg[0m
-[ 66%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/VacuumMoveResult[0m
-[ 67%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/VacuumMoveGoal[0m
-[ 68%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/GripperMoveResult.msg[0m
-[ 70%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/GripperMoveGoal.msg[0m
-[ 71%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/GripperMoveFeedback.msg[0m
-[ 74%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/GripperMoveFeedback.msg[0m
-[ 74%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/VacuumMoveActionGoal.msg[0m
-[ 75%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/VacuumMoveFeedback[0m
-[ 76%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/VacuumMoveAction.msg[0m
-[ 77%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/VacuumMoveActionGoal.msg[0m
-[ 77%] Built target denso_cobotta_gripper_generate_messages_nodejs
-[ 79%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/VacuumMoveActionResult.msg[0m
-[ 79%] Built target denso_cobotta_gripper_generate_messages_cpp
-[ 80%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/VacuumMoveActionFeedback.msg[0m
-[ 81%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/VacuumMoveActionFeedback.msg[0m
+[35m[1mScanning dependencies of target denso_cobotta_gripper_generate_messages_nodejs[0m
+[35m[1mScanning dependencies of target denso_cobotta_gripper_generate_messages_cpp[0m
+[35m[1mScanning dependencies of target denso_cobotta_gripper_generate_messages_lisp[0m
+[  2%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/GripperMoveActionFeedback[0m
+[  2%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/GripperMoveActionGoal[0m
+[  3%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/GripperMoveGoal[0m
+[ 10%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/VacuumMoveActionResult[0m
+[ 10%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/GripperMoveActionResult.msg[0m
+[ 10%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/GripperMoveAction.msg[0m
+[ 10%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/VacuumMoveAction[0m
+[ 10%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/GripperMoveActionFeedback.msg[0m
+[ 14%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/GripperMoveAction.msg[0m
+[ 14%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/VacuumMoveAction.msg[0m
+[ 14%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/VacuumMoveActionGoal[0m
+[ 15%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/VacuumMoveActionFeedback[0m
+[ 18%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/GripperMoveActionResult[0m
+[ 18%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/GripperMoveAction[0m
+[ 20%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/GripperMoveActionGoal.msg[0m
+[ 20%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/GripperMoveFeedback[0m
+[ 22%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/GripperMoveGoal.msg[0m
+[ 27%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/GripperMoveFeedback.msg[0m
+[ 27%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/GripperMoveResult[0m
+[ 27%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/GripperMoveActionGoal.msg[0m
+[ 28%] [34m[1mGenerating C++ code from denso_cobotta_gripper/GripperMoveAction.msg[0m
+[ 27%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/GripperMoveResult.msg[0m
+[ 29%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/VacuumMoveGoal[0m
+[ 31%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/VacuumMoveActionGoal.msg[0m
+[ 32%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/GripperMoveActionResult.msg[0m
+[ 33%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/GripperMoveAction.msg[0m
+[ 35%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/VacuumMoveActionResult.msg[0m
+[ 36%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/VacuumMoveResult[0m
+[ 37%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/VacuumMoveActionFeedback.msg[0m
+[ 38%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/GripperMoveActionGoal.msg[0m
+[ 42%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/GripperMoveActionFeedback.msg[0m
+[ 42%] [34m[1mGenerating C++ code from denso_cobotta_gripper/GripperMoveActionGoal.msg[0m
+[ 45%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/GripperMoveGoal.msg[0m
+[ 45%] [34m[1mGenerating C++ code from denso_cobotta_gripper/GripperMoveActionResult.msg[0m
+[ 46%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/GripperMoveResult.msg[0m
+[ 46%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/VacuumMoveGoal.msg[0m
+[ 48%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/VacuumMoveResult.msg[0m
+[ 50%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/VacuumMoveFeedback.msg[0m
+[ 50%] [34m[1mGenerating C++ code from denso_cobotta_gripper/GripperMoveActionFeedback.msg[0m
+[ 54%] [34m[1mGenerating C++ code from denso_cobotta_gripper/GripperMoveGoal.msg[0m
+[ 54%] [34m[1mGenerating Python from MSG denso_cobotta_gripper/VacuumMoveFeedback[0m
+[ 54%] [34m[1mGenerating EusLisp manifest code for denso_cobotta_gripper[0m
+[ 55%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/GripperMoveFeedback.msg[0m
+[ 58%] [34m[1mGenerating C++ code from denso_cobotta_gripper/GripperMoveResult.msg[0m
+[ 58%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/GripperMoveActionResult.msg[0m
+[ 59%] [34m[1mGenerating C++ code from denso_cobotta_gripper/GripperMoveFeedback.msg[0m
+[ 61%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/GripperMoveActionFeedback.msg[0m
+[ 62%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/VacuumMoveAction.msg[0m
+[ 63%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/VacuumMoveActionGoal.msg[0m
+[ 64%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/VacuumMoveActionResult.msg[0m
+[ 67%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/GripperMoveGoal.msg[0m
+[ 67%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/VacuumMoveActionFeedback.msg[0m
+[ 68%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/VacuumMoveGoal.msg[0m
+[ 70%] [34m[1mGenerating C++ code from denso_cobotta_gripper/VacuumMoveAction.msg[0m
+[ 71%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/VacuumMoveResult.msg[0m
+[ 72%] [34m[1mGenerating Javascript code from denso_cobotta_gripper/VacuumMoveFeedback.msg[0m
+[ 74%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/GripperMoveResult.msg[0m
+[ 75%] [34m[1mGenerating C++ code from denso_cobotta_gripper/VacuumMoveActionGoal.msg[0m
+[ 76%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/GripperMoveFeedback.msg[0m
+[ 77%] [34m[1mGenerating C++ code from denso_cobotta_gripper/VacuumMoveActionResult.msg[0m
+[ 80%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/VacuumMoveAction.msg[0m
+[ 80%] [34m[1mGenerating C++ code from denso_cobotta_gripper/VacuumMoveGoal.msg[0m
+[ 81%] [34m[1mGenerating C++ code from denso_cobotta_gripper/VacuumMoveResult.msg[0m
+[ 83%] [34m[1mGenerating C++ code from denso_cobotta_gripper/VacuumMoveActionFeedback.msg[0m
+[ 84%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/VacuumMoveActionGoal.msg[0m
+[ 85%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/VacuumMoveActionResult.msg[0m
+[ 87%] [34m[1mGenerating C++ code from denso_cobotta_gripper/VacuumMoveFeedback.msg[0m
+[ 88%] [34m[1mGenerating Python msg __init__.py for denso_cobotta_gripper[0m
+[ 89%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/VacuumMoveResult.msg[0m
+[ 90%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/VacuumMoveActionFeedback.msg[0m
+[ 92%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/VacuumMoveFeedback.msg[0m
+[ 93%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/VacuumMoveGoal.msg[0m
+[ 93%] Built target denso_cobotta_gripper_generate_messages_nodejs
+[ 93%] Built target denso_cobotta_gripper_generate_messages_lisp
+[ 93%] Built target denso_cobotta_gripper_generate_messages_py
+[ 93%] Built target denso_cobotta_gripper_generate_messages_cpp
 [35m[1mScanning dependencies of target denso_cobotta_gripper[0m
-[ 83%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/VacuumMoveGoal.msg[0m
-[ 84%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/VacuumMoveResult.msg[0m
-[ 85%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/VacuumMoveActionResult.msg[0m
-[ 87%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/VacuumMoveFeedback.msg[0m
-[ 88%] [34m[1mGenerating EusLisp code from denso_cobotta_gripper/VacuumMoveGoal.msg[0m
-[ 89%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/VacuumMoveFeedback.msg[0m
-[ 90%] [32mBuilding CXX object CMakeFiles/denso_cobotta_gripper.dir/src/denso_cobotta_gripper.cpp.o[0m
-[ 92%] [34m[1mGenerating Lisp code from denso_cobotta_gripper/VacuumMoveResult.msg[0m
-[ 93%] [34m[1mGenerating EusLisp manifest code for denso_cobotta_gripper[0m
-[ 94%] [32mBuilding CXX object CMakeFiles/denso_cobotta_gripper.dir/src/gripper_parallel.cpp.o[0m
+[ 94%] [32mBuilding CXX object CMakeFiles/denso_cobotta_gripper.dir/src/denso_cobotta_gripper.cpp.o[0m
 [ 96%] [32mBuilding CXX object CMakeFiles/denso_cobotta_gripper.dir/src/gripper_vacuum.cpp.o[0m
-[ 97%] [32mBuilding CXX object CMakeFiles/denso_cobotta_gripper.dir/src/gripper_base.cpp.o[0m
-[ 98%] [34m[1mGenerating Python msg __init__.py for denso_cobotta_gripper[0m
-[ 98%] Built target denso_cobotta_gripper_generate_messages_lisp
-[ 98%] Built target denso_cobotta_gripper_generate_messages_py
+[ 98%] [32mBuilding CXX object CMakeFiles/denso_cobotta_gripper.dir/src/gripper_parallel.cpp.o[0m
+[ 98%] [32mBuilding CXX object CMakeFiles/denso_cobotta_gripper.dir/src/gripper_base.cpp.o[0m
 [ 98%] Built target denso_cobotta_gripper_generate_messages_eus
 [35m[1mScanning dependencies of target denso_cobotta_gripper_generate_messages[0m
 [ 98%] Built target denso_cobotta_gripper_generate_messages
