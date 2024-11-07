@@ -5,8 +5,7 @@ import os
 import random
 import roslib.packages
 
-pkg_dir = roslib.packages.get_pkg_dir("mycobot_320_moveit")
-dataset_dir = pkg_dir + "/datasets"
+dataset_dir = "./datasets"
 
 img_list = glob.glob(os.path.join(dataset_dir + "/annotation", "*.txt"))
 random.shuffle(img_list)

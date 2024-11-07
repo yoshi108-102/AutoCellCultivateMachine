@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 from ultralytics import YOLO
 import pyrealsense2 as rs
+import os
 
 import cv2
+import cv_bridge
 
 import numpy as np
 
@@ -17,8 +19,11 @@ from screeninfo import get_monitors
 
 from openpose import pyopenpose as op
 
+from sensor_msgs.msg import Image
+
 pkg_path = roslib.packages.get_pkg_dir("mycobot_320_moveit")
 
+HOME_DIR = os.path.expanduser("~")
 
 class CVEstimator:
     def __init__(self):
@@ -34,9 +39,12 @@ class CVEstimator:
         self.armPosePublisher = rospy.Publisher(
             "arm_estimation", PoseArray, queue_size=10
         )
+        self.imageRawPublisher = rospy.Publisher(
+            "camera/color/image_raw", Image, queue_size=10
+        )
 
     def yolo_init(self):
-        self.pipetteModel = YOLO(pkg_path + "/runs/detect/train2/weights/best.pt")
+        self.pipetteModel = YOLO(HOME_DIR + "/yolo_dataset/runs/detect/train/weights/best.pt")
 
     def camera_init(self):
         self.PIPETTE_HEAD_RADIUS = 0.01
@@ -79,7 +87,7 @@ class CVEstimator:
     # 対象物体はバウンディングボックスの中心にいるものとする
     # x,yのピクセル値を返す
     def estimatePipettePose(self, img):
-        names = {"Head": 0, "Pipette": 1}
+        names = {"Head": 1, "Pipette": 0}
         try:
             results = self.pipetteModel.predict(img, verbose=False, conf=0.6)
             conf = 0
@@ -244,14 +252,15 @@ def main():
     estimator = CVEstimator()
     while not rospy.is_shutdown():
         color_image, depth_frame = estimator.getRSImages()
+        image = cv_bridge.CvBridge().cv2_to_imgmsg(color_image, "bgr8")
+        estimator.imageRawPublisher.publish(image)
         try:
             estimator.pipetteChecker(color_image, depth_frame)
-            # estimator.armChecker(color_image,depth_frame)
         except Exception as e:
             rospy.logwarn(e)
         cv2.imshow("color", color_image)
         cv2.waitKey(1)
-
+    
 
 if __name__ == "__main__":
     main()

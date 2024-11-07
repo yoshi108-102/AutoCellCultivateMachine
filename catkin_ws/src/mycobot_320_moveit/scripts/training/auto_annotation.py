@@ -4,21 +4,18 @@ import os
 
 from ultralytics import YOLO
 
-import roslib.packages
-
-PKG_DIR = roslib.packages.get_pkg_dir("mycobot_320_moveit")
-model = YOLO(PKG_DIR + "/runs/detect/train/weights/best.pt")
+model = YOLO("./runs/detect/train2/weights/best.pt")
 
 
 def main():
-    original_data = PKG_DIR + "/datasets/original_data"
-    annotation = PKG_DIR + "/datasets/annotation"
+    original_data = "./datasets/original_data"
+    annotation = "./datasets/annotation"
     classes = annotation + "/classes.txt"
     if os.path.exists(classes):
         os.remove(classes)
     with open(classes, mode="w") as f:
-        f.write("Head\n")
-        f.write("Pipette\n")
+        f.write("microPipette\n")
+        f.write("microPipetteHead\n")
     annotationed_data = set()
     for root, _, files in os.walk(annotation):
         for file in files:
@@ -34,7 +31,7 @@ def main():
                 if txt_path in annotationed_data:
                     continue
                 print(img_path + "\n")
-                results = model.predict(img_path, conf=0.55)
+                results = model.predict(img_path, conf=0.7)
                 for box in results[0].boxes:
                     label = int(box.cls[0].item())
                     if label == 0:

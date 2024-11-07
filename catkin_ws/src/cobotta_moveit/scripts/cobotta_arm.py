@@ -657,6 +657,4 @@ if __name__ == "__main__":
     
     cobotta.controller_get_robot()
     
-    cobotta.add_k3hand()
-    
     rospy.spin()

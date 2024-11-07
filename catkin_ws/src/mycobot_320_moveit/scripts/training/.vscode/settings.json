@@ -1,0 +1,14 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/home/tw017/ros/livox/devel/lib/python3/dist-packages",
+        "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages",
+        "/usr/local/python"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/tw017/ros/livox/devel/lib/python3/dist-packages",
+        "/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages",
+        "/usr/local/python"
+    ]
+}
