@@ -11,6 +11,7 @@ from geometry_msgs.msg import PoseStamped, PoseArray
 from visualization_msgs.msg import MarkerArray
 from sensor_msgs.msg import PointCloud2
 
+
 class TfListener:
     def __init__(self):
         self.buffer = tf2_ros.Buffer()
@@ -122,6 +123,7 @@ class My1cobotOperator:
         if self.mc is not None:
             self.mc.send_radians(radians, speed=speed)
         rospy.loginfo("Done.")
+
 
 def main():
     rospy.init_node("joint_controller")

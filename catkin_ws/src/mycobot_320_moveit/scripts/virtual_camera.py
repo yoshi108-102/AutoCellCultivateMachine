@@ -50,7 +50,7 @@ def main():
         tfmaker.broadcast(
             "camera_pos", "camera_link", [0, 0, 0], [-math.pi / 2, 0, 0], False
         )
-        #lidarの位置はとりあえずカメラと同じものとする
+        # lidarの位置はとりあえずカメラと同じものとする
         tfmaker.broadcast("base_link", "livox_frame", [x, y, z], [0, 0, 0], False)
         rospy.sleep(0.1)
 
