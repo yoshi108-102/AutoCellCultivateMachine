@@ -428,7 +428,6 @@ class CobottaArmBcapInterface:
             raise RuntimeError("cobotta/manual_reset: failed to manual reset")
         
         HRESULT(bcapRes, "manual_reset")
-        
-
+    
 if __name__ == "__main__":
     rospy.init_node("cobotta_arm")
