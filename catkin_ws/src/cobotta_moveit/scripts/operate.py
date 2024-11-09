@@ -1,4 +1,4 @@
-from scripts.cobotta_moveit import CobottaArm
+from cobotta_moveit.scripts.cobotta_ros import CobottaArm
 from std_msgs.msg import Int32
 import rospy
 
