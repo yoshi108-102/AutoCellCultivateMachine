@@ -11,6 +11,6 @@ class ObstacleSetter:
         self.obstacle_pub = rospy.Publisher(
             "obstacle", MarkerArray, queue_size=10
         )
-        self.marker_sub = rospy.Subscriber(
+        self.marker_sub = rospy.Subscriber()
             
 
