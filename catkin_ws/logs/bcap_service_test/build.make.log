@@ -1,4 +1,0 @@
-[35m[1mScanning dependencies of target bcap_service_test[0m
-[ 50%] [32mBuilding CXX object CMakeFiles/bcap_service_test.dir/src/bcap_service_test.cpp.o[0m
-[100%] [32m[1mLinking CXX executable /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/bcap_service_test/lib/bcap_service_test/bcap_service_test[0m
-[100%] Built target bcap_service_test

@@ -1,1 +1,0 @@
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/share/gennodejs/ros/denso_cobotta_gripper/msg/VacuumMoveAction.js

@@ -1,2 +1,0 @@
-set(denso_cobotta_gripper_MESSAGE_FILES "msg/GripperMoveAction.msg;msg/GripperMoveActionGoal.msg;msg/GripperMoveActionResult.msg;msg/GripperMoveActionFeedback.msg;msg/GripperMoveGoal.msg;msg/GripperMoveResult.msg;msg/GripperMoveFeedback.msg;msg/VacuumMoveAction.msg;msg/VacuumMoveActionGoal.msg;msg/VacuumMoveActionResult.msg;msg/VacuumMoveActionFeedback.msg;msg/VacuumMoveGoal.msg;msg/VacuumMoveResult.msg;msg/VacuumMoveFeedback.msg")
-set(denso_cobotta_gripper_SERVICE_FILES "")

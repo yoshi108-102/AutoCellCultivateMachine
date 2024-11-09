@@ -1,1 +1,0 @@
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/cobotta_moveit/share/cobotta_moveit/cmake/cobotta_moveitConfig-version.cmake

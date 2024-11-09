@@ -1,1 +1,0 @@
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/bcap_service/lib/python3/dist-packages/bcap_service/msg/__init__.py

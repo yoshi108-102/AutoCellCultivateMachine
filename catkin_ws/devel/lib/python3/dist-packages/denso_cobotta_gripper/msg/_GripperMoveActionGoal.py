@@ -1,1 +1,0 @@
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/denso_cobotta_gripper/lib/python3/dist-packages/denso_cobotta_gripper/msg/_GripperMoveActionGoal.py

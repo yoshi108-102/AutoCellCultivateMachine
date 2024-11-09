@@ -1,1 +1,0 @@
-/usr/bin/c++ -fPIC   -shared -Wl,-soname,libgmock.so -o ../lib/libgmock.so CMakeFiles/gmock.dir/src/gmock-all.cc.o  -Wl,-rpath,/home/tw017/Desktop/PipetteDetect/catkin_ws/build/denso_robot_core_test/gtest/lib ../lib/libgtest.so -lpthread 

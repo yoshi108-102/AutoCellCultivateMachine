@@ -1,1 +1,0 @@
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/bcap_service/share/gennodejs/ros/bcap_service/srv/_index.js
