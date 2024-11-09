@@ -78,12 +78,14 @@ class VarType(IntEnum):
 
 
 def usage():
-    rospy.logerr("Usage:\n"
-                 "  roslaunch denso_robot_bringup <robot_name>_bringup.launch"
-                 " sim:=false ip_address:=<IP address> send_format:=0 recv_format:=2\n"
-                 "  roslaunch bcap_service bcap_service.launch ip_address:=<IP address>\n"
-                 "  rosrun denso_robot_bringup example_change_scene.py"
-                 " _robot_name:=<robot_name>")
+    rospy.logerr(
+        "Usage:\n"
+        "  roslaunch denso_robot_bringup <robot_name>_bringup.launch"
+        " sim:=false ip_address:=<IP address> send_format:=0 recv_format:=2\n"
+        "  roslaunch bcap_service bcap_service.launch ip_address:=<IP address>\n"
+        "  rosrun denso_robot_bringup example_change_scene.py"
+        " _robot_name:=<robot_name>"
+    )
 
 
 def convert_error_code(hresult):
@@ -110,9 +112,11 @@ def change_bcap_slave_mode(pub_changemode, mode):
 def print_error_description(bcap_service, rc9, hresult):
     bcap_request = bcapRequest()
     bcap_request.func_id = BcapFuncId.CONTROLLER_EXECUTE
-    bcap_request.vntArgs = [variant(vt=VarType.VT_I4, value=rc9),
-                            variant(vt=VarType.VT_BSTR, value='GetErrorDescription'),
-                            variant(vt=VarType.VT_I4, value=str(hresult))]
+    bcap_request.vntArgs = [
+        variant(vt=VarType.VT_I4, value=rc9),
+        variant(vt=VarType.VT_BSTR, value="GetErrorDescription"),
+        variant(vt=VarType.VT_I4, value=str(hresult)),
+    ]
     res = bcap_service(bcap_request)
     if res.HRESULT < 0:
         return
@@ -126,14 +130,18 @@ def get_current_scene(bcap_service, rc9, rc9robot):
     #   ORiN2: CaoRobot::Execute(CurScene)
     bcap_request = bcapRequest()
     bcap_request.func_id = BcapFuncId.ROBOT_EXECUTE
-    bcap_request.vntArgs = [variant(vt=VarType.VT_I4, value=rc9robot),
-                            variant(vt=VarType.VT_BSTR, value='CurScene'),
-                            variant(vt=VarType.VT_BSTR, value='')]
+    bcap_request.vntArgs = [
+        variant(vt=VarType.VT_I4, value=rc9robot),
+        variant(vt=VarType.VT_BSTR, value="CurScene"),
+        variant(vt=VarType.VT_BSTR, value=""),
+    ]
     res = bcap_service(bcap_request)
     if res.HRESULT < 0:
         print_error_description(bcap_service, rc9, res.HRESULT)
-        raise Exception("bcap_service: RC9Robot: Failed to execute CurScene. error="
-                        + convert_error_code(res.HRESULT))
+        raise Exception(
+            "bcap_service: RC9Robot: Failed to execute CurScene. error="
+            + convert_error_code(res.HRESULT)
+        )
     scene_number = res.vntRet.value
 
     # CurSubScene: Get current Sub-Scene Number
@@ -141,14 +149,18 @@ def get_current_scene(bcap_service, rc9, rc9robot):
     #   ORiN2: CaoRobot::Execute(CurSubScene)
     bcap_request = bcapRequest()
     bcap_request.func_id = BcapFuncId.ROBOT_EXECUTE
-    bcap_request.vntArgs = [variant(vt=VarType.VT_I4, value=rc9robot),
-                            variant(vt=VarType.VT_BSTR, value='CurSubScene'),
-                            variant(vt=VarType.VT_BSTR, value='')]
+    bcap_request.vntArgs = [
+        variant(vt=VarType.VT_I4, value=rc9robot),
+        variant(vt=VarType.VT_BSTR, value="CurSubScene"),
+        variant(vt=VarType.VT_BSTR, value=""),
+    ]
     res = bcap_service(bcap_request)
     if res.HRESULT < 0:
         print_error_description(bcap_service, rc9, res.HRESULT)
-        raise Exception("bcap_service: RC9Robot: Failed to execute CurSubScene. error="
-                        + convert_error_code(res.HRESULT))
+        raise Exception(
+            "bcap_service: RC9Robot: Failed to execute CurSubScene. error="
+            + convert_error_code(res.HRESULT)
+        )
     sub_scene_number = res.vntRet.value
 
     return scene_number, sub_scene_number
@@ -161,7 +173,7 @@ def main():
     rc9robot = 0
     take_arm = False
 
-    rospy.init_node('example_change_scene')
+    rospy.init_node("example_change_scene")
     rospy.loginfo("Start Example of ChangeScene...")
 
     robot_name = rospy.get_param("~robot_name", "")
@@ -173,26 +185,29 @@ def main():
 
     rospy.loginfo("Check if /%s/denso_robot_control is up...", robot_name)
     node_list = rosnode.get_node_names(namespace=robot_name)
-    if not '/' + robot_name + '/denso_robot_control' in node_list:
+    if not "/" + robot_name + "/denso_robot_control" in node_list:
         rospy.logerr("No such node: /%s/denso_robot_control", robot_name)
         usage()
         sys.exit(1)
 
     moveit_commander.roscpp_initialize(sys.argv)
-    move_group = moveit_commander.MoveGroupCommander('arm')
-    pub_changemode = rospy.Publisher('/' + robot_name + '/ChangeMode',
-                                     Int32, queue_size=1)
-    sub_curmode = rospy.Subscriber('/' + robot_name + '/CurMode',
-                                   Int32, callback_curmode)
-    while (pub_changemode.get_num_connections() < 1)\
-            and (sub_curmode.get_num_connections() < 1):
+    move_group = moveit_commander.MoveGroupCommander("arm")
+    pub_changemode = rospy.Publisher(
+        "/" + robot_name + "/ChangeMode", Int32, queue_size=1
+    )
+    sub_curmode = rospy.Subscriber(
+        "/" + robot_name + "/CurMode", Int32, callback_curmode
+    )
+    while (pub_changemode.get_num_connections() < 1) and (
+        sub_curmode.get_num_connections() < 1
+    ):
         rospy.sleep(0.5)
 
     rospy.loginfo("Waiting for /bcap_service...")
-    rospy.wait_for_service('/bcap_service')
+    rospy.wait_for_service("/bcap_service")
     try:
         rospy.loginfo("Connecting to /bcap_service...")
-        bcap_service = rospy.ServiceProxy('/bcap_service', bcap)
+        bcap_service = rospy.ServiceProxy("/bcap_service", bcap)
 
         # Connect to RC9 controller using b-CAP Service
         #  - b-CAP: Controller_Connect()
@@ -200,14 +215,18 @@ def main():
         rospy.loginfo("bcap_service: Controller_Connect()...")
         bcap_request = bcapRequest()
         bcap_request.func_id = BcapFuncId.CONTROLLER_CONNECT
-        bcap_request.vntArgs = [variant(vt=VarType.VT_BSTR, value='example_controller_name'),
-                                variant(vt=VarType.VT_BSTR, value='CaoProv.DENSO.VRC9'),
-                                variant(vt=VarType.VT_BSTR, value='localhost'),
-                                variant(vt=VarType.VT_BSTR, value='@IfNotMember')]
+        bcap_request.vntArgs = [
+            variant(vt=VarType.VT_BSTR, value="example_controller_name"),
+            variant(vt=VarType.VT_BSTR, value="CaoProv.DENSO.VRC9"),
+            variant(vt=VarType.VT_BSTR, value="localhost"),
+            variant(vt=VarType.VT_BSTR, value="@IfNotMember"),
+        ]
         res = bcap_service(bcap_request)
         if res.HRESULT < 0:
-            raise Exception("bcap_service: Failed to connect to RC9 controller. error="
-                            + convert_error_code(res.HRESULT))
+            raise Exception(
+                "bcap_service: Failed to connect to RC9 controller. error="
+                + convert_error_code(res.HRESULT)
+            )
         rc9 = res.vntRet.value
         rospy.loginfo("bcap_service: Connected to RC9. Controller handle is %s", rc9)
 
@@ -217,13 +236,17 @@ def main():
         rospy.loginfo("bcap_service: RC9: Controller_GetRobot()...")
         bcap_request = bcapRequest()
         bcap_request.func_id = BcapFuncId.CONTROLLER_GETROBOT
-        bcap_request.vntArgs = [variant(vt=VarType.VT_I4, value=rc9),
-                                variant(vt=VarType.VT_BSTR, value='example_robot_name'),
-                                variant(vt=VarType.VT_BSTR, value='@IfNotMember')]
+        bcap_request.vntArgs = [
+            variant(vt=VarType.VT_I4, value=rc9),
+            variant(vt=VarType.VT_BSTR, value="example_robot_name"),
+            variant(vt=VarType.VT_BSTR, value="@IfNotMember"),
+        ]
         res = bcap_service(bcap_request)
         if res.HRESULT < 0:
-            raise Exception("bcap_service: RC9: Failed to get the robot handle. error="
-                            + convert_error_code(res.HRESULT))
+            raise Exception(
+                "bcap_service: RC9: Failed to get the robot handle. error="
+                + convert_error_code(res.HRESULT)
+            )
         rc9robot = res.vntRet.value
         rospy.loginfo("bcap_service: RC9: Robot handle is %s", rc9robot)
 
@@ -233,17 +256,22 @@ def main():
         rospy.loginfo("bcap_service: RC9Robot: Executing slvGetMode...")
         bcap_request = bcapRequest()
         bcap_request.func_id = BcapFuncId.ROBOT_EXECUTE
-        bcap_request.vntArgs = [variant(vt=VarType.VT_I4, value=rc9robot),
-                                variant(vt=VarType.VT_BSTR, value='slvGetMode'),
-                                variant(vt=VarType.VT_BSTR, value='')]
+        bcap_request.vntArgs = [
+            variant(vt=VarType.VT_I4, value=rc9robot),
+            variant(vt=VarType.VT_BSTR, value="slvGetMode"),
+            variant(vt=VarType.VT_BSTR, value=""),
+        ]
         res = bcap_service(bcap_request)
         if res.HRESULT < 0:
             print_error_description(bcap_service, rc9, res.HRESULT)
-            raise Exception("bcap_service: RC9Robot: Failed to execute slvGetMode. error="
-                            + convert_error_code(res.HRESULT))
+            raise Exception(
+                "bcap_service: RC9Robot: Failed to execute slvGetMode. error="
+                + convert_error_code(res.HRESULT)
+            )
         _bcap_slave_mode = int(res.vntRet.value)
-        rospy.loginfo("bcap_service: RC9Robot: Current b-CAP Slave Mode is 0x%x",
-                      _bcap_slave_mode)
+        rospy.loginfo(
+            "bcap_service: RC9Robot: Current b-CAP Slave Mode is 0x%x", _bcap_slave_mode
+        )
 
         # Stop b-CAP Slave Mode
         rospy.loginfo("Stopping b-CAP Slave Mode...")
@@ -255,14 +283,18 @@ def main():
         rospy.loginfo("bcap_service: RC9: Executing ClearError...")
         bcap_request = bcapRequest()
         bcap_request.func_id = BcapFuncId.CONTROLLER_EXECUTE
-        bcap_request.vntArgs = [variant(vt=VarType.VT_I4, value=rc9),
-                                variant(vt=VarType.VT_BSTR, value='ClearError'),
-                                variant(vt=VarType.VT_BSTR, value='')]
+        bcap_request.vntArgs = [
+            variant(vt=VarType.VT_I4, value=rc9),
+            variant(vt=VarType.VT_BSTR, value="ClearError"),
+            variant(vt=VarType.VT_BSTR, value=""),
+        ]
         res = bcap_service(bcap_request)
         if res.HRESULT < 0:
             print_error_description(bcap_service, rc9, res.HRESULT)
-            raise Exception("bcap_service: RC9: Failed to execute ClearError. error="
-                            + convert_error_code(res.HRESULT))
+            raise Exception(
+                "bcap_service: RC9: Failed to execute ClearError. error="
+                + convert_error_code(res.HRESULT)
+            )
 
         # ManualReset: Clear safety-state
         #  b-CAP: Controller_Execute(ManualReset)
@@ -270,14 +302,18 @@ def main():
         rospy.loginfo("bcap_service: RC9: Executing ManualReset...")
         bcap_request = bcapRequest()
         bcap_request.func_id = BcapFuncId.CONTROLLER_EXECUTE
-        bcap_request.vntArgs = [variant(vt=VarType.VT_I4, value=rc9),
-                                variant(vt=VarType.VT_BSTR, value='ManualReset'),
-                                variant(vt=VarType.VT_BSTR, value='')]
+        bcap_request.vntArgs = [
+            variant(vt=VarType.VT_I4, value=rc9),
+            variant(vt=VarType.VT_BSTR, value="ManualReset"),
+            variant(vt=VarType.VT_BSTR, value=""),
+        ]
         res = bcap_service(bcap_request)
         if res.HRESULT < 0:
             print_error_description(bcap_service, rc9, res.HRESULT)
-            raise Exception("bcap_service: RC9: Failed to execute ManualReset. error="
-                            + convert_error_code(res.HRESULT))
+            raise Exception(
+                "bcap_service: RC9: Failed to execute ManualReset. error="
+                + convert_error_code(res.HRESULT)
+            )
 
         # Motor: Turn on the motor
         #  b-CAP: Robot_Execute(Motor)
@@ -285,14 +321,18 @@ def main():
         rospy.loginfo("bcap_service: RC9Robot: Running Motor...")
         bcap_request = bcapRequest()
         bcap_request.func_id = BcapFuncId.ROBOT_EXECUTE
-        bcap_request.vntArgs = [variant(vt=VarType.VT_I4, value=rc9robot),
-                                variant(vt=VarType.VT_BSTR, value='Motor'),
-                                variant(vt=VarType.VT_I4, value='1')]
+        bcap_request.vntArgs = [
+            variant(vt=VarType.VT_I4, value=rc9robot),
+            variant(vt=VarType.VT_BSTR, value="Motor"),
+            variant(vt=VarType.VT_I4, value="1"),
+        ]
         res = bcap_service(bcap_request)
         if res.HRESULT < 0:
             print_error_description(bcap_service, rc9, res.HRESULT)
-            raise Exception("bcap_service: RC9Robot: Failed to run motor. error="
-                            + convert_error_code(res.HRESULT))
+            raise Exception(
+                "bcap_service: RC9Robot: Failed to run motor. error="
+                + convert_error_code(res.HRESULT)
+            )
 
         # TakeArm: Request to get control authority
         #   b-CAP: Robot_Execute(TakeArm)
@@ -300,22 +340,28 @@ def main():
         rospy.loginfo("bcap_service: RC9Robot: Executing TakeArm...")
         bcap_request = bcapRequest()
         bcap_request.func_id = BcapFuncId.ROBOT_EXECUTE
-        bcap_request.vntArgs = [variant(vt=VarType.VT_I4, value=rc9robot),
-                                variant(vt=VarType.VT_BSTR, value='TakeArm'),
-                                variant(vt=(VarType.VT_ARRAY | VarType.VT_I4),
-                                        value='0,1')]
+        bcap_request.vntArgs = [
+            variant(vt=VarType.VT_I4, value=rc9robot),
+            variant(vt=VarType.VT_BSTR, value="TakeArm"),
+            variant(vt=(VarType.VT_ARRAY | VarType.VT_I4), value="0,1"),
+        ]
         res = bcap_service(bcap_request)
         if res.HRESULT < 0:
             print_error_description(bcap_service, rc9, res.HRESULT)
-            raise Exception("bcap_service: RC9Robot: Failed to execute TakeArm. error="
-                            + convert_error_code(res.HRESULT))
+            raise Exception(
+                "bcap_service: RC9Robot: Failed to execute TakeArm. error="
+                + convert_error_code(res.HRESULT)
+            )
         take_arm = True
 
         # CurScene/SurSubScene: Get current Scene Number and Sub-Scene Number
         rospy.loginfo("bcap_service: RC9Robot: Executing CurScene and CurSubScene...")
         scene_number, sub_scene_number = get_current_scene(bcap_service, rc9, rc9robot)
-        rospy.loginfo("bcap_service: RC9Robot: Current Scene is (%s,%s)",
-                      scene_number, sub_scene_number)
+        rospy.loginfo(
+            "bcap_service: RC9Robot: Current Scene is (%s,%s)",
+            scene_number,
+            sub_scene_number,
+        )
 
         # Move SafetyP0: Required before ChangeScene
         #   b-CAP: Robot_Move(MOVE P)
@@ -323,35 +369,46 @@ def main():
         #   If Tool Number and Work Number are specified in Scene Parameter Setting,
         #   change them with CaoRobot::Change().
         #   Select a motion option of Move command suitable for Scene Parameter Setting.
-        rospy.loginfo("bcap_service: RC9Robot: Moving to SafetyP0 position before ChangeScene...")
+        rospy.loginfo(
+            "bcap_service: RC9Robot: Moving to SafetyP0 position before ChangeScene..."
+        )
         bcap_request = bcapRequest()
         bcap_request.func_id = BcapFuncId.ROBOT_MOVE
-        bcap_request.vntArgs = [variant(vt=VarType.VT_I4, value=rc9robot),
-                                variant(vt=VarType.VT_I4, value=str(CaoRobotMove.MOVE_P.value)),
-                                variant(vt=VarType.VT_BSTR, value='SafetyP0'),
-                                variant(vt=VarType.VT_BSTR, value='')]
+        bcap_request.vntArgs = [
+            variant(vt=VarType.VT_I4, value=rc9robot),
+            variant(vt=VarType.VT_I4, value=str(CaoRobotMove.MOVE_P.value)),
+            variant(vt=VarType.VT_BSTR, value="SafetyP0"),
+            variant(vt=VarType.VT_BSTR, value=""),
+        ]
         res = bcap_service(bcap_request)
         if res.HRESULT < 0:
             print_error_description(bcap_service, rc9, res.HRESULT)
-            raise Exception("bcap_service: RC9Robot: Failed to move SafetyP0. error="
-                            + convert_error_code(res.HRESULT))
+            raise Exception(
+                "bcap_service: RC9Robot: Failed to move SafetyP0. error="
+                + convert_error_code(res.HRESULT)
+            )
 
         # ChangeScene: Change current Scene
         #   b-CAP: Robot_Execute(ChangeScene)
         #   ORiN2: CaoRobot::Execute(ChangeScene)
-        rospy.loginfo("bcap_service: RC9Robot: Executing ChangeScene(%s)...",
-                      _EXAMPLE_SCENE_NUMBER)
+        rospy.loginfo(
+            "bcap_service: RC9Robot: Executing ChangeScene(%s)...",
+            _EXAMPLE_SCENE_NUMBER,
+        )
         bcap_request = bcapRequest()
         bcap_request.func_id = BcapFuncId.ROBOT_EXECUTE
-        bcap_request.vntArgs = [variant(vt=VarType.VT_I4, value=rc9robot),
-                                variant(vt=VarType.VT_BSTR, value='ChangeScene'),
-                                variant(vt=(VarType.VT_ARRAY | VarType.VT_I4),
-                                        value=_EXAMPLE_SCENE_NUMBER)]
+        bcap_request.vntArgs = [
+            variant(vt=VarType.VT_I4, value=rc9robot),
+            variant(vt=VarType.VT_BSTR, value="ChangeScene"),
+            variant(vt=(VarType.VT_ARRAY | VarType.VT_I4), value=_EXAMPLE_SCENE_NUMBER),
+        ]
         res = bcap_service(bcap_request)
         if res.HRESULT < 0:
             print_error_description(bcap_service, rc9, res.HRESULT)
-            raise Exception("bcap_service: RC9Robot: Failed to execute ChangeScene. error="
-                            + convert_error_code(res.HRESULT))
+            raise Exception(
+                "bcap_service: RC9Robot: Failed to execute ChangeScene. error="
+                + convert_error_code(res.HRESULT)
+            )
 
         # GiveArm: Request to release control authority
         #   b-CAP: Robot_Execute(GiveArm)
@@ -359,14 +416,18 @@ def main():
         rospy.loginfo("bcap_service: RC9Robot: Executing GiveArm...")
         bcap_request = bcapRequest()
         bcap_request.func_id = BcapFuncId.ROBOT_EXECUTE
-        bcap_request.vntArgs = [variant(vt=VarType.VT_I4, value=rc9robot),
-                                variant(vt=VarType.VT_BSTR, value='GiveArm'),
-                                variant(vt=VarType.VT_BSTR, value='')]
+        bcap_request.vntArgs = [
+            variant(vt=VarType.VT_I4, value=rc9robot),
+            variant(vt=VarType.VT_BSTR, value="GiveArm"),
+            variant(vt=VarType.VT_BSTR, value=""),
+        ]
         res = bcap_service(bcap_request)
         if res.HRESULT < 0:
             print_error_description(bcap_service, rc9, res.HRESULT)
-            raise Exception("bcap_service: RC9Robot: Failed to execute GiveArm. error=%x"
-                            + convert_error_code(res.HRESULT))
+            raise Exception(
+                "bcap_service: RC9Robot: Failed to execute GiveArm. error=%x"
+                + convert_error_code(res.HRESULT)
+            )
         take_arm = False
 
         # Start b-Cap Slave
@@ -394,9 +455,11 @@ def main():
             rospy.loginfo("bcap_service: RC9Robot: Executing GiveArm...")
             bcap_request = bcapRequest()
             bcap_request.func_id = BcapFuncId.ROBOT_EXECUTE
-            bcap_request.vntArgs = [variant(vt=VarType.VT_I4, value=rc9robot),
-                                    variant(vt=VarType.VT_BSTR, value='GiveArm'),
-                                    variant(vt=VarType.VT_BSTR, value='')]
+            bcap_request.vntArgs = [
+                variant(vt=VarType.VT_I4, value=rc9robot),
+                variant(vt=VarType.VT_BSTR, value="GiveArm"),
+                variant(vt=VarType.VT_BSTR, value=""),
+            ]
             bcap_service(bcap_request)
 
         if rc9robot > 0:

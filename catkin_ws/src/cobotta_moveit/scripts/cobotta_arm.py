@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 import rospy
 import math
-import moveit_commander
-import sys
-import tf2_ros
-import tf2_geometry_msgs
 
 from cobotta_k3hand import K3HandinCobotta as K3Hand
 from hresult import HRESULT
@@ -13,48 +9,7 @@ from bcap_service.srv import bcapRequest, bcapResponse, bcap
 from bcap_service.msg import variant
 from constants import FUNC_ID, VARIANT_TYPES, MODE
 
-from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
-from geometry_msgs.msg import PoseStamped, PoseArray
-from std_msgs.msg import Header, Int32
-
-class TfListener:
-    def __init__(self):
-        self.buffer = tf2_ros.Buffer()
-        self.listener = tf2_ros.TransformListener(self.buffer)
-
-    def posearray_transport(self, posearray, from_frame, to_frame):
-        try:
-            trans = self.buffer.lookup_transform(from_frame, to_frame, rospy.Time(0))
-        except Exception as e:
-            rospy.logwarn(e)
-            return
-        transformed_posearray = PoseArray()
-        for i in range(len(posearray.poses)):
-            pose = PoseStamped()
-            pose.header = posearray.header
-            pose.pose = posearray.poses[i]
-            transformed_pose = tf2_geometry_msgs.do_transform_pose(pose, trans)
-            transformed_posearray.poses.append(transformed_pose.pose)
-        return transformed_posearray
-
-    def pose_transport(self, pose, from_frame, to_frame):
-        try:
-            trans = self.buffer.lookup_transform(to_frame, from_frame, rospy.Time(0))
-        except Exception as e:
-            rospy.logwarn(e)
-            return
-        transformed_pose = tf2_geometry_msgs.do_transform_pose(pose, trans)
-        return transformed_pose
-
-    def lookupTransform(self, target, source):
-        try:
-            trans = self.buffer.lookup_transform(target, source, rospy.Time(0))
-        except Exception as e:
-            rospy.logwarn(e)
-            return
-        return trans
-
-class CobottaArm:
+class CobottaArmBcapInterface:
     """cobottaのアームを操作および拡張アイテム（K3Handなど）にアクセスするためのクラス。
 
     rosservice call /bcap_serviceをを使用してcobottaのアームを操作する。
@@ -64,30 +19,10 @@ class CobottaArm:
 
     のような形式で面倒なため、これを簡潔に呼び出すためのラッパークラス。
     事前にcobottaのアームをethanetで接続し、接続したPCのipアドレスを192.168.0.9(デフォルト)に設定しておく必要がある。
-
-    roslaunch denso_robot_ros bcap_service.launchでbcap_serviceを起動した上で使用する。
-
-    スレーブモードでは動かないため、cobotta_bringup.launchをsim:=falseで実行している場合は使用できない。
-
-    プログラム終了時には必ずmotor_off()およびgive_arm()を実行すること。
-
-    Attributes:
-        k3Hand (K3Hand): cobottaに接続されたK3Handのインスタンス。初期状態では空のK3Handインスタンスが設定されている。vtが-1の場合は接続に失敗している。
-        hControllerVt (int): cobottaのコントローラハンドルのvt。各種値の取得等に使用する。
-        hControllerValue (str): cobottaのコントローラハンドルの値。各種値の取得等に使用する。
-        hRobotVt (int): cobottaのロボットハンドルのvt。アーム等の制御に使用する。
-        hRobotValue (str): cobottaのロボットハンドルの値。アーム等の制御に使用する。
-        ip_address (str): cobottaのipアドレス。デフォルトでは192.168.0.1。変更した場合はコンストラクタで指定する。
-        is_takeArm (bool): cobottaのアーム制御権を取得したかどうかのフラグ。初期状態ではFalse。
-        is_motor_on (bool): cobottaのモータがオンになっているかどうかのフラグ。初期状態ではFalse。
-        changeModePub (rospy.Publisher): cobottaのモード変更を行うためのPublisher。Int32型のメッセージを送信する。なぜか一度空振りさせないと機能しないので、初期化の際に一度だけ送信を行う。
-        curModeSub (rospy.Subscriber): cobottaのモード変更を行うためのSubscriber。Int32型のメッセージを受信する。モード変更を正確に検知する
-        mode: 0: normal mode, 514: slave mode
-
     """
 
     def __init__(self, ip_address="192.168.0.1"):
-        self.k3Hand = K3Hand(-1, "")
+        self.k3Hand = None
 
         self.hControllerVt = -1
         self.hControllerValue = ""
@@ -97,38 +32,7 @@ class CobottaArm:
         self.ip_address = ip_address
         self.is_takeArm = False
         self.is_motor_on = False
-
-        self.listener = TfListener()
-        self.changeModePub = rospy.Publisher(
-            "/cobotta/ChangeMode", Int32, queue_size=10
-        )
-
-        self.armActionPub = rospy.Publisher(
-            "/cobotta/arm_controller/command", JointTrajectory, queue_size=10
-        )
-        
-        self.pipettePointSub = rospy.Subscriber(
-            "target_estimation", PoseStamped, self.pipettePointCallback
-        )
-        
-        self.move_group = moveit_commander.MoveGroupCommander("arm")
-
         self.mode = MODE.SLAVE
-        
-    def curModeCallback(self, msg: Int32):
-        rospy.loginfo("msg")
-        self.mode = msg.data
-    
-    def change_mode(self,mode:int):
-        msg = Int32()
-        msg.data = mode
-        self.changeModePub.publish(msg)
-        """ while (not rospy.is_shutdown()) and (self.mode != mode):
-            rospy.sleep(0.1)
-         """
-        rospy.sleep(1)
-        rospy.loginfo("cobotta/change_mode succeed: changed mode to %d",mode)
-        
     def setup(self):
         self.controller_connect()
         self.controller_get_robot()
@@ -386,36 +290,6 @@ class CobottaArm:
         HRESULT(bcapRes, "motor_off")
 
     def move(self, location_comp: int, vntPose: str, bstrOption: str) -> None:
-        """
-        cobottaのアームを指定位置に移動する。
-        事前にロボットハンドルを取得している必要がある。
-        事前にアーム制御権を取得している必要がある。
-        事前にモータがオンになっている必要がある。
-        具体的な指定方法はPacScriptのマニュアルを参照。
-
-        Args:
-            location_comp : 補完指定番号を表す。
-
-                1: Move P
-
-                2: Move L
-
-                3: Move C
-
-                4: Move S
-
-            vntPose: ポーズ列を指定する。
-
-            bstrOption: 動作オプションを指定する。
-
-        Raises:
-            RuntimeError: 移動に失敗した場合に発生。
-
-        Examples:
-            ```python
-            todo
-            ```
-        """
         try:
             bcapReq = bcapRequest()
             bcapReq.func_id = FUNC_ID.ID_ROBOT_MOVE
@@ -448,34 +322,6 @@ class CobottaArm:
     def approach(
         self, location_comp: int, vntPoseBase: str, vntPoseLen: str, strOpt: str
     ) -> None:
-        """
-        cobottaのアームを指定位置に近づける。
-        事前にロボットハンドルを取得している必要がある。
-        事前にアーム制御権を取得している必要がある。
-        事前にモータがオンになっている必要がある。
-        具体的な指定方法はPacScriptのマニュアルを参照。
-
-        Args:
-            location_comp : 補完指定番号を表す。
-
-                1: Move P
-
-                2: Move C
-
-            vntPoseBase: ポーズ列を指定する。
-
-            vntPoseLen: ポーズ列を指定する。
-
-            strOpt: 動作オプションを指定する。
-
-        Raises:
-            RuntimeError: 近づけに失敗した場合に発生。
-
-        Examples:
-            ```python
-            todo
-            ```
-        """
         try:
             bcapReq = bcapRequest()
             bcapReq.func_id = FUNC_ID.ID_ROBOT_EXECUTE
@@ -491,11 +337,6 @@ class CobottaArm:
 
             bcapReq.vntArgs.append(variant(vt=self.hRobotVt, value=self.hRobotValue))
             bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR, value="Approach"))
-            """  bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_I4,value=str(location_comp)))
-            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=vntPoseBase))
-            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=vntPoseLen))
-            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=strOpt)) 
-            """
             value = ""
             value += "(" + str(VARIANT_TYPES.VT_I4) + "," + str(location_comp) + ")"
             value += ","
@@ -523,32 +364,6 @@ class CobottaArm:
             raise RuntimeError("cobotta/approach: failed to approach")
 
     def depart(self, location_comp: int, vntPoseLen: str, strOpt: str) -> None:
-        """
-        cobottaのアームを指定位置から離れる。
-        事前にロボットハンドルを取得している必要がある。
-        事前にアーム制御権を取得している必要がある。
-        事前にモータがオンになっている必要がある。
-        具体的な指定方法はPacScriptのマニュアルを参照。
-
-        Args:
-            location_comp : 補完指定番号を表す。
-
-                1: Move P
-
-                2: Move C
-
-            vntPoseLen: ポーズ列を指定する。
-
-            strOpt: 動作オプションを指定する。
-
-        Raises:
-            RuntimeError: 離れるに失敗した場合に発生。
-
-        Examples:
-            ```python
-            todo
-            ```
-        """
         try:
             bcapReq = bcapRequest()
             bcapReq.func_id = FUNC_ID.ID_ROBOT_EXECUTE
@@ -564,11 +379,6 @@ class CobottaArm:
 
             bcapReq.vntArgs.append(variant(vt=self.hRobotVt, value=self.hRobotValue))
             bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR, value="Depart"))
-            """  
-            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_I4,value=str(location_comp)))
-            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=vntPoseLen))
-            bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR,value=strOpt)) """
-
             value = ""
             value += "(" + str(VARIANT_TYPES.VT_I4) + "," + str(location_comp) + ")"
             value += ","
@@ -592,28 +402,6 @@ class CobottaArm:
             raise RuntimeError("cobotta/depart: failed to depart")
 
         HRESULT(bcapRes, "depart")
-    def pipettePointCallback(self, msg:PoseStamped,deg=0):
-        if (rospy.Time.now() - msg.header.stamp) > rospy.Duration(0.05):
-            return
-        msg.header.frame_id = "Head"
-        transform_stamped = self.listener.lookupTransform(
-            "base_link", msg.header.frame_id
-        )
-        x, y, z = (
-            transform_stamped.transform.translation.x,
-            transform_stamped.transform.translation.y,
-            transform_stamped.transform.translation.z,
-        )
-        try:
-            self.move_group.set_pose_target([x, y, z, -math.pi, 0, 0])
-            p = self.move_group.plan()
-            tar_jo = list(p[1].joint_trajectory.points[-1].positions)
-            tar_jo[5] = math.pi * deg / 180
-            self.move_group.go(tar_jo)
-            self.move_group.stop()
-        except Exception as e:
-            rospy.loginfo("Failed to move end effector")
-    
     def manual_reset(self):
         
         bcapReq = bcapRequest()
@@ -644,17 +432,3 @@ class CobottaArm:
 
 if __name__ == "__main__":
     rospy.init_node("cobotta_arm")
-    
-    rospy.loginfo("dish_grasp_test")
-    rospy.loginfo("waiting for bcap_service...")
-    rospy.wait_for_service("/bcap_service")
-    rospy.loginfo("bcap_service is ready")
-    
-    moveit_commander.roscpp_initialize(sys.argv)
-    
-    cobotta = CobottaArm()
-    cobotta.controller_connect()
-    
-    cobotta.controller_get_robot()
-    
-    rospy.spin()

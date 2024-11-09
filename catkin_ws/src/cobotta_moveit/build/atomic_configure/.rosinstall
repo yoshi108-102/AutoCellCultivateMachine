@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/tw017/Desktop/PipetteDetect/catkin_ws/src/cobotta_moveit/build/devel/setup.sh
