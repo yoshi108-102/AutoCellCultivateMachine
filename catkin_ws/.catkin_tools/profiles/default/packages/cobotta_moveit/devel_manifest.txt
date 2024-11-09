@@ -1,5 +1,0 @@
-cobotta_moveit
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/cobotta_moveit/cmake.lock /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/./cmake.lock
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/cobotta_moveit/share/cobotta_moveit/cmake/cobotta_moveitConfig.cmake /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/cobotta_moveit/cmake/cobotta_moveitConfig.cmake
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/cobotta_moveit/share/cobotta_moveit/cmake/cobotta_moveitConfig-version.cmake /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/share/cobotta_moveit/cmake/cobotta_moveitConfig-version.cmake
-/home/tw017/Desktop/PipetteDetect/catkin_ws/devel/.private/cobotta_moveit/lib/pkgconfig/cobotta_moveit.pc /home/tw017/Desktop/PipetteDetect/catkin_ws/devel/lib/pkgconfig/cobotta_moveit.pc
