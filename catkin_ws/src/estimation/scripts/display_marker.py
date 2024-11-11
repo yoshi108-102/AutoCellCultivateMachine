@@ -14,8 +14,6 @@ z = 0
 
 def callback(pub, data: PoseStamped):
     global x, y, z
-    if data.header.frame_id != "PipetteHead":
-        return
     if (rospy.Time.now() - data.header.stamp).to_sec() > 0.1:
         return
     marker = Marker()
@@ -32,14 +30,14 @@ def callback(pub, data: PoseStamped):
 
     marker.type = Marker.SPHERE
 
-    marker.scale.x = 0.03
-    marker.scale.y = 0.03
-    marker.scale.z = 0.03
+    marker.scale.x = 0.05
+    marker.scale.y = 0.05
+    marker.scale.z = 0.05
 
-    marker.color.a = 1.0
-    marker.color.r = 1.0
-    marker.color.g = 0.0
-    marker.color.b = 0.0
+    if data.header.frame_id == "PipetteHead":
+        marker.color.r = 1.0
+    else:
+        marker.color.g = 1.0
 
     x, y, z = data.pose.position.x, data.pose.position.y, data.pose.position.z
     pub.publish(marker)

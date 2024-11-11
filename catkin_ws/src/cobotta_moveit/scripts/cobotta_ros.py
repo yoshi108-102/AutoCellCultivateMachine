@@ -23,7 +23,7 @@ class CobottaArmMoveit:
             "target_estimation", PoseStamped, self.pipettePointCallback
         )
         self.pipettePointSub = rospy.Subscriber(
-            "/pipette/target_estimation", PoseStamped, self.pipettePointCallback
+            "/target_estimation", PoseStamped, self.pipettePointCallback
         )
         self.dishPointSub = rospy.Subscriber(
             "/dish/target_estimation", PoseStamped, self.dishPointCallback
@@ -69,6 +69,11 @@ class CobottaArmMoveit:
         except Exception as e:
             rospy.logerr(e)
             rospy.loginfo("Failed to move end effector")
-    
+    def dishPointCallback():
+        pass
+    def tubePointCallback():
+        pass
 if __name__ == "__main__":
     rospy.init_node("cobotta_arm")
+    cobotta = CobottaArmMoveit()
+    rospy.spin()
