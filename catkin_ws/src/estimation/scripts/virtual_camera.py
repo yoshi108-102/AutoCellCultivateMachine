@@ -54,6 +54,5 @@ def main():
         tfmaker.broadcast("base_link", "livox_frame", [x, y, z], [0, 0, 0], False)
         rospy.sleep(0.1)
 
-
 if __name__ == "__main__":
     main()

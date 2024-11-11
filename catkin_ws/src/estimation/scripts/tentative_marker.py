@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 import rospy
+import random
 from geometry_msgs.msg import PoseStamped
 def pipette_marker() -> PoseStamped:
     pose = PoseStamped()
-    pose.header.frame_id = "PipetteHead"
-    pose.pose.position.x = 0.0
+    pose.header.frame_id = "camera_link"
+    pose.pose.position.x = 0.1
     pose.pose.position.y = -0.1
-    pose.pose.position.z = 0.2
+    pose.pose.position.z = 0.23
     
     pose.header.stamp = rospy.Time.now()
     return pose

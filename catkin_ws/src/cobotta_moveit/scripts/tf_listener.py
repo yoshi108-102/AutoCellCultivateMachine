@@ -38,3 +38,12 @@ class TfListener:
             rospy.logwarn(e)
             return
         return trans
+    
+    def do_transform_pose(self,pose:PoseStamped, from_frame:str, to_frame:str):
+        try:
+            trans = self.buffer.lookup_transform(to_frame, from_frame, rospy.Time(0),rospy.Duration(1.0))
+        except Exception as e:
+            rospy.logwarn(e)
+            return
+        return tf2_geometry_msgs.do_transform_pose(pose,trans)
+    
