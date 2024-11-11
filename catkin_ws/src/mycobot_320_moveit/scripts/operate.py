@@ -10,47 +10,9 @@ import time
 from geometry_msgs.msg import PoseStamped, PoseArray
 from visualization_msgs.msg import MarkerArray
 from sensor_msgs.msg import PointCloud2
+from tf_listener import TfListener
 
-
-class TfListener:
-    def __init__(self):
-        self.buffer = tf2_ros.Buffer()
-        self.listener = tf2_ros.TransformListener(self.buffer)
-
-    def posearray_transport(self, posearray, from_frame, to_frame):
-        try:
-            trans = self.buffer.lookup_transform(from_frame, to_frame, rospy.Time(0))
-        except Exception as e:
-            rospy.logwarn(e)
-            return
-        transformed_posearray = PoseArray()
-        for i in range(len(posearray.poses)):
-            pose = PoseStamped()
-            pose.header = posearray.header
-            pose.pose = posearray.poses[i]
-            transformed_pose = tf2_geometry_msgs.do_transform_pose(pose, trans)
-            transformed_posearray.poses.append(transformed_pose.pose)
-        return transformed_posearray
-
-    def pose_transport(self, pose, from_frame, to_frame):
-        try:
-            trans = self.buffer.lookup_transform(to_frame, from_frame, rospy.Time(0))
-        except Exception as e:
-            rospy.logwarn(e)
-            return
-        transformed_pose = tf2_geometry_msgs.do_transform_pose(pose, trans)
-        return transformed_pose
-
-    def lookupTransform(self, target, source):
-        try:
-            trans = self.buffer.lookup_transform(target, source, rospy.Time(0))
-        except Exception as e:
-            rospy.logwarn(e)
-            return
-        return trans
-
-
-class My1cobotOperator:
+class MycobotOperator:
     def __init__(self, port, baud):
         self.mc = None
         self.robot_arm_pub = rospy.Publisher(
@@ -63,7 +25,6 @@ class My1cobotOperator:
         self.pipette_sub = rospy.Subscriber(
             "target_estimation", PoseStamped, self.end_effector_pose
         )
-        rospy.sleep(2)
         self.move_group = moveit_commander.MoveGroupCommander("arm_group")
         self.move_group.set_planning_time(0.03)
         self.listener = TfListener()
@@ -82,14 +43,13 @@ class My1cobotOperator:
             rospy.logwarn(e)
 
     def end_effector_pose(self, posestamped: PoseStamped, deg=0):
-        posestamped.header.frame_id = "Head"
-        transform_stamped = self.listener.lookupTransform(
-            "base_link", posestamped.header.frame_id
+        transed = self.listener.do_transform_pose(
+            posestamped, "camera_link", "base_link"
         )
-        x, y, z = (
-            transform_stamped.transform.translation.x,
-            transform_stamped.transform.translation.y,
-            transform_stamped.transform.translation.z,
+        (x, y, z) = (
+            transed.pose.position.x,
+            transed.pose.position.y,
+            transed.pose.position.z,
         )
         try:
             self.move_group.set_pose_target([x, y, z, -math.pi, 0, 0])
@@ -127,7 +87,7 @@ class My1cobotOperator:
 
 def main():
     rospy.init_node("joint_controller")
-    mcOperator = My1cobotOperator("/dev/ttyUSB0", 115200)
+    mcOperator = MycobotOperator("/dev/ttyUSB0", 115200)
     rospy.loginfo(mcOperator.scene.get_known_object_names())
     rospy.spin()
 

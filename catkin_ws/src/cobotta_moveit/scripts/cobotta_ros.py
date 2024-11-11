@@ -34,16 +34,18 @@ def make_marker(pose:PoseStamped,frame_id:str) -> Marker:
     return marker
 class CobottaArmMoveit:
     def __init__(self,group_name:str="arm"):
-        moveit_commander.roscpp_initialize(sys.argv)
         self.move_group = moveit_commander.MoveGroupCommander(group_name)
-        self.move_group.set_goal_position_tolerance(0.1)
-        self.move_group.set_planning_time(0.1)
+        self.robot_commander = moveit_commander.RobotCommander()
+        self.move_group.set_goal_position_tolerance(0.03)
+        self.move_group.set_planning_time(0.05)
         
         self.changeModePub = rospy.Publisher(
             "/cobotta/ChangeMode", Int32, queue_size=10
         )
 
-        
+        self.armPub = rospy.Publisher(
+            "/cobotta/arm_controller/command", JointTrajectory, queue_size=10
+        )
         self.pointSub = rospy.Subscriber(
             "target_estimation", PoseStamped, self.pipettePointCallback
         )
@@ -73,20 +75,22 @@ class CobottaArmMoveit:
         self.changeModePub.publish(Int32(data=mode))
         rospy.sleep(1)
     
-    def pipettePointCallback(self,msg:PoseStamped):
+    def pipettePointCallback(self,msg:PoseStamped,trajectory_rate:int=10):
         if (rospy.Time.now() - msg.header.stamp) > rospy.Duration(0.05):
             return
-        msg.header.frame_id = "Head"
         pose = self.tfListener.do_transform_pose(msg,"camera_link","base_link")
-        rospy.loginfo(pose)
+        rospy.loginfo(self.robot_commander.get_current_state())
         pub = rospy.Publisher("visualization_marker", Marker, queue_size=20)
         pub.publish(make_marker(pose,"base_link"))
         try:
-            self.move_group.set_pose_target(pose)
-            p = self.move_group.plan()
-            tar_jo = list(p[1].joint_trajectory.points[-1].positions)
-            rospy.loginfo(tar_jo)
-            self.move_group.go(tar_jo,wait=True)
+            #self.move_group.set_position_target([pose.pose.position.x,pose.pose.position.y,pose.pose.position.z])
+            (trajectory,f) = self.move_group.compute_cartesian_path([pose.pose],0.01,True)
+            if len(trajectory.joint_trajectory.points) > 0:
+                rospy.loginfo("Path computed successfully")
+                partial_trajectory = trajectory
+                partial_trajectory.joint_trajectory.points = trajectory.joint_trajectory.points[:2]
+                self.move_group.execute(partial_trajectory)
+                rospy.sleep(0.1)
         except Exception as e:
             rospy.logerr(e)
             rospy.loginfo("Failed to move end effector")
@@ -96,5 +100,6 @@ class CobottaArmMoveit:
         pass
 if __name__ == "__main__":
     rospy.init_node("cobotta_arm")
+    moveit_commander.roscpp_initialize(sys.argv)
     cobotta = CobottaArmMoveit()
     rospy.spin()
