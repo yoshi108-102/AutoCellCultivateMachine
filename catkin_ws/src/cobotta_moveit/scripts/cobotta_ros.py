@@ -7,8 +7,10 @@ import moveit_commander
 
 from trajectory_msgs.msg import JointTrajectory,JointTrajectoryPoint
 from geometry_msgs.msg import PoseStamped
-from std_msgs.msg import Int32
+from std_msgs.msg import Int32,String
 from tf_listener import TfListener
+
+from constants import MODE
 
 from visualization_msgs.msg import Marker
 def make_marker(pose:PoseStamped,frame_id:str) -> Marker:
@@ -39,6 +41,8 @@ class CobottaArmMoveit:
         self.move_group.set_goal_position_tolerance(0.03)
         self.move_group.set_planning_time(0.05)
         
+        self.taskPub = rospy.Publisher("/cobotta/task",String,queue_size=10)
+        
         self.changeModePub = rospy.Publisher(
             "/cobotta/ChangeMode", Int32, queue_size=10
         )
@@ -60,6 +64,7 @@ class CobottaArmMoveit:
         )
         self.task = "pipetting"
         self.tfListener = TfListener()
+        self.mode = MODE.SLAVE
     
     def usage(self):
         rospy.logerr(
@@ -72,25 +77,32 @@ class CobottaArmMoveit:
     def changeMode(self, mode: int):
         # 0: normal mode, 514: slave mode
         #　なぜかうまくいかないが、あとで/cobotta/CurModeのトピックをSubScribeして変更が反映されたか確認するようにしたい
+        if self.mode == mode:
+            return
         self.changeModePub.publish(Int32(data=mode))
         rospy.sleep(1)
     
-    def pipettePointCallback(self,msg:PoseStamped,trajectory_rate:int=10):
+    def pipettePointCallback(self,msg:PoseStamped):
         if (rospy.Time.now() - msg.header.stamp) > rospy.Duration(0.05):
             return
+        endEffectorPose = self.tfListener.lookupTransform("base_link","J6").transform.translation
+        (ex,ey,ez) = (endEffectorPose.x,endEffectorPose.y,endEffectorPose.z)
         pose = self.tfListener.do_transform_pose(msg,"camera_link","base_link")
-        rospy.loginfo(self.robot_commander.get_current_state())
+        dist = math.sqrt((ex - pose.pose.position.x)**2 + (ey - pose.pose.position.y)**2 + (ez - pose.pose.position.z)**2)
+        rospy.loginfo(dist)
+        if dist < 0.1:
+            rospy.loginfo("End effector is already at the target")
+            self.taskPub.publish(String("catch_pipette"))
+            return
         pub = rospy.Publisher("visualization_marker", Marker, queue_size=20)
         pub.publish(make_marker(pose,"base_link"))
         try:
-            #self.move_group.set_position_target([pose.pose.position.x,pose.pose.position.y,pose.pose.position.z])
-            (trajectory,f) = self.move_group.compute_cartesian_path([pose.pose],0.01,True)
-            if len(trajectory.joint_trajectory.points) > 0:
-                rospy.loginfo("Path computed successfully")
-                partial_trajectory = trajectory
-                partial_trajectory.joint_trajectory.points = trajectory.joint_trajectory.points[:2]
-                self.move_group.execute(partial_trajectory)
-                rospy.sleep(0.1)
+            (trajectory,f) = self.move_group.compute_cartesian_path([pose.pose],0.01)
+            """ artial_trajectory = trajectory
+            partial_trajectory.joint_trajectory.points = trajectory.joint_trajectory.points[:2] """
+            target_joint = trajectory.joint_trajectory.points[-1].positions
+            self.move_group.set_joint_value_target(target_joint)
+            self.move_group.go(target_joint,wait=True)
         except Exception as e:
             rospy.logerr(e)
             rospy.loginfo("Failed to move end effector")
