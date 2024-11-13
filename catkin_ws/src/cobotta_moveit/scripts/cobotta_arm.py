@@ -433,3 +433,6 @@ class CobottaArmBcapInterface:
     
 if __name__ == "__main__":
     rospy.init_node("cobotta_arm")
+    cobotta = CobottaArmBcapInterface()
+    cobotta.controller_connect()
+    cobotta.free()

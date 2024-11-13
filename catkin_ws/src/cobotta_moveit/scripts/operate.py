@@ -9,11 +9,12 @@ import rospy
 
 class CobottaOperator:
     def __init__(self):
-        
+        self.rCobotta = CobottaArmMoveit()
+        self.rCobotta.changeMode(MODE.NORMAL)
         self.bCobotta = CobottaArmBcapInterface()
         self.bCobotta.controller_connect()
         self.bCobotta.add_k3hand()
-        self.rCobotta = CobottaArmMoveit()
+        self.rCobotta.changeMode(MODE.SLAVE)
         self.taskSub = rospy.Subscriber("/cobotta/task",String,self.taskCallback)
         
     def taskCallback(self,msg:String):
@@ -32,10 +33,8 @@ class CobottaOperator:
         assert self.bCobotta.k3Hand.handleValue != ""
         
         self.rCobotta.changeModePub.publish(MODE.NORMAL)
-        
-        self.bCobotta.manual_reset()
-        self.bCobotta.clear_error()
-        
+        rospy.loginfo("mode changed to normal")
+        rospy.sleep(5)
         self.bCobotta.k3Hand.movej(2)
         rospy.sleep(0.5)
         self.bCobotta.k3Hand.movej(3)

@@ -4,3 +4,4 @@
 /src/.cache/
 /.catkin_tools/
 /.cache/
+**/__pycache__/
