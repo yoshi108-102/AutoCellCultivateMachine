@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Site BuildName="(empty)"
-	BuildStamp="20241113-0434-Experimental"
+	BuildStamp="20241113-1054-Experimental"
 	Name="tw017-B650M-PG-Riptide-WiFi"
 	Generator="ctest-3.16.3"
 	CompilerName="/usr/bin/g++"
@@ -24,11 +24,11 @@
 	ProcessorClockFrequency="3000"
 	>
 	<Testing>
-		<StartDateTime>Nov 13 19:56 JST</StartDateTime>
-		<StartTestTime>1731495369</StartTestTime>
+		<StartDateTime>Nov 13 19:55 JST</StartDateTime>
+		<StartTestTime>1731495301</StartTestTime>
 		<TestList/>
-		<EndDateTime>Nov 13 19:56 JST</EndDateTime>
-		<EndTestTime>1731495369</EndTestTime>
+		<EndDateTime>Nov 13 19:55 JST</EndDateTime>
+		<EndTestTime>1731495301</EndTestTime>
 		<ElapsedMinutes>0</ElapsedMinutes>
 	</Testing>
 </Site>

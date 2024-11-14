@@ -103,12 +103,17 @@ class CobottaArmMoveit:
             return
         if (rospy.Time.now() - msg.header.stamp) > rospy.Duration(0.05):
             return
+        msg.pose.position.z += 0.04
         endEffectorPose = self.tfListener.lookupTransform("base_link","J6").transform.translation
         (ex,ey,ez) = (endEffectorPose.x,endEffectorPose.y,endEffectorPose.z)
         pose = self.tfListener.do_transform_pose(msg,"camera_link","base_link")
         dist = math.sqrt((ex - pose.pose.position.x)**2 + (ey - pose.pose.position.y)**2 + (ez - pose.pose.position.z)**2)
         if dist < 0.1:
             #rospy.loginfo("End effector is already at the target")
+            now_state = self.move_group.get_current_joint_values()
+            now_state[3] = -1.6
+            now_state[4] = 1.8
+            self.move_group.go(now_state,wait=True)
             self.taskPub.publish(String("catch_pipette"))
             return
         pub = rospy.Publisher("visualization_marker", Marker, queue_size=20)

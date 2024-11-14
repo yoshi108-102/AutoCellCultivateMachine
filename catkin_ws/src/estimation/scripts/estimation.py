@@ -105,7 +105,7 @@ class CVEstimator:
             xmin, ymin, xmax, ymax = int(xmin), int(ymin), int(xmax), int(ymax)
             cv2.rectangle(img, (xmin, ymin), (xmax, ymax), (0, 255, 0), 2)
 
-            label = "Head"
+            label = "Pipette"
             conf = target.conf.cpu().numpy()[0]
             y = ymin - 15 if ymin - 15 > 15 else ymin + 15
             cv2.putText(

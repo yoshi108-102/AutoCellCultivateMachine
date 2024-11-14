@@ -35,10 +35,28 @@ class CobottaOperator:
         self.rCobotta.changeModePub.publish(MODE.NORMAL)
         rospy.loginfo("mode changed to normal")
         rospy.sleep(5)
+        self.bCobotta.k3Hand.movej(0)
+        rospy.sleep(0.5)
+        self.bCobotta.k3Hand.movej(1)
+        rospy.sleep(0.5)
         self.bCobotta.k3Hand.movej(2)
         rospy.sleep(0.5)
         self.bCobotta.k3Hand.movej(3)
         rospy.sleep(0.5)
+        self.bCobotta.k3Hand.movej(4)
+        rospy.sleep(0.5)
+        self.bCobotta.k3Hand.movej(8)
+        rospy.sleep(0.5)
+        self.bCobotta.k3Hand.movej(7)
+        rospy.sleep(0.5)
+        for i in range(5):
+            self.bCobotta.k3Hand.movej(6)
+            rospy.sleep(0.5)
+            self.bCobotta.k3Hand.movej(5)
+            rospy.sleep(0.5)
+            
+        self.bCobotta.k3Hand.movej(0)
+            
         
         self.bCobotta.free()
         exit()
