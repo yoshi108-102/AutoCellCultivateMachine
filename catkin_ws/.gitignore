@@ -5,3 +5,4 @@
 /.catkin_tools/
 /.cache/
 **/__pycache__/
+**/build/
