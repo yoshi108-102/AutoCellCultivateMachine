@@ -6,4 +6,7 @@
 /.cache/
 **/__pycache__/
 **/build/
+/src/.vscode/
 /src/build/
+**/.vscode/
+compile_commands.json
