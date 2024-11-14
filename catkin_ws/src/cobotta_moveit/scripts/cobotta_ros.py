@@ -37,6 +37,9 @@ def make_marker(pose:PoseStamped,frame_id:str) -> Marker:
 class CobottaArmMoveit:
     def __init__(self,group_name:str="arm"):
         self.move_group = moveit_commander.MoveGroupCommander(group_name)
+        self.move_group.set_max_velocity_scaling_factor(0.4)
+        self.move_group.set_goal_position_tolerance(0.03)
+        self.move_group.set_goal_orientation_tolerance(0.3)
         self.robot_commander = moveit_commander.RobotCommander()
         self.move_group.set_goal_position_tolerance(0.03)
         self.move_group.set_planning_time(0.05)
@@ -103,7 +106,7 @@ class CobottaArmMoveit:
             return
         if (rospy.Time.now() - msg.header.stamp) > rospy.Duration(0.05):
             return
-        msg.pose.position.z += 0.04
+        msg.pose.position.z += 0.06
         endEffectorPose = self.tfListener.lookupTransform("base_link","J6").transform.translation
         (ex,ey,ez) = (endEffectorPose.x,endEffectorPose.y,endEffectorPose.z)
         pose = self.tfListener.do_transform_pose(msg,"camera_link","base_link")
@@ -113,6 +116,7 @@ class CobottaArmMoveit:
             now_state = self.move_group.get_current_joint_values()
             now_state[3] = -1.6
             now_state[4] = 1.8
+            now_state[5] = (now_state[5] + math.pi) % math.pi
             self.move_group.go(now_state,wait=True)
             self.taskPub.publish(String("catch_pipette"))
             return
