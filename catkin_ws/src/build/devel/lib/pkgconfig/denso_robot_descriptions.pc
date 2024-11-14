@@ -1,8 +1,0 @@
-prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel
-
-Name: denso_robot_descriptions
-Description: Description of denso_robot_descriptions
-Version: 3.3.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 

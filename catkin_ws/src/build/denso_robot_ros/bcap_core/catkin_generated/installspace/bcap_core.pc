@@ -1,8 +1,0 @@
-prefix=/usr/local
-
-Name: bcap_core
-Description: Description of bcap_core
-Version: 3.3.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib -lbcap_client -lbcap_server -ltpcomm -lrac_string
-Requires: 

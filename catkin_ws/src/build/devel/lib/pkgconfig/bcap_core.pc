@@ -1,8 +1,0 @@
-prefix=/home/tw017/Desktop/PipetteDetect/catkin_ws/src/build/devel
-
-Name: bcap_core
-Description: Description of bcap_core
-Version: 3.3.0
-Cflags: -I/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/bcap_core/include -I/home/tw017/Desktop/PipetteDetect/catkin_ws/src/denso_robot_ros/bcap_core/include/bcap_core
-Libs: -L${prefix}/lib -lbcap_client -lbcap_server -ltpcomm -lrac_string
-Requires: 
