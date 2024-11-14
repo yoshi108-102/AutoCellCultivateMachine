@@ -44,7 +44,7 @@ class CVEstimator:
         )
 
     def yolo_init(self):
-        self.pipetteModel = YOLO(HOME_DIR + "/yolo_dataset/runs/detect/train/weights/best.pt")
+        self.pipetteModel = YOLO(HOME_DIR + "/yolo_dataset/runs/detect/train3/weights/best.pt")
 
     def camera_init(self):
         self.PIPETTE_HEAD_RADIUS = 0.01
@@ -95,7 +95,7 @@ class CVEstimator:
             for box in results[0].boxes:
                 this_conf = box.conf.cpu().numpy()[0]
                 this_label = int(box.cls[0].item())
-                if this_label == names["Head"] and this_conf > conf:
+                if this_label == names["Pipette"] and this_conf > conf:
                     target = box
                     conf = this_conf
             if target is None:
@@ -105,7 +105,7 @@ class CVEstimator:
             xmin, ymin, xmax, ymax = int(xmin), int(ymin), int(xmax), int(ymax)
             cv2.rectangle(img, (xmin, ymin), (xmax, ymax), (0, 255, 0), 2)
 
-            label = "Pipette"
+            label = "Dish"
             conf = target.conf.cpu().numpy()[0]
             y = ymin - 15 if ymin - 15 > 15 else ymin + 15
             cv2.putText(

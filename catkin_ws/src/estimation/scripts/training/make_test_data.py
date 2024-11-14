@@ -11,17 +11,14 @@ import random
 import math
 import os
 
-
-def count_files():
+filename=""
+count = 0
+cv_image = None
+def count_files(filename:str):
     count = 0
-    for i in os.walk("./datasets/original_data"):
+    for i in os.walk("./"+filename+"_datasets/original_data"):
         count += len(i[2])
     return count
-
-
-count = count_files()
-cv_image = None
-filename = ""
 
 
 def callback(event):
@@ -35,7 +32,7 @@ def callback(event):
     if filename == "":
         print("decide file name")
         return
-    cv2.imwrite(f"./datasets/original_data/{filename}_{count}.png", cv_image)
+    cv2.imwrite(f"./{filename}_datasets/original_data/{filename}_{count}.png", cv_image)
     rospy.loginfo(f"save {filename}_{count}.png")
     rospy.sleep(1)
     count += 1
@@ -59,6 +56,7 @@ def main():
     if r == "y":
         global filename
         filename = input("file name :")
+        count = count_files(filename)
         rospy.Timer(rospy.Duration(0.3), callback)
     rospy.spin()
 

@@ -1,15 +1,20 @@
 #!/usr/bin/env python3
 # coding=utf-8
 import os
+import sys
 
 from ultralytics import YOLO
 
 model = YOLO("./runs/detect/train2/weights/best.pt")
 
-
-def main():
-    original_data = "./datasets/original_data"
-    annotation = "./datasets/annotation"
+def main(argv):
+    try:
+        dataset_type = argv[1]
+    except IndexError:
+        print("Please input dataset_type: pipette,dish or so")
+        sys.exit(1)
+    original_data = f"./{dataset_type}_datasets/original_data"
+    annotation = f"./{dataset_type}_datasets/annotation"
     classes = annotation + "/classes.txt"
     if os.path.exists(classes):
         os.remove(classes)
