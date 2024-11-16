@@ -2,11 +2,14 @@
 import rospy
 from bcap_service.srv import bcapResponse
 import ctypes
+
+
 def convert_error_code(hresult: int) -> str:
     """
     エラーコードをc言語のunsigned int形式に変換する関数。
     """
     return hex(ctypes.c_uint(hresult).value)
+
 
 def HRESULT(response: bcapResponse, func_name: str) -> None:
     """

@@ -7,6 +7,7 @@ from ultralytics import YOLO
 
 model = YOLO("./runs/detect/train2/weights/best.pt")
 
+
 def main(argv):
     try:
         dataset_type = argv[1]

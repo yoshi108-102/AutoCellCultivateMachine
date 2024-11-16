@@ -13,6 +13,7 @@ from bcap_service.srv import bcapRequest, bcapResponse, bcap
 from bcap_service.msg import variant
 from constants import FUNC_ID, VARIANT_TYPES, MODE
 
+
 class CobottaArmBcapInterface:
     """cobottaのアームを操作および拡張アイテム（K3Handなど）にアクセスするためのクラス。
 
@@ -65,16 +66,16 @@ class CobottaArmBcapInterface:
         self.armActionPub = rospy.Publisher(
             "/cobotta/arm_controller/command", JointTrajectory, queue_size=10
         )
-        
+
         self.pipettePointSub = rospy.Subscriber(
             "target_estimation", PoseStamped, self.pipettePointCallback
         )
         moveit_commander.roscpp_initialize(sys.argv)
-        
+
         self.scene = moveit_commander.PlanningSceneInterface()
         self.move_group = moveit_commander.MoveGroupCommander("arm")
         self.robot = moveit_commander.RobotCommander()
-        
+
         self.displayTrajectoryPub = rospy.Publisher(
             "/move_group/display_planned_path", DisplayTrajectory, queue_size=20
         )
@@ -82,12 +83,12 @@ class CobottaArmBcapInterface:
         self.move_group.set_planning_time(0.03)
 
         self.mode = MODE.SLAVE
-        
+
     def curModeCallback(self, msg: Int32):
         rospy.loginfo("msg")
         self.mode = msg.data
-    
-    def change_mode(self,mode:int):
+
+    def change_mode(self, mode: int):
         msg = Int32()
         msg.data = mode
         self.changeModePub.publish(msg)
@@ -95,8 +96,8 @@ class CobottaArmBcapInterface:
             rospy.sleep(0.1)
          """
         rospy.sleep(1)
-        rospy.loginfo("cobotta/change_mode succeed: changed mode to %d",mode)
-        
+        rospy.loginfo("cobotta/change_mode succeed: changed mode to %d", mode)
+
     def setup(self):
         self.controller_connect()
         self.controller_get_robot()
@@ -560,7 +561,8 @@ class CobottaArmBcapInterface:
             raise RuntimeError("cobotta/depart: failed to depart")
 
         HRESULT(bcapRes, "depart")
-    def pipettePointCallback(self, msg:PoseStamped,deg=0):
+
+    def pipettePointCallback(self, msg: PoseStamped, deg=0):
         if (rospy.Time.now() - msg.header.stamp) > rospy.Duration(0.05):
             return
         msg.header.frame_id = "Head"
@@ -577,14 +579,14 @@ class CobottaArmBcapInterface:
             p = self.move_group.plan()
             tar_jo = list(p[1].joint_trajectory.points[-1].positions)
             rospy.loginfo(tar_jo)
-            self.move_group.go(tar_jo,wait=True)
+            self.move_group.go(tar_jo, wait=True)
             rospy.sleep(1)
         except Exception as e:
             rospy.logerr(e)
             rospy.loginfo("Failed to move end effector")
-    
+
     def manual_reset(self):
-        
+
         bcapReq = bcapRequest()
         bcapReq.func_id = FUNC_ID.ID_CONTROLLER_EXECUTE
         if self.hControllerVt == -1:
@@ -598,7 +600,7 @@ class CobottaArmBcapInterface:
             variant(vt=VARIANT_TYPES.VT_BSTR, value="ManualResetPreparation")
         )
         bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR, value=""))
-        
+
         rospy.wait_for_service("/bcap_service")
         try:
             bcapSrv = rospy.ServiceProxy("/bcap_service", bcap)
@@ -607,9 +609,9 @@ class CobottaArmBcapInterface:
         except rospy.ServiceException as e:
             self.free()
             raise RuntimeError("cobotta/manual_reset: failed to manual reset")
-        
+
         HRESULT(bcapRes, "manual_reset")
-        
+
 
 if __name__ == "__main__":
     rospy.init_node("cobotta_arm")

@@ -11,12 +11,14 @@ import random
 import math
 import os
 
-filename=""
+filename = ""
 count = 0
 cv_image = None
-def count_files(filename:str):
+
+
+def count_files(filename: str):
     count = 0
-    for i in os.walk("./"+filename+"_datasets/original_data"):
+    for i in os.walk("./" + filename + "_datasets/original_data"):
         count += len(i[2])
     return count
 

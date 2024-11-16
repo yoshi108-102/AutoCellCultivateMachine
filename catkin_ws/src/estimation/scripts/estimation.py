@@ -25,6 +25,7 @@ pkg_path = roslib.packages.get_pkg_dir("mycobot_320_moveit")
 
 HOME_DIR = os.path.expanduser("~")
 
+
 class CVEstimator:
     def __init__(self):
         self.openpose_init()
@@ -44,7 +45,9 @@ class CVEstimator:
         )
 
     def yolo_init(self):
-        self.pipetteModel = YOLO(HOME_DIR + "/yolo_dataset/runs/detect/train3/weights/best.pt")
+        self.pipetteModel = YOLO(
+            HOME_DIR + "/yolo_dataset/runs/detect/train3/weights/best.pt"
+        )
 
     def camera_init(self):
         self.PIPETTE_HEAD_RADIUS = 0.01
@@ -260,7 +263,7 @@ def main():
             rospy.logwarn(e)
         cv2.imshow("color", color_image)
         cv2.waitKey(1)
-    
+
 
 if __name__ == "__main__":
     main()

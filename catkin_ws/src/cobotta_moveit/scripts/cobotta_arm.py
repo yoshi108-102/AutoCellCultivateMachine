@@ -10,7 +10,6 @@ from bcap_service.msg import variant
 from constants import FUNC_ID, VARIANT_TYPES, MODE
 
 
-
 class CobottaArmBcapInterface:
     """cobottaのアームを操作および拡張アイテム（K3Handなど）にアクセスするためのクラス。
 
@@ -35,6 +34,7 @@ class CobottaArmBcapInterface:
         self.is_takeArm = False
         self.is_motor_on = False
         self.mode = MODE.SLAVE
+
     def setup(self):
         self.controller_connect()
         self.controller_get_robot()
@@ -404,8 +404,9 @@ class CobottaArmBcapInterface:
             raise RuntimeError("cobotta/depart: failed to depart")
 
         HRESULT(bcapRes, "depart")
+
     def manual_reset(self):
-        
+
         bcapReq = bcapRequest()
         bcapReq.func_id = FUNC_ID.ID_CONTROLLER_EXECUTE
         if self.hControllerVt == -1:
@@ -419,7 +420,7 @@ class CobottaArmBcapInterface:
             variant(vt=VARIANT_TYPES.VT_BSTR, value="ManualResetPreparation")
         )
         bcapReq.vntArgs.append(variant(vt=VARIANT_TYPES.VT_BSTR, value=""))
-        
+
         rospy.wait_for_service("/bcap_service")
         try:
             bcapSrv = rospy.ServiceProxy("/bcap_service", bcap)
@@ -428,9 +429,10 @@ class CobottaArmBcapInterface:
         except rospy.ServiceException as e:
             self.free()
             raise RuntimeError("cobotta/manual_reset: failed to manual reset")
-        
+
         HRESULT(bcapRes, "manual_reset")
-    
+
+
 if __name__ == "__main__":
     rospy.init_node("cobotta_arm")
     cobotta = CobottaArmBcapInterface()
@@ -439,6 +441,6 @@ if __name__ == "__main__":
     cobotta.clear_error()
     for i in range(50):
         cobotta.k3Hand.movej(i)
-        rospy.loginfo("move point to P%d",i)
+        rospy.loginfo("move point to P%d", i)
         rospy.sleep(3)
     cobotta.free()

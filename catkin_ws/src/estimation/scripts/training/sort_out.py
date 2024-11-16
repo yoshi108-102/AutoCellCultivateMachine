@@ -5,6 +5,8 @@ import os
 import random
 import roslib.packages
 import sys
+
+
 def main(argv):
     try:
         dataset_type = argv[1]
@@ -61,5 +63,7 @@ def main(argv):
                         )
                     )
     print("Done!")
+
+
 if __name__ == "__main__":
     main(sys.argv)

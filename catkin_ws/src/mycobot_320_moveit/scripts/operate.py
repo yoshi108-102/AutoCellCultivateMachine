@@ -12,6 +12,7 @@ from visualization_msgs.msg import MarkerArray
 from sensor_msgs.msg import PointCloud2
 from tf_listener import TfListener
 
+
 class MycobotOperator:
     def __init__(self, port, baud):
         self.mc = None

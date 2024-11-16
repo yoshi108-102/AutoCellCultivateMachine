@@ -19,9 +19,9 @@ def callback(pub, data: PoseStamped):
     marker.id = 0
     marker.header.stamp = rospy.Time.now()
     marker.header.frame_id = "camera_link"
-    
+
     marker.pose = data.pose
-    
+
     marker.pose.orientation.x = 0
     marker.pose.orientation.y = 0
     marker.pose.orientation.z = 0
@@ -58,4 +58,3 @@ while not rospy.is_shutdown():
         [0, 0, 0],
         is_static=False,
     ) """
-
