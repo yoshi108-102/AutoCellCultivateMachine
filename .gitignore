@@ -1,6 +1,1 @@
-**/datasets/
-/pipettemovie/
-**/runs/
-*.png
-**/record/
-**.bag
+.mypy_cache/
