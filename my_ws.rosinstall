@@ -1,0 +1,6 @@
+. (git)
+repositories:
+  PipetteDetect:
+    type: git
+    url: git@github.com:yoshi108-102/AutoCellCultivateMachine.git
+    version: main
