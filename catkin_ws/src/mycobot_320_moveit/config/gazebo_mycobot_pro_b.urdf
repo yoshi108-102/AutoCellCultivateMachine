@@ -251,7 +251,7 @@
   plugin-->
     <gazebo>
         <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
-            <robotNamespace>/robot_a</robotNamespace>
+            <robotNamespace>/robot_b</robotNamespace>
         </plugin>
     </gazebo>
     <!--joint_state_publisher

@@ -7,28 +7,59 @@
   <arg name="world_pose" default="-x 0 -y 0 -z 0 -R 0 -P 0 -Y 0" doc="Pose to spawn the robot at"/>
   <arg name="initial_joint_positions" default="" doc="Initial joint configuration of the robot"/>
 
-  <!-- Start Gazebo paused to allow the controllers to pickup the initial pose -->
+  <!-- Start Gazebo paused to allow the controllers to pick up the initial pose -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch" pass_all_args="true">
     <arg name="paused" value="true"/>
   </include>
 
   <!-- Set the robot urdf on the parameter server -->
-  <param name="robot_description" textfile="$(find mycobot_320_moveit)/config/gazebo_mycobot_pro.urdf" />
-
   <!-- Unpause the simulation after loading the robot model -->
   <arg name="unpause" value="$(eval '' if arg('paused') else '-unpause')" />
 
   <!-- Spawn the robot in Gazebo -->
-  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model robot $(arg unpause) $(arg world_pose) $(arg initial_joint_positions)"
-    respawn="false" output="screen" />
+  <group ns="robot_a">
+    <!-- ロボットのURDFをrobot_aネームスペースに設定 -->
+    <param name="robot_description" textfile="$(find mycobot_320_moveit)/config/gazebo_mycobot_pro.urdf" />
 
-  <!-- Load the controller parameters onto the parameter server -->
-  <rosparam file="$(find mycobot_320_moveit)/config/gazebo_controllers.yaml" />
-  <include file="$(dirname)/ros_controllers.launch"/>
+    <!-- Gazeboにロボットをスポーン -->
+    <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model"
+          args="-urdf -param /robot_a/robot_description -model robot_a $(arg unpause) $(arg world_pose) $(arg initial_joint_positions)"
+          respawn="false" output="screen" />
 
-  <!-- Spawn the Gazebo ROS controllers -->
-  <node name="gazebo_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="joint_state_controller" />
+    <!-- Load the controller parameters onto the parameter server -->
+    <rosparam file="$(find mycobot_320_moveit)/config/gazebo_controllers.yaml" />
 
-  <!-- Given the published joint states, publish tf for the robot links -->
-  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
+    <!-- Gazebo ROSコントローラーをスポーン -->
+    <node name="gazebo_controller_spawner" pkg="controller_manager" type="spawner"
+          respawn="false" output="screen" args="--namespace=robot_a joint_state_controller" />
+
+    <!-- Publish TF for the robot links -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+          respawn="true" output="screen" />
+  </group>
+
+
+  <!-- Spawn the robot in Gazebo -->
+  <group ns="robot_b">
+    <!-- ロボットのURDFをrobot_aネームスペースに設定 -->
+    <param name="robot_description" textfile="$(find mycobot_320_moveit)/config/gazebo_mycobot_pro_b.urdf" />
+
+    <!-- Gazeboにロボットをスポーン -->
+    <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model"
+          args="-urdf -param /robot_b/robot_description -model robot_b $(arg unpause) -x 1.0 -y 0 -z 0 -R 0 -P 0 -Y 0 $(arg initial_joint_positions)"
+          respawn="false" output="screen" />
+
+    <!-- Load the controller parameters onto the parameter server -->
+    <rosparam file="$(find mycobot_320_moveit)/config/gazebo_controllers.yaml" />
+
+    <!-- Gazebo ROSコントローラーをスポーン -->
+    <node name="gazebo_controller_spawner" pkg="controller_manager" type="spawner"
+          respawn="false" output="screen" args="--namespace=robot_a joint_state_controller" />
+
+    <!-- Publish TF for the robot links -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+          respawn="true" output="screen" />
+  </group>
+
+
 </launch>
