@@ -1,8 +1,6 @@
 **/datasets/
 /pipettemovie/
 **/runs/
-**/myrobot/
-**/realsense-ros/
 *.png
 **/record/
 **.bag
