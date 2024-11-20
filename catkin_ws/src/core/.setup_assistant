@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: system_core
+    relative_path: urdf/dual_arm_robot.xacro
+    xacro_args: ""
+  SRDF:
+    relative_path: config/dual_arm_robot.srdf
+  CONFIG:
+    author_name: yoshi108
+    author_email: ginyoku102@gmail.com
+    generated_timestamp: 1732142750
