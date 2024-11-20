@@ -1,0 +1,208 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="dual_arm_robot">
+
+  <!-- プロパティ -->
+  <xacro:property name="width" value=".2" />
+
+  <!-- worldリンク -->
+  <link name="world" />
+  <joint name="world_to_base_a" type="fixed">
+    <parent link="world" />
+    <child link="base_a" />
+  </joint>
+  <joint name="world_to_base_b" type="fixed">
+    <parent link="world" />
+    <child link="base_b" />
+  </joint>
+
+  <!-- アーム定義マクロ -->
+  <xacro:macro name="define_arm" params="prefix base_xyz base_rpy">
+    <link name="${prefix}_base_link">
+      <visual>
+        <geometry>
+          <mesh filename="package://mycobot_320_moveit/urdf/320_urdf/base.dae" />
+        </geometry>
+        <origin xyz="${base_xyz}" rpy="${base_rpy}" />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.05" rpy="0 0 3.1415926" />
+        <geometry>
+          <cylinder length="0.100" radius="0.0725" />
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="1.0" />
+        <inertia ixx="0.00218" iyy="0.00218" izz="0.00263" ixy="0.0" ixz="0.0" iyz="0.0" />
+      </inertial>
+    </link>
+
+    <joint name="${prefix}_arm_joint_0" type="revolute">
+      <parent link="${prefix}_base_link" />
+      <child link="${prefix}_link1" />
+      <origin xyz="0 0 0.17846" rpy="0 0 0" />
+      <axis xyz="0 0 1" />
+      <limit effort="100.0" lower="-3.14" upper="3.14159" velocity="5" />
+    </joint>
+
+    <link name="${prefix}_link1">
+      <visual>
+        <geometry>
+          <mesh filename="package://mycobot_320_moveit/urdf/320_urdf/link1_1.dae" />
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+      </visual>
+      <collision>
+        <origin xyz="0 0 -0.02" rpy="0 0 0" />
+        <geometry>
+          <cylinder length="0.106" radius="0.043" />
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.5" />
+        <inertia ixx="0.00070" iyy="0.00070" izz="0.00046" ixy="0.0" ixz="0.0" iyz="0.0" />
+      </inertial>
+    </link>
+
+    <joint name="${prefix}_arm_joint_1" type="revolute">
+      <parent link="${prefix}_link1" />
+      <child link="${prefix}_link2" />
+      <origin xyz="0 0 0" rpy="0 -1.5708 1.5708" />
+      <axis xyz="0 0 1" />
+      <limit effort="100.0" lower="-3.14" upper="3.14159" velocity="5" />
+    </joint>
+
+    <link name="${prefix}_link2">
+      <visual>
+        <geometry>
+          <mesh filename="package://mycobot_320_moveit/urdf/320_urdf/link2.dae" />
+        </geometry>
+        <origin xyz="0 0 0.0587" rpy="0 0 3.1415926" />
+      </visual>
+      <collision>
+        <origin xyz="0.07 0 0.095" rpy="0 -1.5708 0" />
+        <geometry>
+          <cylinder length="0.18" radius="0.036" />
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.7" />
+        <inertia ixx="0.00212" iyy="0.00212" izz="0.00045" ixy="0.0" ixz="0.0" iyz="0.0" />
+      </inertial>
+    </link>
+
+    <joint name="${prefix}_arm_joint_2" type="revolute">
+      <parent link="${prefix}_link2" />
+      <child link="${prefix}_link3" />
+      <origin xyz="0.13635 0 0" rpy="0 0 0" />
+      <axis xyz="0 0 1" />
+      <limit effort="100.0" lower="-3.14" upper="3.14159" velocity="5" />
+    </joint>
+
+    <link name="${prefix}_link3">
+      <visual>
+        <geometry>
+          <mesh filename="package://mycobot_320_moveit/urdf/320_urdf/link3.dae" />
+        </geometry>
+        <origin xyz="0 0 0.038" rpy="0 0 3.1415926" />
+      </visual>
+      <collision>
+        <origin xyz="0.044 0 0" rpy="0 -1.5708 0" />
+        <geometry>
+          <cylinder length="0.14" radius="0.0305" />
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.5" />
+        <inertia ixx="0.00093" iyy="0.00093" izz="0.00023" ixy="0.0" ixz="0.0" iyz="0.0" />
+      </inertial>
+    </link>
+
+    <joint name="${prefix}_arm_joint_3" type="revolute">
+      <parent link="${prefix}_link3" />
+      <child link="${prefix}_link4" />
+      <origin xyz="0.1 0 0.09" rpy="0 0 1.57080" />
+      <axis xyz="0 0 1" />
+      <limit effort="100.0" lower="-3.14" upper="3.14159" velocity="5" />
+    </joint>
+
+    <link name="${prefix}_link4">
+      <visual>
+        <geometry>
+          <mesh filename="package://mycobot_320_moveit/urdf/320_urdf/link4.dae" />
+        </geometry>
+        <origin xyz="0 -0.001 0" rpy="0 0 0" />
+      </visual>
+      <collision>
+        <origin xyz="0.0 -0.014 0" rpy="0 -1.5708 1.5708" />
+        <geometry>
+          <cylinder length="0.083" radius="0.029" />
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.2" />
+        <inertia ixx="0.00016" iyy="0.00016" izz="0.00008" ixy="0.0" ixz="0.0" iyz="0.0" />
+      </inertial>
+    </link>
+
+    <joint name="${prefix}_arm_joint_4" type="revolute">
+      <parent link="${prefix}_link4" />
+      <child link="${prefix}_link5" />
+      <origin xyz="0 -0.07318 0" rpy="1.5708 -1.5708 0" />
+      <axis xyz="0 0 1" />
+      <limit effort="100.0" lower="-3.14" upper="3.14159" velocity="5" />
+    </joint>
+
+    <link name="${prefix}_link5">
+      <visual>
+        <geometry>
+          <mesh filename="package://mycobot_320_moveit/urdf/320_urdf/link5.dae" />
+        </geometry>
+        <origin xyz="0 0.002 0" rpy="0 0 3.1415926" />
+      </visual>
+      <collision>
+        <origin xyz="0 -0.01 0" rpy="1.5708 1.5708 0" />
+        <geometry>
+          <cylinder length="0.0849" radius="0.029" />
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.2" />
+        <inertia ixx="0.00016" iyy="0.00016" izz="0.00008" ixy="0.0" ixz="0.0" iyz="0.0" />
+      </inertial>
+    </link>
+
+    <joint name="${prefix}_arm_joint_5" type="revolute">
+      <parent link="${prefix}_link5" />
+      <child link="${prefix}_link6" />
+      <origin xyz="0.00 0.06635 0" rpy="-1.5708 0 0" />
+      <axis xyz="0 0 1" />
+      <limit effort="100.0" lower="-3.14" upper="3.14159" velocity="5" />
+    </joint>
+
+    <link name="${prefix}_link6">
+      <visual>
+        <geometry>
+          <mesh filename="package://mycobot_320_moveit/urdf/320_urdf/link6.dae" />
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+      </visual>
+      <collision>
+        <origin xyz="0.0 0 -0.01" rpy="0 0 0" />
+        <geometry>
+          <cylinder length="0.0225" radius="0.026" />
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="0.2" />
+        <inertia ixx="0.00002" iyy="0.00002" izz="0.00003" ixy="0.0" ixz="0.0" iyz="0.0" />
+      </inertial>
+    </link>
+  </xacro:macro>
+
+  <!-- アームAの定義 -->
+  <xacro:define_arm prefix="arm_a" base_xyz="0 0 0" base_rpy="0 0 0" />
+
+  <!-- アームBの定義（別の位置に配置） -->
+  <xacro:define_arm prefix="arm_b" base_xyz="0.5 0 0" base_rpy="0 0 0" />
+
+</robot>

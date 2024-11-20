@@ -1,7 +1,7 @@
 <launch>
   <!--BotのURDFモデルをパラメータサーバにロードする-->
   <arg name="mode" default="gazebo" />
-  <arg name="model" default="$(find mycobot_320_moveit)/urdf/mycobot_320.urdf.xacro" />
+  <arg name="model" default="$(find mycobot_320_moveit)/urdf/dual_arm_robot.xacro" />
   <arg name="namespace" default="robot_a" />
   <arg name="world_pose" default="-x 0 -y 0 -z 0 -R 0 -P 0 -Y 0" doc="Pose to spawn the robot at"/>
 
@@ -16,41 +16,36 @@
     </group>
 
     <!--GazeboでMyCobotを生成し，パラメータサーバからのその記述を受ける-->
-    <group ns="$(arg namespace)">
-      <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
-      <!-- <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" -->
-      <!--       args="-param robot_description -urdf -model mycobot_320" /> -->
-      <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model"
-            args="-urdf -param /$(arg namespace)/robot_description -model $(arg namespace) $(arg world_pose)"
-            respawn="false" output="screen" />
-    </group>
+    <param name="robot_description" command="$(find xacro)/xacro $(arg model)" />
+    <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model"
+          args="-urdf -param robot_description -model mycobot_320_dual"
+          respawn="false" output="screen" />
   </group>
-  <group ns="$(arg namespace)" >
 
-    <include file="$(find mycobot_320_moveit)/launch/move_group.launch">
-      <arg name="allow_trajectory_execution" value="true" />
-      <arg name="info" value="true" />
-      <arg name="debug" value="false" />
-    </include>
+  <include file="$(find mycobot_320_moveit)/launch/move_group.launch">
+    <arg name="allow_trajectory_execution" value="true" />
+    <arg name="info" value="true" />
+    <arg name="debug" value="false" />
+  </include>
 
-    <group unless="$(eval mode=='gazebo')">
-      <include file="$(find mycobot_320_moveit
-                     )/launch/mycobot_pro_control.launch" />
-    </group>
-
-    <!--コントローラをROSのパラメータサーバに読み込む-->
-    <rosparam file="$(find mycobot_320_moveit)/yaml/mycobot_moveit_controllers.yaml" command="load" />
-    <rosparam file="$(find mycobot_320_moveit)/yaml/joint_state_controller.yaml" command="load" />
-
-    <!--コントローラ作成-->
-    <node name="controller_spawner" pkg="controller_manager" type="spawner"
-          args="arm_controller
-	              joint_state_controller" />
-
-    <!--robot_state_publisher:
-        順運動学を計算し，tfメッセージを生成する-->
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+  <group unless="$(eval mode=='gazebo')">
+    <include file="$(find mycobot_320_moveit
+                   )/launch/mycobot_pro_control.launch" />
   </group>
+
+  <!--コントローラをROSのパラメータサーバに読み込む-->
+  <rosparam file="$(find mycobot_320_moveit)/yaml/mycobot_moveit_controllers_dual.yaml" command="load" />
+  <rosparam file="$(find mycobot_320_moveit)/yaml/joint_state_controller.yaml" command="load" />
+
+  <!--コントローラ作成-->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner"
+        args="arm_a_controller arm_b_controller
+	            joint_state_controller" />
+
+  <!--robot_state_publisher:
+      順運動学を計算し，tfメッセージを生成する-->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
   <node name="$(anon rviz)"
         pkg="rviz" type="rviz" args="-d $(find mycobot_320_moveit)/config/moveit_rviz.rviz" />
 

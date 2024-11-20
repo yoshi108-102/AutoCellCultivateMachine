@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="dual_arm_robot">
+
+  <xacro:include filename="$(find mycobot_320_moveit)/urdf/mycobot_320.urdf.xacro" />
+
+  <xacro:property name="width" value=".2" />
+
+  <link name="world" />
+  <xacro:define_arm parent="world" prefix="arm_a" base_xyz="0 0 0" base_rpy="0 0 0" />
+  <xacro:define_arm parent="world" prefix="arm_b" base_xyz="0.5 0 0" base_rpy="0 0 0" />
+
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so" />
+  </gazebo>
+
+<plugin name="arm_a_joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+  <robotNamespace>/arm_a</robotNamespace>
+  <jointName>arm_a_arm_joint_0, arm_a_arm_joint_1, arm_a_arm_joint_2, arm_a_arm_joint_3, arm_a_arm_joint_4, arm_a_arm_joint_5</jointName>
+</plugin>
+
+</robot>

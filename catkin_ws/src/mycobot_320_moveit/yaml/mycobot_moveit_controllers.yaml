@@ -1,13 +1,23 @@
 # ros_control関連の設定
-arm_controller:
+arm_a_controller:
   type: "position_controllers/JointTrajectoryController"
   joints:
-    - arm_joint_0
-    - arm_joint_1
-    - arm_joint_2
-    - arm_joint_3
-    - arm_joint_4
-    - arm_joint_5
+    - arm_a_joint_0
+    - arm_a_joint_1
+    - arm_a_joint_2
+    - arm_a_joint_3
+    - arm_a_joint_4
+    - arm_a_joint_5
+arm_b_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints:
+    - arm_b_joint_0
+    - arm_b_joint_1
+    - arm_b_joint_2
+    - arm_b_joint_3
+    - arm_b_joint_4
+    - arm_b_joint_5
+
 
 # MoveIt!関連の設定
 moveit_simple_controller_manager:
