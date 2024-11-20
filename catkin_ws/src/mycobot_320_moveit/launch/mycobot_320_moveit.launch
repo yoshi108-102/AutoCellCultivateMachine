@@ -48,7 +48,6 @@
 
   <node name="$(anon rviz)"
         pkg="rviz" type="rviz" args="-d $(find mycobot_320_moveit)/config/moveit_rviz.rviz" >
-      <remap from="robot_description" to="$(arg namespace)/robot_description" />
   </node>
 
 </launch>
