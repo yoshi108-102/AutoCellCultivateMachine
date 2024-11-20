@@ -1,32 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--This does not replace URDF, and is not an extension of URDF.
-    This is a format for representing semantic information about the robot structure.
-    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+<!-- This does not replace URDF, and is not an extension of URDF.
+     This is a format for representing semantic information about the robot structure.
+     A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined.
 -->
-<robot name="mycobot_pro">
-    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
-    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
-    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
-    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
-    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
-    <group name="arm_group">
-        <joint name="world2base"/>
-        <joint name="arm_joint_0"/>
-        <joint name="arm_joint_1"/>
-        <joint name="arm_joint_2"/>
-        <joint name="arm_joint_3"/>
-        <joint name="arm_joint_4"/>
-        <joint name="arm_joint_5"/>
+<robot name="dual_arm_robot">
+
+    <!-- GROUPS: Define groups for each arm -->
+    <group name="arm_a_group">
+        <joint name="arm_a_world2base"/>
+        <joint name="arm_a_arm_joint_0"/>
+        <joint name="arm_a_arm_joint_1"/>
+        <joint name="arm_a_arm_joint_2"/>
+        <joint name="arm_a_arm_joint_3"/>
+        <joint name="arm_a_arm_joint_4"/>
+        <joint name="arm_a_arm_joint_5"/>
     </group>
-    <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
-    <end_effector name="link6" parent_link="link5" group="arm_group"/>
-    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
-    <disable_collisions link1="base_link" link2="link1" reason="Adjacent"/>
-    <disable_collisions link1="link1" link2="link2" reason="Adjacent"/>
-    <disable_collisions link1="link1" link2="link4" reason="Never"/>
-    <disable_collisions link1="link2" link2="link3" reason="Adjacent"/>
-    <disable_collisions link1="link3" link2="link4" reason="Adjacent"/>
-    <disable_collisions link1="link4" link2="link5" reason="Adjacent"/>
-    <disable_collisions link1="link4" link2="link6" reason="Never"/>
-    <disable_collisions link1="link5" link2="link6" reason="Adjacent"/>
+
+    <group name="arm_b_group">
+        <joint name="arm_b_world2base"/>
+        <joint name="arm_b_arm_joint_0"/>
+        <joint name="arm_b_arm_joint_1"/>
+        <joint name="arm_b_arm_joint_2"/>
+        <joint name="arm_b_arm_joint_3"/>
+        <joint name="arm_b_arm_joint_4"/>
+        <joint name="arm_b_arm_joint_5"/>
+    </group>
+
+    <!-- END EFFECTORS: Define end effectors for each arm -->
+    <end_effector name="arm_a_end_effector" parent_link="arm_a_link5" group="arm_a_group"/>
+    <end_effector name="arm_b_end_effector" parent_link="arm_b_link5" group="arm_b_group"/>
+
+    <!-- DISABLE COLLISIONS: Define adjacent links and links that should never collide -->
+    <!-- arm_a -->
+    <disable_collisions link1="arm_a_base_link" link2="arm_a_link1" reason="Adjacent"/>
+    <disable_collisions link1="arm_a_link1" link2="arm_a_link2" reason="Adjacent"/>
+    <disable_collisions link1="arm_a_link1" link2="arm_a_link4" reason="Never"/>
+    <disable_collisions link1="arm_a_link2" link2="arm_a_link3" reason="Adjacent"/>
+    <disable_collisions link1="arm_a_link3" link2="arm_a_link4" reason="Adjacent"/>
+    <disable_collisions link1="arm_a_link4" link2="arm_a_link5" reason="Adjacent"/>
+    <disable_collisions link1="arm_a_link4" link2="arm_a_link6" reason="Never"/>
+    <disable_collisions link1="arm_a_link5" link2="arm_a_link6" reason="Adjacent"/>
+
+    <!-- arm_b -->
+    <disable_collisions link1="arm_b_base_link" link2="arm_b_link1" reason="Adjacent"/>
+    <disable_collisions link1="arm_b_link1" link2="arm_b_link2" reason="Adjacent"/>
+    <disable_collisions link1="arm_b_link1" link2="arm_b_link4" reason="Never"/>
+    <disable_collisions link1="arm_b_link2" link2="arm_b_link3" reason="Adjacent"/>
+    <disable_collisions link1="arm_b_link3" link2="arm_b_link4" reason="Adjacent"/>
+    <disable_collisions link1="arm_b_link4" link2="arm_b_link5" reason="Adjacent"/>
+    <disable_collisions link1="arm_b_link4" link2="arm_b_link6" reason="Never"/>
+    <disable_collisions link1="arm_b_link5" link2="arm_b_link6" reason="Adjacent"/>
+
 </robot>

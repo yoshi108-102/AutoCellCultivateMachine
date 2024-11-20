@@ -1,0 +1,14 @@
+<launch>
+
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find mycobot_320_moveit)/urdf/dual_arm_robot.xacro'" />
+
+  <node name="spawn_model"
+        pkg="gazebo_ros" type="spawn_model"
+        args="-param robot_description -urdf -model dual_arm_robot"
+        output="screen" />
+
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="paused" value="false" />
+  </include>
+
+</launch>

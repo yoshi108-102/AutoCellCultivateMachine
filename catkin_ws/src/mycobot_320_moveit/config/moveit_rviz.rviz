@@ -60,19 +60,33 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        base_link:
+        arm_a_base_link:
           Value: true
-        link1:
+        arm_a_link1:
           Value: true
-        link2:
+        arm_a_link2:
           Value: true
-        link3:
+        arm_a_link3:
           Value: true
-        link4:
+        arm_a_link4:
           Value: true
-        link5:
+        arm_a_link5:
           Value: true
-        link6:
+        arm_a_link6:
+          Value: true
+        arm_b_base_link:
+          Value: true
+        arm_b_link1:
+          Value: true
+        arm_b_link2:
+          Value: true
+        arm_b_link3:
+          Value: true
+        arm_b_link4:
+          Value: true
+        arm_b_link5:
+          Value: true
+        arm_b_link6:
           Value: true
         world:
           Value: true
@@ -84,13 +98,21 @@ Visualization Manager:
       Show Names: true
       Tree:
         world:
-          base_link:
-            link1:
-              link2:
-                link3:
-                  link4:
-                    link5:
-                      link6:
+          arm_a_base_link:
+            arm_a_link1:
+              arm_a_link2:
+                arm_a_link3:
+                  arm_a_link4:
+                    arm_a_link5:
+                      arm_a_link6:
+                        {}
+          arm_b_base_link:
+            arm_b_link1:
+              arm_b_link2:
+                arm_b_link3:
+                  arm_b_link4:
+                    arm_b_link5:
+                      arm_b_link6:
                         {}
       Update Interval: 0
       Value: true
@@ -104,37 +126,72 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        base_link:
+        arm_a_base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link1:
+        arm_a_link1:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link2:
+        arm_a_link2:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link3:
+        arm_a_link3:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link4:
+        arm_a_link4:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link5:
+        arm_a_link5:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        link6:
+        arm_a_link6:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_b_base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_b_link1:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_b_link2:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_b_link3:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_b_link4:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_b_link5:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        arm_b_link6:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -152,7 +209,7 @@ Visualization Manager:
     - Acceleration_Scaling_Factor: 0.1
       Class: moveit_rviz_plugin/MotionPlanning
       Enabled: false
-      JointsTab_Use_Radians: false
+      JointsTab_Use_Radians: true
       Move Group Namespace: ""
       MoveIt_Allow_Approximate_IK: false
       MoveIt_Allow_External_Program: false
@@ -244,7 +301,7 @@ Visualization Manager:
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: base_link
+    Fixed Frame: world
     Frame Rate: 30
   Name: root
   Tools:
@@ -268,7 +325,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 6.380478382110596
+      Distance: 2.8943517208099365
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -276,17 +333,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.13511893153190613
-        Y: -0.05283559486269951
-        Z: 0.019245361909270287
+        X: 0.2081892490386963
+        Y: -0.3591070771217346
+        Z: 0.0064348457381129265
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.16039779782295227
+      Pitch: 0.43039780855178833
       Target Frame: <Fixed Frame>
-      Yaw: 1.325402021408081
+      Yaw: 0.8554024696350098
     Saved: ~
 Window Geometry:
   Displays:
