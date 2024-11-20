@@ -27,8 +27,8 @@
     </group>
 
     <!-- END EFFECTORS: Define end effectors for each arm -->
-    <end_effector name="arm_a_end_effector" parent_link="arm_a_link5" group="arm_a_group"/>
-    <end_effector name="arm_b_end_effector" parent_link="arm_b_link5" group="arm_b_group"/>
+    <end_effector name="arm_a_link6" parent_link="arm_a_link5" group="arm_a_group"/>
+    <end_effector name="arm_b_link6" parent_link="arm_b_link5" group="arm_b_group"/>
 
     <!-- DISABLE COLLISIONS: Define adjacent links and links that should never collide -->
     <!-- arm_a -->

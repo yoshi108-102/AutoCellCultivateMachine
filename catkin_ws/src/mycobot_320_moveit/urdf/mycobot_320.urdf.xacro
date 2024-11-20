@@ -4,7 +4,7 @@
   <xacro:property name="width" value=".2" />
 
   <xacro:macro name="define_arm" params="parent prefix base_xyz base_rpy">
-    <joint name="${prefix}_base_joint" type="fixed">
+    <joint name="${prefix}_world2base" type="fixed">
       <parent link="${parent}" />
       <child link="${prefix}_base_link" />
       <origin xyz="${base_xyz}" rpy="${base_rpy}" />
