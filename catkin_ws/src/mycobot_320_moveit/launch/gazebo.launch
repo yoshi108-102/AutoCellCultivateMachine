@@ -31,7 +31,9 @@
 
     <!-- Gazebo ROSコントローラーをスポーン -->
     <node name="gazebo_controller_spawner" pkg="controller_manager" type="spawner"
-          respawn="false" output="screen" args="--namespace=huga joint_state_controller" />
+          respawn="true"
+          respawn_delay="5"
+          output="screen" args="--namespace=robot_a joint_state_controller" />
 
     <!-- Publish TF for the robot links -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
@@ -39,28 +41,27 @@
   </group>
 
 
+  <!-- <!-\- Spawn the robot in Gazebo -\-> -->
+  <!-- <group ns="robot_b"> -->
+  <!--   <!-\- ロボットのURDFをrobot_aネームスペースに設定 -\-> -->
+  <!--   <param name="robot_description" textfile="$(find mycobot_320_moveit)/config/gazebo_mycobot_pro_b.urdf" /> -->
 
-  <!-- Spawn the robot in Gazebo -->
-  <group ns="robot_b">
-    <!-- ロボットのURDFをrobot_aネームスペースに設定 -->
-    <param name="robot_description" textfile="$(find mycobot_320_moveit)/config/gazebo_mycobot_pro_b.urdf" />
+  <!--   <!-\- Gazeboにロボットをスポーン -\-> -->
+  <!--   <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" -->
+  <!--         args="-urdf -param /robot_b/robot_description -model robot_b $(arg unpause) -x 1.0 -y 0 -z 0 -R 0 -P 0 -Y 0 $(arg initial_joint_positions)" -->
+  <!--         respawn="false" output="screen" /> -->
 
-    <!-- Gazeboにロボットをスポーン -->
-    <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model"
-          args="-urdf -param /robot_b/robot_description -model robot_b $(arg unpause) -x 1.0 -y 0 -z 0 -R 0 -P 0 -Y 0 $(arg initial_joint_positions)"
-          respawn="false" output="screen" />
+  <!--   <!-\- Load the controller parameters onto the parameter server -\-> -->
+  <!--   <rosparam file="$(find mycobot_320_moveit)/config/gazebo_controllers.yaml" /> -->
 
-    <!-- Load the controller parameters onto the parameter server -->
-    <rosparam file="$(find mycobot_320_moveit)/config/gazebo_controllers.yaml" />
+  <!--   <!-\- Gazebo ROSコントローラーをスポーン -\-> -->
+  <!--   <node name="gazebo_controller_spawner" pkg="controller_manager" type="spawner" -->
+  <!--         respawn="false" output="screen" args="-\-namespace=robot_a joint_state_controller" /> -->
 
-    <!-- Gazebo ROSコントローラーをスポーン -->
-    <node name="gazebo_controller_spawner" pkg="controller_manager" type="spawner"
-          respawn="false" output="screen" args="--namespace=robot_b joint_state_controller" />
-
-    <!-- Publish TF for the robot links -->
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
-          respawn="true" output="screen" />
-  </group>
+  <!--   <!-\- Publish TF for the robot links -\-> -->
+  <!--   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" -->
+  <!--         respawn="true" output="screen" /> -->
+  <!-- </group> -->
 
 
 </launch>
