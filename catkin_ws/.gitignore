@@ -3,7 +3,7 @@
 /logs/
 /src/.cache/
 /.catkin_tools/
-/.cache/
+**/.cache/
 **/__pycache__/
 **/build/
 /src/.vscode/
