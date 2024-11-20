@@ -4,6 +4,8 @@ from skrobot.model import RobotModel
 import control_msgs.msg
 from skrobot.interfaces.ros.base import ROSRobotInterfaceBase
 from skrobot.viewers import TrimeshSceneViewer
+import moveit_commander
+import sys
 
 
 class MyCobotROSRobotInterface(ROSRobotInterfaceBase):
@@ -33,6 +35,8 @@ class MyCobotROSRobotInterface(ROSRobotInterfaceBase):
 
 
 rospy.init_node('manipulate_two_robot')
+moveit_commander.roscpp_initialize(sys.argv)
+scene = moveit_commander.PlanningSceneInterface("robot_a")
 namespace = 'robot_a'
 robot_a_model = RobotModel()
 robot_a_model.load_urdf_from_robot_description(
@@ -61,3 +65,4 @@ robot_a_ri.wait_interpolation()  # 補間が終わるまで待つ。
 robot_b_model.arm_joint_1.joint_angle(0.5)
 robot_b_ri.angle_vector(robot_b_model.angle_vector(), 3)  # robot_bの実機(gazeboも)に指令を送る
 robot_b_ri.wait_interpolation()  # 補間が終わるまで待つ。
+rospy.loginfo("scene obj:{}".format(scene.get_known_object_names()))

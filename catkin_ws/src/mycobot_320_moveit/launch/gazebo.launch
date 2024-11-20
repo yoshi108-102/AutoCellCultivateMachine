@@ -33,7 +33,7 @@
     <node name="gazebo_controller_spawner" pkg="controller_manager" type="spawner"
           respawn="true"
           respawn_delay="5"
-          output="screen" args="--namespace=robot_a joint_state_controller" />
+          output="screen" args="joint_state_controller" />
 
     <!-- Publish TF for the robot links -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
