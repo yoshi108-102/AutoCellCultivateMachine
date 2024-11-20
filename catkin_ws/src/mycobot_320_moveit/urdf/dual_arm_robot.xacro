@@ -17,5 +17,10 @@
   <robotNamespace>/arm_a</robotNamespace>
   <jointName>arm_a_arm_joint_0, arm_a_arm_joint_1, arm_a_arm_joint_2, arm_a_arm_joint_3, arm_a_arm_joint_4, arm_a_arm_joint_5</jointName>
 </plugin>
+<plugin name="arm_b_joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+  <robotNamespace>/arm_b</robotNamespace>
+  <jointName>arm_b_arm_joint_0, arm_b_arm_joint_1, arm_b_arm_joint_2, arm_b_arm_joint_3, arm_b_arm_joint_4, arm_b_arm_joint_5</jointName>
+</plugin>
+
 
 </robot>
