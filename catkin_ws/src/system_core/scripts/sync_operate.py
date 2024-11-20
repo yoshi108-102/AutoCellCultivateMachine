@@ -1,35 +1,11 @@
 #!/usr/bin/env python3
 import rospy
 from skrobot.model import RobotModel
-import control_msgs.msg
-from skrobot.interfaces.ros.base import ROSRobotInterfaceBase
 from skrobot.viewers import TrimeshSceneViewer
+from skrobot_mycobot import MyCobotROSRobotInterface
+from icecream import ic,install
 
-
-class MyCobotROSRobotInterface(ROSRobotInterfaceBase):
-
-    def __init__(self, *args, **kwargs):
-        super(MyCobotROSRobotInterface, self).__init__(*args, **kwargs)
-
-    @property
-    def rarm_controller(self):
-        return dict(
-            controller_type='arm_controller',
-            controller_action='arm_controller/follow_joint_trajectory',
-            controller_state='arm_controller/state',
-            action_type=control_msgs.msg.FollowJointTrajectoryAction,
-            joint_names=[
-                'arm_joint_0',
-                'arm_joint_1',
-                'arm_joint_2',
-                'arm_joint_3',
-                'arm_joint_4',
-                'arm_joint_5',
-            ],
-        )
-
-    def default_controller(self):
-        return [self.rarm_controller]
+install()
 
 
 rospy.init_node('manipulate_two_robot')

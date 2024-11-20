@@ -52,6 +52,9 @@
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
   </group>
   <node name="$(anon rviz)"
-        pkg="rviz" type="rviz" args="-d $(find mycobot_320_moveit)/config/moveit_rviz.rviz" />
+        pkg="rviz" type="rviz" args="-d $(find mycobot_320_moveit)/config/moveit_rviz.rviz" >
+      <remap from="robot_description" to="$(arg namespace)/robot_description" />
+      <remap from="move_group" to="$(arg namespace)/move_group" />
+  </node>
 
 </launch>
