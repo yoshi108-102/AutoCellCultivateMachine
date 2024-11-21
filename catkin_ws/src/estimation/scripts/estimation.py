@@ -46,7 +46,7 @@ class CVEstimator:
 
     def yolo_init(self):
         self.pipetteModel = YOLO(
-            HOME_DIR + "/yolo_dataset/runs/detect/train3/weights/best.pt"
+            HOME_DIR + "/yolo_dataset/runs/detect/train/weights/best.pt"
         )
 
     def camera_init(self):
@@ -90,7 +90,7 @@ class CVEstimator:
     # 対象物体はバウンディングボックスの中心にいるものとする
     # x,yのピクセル値を返す
     def estimatePipettePose(self, img):
-        names = {"Head": 1, "Pipette": 0}
+        names = {"Head": 0, "Pipette": 1}
         try:
             results = self.pipetteModel.predict(img, verbose=False, conf=0.6)
             conf = 0
@@ -108,7 +108,7 @@ class CVEstimator:
             xmin, ymin, xmax, ymax = int(xmin), int(ymin), int(xmax), int(ymax)
             cv2.rectangle(img, (xmin, ymin), (xmax, ymax), (0, 255, 0), 2)
 
-            label = "Dish"
+            label = "Pipette"
             conf = target.conf.cpu().numpy()[0]
             y = ymin - 15 if ymin - 15 > 15 else ymin + 15
             cv2.putText(
