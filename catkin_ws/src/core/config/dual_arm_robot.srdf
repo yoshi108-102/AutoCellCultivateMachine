@@ -28,7 +28,7 @@
         <joint name="cobotta_joint_6"/>
     </group>
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
-    <end_effector name="mycobot_link6" parent_link="mycobot_link5" group="arm_group" parent_group="arm_group"/>
+    <end_effector name="mycobot_link6" parent_link="mycobot_link5" group="arm_group"/>
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="cobotta_J1" link2="cobotta_J2" reason="Adjacent"/>
     <disable_collisions link1="cobotta_J1" link2="cobotta_J3" reason="Never"/>

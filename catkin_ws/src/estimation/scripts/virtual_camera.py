@@ -9,6 +9,7 @@ import roslib.packages
 import math
 from geometry_msgs.msg import PoseStamped
 from visualization_msgs.msg import Marker
+import rosparam
 
 
 class TfBroadCaster:
@@ -44,9 +45,10 @@ def main():
     x = yml["position"]["x"]
     y = yml["position"]["y"]
     z = yml["position"]["z"]
+    base_link_name = rospy.get_param("base_link_name", "base_link")
     tfmaker = TfBroadCaster()
     while not rospy.is_shutdown():
-        tfmaker.broadcast("base_link", "camera_pos", [x, y, z], [0, 0, 0], False)
+        tfmaker.broadcast(base_link_name, "camera_pos", [x, y, z], [0, 0, 0], False)
         tfmaker.broadcast(
             "camera_pos", "camera_link", [0, 0, 0], [-math.pi / 2, 0, 0], False
         )

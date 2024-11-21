@@ -1,0 +1,6 @@
+<launch>
+    <include file="$(find estimation)/launch/pipette_estimation.launch">
+        <arg name="rviz" value="false"/>
+        <arg name="base_link" value="mycobot_base_link"/>
+    </include>
+</launch>

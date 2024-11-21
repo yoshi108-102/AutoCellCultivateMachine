@@ -17,7 +17,7 @@ class MycobotOperator:
     def __init__(self, port, baud):
         self.mc = None
         self.robot_arm_pub = rospy.Publisher(
-            "/arm_controller/command", JointTrajectory, queue_size=10
+            "/mycobot_arm_controller/command", JointTrajectory, queue_size=10
         )
         self.scene = moveit_commander.PlanningSceneInterface()
         self.marker_pub = rospy.Publisher(
@@ -26,9 +26,10 @@ class MycobotOperator:
         self.pipette_sub = rospy.Subscriber(
             "target_estimation", PoseStamped, self.end_effector_pose
         )
-        self.move_group = moveit_commander.MoveGroupCommander()
-        self.move_group.set_planning_time(0.03)
+        self.move_group = moveit_commander.MoveGroupCommander("arm_group")
+        self.move_group.set_planning_time(0.1)
         self.listener = TfListener()
+        self.base_link_name = rospy.get_param("base_link_name", "base_link")
         self.camera_world_name = "camera_link"
         # self.arm_sub = rospy.Subscriber("arm_estimation",PoseArray,self.armdata_cb)
         self.mycobot_init(port, baud)
@@ -45,7 +46,7 @@ class MycobotOperator:
 
     def end_effector_pose(self, posestamped: PoseStamped, deg=0):
         transed = self.listener.do_transform_pose(
-            posestamped, "camera_link", "base_link"
+            posestamped, "camera_link", self.base_link_name
         )
         (x, y, z) = (
             transed.pose.position.x,
@@ -65,12 +66,12 @@ class MycobotOperator:
     def mc_send_radians(self, radians, speed=100):
         trajectory_msg = JointTrajectory()
         trajectory_msg.joint_names = [
-            "arm_joint_0",
-            "arm_joint_1",
-            "arm_joint_2",
-            "arm_joint_3",
-            "arm_joint_4",
-            "arm_joint_5",
+            "mycobot_arm_joint_0",
+            "mycobot_arm_joint_1",
+            "mycobot_arm_joint_2",
+            "mycobot_arm_joint_3",
+            "mycobot_arm_joint_4",
+            "mycobot_arm_joint_5",
         ]
         point_msg = JointTrajectoryPoint()
 
