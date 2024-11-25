@@ -1,6 +1,0 @@
-<launch>
-    <param name="huga" value="piyopiyo" />
-    <group ns="hoge">
-       <node name="param" type="set_param.py" pkg="sandbox" output="screen" />
-    </group>
-</launch>
