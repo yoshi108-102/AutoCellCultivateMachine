@@ -58,9 +58,6 @@ int main(int argc, char* argv[])
 
 
       drobo.write(now, dt);
-/*       ROS_INFO("denso_cmd: %f %f %f %f %f %f %f", drobo.getCmd()[0], drobo.getCmd()[1], drobo.getCmd()[2], drobo.getCmd()[3], drobo.getCmd()[4], drobo.getCmd()[5], drobo.getCmd()[6]);
- *//*       ROS_INFO("denso_pos: %f %f %f %f %f %f %f", drobo.getPos()[0], drobo.getPos()[1], drobo.getPos()[2], drobo.getPos()[3], drobo.getPos()[4], drobo.getPos()[5], drobo.getPos()[6]);
- */
       if (!drobo.isSlaveSyncMode())
       {
         rate.sleep();

@@ -2,14 +2,11 @@
 import moveit_commander
 import rospy
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
-import tf2_ros
-import tf2_geometry_msgs
 import math
 from pymycobot.mycobot import MyCobot
 import time
-from geometry_msgs.msg import PoseStamped, PoseArray
+from geometry_msgs.msg import PoseStamped
 from visualization_msgs.msg import MarkerArray
-from sensor_msgs.msg import PointCloud2
 from tf_listener import TfListener
 
 
@@ -17,14 +14,14 @@ class MycobotOperator:
     def __init__(self, port, baud):
         self.mc = None
         self.robot_arm_pub = rospy.Publisher(
-            "/mycobot_arm_controller/command", JointTrajectory, queue_size=10
+            "mycobot_arm_controller/command", JointTrajectory, queue_size=10
         )
         self.scene = moveit_commander.PlanningSceneInterface()
         self.marker_pub = rospy.Publisher(
             "visualization_marker", MarkerArray, queue_size=10
         )
-        self.pipette_sub = rospy.Subscriber(
-            "target_estimation", PoseStamped, self.end_effector_pose
+        self.target_sub = rospy.Subscriber(
+            rospy.get_param("target_topic_name","target_estimation"), PoseStamped, self.end_effector_pose
         )
         self.move_group = moveit_commander.MoveGroupCommander("arm_group")
         self.move_group.set_planning_time(0.1)
