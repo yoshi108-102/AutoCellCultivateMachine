@@ -16,7 +16,12 @@
 
   <!-- b-CAP Slave Mode [default: 0x202] -->
   <arg name="bcap_slave_mode" default="514" />
-
+  <remap from="cobotta_arm_controller/gains/cobotta_joint_1" to="cobotta/arm_controller/gains/joint_1" />
+  <remap from="cobotta_arm_controller/gains/cobotta_joint_2" to="cobotta/arm_controller/gains/joint_2" />
+  <remap from="cobotta_arm_controller/gains/cobotta_joint_3" to="cobotta/arm_controller/gains/joint_3" />
+  <remap from="cobotta_arm_controller/gains/cobotta_joint_4" to="cobotta/arm_controller/gains/joint_4" />
+  <remap from="cobotta_arm_controller/gains/cobotta_joint_5" to="cobotta/arm_controller/gains/joint_5" />
+  <remap from="cobotta_arm_controller/gains/cobotta_joint_6" to="cobotta/arm_controller/gains/joint_6" />
   <include ns="/$(arg robot_name)" file="$(find bcap_service)/launch/bcap_service.launch.xml">
     <arg name="ip_address" value="$(arg ip_address)" />
   </include>
@@ -35,5 +40,7 @@
 
   <!-- Controller -->
   <include ns="/$(arg robot_name)" file="$(find denso_robot_descriptions)/cobotta_description/cobotta.launch.xml" />
-  <node name="denso_robot_control" pkg="denso_robot_control" type="denso_robot_control" output="screen" ns="/$(arg robot_name)"/>
+  <node name="denso_robot_control" pkg="denso_robot_control" type="denso_robot_control" output="screen" ns="/$(arg robot_name)">
+    <remap from="cobotta/arm_controller" to="cobotta_arm_controller" />
+  </node>
 </launch>
