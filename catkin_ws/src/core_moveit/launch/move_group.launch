@@ -36,7 +36,6 @@
                 move_group/ClearOctomapService
                 " />
   -->
-
   <arg name="load_robot_description" default="false" />
   <!-- load URDF, SRDF and joint_limits configuration -->
   <include file="$(dirname)/planning_context.launch">

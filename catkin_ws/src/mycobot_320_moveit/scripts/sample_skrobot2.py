@@ -1,0 +1,51 @@
+#!/usr/bin/env python3
+import rospy
+from skrobot.model import RobotModel
+import control_msgs.msg
+from skrobot.interfaces.ros.base import ROSRobotInterfaceBase
+from skrobot.viewers import TrimeshSceneViewer
+import moveit_commander
+import sys
+
+
+class MyCobotROSRobotInterface(ROSRobotInterfaceBase):
+
+    def __init__(self, *args, **kwargs):
+        super(MyCobotROSRobotInterface, self).__init__(*args, **kwargs)
+
+    @property
+    def rarm_controller(self):
+        return dict(
+            controller_type='arm_controller',
+            controller_action='arm_controller/follow_joint_trajectory',
+            controller_state='arm_controller/state',
+            action_type=control_msgs.msg.FollowJointTrajectoryAction,
+            joint_names=[
+                'joint_1',
+                'joint_2',
+                'joint_3',
+                'joint_4',
+                'joint_5',
+                'joint_6',                
+            ],
+        )
+    
+    def default_controller(self):
+        return [self.rarm_controller,
+        ]
+
+
+rospy.init_node('manipulate_two_robot')
+robot_model = RobotModel()
+robot_model.load_urdf_from_robot_description(
+    "/robot_description"
+)
+ri = MyCobotROSRobotInterface(robot_model, namespace="cobotta")
+
+viewer = TrimeshSceneViewer()
+viewer.add(robot_model)
+viewer.show()
+
+robot_model.joint_1.joint_angle(0.5)
+ri.angle_vector(robot_model.angle_vector(), 3)  # robot_aの実機(gazeboも)に指令を送る
+ri.wait_interpolation()  # 補間が終わるまで待つ。
