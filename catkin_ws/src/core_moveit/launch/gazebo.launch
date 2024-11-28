@@ -27,7 +27,7 @@
   <rosparam file="$(find core_moveit)/config/dual_robot_controllers.yaml" />
 
   <!-- Spawn the Gazebo ROS controllers -->
-  <node name="gazebo_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="cobotta/arm_controller mycobot_arm_controller joint_state_controller" />
+  <node name="gazebo_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="/cobotta/arm_controller mycobot_arm_controller joint_state_controller" />
 
   <!-- Given the published joint states, publish tf for the robot links -->
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen" />
