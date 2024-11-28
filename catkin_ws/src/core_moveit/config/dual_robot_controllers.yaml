@@ -1,0 +1,20 @@
+# ros_control関連の設定
+cobotta/arm_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints:
+    - joint_1
+    - joint_2
+    - joint_3
+    - joint_4
+    - joint_5
+    - joint_6
+mycobot_arm_controller:
+  type: "position_controllers/JointTrajectoryController"
+  joints:
+    - mycobot_arm_joint_0
+    - mycobot_arm_joint_1
+    - mycobot_arm_joint_2
+    - mycobot_arm_joint_3
+    - mycobot_arm_joint_4
+    - mycobot_arm_joint_5
+

@@ -281,7 +281,7 @@ HRESULT DensoRobotHW::ChangeModeWithClearError(int mode)
   Int32 msg;
   msg.data = m_eng->get_Mode();
   m_pubCurMode.publish(msg);
-
+  ROS_INFO("msg.data:=%d",msg.data);
   if (msg.data == DensoRobot::SLVMODE_NONE)
   {
     m_subMiniIO.shutdown();
@@ -385,6 +385,9 @@ void DensoRobotHW::read(ros::Time time, ros::Duration period)
     if (FAILED(hr))
     {
       ROS_ERROR("Failed to get current joint. (%X)", hr);
+    }
+    else{
+      ROS_INFO("Now joint: %e %e %e",m_joint[0],m_joint[1],m_joint[2]);
     }
   }
   for (int i = 0; i < m_robJoints; i++)

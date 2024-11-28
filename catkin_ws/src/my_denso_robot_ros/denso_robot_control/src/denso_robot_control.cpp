@@ -69,6 +69,9 @@ int main(int argc, char* argv[])
     }
     spinner.stop();
   }
+  else{
+    ROS_ERROR("cannot initialize");
+  }
 
   return 0;
 }

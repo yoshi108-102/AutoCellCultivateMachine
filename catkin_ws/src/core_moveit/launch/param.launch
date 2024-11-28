@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Start Gazebo paused to allow the controllers to pickup the initial pose -->
+
+  <!-- Set the robot urdf on the parameter server -->
+  <param name="robot_description" textfile="$(find core_moveit)/config/gazebo_dual_arm_robot.urdf" />
+
+  <!-- Unpause the simulation after loading the robot model -->
+
+  <!-- Spawn the robot in Gazebo -->
+
+</launch>
