@@ -35,7 +35,7 @@
   </include>
 
   <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
-  <param name="robot_description" type="str" textfile="$(find denso_robot_descriptions)/$(arg robot_description)/$(arg robot_name).urdf"/>
+  <param name="robot_description" type="str" textfile="$(find system)/config/gazebo_dual_arm_robot.urdf" />
 
   <!-- Controller -->
   <include file="$(find denso_robot_descriptions)/cobotta_description/$(arg robot_name).launch.xml" />
