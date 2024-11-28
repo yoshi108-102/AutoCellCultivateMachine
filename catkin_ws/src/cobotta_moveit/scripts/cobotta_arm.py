@@ -439,8 +439,4 @@ if __name__ == "__main__":
     cobotta.controller_connect()
     cobotta.add_k3hand()
     cobotta.clear_error()
-    for i in range(50):
-        cobotta.k3Hand.movej(i)
-        rospy.loginfo("move point to P%d", i)
-        rospy.sleep(3)
     cobotta.free()
