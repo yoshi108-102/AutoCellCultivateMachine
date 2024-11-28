@@ -26,7 +26,6 @@
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
     <param name="use_gui" value="false"/>
     <param name="publish_frequency" type="double" value="125.0" />
-    <rosparam param="source_list" subst_value = "true">[/$(arg robot_name)/joint_states]</rosparam>
   </node>
 
   <!-- run the "real robot" interface nodes -->

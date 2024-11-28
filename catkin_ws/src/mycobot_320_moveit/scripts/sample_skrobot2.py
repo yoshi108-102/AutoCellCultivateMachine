@@ -47,6 +47,6 @@ viewer.add(robot_model)
 viewer.show()
 
 robot_model.angle_vector(ri.angle_vector())
-robot_model.joint_6.joint_angle(0.3)
+robot_model.joint_6.joint_angle(0.5)
 ri.angle_vector(robot_model.angle_vector(), 3)  # robot_aの実機(gazeboも)に指令を送る
 ri.wait_interpolation()  # 補間が終わるまで待つ。
