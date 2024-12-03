@@ -38,7 +38,7 @@ mycobot_arm_controller:
       d: 1
       i: 1
       i_clamp: 1
-cobotta/arm_controller:
+arm_controller:
   type: position_controllers/JointTrajectoryController
   joints:
     - joint_1

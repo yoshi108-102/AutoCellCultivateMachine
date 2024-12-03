@@ -1,5 +1,5 @@
 # ros_control関連の設定
-/cobotta/arm_controller:
+arm_controller:
   type: "position_controllers/JointTrajectoryController"
   joints:
     - joint_1
