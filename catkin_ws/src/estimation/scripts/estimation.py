@@ -25,13 +25,11 @@ pkg_path = roslib.packages.get_pkg_dir("mycobot_320_moveit")
 
 HOME_DIR = os.path.expanduser("~")
 
-
 class CVEstimator:
     def __init__(self):
         self.openpose_init()
         self.camera_init()
         self.yolo_init()
-
         self.pipettePose = PoseStamped()
         self.armPose = PoseArray()
         self.pipettePosePublisher = rospy.Publisher(

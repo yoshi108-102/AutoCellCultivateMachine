@@ -1,0 +1,5 @@
+<launch>
+    <node name="tf_manager" pkg="core_moveit" type="tf_manager.py" output="screen" >
+    <param name="tf_data" textfile="$(find core_moveit)/yaml/tf_data.yaml" />
+  </node>
+</launch>

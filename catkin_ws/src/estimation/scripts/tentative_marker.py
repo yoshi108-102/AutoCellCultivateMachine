@@ -6,7 +6,7 @@ from geometry_msgs.msg import PoseStamped
 
 def pipette_marker() -> PoseStamped:
     pose = PoseStamped()
-    pose.header.frame_id = "camera_link"
+    pose.header.frame_id = "pipette"
     pose.pose.position.x = 0.1
     pose.pose.position.y = -0.1
     pose.pose.position.z = 0.23

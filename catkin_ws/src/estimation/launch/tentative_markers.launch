@@ -1,7 +1,6 @@
 <launch>
     <arg name="rviz" default="false" />
     <node name="tentaive_markers" pkg="estimation" type="tentative_marker.py" output="screen" />
-    <node name="virtual_camera" pkg="estimation" type="virtual_camera.py" output="screen" />
     <node name="display_marker" pkg="estimation" type="display_marker.py" output="screen" />
     <group if = "$(eval rviz)">
         <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mycobot_320_moveit)/config/moveit_rviz.rviz" />

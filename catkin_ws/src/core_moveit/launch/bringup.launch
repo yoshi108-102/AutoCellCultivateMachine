@@ -11,7 +11,11 @@
   <!-- Launch Gazebo and spawn the robot -->
 <!--   <include file="$(dirname)/gazebo.launch" pass_all_args="true"/>
  -->
+  <node name="$(anon tf_manager)" pkg="core_moveit" type="tf_manager.py" output="screen" >
+    <param name="tf_data" textfile="$(find core_moveit)/yaml/tf_data.yaml" />
+  </node>
   <!-- Launch MoveIt -->
+  <node name="merge_two_joint" pkg="core_moveit" type="merge_joint_states.py" />
   <include file="$(find jsk_mycobot_startup)/launch/mycobot_bringup.launch">
     <arg name="moveit" value="true"/>
   </include>
