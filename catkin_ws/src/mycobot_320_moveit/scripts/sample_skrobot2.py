@@ -6,7 +6,7 @@ from skrobot.interfaces.ros.base import ROSRobotInterfaceBase
 from skrobot.viewers import TrimeshSceneViewer
 import moveit_commander
 import sys
-
+import moveit_commander
 
 class MyCobotROSRobotInterface(ROSRobotInterfaceBase):
 
@@ -16,17 +16,17 @@ class MyCobotROSRobotInterface(ROSRobotInterfaceBase):
     @property
     def rarm_controller(self):
         return dict(
-            controller_type='arm_controller',
-            controller_action='arm_controller/follow_joint_trajectory',
-            controller_state='arm_controller/state',
+            controller_type='mycobot_arm_controller',
+            controller_action='mycobot_arm_controller/follow_joint_trajectory',
+            controller_state='mycobot_arm_controller/state',
             action_type=control_msgs.msg.FollowJointTrajectoryAction,
             joint_names=[
-                'joint_1',
-                'joint_2',
-                'joint_3',
-                'joint_4',
-                'joint_5',
-                'joint_6',                
+                'mycobot_arm_joint_0',
+                'mycobot_arm_joint_1',
+                'mycobot_arm_joint_2',
+                'mycobot_arm_joint_3',
+                'mycobot_arm_joint_4',
+                'mycobot_arm_joint_5',                
             ],
         )
     
@@ -36,17 +36,19 @@ class MyCobotROSRobotInterface(ROSRobotInterfaceBase):
 
 
 rospy.init_node('manipulate_two_robot')
+moveit_commander.roscpp_initialize(sys.argv)
+move_group = moveit_commander.MoveGroupCommander("arm_group")
+move_group = moveit_commander.MoveGroupCommander("arm")
 robot_model = RobotModel()
 robot_model.load_urdf_from_robot_description(
     "/robot_description"
 )
 ri = MyCobotROSRobotInterface(robot_model)
-
 viewer = TrimeshSceneViewer()
 viewer.add(robot_model)
 viewer.show()
 
 robot_model.angle_vector(ri.angle_vector())
-robot_model.joint_6.joint_angle(0.5)
+robot_model.mycobot_arm_joint_0.joint_angle(0.5)
 ri.angle_vector(robot_model.angle_vector(), 3)  # robot_aの実機(gazeboも)に指令を送る
 ri.wait_interpolation()  # 補間が終わるまで待つ。

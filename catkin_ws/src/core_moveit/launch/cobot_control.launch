@@ -1,0 +1,53 @@
+<launch>
+  <!-- Override ip_address argument -->
+  <arg name="ip_address" default="192.168.0.1" />
+
+  <!-- Override robot_name argument -->
+  <arg name="robot_name" default="vs060" />
+
+  <!-- Robot description argument -->
+  <arg name="robot_description" value="$(arg robot_name)_description" />
+
+  <!-- Send format -->
+  <arg name="send_format" default="288" />
+
+  <!-- Recieve format -->
+  <arg name="recv_format" default="292" />
+
+  <!-- b-CAP Slave motion control cycle [millisecond] -->
+  <arg name="bcap_slave_control_cycle_msec" default="8" />
+
+  <!-- b-CAP Slave Mode [default: 0x202] -->
+  <arg name="bcap_slave_mode" default="514" />
+
+  <include file="$(find bcap_service)/launch/bcap_service.launch.xml">
+    <arg name="ip_address" value="$(arg ip_address)" />
+  </include>
+
+  <include file="$(find denso_robot_core)/launch/denso_robot_core.launch.xml">
+    <arg name="bcap_slave_control_cycle_msec" value="$(arg bcap_slave_control_cycle_msec)" />
+  </include>
+
+  <include file="$(find denso_robot_control)/launch/denso_robot_control.launch.xml">
+    <arg name="send_format" value="$(arg send_format)" />
+    <arg name="recv_format" value="$(arg recv_format)" />
+    <arg name="bcap_slave_mode" value="$(arg bcap_slave_mode)" />
+  </include>
+
+  <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
+  <param name="robot_description" type="str" textfile="$(find core_moveit)/config/gazebo_dual_arm_robot.urdf" />
+
+  <!-- Controller -->
+  <include file="$(find denso_robot_descriptions)/cobotta_description/$(arg robot_name).launch.xml" />
+  <node name="denso_robot_control" pkg="denso_robot_control" type="denso_robot_control" output="screen">
+    <remap from="/joint_states" to="/cobotta/joint_states" />
+  </node>
+  
+  <rosparam file="$(find core_moveit)/config/dual_robot_controllers.yaml" command="load" />
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="true" respawn_delay="5" output="screen"
+        args="joint_state_controller arm_controller" /> 
+ <node name="robot_state_publisher" pkg="robot_state_publisher"
+        type="robot_state_publisher" respawn="false" output="screen">
+   <!--  <remap from="/joint_states" to="/$(arg robot_name)/joint_states" /> -->
+  </node>
+</launch>

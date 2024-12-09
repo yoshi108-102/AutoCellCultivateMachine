@@ -108,6 +108,8 @@ private:
 private:
   hardware_interface::JointStateInterface m_JntStInterface;
   hardware_interface::PositionJointInterface m_PosJntInterface;
+  //mycobotのinterfaceを追加する
+  hardware_interface::PositionJointInterface m_PosJntInterface2;
   double m_cmd[JOINT_MAX];
   double m_pos[JOINT_MAX];
   double m_vel[JOINT_MAX];

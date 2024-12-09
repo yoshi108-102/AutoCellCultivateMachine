@@ -11,7 +11,7 @@ from geometry_msgs.msg import PoseStamped, PoseArray
 from visualization_msgs.msg import MarkerArray
 from sensor_msgs.msg import PointCloud2
 from tf_listener import TfListener
-
+from sensor_msgs.msg import JointState
 
 class MycobotOperator:
     def __init__(self, port, baud):
@@ -26,13 +26,27 @@ class MycobotOperator:
         self.pipette_sub = rospy.Subscriber(
             "target_estimation", PoseStamped, self.end_effector_pose
         )
-        self.move_group = moveit_commander.MoveGroupCommander()
+        self.joint_state = JointState(
+            header=rospy.Header(),
+            name=[
+                "mycobot_arm_joint_0",
+                "mycobot_arm_joint_1",
+                "mycobot_arm_joint_2",
+                "mycobot_arm_joint_3",
+                "mycobot_arm_joint_4",
+                "mycobot_arm_joint_5",
+            ],
+            position=[0, 0, 0, 0, 0, 0],
+        )
+        self.joint_state_pub = rospy.Publisher(
+            "mycobot/joint_states", JointState, queue_size=10
+        )
+        self.move_group = moveit_commander.MoveGroupCommander("arm_group")
         self.move_group.set_planning_time(0.03)
         self.listener = TfListener()
         self.camera_world_name = "camera_link"
         # self.arm_sub = rospy.Subscriber("arm_estimation",PoseArray,self.armdata_cb)
         self.mycobot_init(port, baud)
-
     def mycobot_init(self, port, baud):
         try:
             self.mc = MyCobot(port, baud)
@@ -57,6 +71,7 @@ class MycobotOperator:
             p = self.move_group.plan()
             tar_jo = list(p[1].joint_trajectory.points[-1].positions)
             tar_jo[5] = math.pi * deg / 180
+            self.joint_state.position = tar_jo
             self.mc_send_radians(tar_jo, 70)
             # rospy.sleep(0.1)
         except Exception as e:
@@ -65,12 +80,12 @@ class MycobotOperator:
     def mc_send_radians(self, radians, speed=100):
         trajectory_msg = JointTrajectory()
         trajectory_msg.joint_names = [
-            "arm_joint_0",
-            "arm_joint_1",
-            "arm_joint_2",
-            "arm_joint_3",
-            "arm_joint_4",
-            "arm_joint_5",
+            "mycobot_arm_joint_0",
+            "mycobot_arm_joint_1",
+            "mycobot_arm_joint_2",
+            "mycobot_arm_joint_3",
+            "mycobot_arm_joint_4",
+            "mycobot_arm_joint_5",
         ]
         point_msg = JointTrajectoryPoint()
 
@@ -90,8 +105,8 @@ def main():
     rospy.init_node("joint_controller")
     mcOperator = MycobotOperator("/dev/ttyUSB0", 115200)
     rospy.loginfo(mcOperator.scene.get_known_object_names())
-    rospy.spin()
-
-
+    while not rospy.is_shutdown():
+        mcOperator.joint_state_pub.publish(mcOperator.joint_state)
+        mcOperator.joint_state.header.stamp=rospy.Time.now()
 if __name__ == "__main__":
     main()

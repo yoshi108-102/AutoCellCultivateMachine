@@ -12,12 +12,15 @@
 <!--   <include file="$(dirname)/gazebo.launch" pass_all_args="true"/>
  -->
   <!-- Launch MoveIt -->
+  <include file="$(find jsk_mycobot_startup)/launch/mycobot_bringup.launch">
+    <arg name="moveit" value="true"/>
+  </include>
   <include file="$(dirname)/demo.launch" pass_all_args="true">
     <!-- robot_description is loaded by gazebo.launch, to enable Gazebo features -->
     <arg name="load_robot_description" value="false" />
     <arg name="moveit_controller_manager" value="ros_control" />
   </include>
-  <include file="$(find denso_robot_control)/launch/denso_robot_control.launch" >
+  <include file="$(find core_moveit)/launch/cobot_control.launch" >
     <arg name="robot_name" value="cobotta" />
     <arg name="ip_address" value="192.168.0.1" />
     <arg name="send_format" value="0" />
