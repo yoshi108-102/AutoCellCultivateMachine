@@ -386,9 +386,7 @@ void DensoRobotHW::read(ros::Time time, ros::Duration period)
     {
       ROS_ERROR("Failed to get current joint. (%X)", hr);
     }
-    else{
-      ROS_INFO("Now joint: %e %e %e",m_joint[0],m_joint[1],m_joint[2]);
-    }
+    
   }
   for (int i = 0; i < m_robJoints; i++)
   {

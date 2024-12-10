@@ -64,22 +64,20 @@ class Operater:
         else:
             rospy.logwarn("Failed")
             return False
-    def cob_move_to(self):
-        target = self.target
-        if not self.is_new_topic(target):
-            return
+    def cob_move_to(self,pose:PoseStamped) -> bool:
+        target = pose
+        if target is None:
+            return False
+        pos = target.pose.position
+        self.cob_group.set_position_target([pos.x,pos.y,pos.z])
         try:
-            trans = self.buffer.lookup_transform(target_frame="base_link",
-                                                    source_frame=target.header.frame_id,
-                                                    time=target.header.stamp)                                    
+            plan = self.cob_group.plan()
+            rospy.loginfo(plan)
+            self.cob_group.go(wait=True)
+            return True
         except Exception as e:
             rospy.logwarn(e)
-            return
-        pos = tf2_geometry_msgs.do_transform_point(target.pose.position,trans)
-        self.cob_group.set_position_target([pos.x,pos.y,pos.z])
-        self.cob_group.go()
-        
-
+            exit(1)
 def main():
     rospy.init_node('operater')
     operater = Operater()

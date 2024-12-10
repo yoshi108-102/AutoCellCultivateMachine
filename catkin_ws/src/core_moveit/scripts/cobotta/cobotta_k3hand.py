@@ -3,8 +3,8 @@ import rospy
 from bcap_service.msg import variant
 from bcap_service.srv import bcap, bcapRequest, bcapResponse
 from typing import overload
-from hresult import HRESULT
-from constants import VARIANT_TYPES, FUNC_ID
+from .hresult import HRESULT
+from .constants import VARIANT_TYPES, FUNC_ID
 
 
 class K3HandinCobotta:
@@ -97,3 +97,4 @@ class K3HandinCobotta:
             return
 
         HRESULT(bcapRes, "movej")
+        rospy.sleep(0.5)

@@ -2,12 +2,12 @@
 import rospy
 import math
 
-from cobotta_k3hand import K3HandinCobotta as K3Hand
-from hresult import HRESULT
+from .cobotta_k3hand import K3HandinCobotta as K3Hand
+from .hresult import HRESULT
 
 from bcap_service.srv import bcapRequest, bcapResponse, bcap
 from bcap_service.msg import variant
-from constants import FUNC_ID, VARIANT_TYPES, MODE
+from .constants import FUNC_ID, VARIANT_TYPES, MODE
 
 
 class CobottaArmBcapInterface:
