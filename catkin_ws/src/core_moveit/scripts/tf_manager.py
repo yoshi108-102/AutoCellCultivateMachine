@@ -33,17 +33,17 @@ class TfBroadCaster:
             self.dynamicBroadcaster.sendTransform(t)
     def get_camera_trans(self):
         try:
-            self.camera_trans = self.buffer.lookup_transform(target_frame="camera_link",
-                                                    source_frame="base_link",
-                                                    time=rospy.Time.now())
+            self.camera_trans = self.buffer.lookup_transform(target_frame="mycobot_base_link",
+                                                    source_frame="camera_link",
+                                                    time=rospy.Time(0))
         except Exception as e:
             rospy.logwarn(e)
             return
     def set_object_tf(self, msg:PoseStamped):
         if self.camera_trans is None:
-            return
-        self.camera_trans.header.stamp = rospy.Time.now()
-        new_pos = tf2_geometry_msgs.do_transform_pose(msg.pose, self.camera_trans)
+            self.get_camera_trans()
+        #self.camera_trans.header.stamp = rospy.Time.now()
+        new_pos = tf2_geometry_msgs.do_transform_pose(msg, self.camera_trans)
         new_pos.header = msg.header
         new_pos.header.stamp = rospy.Time.now()
         rospy.Publisher('object_pose', PoseStamped, queue_size=10).publish(new_pos)

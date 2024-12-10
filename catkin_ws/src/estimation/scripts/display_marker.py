@@ -18,7 +18,7 @@ def callback(pub, data: PoseStamped):
     marker = Marker()
     marker.id = 0
     marker.header.stamp = rospy.Time.now()
-    marker.header.frame_id = "camera_link"
+    marker.header.frame_id = "mycobot_base_link"
 
     marker.pose = data.pose
 
@@ -44,7 +44,7 @@ print("Subscribing to target_estimation topic...")
 rospy.init_node("marker_display", anonymous=True)
 pub = rospy.Publisher("visualization_marker", Marker, queue_size=20)
 
-rospy.Subscriber("target_estimation", PoseStamped, partial(callback, pub))
+rospy.Subscriber("object_pose", PoseStamped, partial(callback, pub))
 
 while not rospy.is_shutdown():
     rospy.spin()

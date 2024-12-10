@@ -3,8 +3,6 @@
 import rospy
 import numpy as np
 from sensor_msgs.msg import JointState
-
-
 class JointStatesMerger:
     def __init__(self):
         self.joint_state_1:JointState = None
