@@ -8,6 +8,8 @@
   <arg name="world_name" default="worlds/empty.world" doc="Gazebo world file"/>
   <arg name="world_pose" default="-x 0 -y 0 -z 0 -R 0 -P 0 -Y 0" doc="Pose to spawn the robot at"/>
   <param name="robot_description" textfile="$(find core_moveit)/config/gazebo_dual_arm_robot.urdf" />
+  <arg name="tmp_marker" default="true"  doc="use tentatively marker" />
+  <arg name="use_k3hand" default="true" doc="use k3hand" />
   <!-- Launch Gazebo and spawn the robot -->
 <!--   <include file="$(dirname)/gazebo.launch" pass_all_args="true"/>
  -->
@@ -30,4 +32,13 @@
     <arg name="send_format" value="0" />
     <arg name="recv_format" value="2" />
   </include>
+  <group if="$(arg tmp_marker)">
+    <include file="$(find estimation)/launch/tentative_markers.launch" />
+  </group>
+  <group unless="$(arg tmp_marker)" >
+    <include file="$(find estimation)/launch/estimation.launch" />
+  </group>
+  <group if="$(arg use_k3hand)">
+    <include file="$(find bcap_service)/launch/bcap_service.launch" />
+  </group>
 </launch>
