@@ -1,10 +1,12 @@
 #! /usr/bin/env python3
+from typing import overload
+
 import rospy
 from bcap_service.msg import variant
 from bcap_service.srv import bcap, bcapRequest, bcapResponse
-from typing import overload
+
+from .constants import FUNC_ID, VARIANT_TYPES
 from .hresult import HRESULT
-from .constants import VARIANT_TYPES, FUNC_ID
 
 
 class K3HandinCobotta:

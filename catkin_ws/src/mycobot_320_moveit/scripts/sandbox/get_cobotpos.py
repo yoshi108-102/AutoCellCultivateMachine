@@ -1,15 +1,10 @@
 #!/usr/bin/env python3
-import pyrealsense2 as rs
-
 import cv2
-
 import numpy as np
-
-from geometry_msgs.msg import PoseStamped
-
+import pyrealsense2 as rs
 import roslib.packages
-
 import yaml
+from geometry_msgs.msg import PoseStamped
 
 pkg_path = roslib.packages.get_pkg_dir("mycobot_320_moveit")
 

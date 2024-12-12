@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import rospy
-import tf2_ros
 import tf2_geometry_msgs
-from geometry_msgs.msg import PoseStamped, PoseArray
+import tf2_ros
+from geometry_msgs.msg import PoseArray, PoseStamped
 from visualization_msgs.msg import Marker
 
 trans = None

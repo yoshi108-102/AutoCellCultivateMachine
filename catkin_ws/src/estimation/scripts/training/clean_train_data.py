@@ -1,8 +1,9 @@
 #! /usr/bin/env python3
 import os
 import random
-import roslib.packages
 import sys
+
+import roslib.packages
 
 
 def main(argv):

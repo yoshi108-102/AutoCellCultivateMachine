@@ -269,7 +269,7 @@ Visualization Manager:
         Show Robot Collision: false
         Show Robot Visual: true
       Value: true
-      Velocity_Scaling_Factor: 0.1
+      Velocity_Scaling_Factor: 0.6
     - Class: rviz/Marker
       Enabled: true
       Marker Topic: visualization_marker
@@ -380,9 +380,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.21999983489513397
+      Pitch: 0.034999873489141464
       Target Frame: world
-      Yaw: 4.87180233001709
+      Yaw: 6.171802520751953
     Saved: ~
 Window Geometry:
   Displays:

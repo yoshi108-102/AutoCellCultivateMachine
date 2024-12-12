@@ -18,18 +18,17 @@
 #  - COBOTTA PRO User Manuals
 #
 # Copyright (C) 2023  DENSO WAVE INCORPORATED
-import sys
-import math
 import ctypes
+import math
+import sys
 from enum import IntEnum
 
+import moveit_commander
 import rosnode
 import rospy
-import moveit_commander
-
-from std_msgs.msg import Int32
-from bcap_service.srv import bcap, bcapRequest
 from bcap_service.msg import variant
+from bcap_service.srv import bcap, bcapRequest
+from std_msgs.msg import Int32
 
 # Example Target Scene "<Scene Number>,<Sub-Scene Number>"
 _EXAMPLE_SCENE_NUMBER = "0,0"

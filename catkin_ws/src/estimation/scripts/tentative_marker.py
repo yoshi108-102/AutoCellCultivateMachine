@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
-import rospy
 import random
+
+import rospy
 from geometry_msgs.msg import PoseStamped
 
 

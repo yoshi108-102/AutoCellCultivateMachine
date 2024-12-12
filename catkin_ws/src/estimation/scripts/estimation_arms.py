@@ -1,21 +1,16 @@
 #!/usr/bin/env python3
-from ultralytics import YOLO
-import pyrealsense2 as rs
+import os
+import sys
+from sys import platform
 
 import cv2
-
 import numpy as np
-
-import rospy
-
-from geometry_msgs.msg import PoseStamped
-
+import pyrealsense2 as rs
 import roslib.packages
-
-import sys
-import os
-from sys import platform
+import rospy
+from geometry_msgs.msg import PoseStamped
 from openpose import pyopenpose as op
+from ultralytics import YOLO
 
 pkg_path = roslib.packages.get_pkg_dir("mycobot_320_moveit")
 

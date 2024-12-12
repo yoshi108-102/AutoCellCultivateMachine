@@ -1,14 +1,22 @@
 #!/usr/bin/env python3
-from geometry_msgs.msg import PoseStamped
-import moveit_commander
-import sys
+import math
 import os
+import sys
+
+import moveit_commander
+import tf
+import tf.transformations
+from geometry_msgs.msg import PoseStamped
+
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from operater import Operater
-from cobotta.cobotta_arm import CobottaArmBcapInterface as Arm
 import rospy
+from cobotta.cobotta_arm import CobottaArmBcapInterface as Arm
+from geometry_msgs.msg import Quaternion
+from operater import Operater
 from std_msgs.msg import Int32
-from change_mode import changeMode
+
+from .change_mode import changeMode
+
 """
 1. ピペットにアームを十分に近づける
 2. 適切にアームを回転させる
@@ -16,6 +24,8 @@ from change_mode import changeMode
 """
 def catch_pipette(pos:PoseStamped,op:Operater,arm:Arm):
     is_success = False
+    x,y,z,w = tf.transformations.quaternion_from_euler(-math.pi/2,0,0)
+    pos.pose.orientation = Quaternion(x,y,z,w)
     while not is_success:
         is_success = op.cob_move_to(pos)
     """
@@ -23,11 +33,11 @@ def catch_pipette(pos:PoseStamped,op:Operater,arm:Arm):
     掴みやすいようになんかいい感じに回転
     """
     changeMode(0)
-    rospy.sleep(1)
     arm.k3Hand.movej(0)
     arm.k3Hand.movej(1)
     arm.k3Hand.movej(2)
     arm.k3Hand.movej(3)
+    changeMode(514)
 def main():
     import rospy
     rospy.init_node('catch_pipette')

@@ -1,23 +1,25 @@
 #!/usr/bin/env python3
-import time
-import os
-import sys
-import signal
-import threading
 import math
-from itertools import zip_longest # TODO: python3 is zip_longest
+import os
+import signal
+import sys
+import threading
+import time
+from itertools import zip_longest  # TODO: python3 is zip_longest
 
-
-from pymycobot.mycobot import MyCobot
-
-import rospy
 import actionlib
-from control_msgs.msg import FollowJointTrajectoryAction, FollowJointTrajectoryResult, FollowJointTrajectoryFeedback, GripperCommandAction, GripperCommandResult, GripperCommandFeedback
-from sensor_msgs.msg import JointState
-from geometry_msgs.msg import PoseStamped, Quaternion
-from std_srvs.srv import SetBool, SetBoolResponse, Empty
-import tf
 import numpy as np
+import rospy
+import tf
+from control_msgs.msg import (FollowJointTrajectoryAction,
+                              FollowJointTrajectoryFeedback,
+                              FollowJointTrajectoryResult,
+                              GripperCommandAction, GripperCommandFeedback,
+                              GripperCommandResult)
+from geometry_msgs.msg import PoseStamped, Quaternion
+from pymycobot.mycobot import MyCobot
+from sensor_msgs.msg import JointState
+from std_srvs.srv import Empty, SetBool, SetBoolResponse
 
 
 class MycobotInterface(object):

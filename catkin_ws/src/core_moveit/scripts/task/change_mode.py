@@ -1,6 +1,7 @@
+#!/usr/bin/env python3
 import rospy
-
 from std_msgs.msg import Int32
+
 
 def changeMode(mode:int):
     changeModePub = rospy.Publisher(
@@ -9,7 +10,7 @@ def changeMode(mode:int):
     while True:
         changeModePub.publish(Int32(mode))
         try:
-            now_mode = rospy.wait_for_message('CurMode',Int32,timeout=0.1)
+            now_mode = rospy.wait_for_message('CurMode',Int32,timeout=0.5)
             if now_mode.data==mode:
                 break
         except:

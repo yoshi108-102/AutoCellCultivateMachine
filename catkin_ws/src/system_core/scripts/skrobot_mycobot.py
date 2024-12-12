@@ -1,7 +1,7 @@
-import rospy
-from skrobot.model import RobotModel
 import control_msgs.msg
+import rospy
 from skrobot.interfaces.ros.base import ROSRobotInterfaceBase
+from skrobot.model import RobotModel
 from skrobot.viewers import TrimeshSceneViewer
 
 

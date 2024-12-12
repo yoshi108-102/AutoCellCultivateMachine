@@ -1,19 +1,24 @@
 #!/usr/bin/env python3
-import rospy 
-from trajectory_msgs.msg import JointTrajectory
-from geometry_msgs.msg import PoseStamped
-import moveit_commander
-import actionlib
-import tf2_ros
-import tf2_geometry_msgs
 import math
-from control_msgs.msg import FollowJointTrajectoryAction,FollowJointTrajectoryActionGoal
+
+import actionlib
+import moveit_commander
+import rospy
+import tf2_geometry_msgs
+import tf2_ros
+from control_msgs.msg import (FollowJointTrajectoryAction,
+                              FollowJointTrajectoryActionGoal)
+from geometry_msgs.msg import PoseStamped
+from trajectory_msgs.msg import JointTrajectory
+
+
 class Operater:
     def __init__(self):
         self.buffer = tf2_ros.Buffer()
         self.listener = tf2_ros.TransformListener(self.buffer)
         self.mc_group = moveit_commander.MoveGroupCommander("arm_group")
         self.cob_group = moveit_commander.MoveGroupCommander("arm")
+        self.cob_group.set_max_velocity_scaling_factor(0.8)
         self.target = None
         self.sub = rospy.Subscriber("/object_pose",PoseStamped,self.cb)
         self.mc_joints=[
@@ -68,8 +73,7 @@ class Operater:
         target = pose
         if target is None:
             return False
-        pos = target.pose.position
-        self.cob_group.set_position_target([pos.x,pos.y,pos.z])
+        self.cob_group.set_pose_target(target)
         try:
             plan = self.cob_group.plan()
             rospy.loginfo(plan)
@@ -80,8 +84,6 @@ class Operater:
             exit(1)
 def main():
     rospy.init_node('operater')
-    operater = Operater()
-    while not rospy.is_shutdown():
-        operater.mc_move_to()
+    rospy.spin()
 if __name__ == "__main__":
     main()

@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 # coding=utf-8
-import time
-import rospy
 import math
-import numpy as np
-
 import sys
-import moveit_commander
+import time
 
+import moveit_commander
+import numpy as np
 import rospy
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 

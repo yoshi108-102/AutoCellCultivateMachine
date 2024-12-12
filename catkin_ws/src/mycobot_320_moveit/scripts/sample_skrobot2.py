@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-import rospy
-from skrobot.model import RobotModel
-import control_msgs.msg
-from skrobot.interfaces.ros.base import ROSRobotInterfaceBase
-from skrobot.viewers import TrimeshSceneViewer
-import moveit_commander
 import sys
+
+import control_msgs.msg
 import moveit_commander
+import rospy
+from skrobot.interfaces.ros.base import ROSRobotInterfaceBase
+from skrobot.model import RobotModel
+from skrobot.viewers import TrimeshSceneViewer
+
 
 class MyCobotROSRobotInterface(ROSRobotInterfaceBase):
 
@@ -49,6 +50,8 @@ viewer.add(robot_model)
 viewer.show()
 
 robot_model.angle_vector(ri.angle_vector())
-robot_model.mycobot_arm_joint_0.joint_angle(0.5)
+robot_model.mycobot_arm_joint_0.joint_angle(0)
+robot_model.mycobot_arm_joint_5.joint_angle(-1.7)
 ri.angle_vector(robot_model.angle_vector(), 3)  # robot_aの実機(gazeboも)に指令を送る
-ri.wait_interpolation()  # 補間が終わるまで待つ。
+ri.wait_interpolation()
+

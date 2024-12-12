@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 import rospy
+from icecream import ic, install
 from skrobot.model import RobotModel
 from skrobot.viewers import TrimeshSceneViewer
 from skrobot_mycobot import MyCobotROSRobotInterface
-from icecream import ic,install
 
 install()
 

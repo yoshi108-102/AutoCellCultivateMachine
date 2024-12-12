@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-from geometry_msgs.msg import PoseStamped, PoseArray
-from visualization_msgs.msg import MarkerArray
-from sensor_msgs.msg import PointCloud2
 import rospy
+from geometry_msgs.msg import PoseArray, PoseStamped
+from sensor_msgs.msg import PointCloud2
+from visualization_msgs.msg import MarkerArray
 
 # moveit空間上に障害物を設定するクラス
 

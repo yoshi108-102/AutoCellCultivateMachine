@@ -2,14 +2,13 @@
 import sys
 
 sys.path.append("../")
-import rospy
-import moveit_commander
-
 from typing import overload
 
+import moveit_commander
+import rospy
 from cobotta_arm import CobottaArmBcapInterface
-from cobotta_ros import CobottaArmMoveit
 from cobotta_k3hand import K3HandinCobotta
+from cobotta_ros import CobottaArmMoveit
 
 
 def state_check(bcobotta: CobottaArmBcapInterface):

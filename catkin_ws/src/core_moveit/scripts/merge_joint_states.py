@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 
-import rospy
 import numpy as np
+import rospy
 from sensor_msgs.msg import JointState
+
+
 class JointStatesMerger:
     def __init__(self):
         self.joint_state_1:JointState = None

@@ -1,10 +1,11 @@
 # From Python
 # It requires OpenCV installed for Python
-import sys
-import cv2
-import os
-from sys import platform
 import argparse
+import os
+import sys
+from sys import platform
+
+import cv2
 
 try:
     # Import Openpose (Windows/Ubuntu/OSX)

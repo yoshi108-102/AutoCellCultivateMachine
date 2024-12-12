@@ -26,11 +26,12 @@
 
 import os
 import re
-import sys
-import rospy
 import shutil
-import roslib.packages
+import sys
 import xml.etree.ElementTree as ET
+
+import roslib.packages
+import rospy
 
 if __name__ == "__main__":
     args = sys.argv

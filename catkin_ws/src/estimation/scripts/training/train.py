@@ -1,12 +1,11 @@
 #!/usr/bin/env python3
 # coding=utf-8
 
-import roslib.packages
+import os
 import sys
 
-
+import roslib.packages
 from ultralytics import YOLO
-import os
 
 
 def main(argv):

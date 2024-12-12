@@ -1,15 +1,15 @@
 #!/usr/bin/env python3
-import rospy
-import roslib.packages
-
-# realsenseのカメラ画像を取得するためのライブラリ
-from sensor_msgs.msg import Image
-from cv_bridge import CvBridge, CvBridgeError
-import cv2
-from pymycobot.mycobot import MyCobot
-import random
 import math
 import os
+import random
+
+import cv2
+import roslib.packages
+import rospy
+from cv_bridge import CvBridge, CvBridgeError
+from pymycobot.mycobot import MyCobot
+# realsenseのカメラ画像を取得するためのライブラリ
+from sensor_msgs.msg import Image
 
 filename = ""
 count = 0

@@ -1,17 +1,16 @@
 #!/usr/bin/env python3
-import rospy
 import math
-import moveit_commander
 import sys
-import tf2_ros
+
+import moveit_commander
+import rospy
 import tf2_geometry_msgs
-
-from cobotta_k3hand import K3HandinCobotta as K3Hand
-from hresult import HRESULT
-
-from bcap_service.srv import bcapRequest, bcapResponse, bcap
+import tf2_ros
 from bcap_service.msg import variant
-from constants import FUNC_ID, VARIANT_TYPES, MODE
+from bcap_service.srv import bcap, bcapRequest, bcapResponse
+from cobotta_k3hand import K3HandinCobotta as K3Hand
+from constants import FUNC_ID, MODE, VARIANT_TYPES
+from hresult import HRESULT
 
 
 class CobottaArmBcapInterface:

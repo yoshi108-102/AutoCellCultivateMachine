@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-import time
 import math
+import time
+
 import rospy
-from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
-
 from pymycobot.mycobot import MyCobot
-
+from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 
 mc: MyCobot = None
 

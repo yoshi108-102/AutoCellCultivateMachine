@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 
+from functools import partial
+
 import rospy
 from geometry_msgs.msg import PoseStamped
-from visualization_msgs.msg import Marker
-from functools import partial
 from virtual_camera import TfBroadCaster
+from visualization_msgs.msg import Marker
 
 x = 0
 y = 0

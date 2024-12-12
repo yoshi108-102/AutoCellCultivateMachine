@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
+import ctypes
+
 import rospy
 from bcap_service.srv import bcapResponse
-import ctypes
 
 
 def convert_error_code(hresult: int) -> str:

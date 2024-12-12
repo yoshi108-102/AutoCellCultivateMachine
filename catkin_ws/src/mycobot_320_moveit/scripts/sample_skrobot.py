@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-import rospy
-from skrobot.model import RobotModel
-import control_msgs.msg
-from skrobot.interfaces.ros.base import ROSRobotInterfaceBase
-from skrobot.viewers import TrimeshSceneViewer
-import moveit_commander
 import sys
+
+import control_msgs.msg
+import moveit_commander
+import rospy
+from skrobot.interfaces.ros.base import ROSRobotInterfaceBase
+from skrobot.model import RobotModel
+from skrobot.viewers import TrimeshSceneViewer
 
 
 class MyCobotROSRobotInterface(ROSRobotInterfaceBase):

@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-from cobotta_ros import CobottaArmMoveit
-from cobotta_arm import CobottaArmBcapInterface
-from constants import MODE
-
-from std_msgs.msg import Int32, String
 import rospy
+from cobotta_arm import CobottaArmBcapInterface
+from cobotta_ros import CobottaArmMoveit
+from constants import MODE
+from std_msgs.msg import Int32, String
 
 
 class CobottaOperator:

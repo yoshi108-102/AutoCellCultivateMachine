@@ -26,10 +26,11 @@
 
 import os
 import re
-import sys
-import rospy
 import shutil
+import sys
+
 import roslib.packages
+import rospy
 
 __BRINGUP_TEXT = """<launch>
   <!-- the \"sim\" argument controls whether we connect to a Simulated or Real robot -->

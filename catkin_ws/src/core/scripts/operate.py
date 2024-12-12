@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
+import math
+import time
+
 import moveit_commander
 import rospy
-from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
-import math
-from pymycobot.mycobot import MyCobot
-import time
 from geometry_msgs.msg import PoseStamped
-from visualization_msgs.msg import MarkerArray
+from pymycobot.mycobot import MyCobot
 from tf_listener import TfListener
+from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
+from visualization_msgs.msg import MarkerArray
 
 
 class MycobotOperator:

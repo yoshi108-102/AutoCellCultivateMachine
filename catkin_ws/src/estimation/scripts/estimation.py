@@ -1,25 +1,18 @@
 #!/usr/bin/env python3
-from ultralytics import YOLO
-import pyrealsense2 as rs
 import os
 
 import cv2
 import cv_bridge
-
 import numpy as np
-
-import rospy
-
-from geometry_msgs.msg import PoseArray, PoseStamped, Pose
-from visualization_msgs.msg import MarkerArray
-
+import pyrealsense2 as rs
 import roslib.packages
-
-from screeninfo import get_monitors
-
+import rospy
+from geometry_msgs.msg import Pose, PoseArray, PoseStamped
 from openpose import pyopenpose as op
-
+from screeninfo import get_monitors
 from sensor_msgs.msg import Image
+from ultralytics import YOLO
+from visualization_msgs.msg import MarkerArray
 
 pkg_path = roslib.packages.get_pkg_dir("mycobot_320_moveit")
 

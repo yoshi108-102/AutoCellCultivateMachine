@@ -2,16 +2,13 @@
 import math
 import sys
 
-import rospy
 import moveit_commander
-
-from trajectory_msgs.msg import JointTrajectory
+import rospy
+from constants import MODE
 from geometry_msgs.msg import PoseStamped
 from std_msgs.msg import Int32, String
 from tf_listener import TfListener
-
-from constants import MODE
-
+from trajectory_msgs.msg import JointTrajectory
 from visualization_msgs.msg import Marker
 
 

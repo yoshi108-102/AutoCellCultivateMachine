@@ -1,17 +1,18 @@
 #!/usr/bin/env python3
+import math
+import time
+
 import moveit_commander
 import rospy
-from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
-import tf2_ros
 import tf2_geometry_msgs
-import math
+import tf2_ros
+from geometry_msgs.msg import PoseArray, PoseStamped
 from pymycobot.mycobot import MyCobot
-import time
-from geometry_msgs.msg import PoseStamped, PoseArray
-from visualization_msgs.msg import MarkerArray
-from sensor_msgs.msg import PointCloud2
+from sensor_msgs.msg import JointState, PointCloud2
 from tf_listener import TfListener
-from sensor_msgs.msg import JointState
+from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
+from visualization_msgs.msg import MarkerArray
+
 
 class MycobotOperator:
     def __init__(self, port, baud):

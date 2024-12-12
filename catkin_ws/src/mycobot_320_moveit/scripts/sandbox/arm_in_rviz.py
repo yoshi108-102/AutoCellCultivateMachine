@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
+import math
+import sys
+import time
+
+import geometry_msgs.msg
 import moveit_commander
 import rospy
-import geometry_msgs.msg
-import sys
-from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 import tf
-import math
-from pymycobot.mycobot import MyCobot
-import time
 from geometry_msgs.msg import PoseStamped
+from pymycobot.mycobot import MyCobot
+from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 
 
 def main():

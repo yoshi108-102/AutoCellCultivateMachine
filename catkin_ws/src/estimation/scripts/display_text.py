@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-from tf.transformations import quaternion_from_euler
-import rospy
-from geometry_msgs.msg import PoseStamped
-from visualization_msgs.msg import Marker
-from functools import partial
-import tf
 import math
+from functools import partial
+
+import rospy
+import tf
+from geometry_msgs.msg import PoseStamped
+from tf.transformations import quaternion_from_euler
+from visualization_msgs.msg import Marker
 
 x = 0
 y = 0
