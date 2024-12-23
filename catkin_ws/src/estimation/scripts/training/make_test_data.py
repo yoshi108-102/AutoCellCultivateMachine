@@ -56,7 +56,7 @@ def main():
     r = input("Do you want to take pictures? (y/n): ")
     rospy.Subscriber("/camera/color/image_raw", Image, image_callback)
     if r == "y":
-        global filename
+        global filename,count
         filename = input("file name :")
         count = count_files(filename)
         rospy.Timer(rospy.Duration(0.3), callback)

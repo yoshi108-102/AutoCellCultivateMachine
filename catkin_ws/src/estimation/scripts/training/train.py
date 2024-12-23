@@ -17,7 +17,7 @@ def main(argv):
     model = YOLO("yolov8n.pt")
     # runsはパッケージ直下に作成
     model.train(
-        data=f"./{dataset_type}_datasets/data.yaml", epochs=400, project="./runs/detect"
+        data=f"./{dataset_type}_datasets/data.yaml", epochs=400, project="./runs/lab_dish/1000"
     )
     metrics = model.val()
     print(metrics)
