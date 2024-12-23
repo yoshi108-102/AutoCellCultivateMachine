@@ -11,3 +11,4 @@
 **/.vscode/
 **/compile_commands.json
 **/image*
+**/dataset/
