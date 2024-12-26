@@ -4,6 +4,7 @@ import random
 import rospy
 from geometry_msgs.msg import PoseStamped
 
+
 def pipette_marker() -> PoseStamped:
     pose = PoseStamped()
     pose.header.frame_id = "pipette"

@@ -10,12 +10,11 @@ import roslib.packages
 
 def main(argv):
     try:
-        dataset_type = argv[1]
-        num_data = int(argv[2])
+        num_data = int(argv[1])
     except IndexError:
         print("Please input dataset_type: pipette,dish or so")
         sys.exit(1)
-    dataset_dir = f"./{dataset_type}_datasets"
+    dataset_dir = f"./labs"
 
     img_list = glob.glob(os.path.join(dataset_dir + "/annotation", "*.txt"))
     random.shuffle(img_list)

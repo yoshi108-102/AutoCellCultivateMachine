@@ -1,0 +1,12 @@
+
+# root directory
+path:  /home/tw017/yolo_dataset/lab
+train: /home/tw017/yolo_dataset/lab/train/images
+val:   /home/tw017/yolo_dataset/lab/val/images
+test: /home/tw017/yolo_dataset/lab/test/images
+# number of classes
+nc: 1
+
+names:
+  0: pipette
+  1: dish
