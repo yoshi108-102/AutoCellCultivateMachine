@@ -7,7 +7,7 @@ import numpy as np
 import pyrealsense2 as rs
 import roslib.packages
 import rospy
-from geometry_msgs.msg import Pose, PoseArray, PoseStamped
+from geometry_msgs.msg import Pose, PoseArray, PoseStamped,Quaternion
 from openpose import pyopenpose as op
 from screeninfo import get_monitors
 from sensor_msgs.msg import Image
@@ -37,7 +37,7 @@ class CVEstimator:
 
     def yolo_init(self):
         self.pipetteModel = YOLO(
-            HOME_DIR + "/yolo_dataset/runs/detect/train/weights/best.pt"
+            HOME_DIR + "/yolo_dataset/runs/labs/all/train/weights/best.pt"
         )
 
     def camera_init(self):
@@ -188,7 +188,7 @@ class CVEstimator:
         if poseKeypoints is None:
             return None
         armData = dict()
-        target = ["RWrist", "RElbow", "RShoulder"]
+        target = ["RWrist", "RElbow", "RShoulder", "LWrist", "LElbow", "LShoulder"]
         for e in target:
             if poseKeypoints[0][self.poseMap[e]][2] < conf:
                 continue
@@ -204,8 +204,10 @@ class CVEstimator:
             return
         self.armPose.header.frame_id = "Arm"
         self.armPose.header.stamp = rospy.Time.now()
-        self.armPose.poses = []
-        for _, value in armData.items():
+        target = ["RWrist", "RElbow", "RShoulder", "LWrist", "LElbow", "LShoulder"]
+        poses = [Pose() for _ in range(len(target))]
+        for key, value in armData.items():
+            rospy.loginfo(f"{key}: {value}")
             pose = Pose()
             points = self.calcWorldPose(depth_frame, value[0], value[1])
             if points is None:
@@ -213,23 +215,22 @@ class CVEstimator:
             pose.position.x = points[0]
             pose.position.y = points[1]
             pose.position.z = points[2]
-            pose.orientation.x = 0
-            pose.orientation.y = 0
-            pose.orientation.z = 0
-            pose.orientation.w = 1.0
-            print(pose)
-            self.armPose.poses.append(pose)
+            pose.orientation = Quaternion(0,0,0,1)
+            if key in target:
+                poses[target.index(key)] = pose
+        self.armPose.poses = poses
         self.armPosePublisher.publish(self.armPose)
 
-    def displayArmPose(self, color_image):
-        for pose in self.armPose.poses:
-            # poseの座標を画像上の座標に変換
-            x, y = rs.rs2_project_point_to_pixel(
-                self.color_intr, [pose.position.x, pose.position.y, pose.position.z]
-            )
-            x, y = int(x), int(y)
+    def displayArmPose(self, color_image, armData):
+        if armData is None:
+            return
+        for (key,pose) in armData.items():
+            txt = key
+            x, y = pose[0], pose[1] 
+            rospy.loginfo(f"{key}: {x}, {y}")
+            print(x,y)
             cv2.circle(color_image, (x, y), 5, (0, 255, 0), -1)
-            txt = "Arm"
+            
             cv2.putText(
                 color_image, txt, (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2
             )
@@ -237,8 +238,8 @@ class CVEstimator:
     def armChecker(self, color_image, depth_frame):
         poseKeypoints = self.estimationHumanPose(color_image)
         armData = self.extractArmData(poseKeypoints)
+        self.displayArmPose(color_image,armData)
         self.publishArmPose(depth_frame, armData)
-        self.displayArmPose(color_image)
 
 
 def main():
@@ -250,6 +251,7 @@ def main():
         estimator.imageRawPublisher.publish(image)
         try:
             estimator.pipetteChecker(color_image, depth_frame)
+            estimator.armChecker(color_image, depth_frame)
         except Exception as e:
             rospy.logwarn(e)
         cv2.imshow("color", color_image)
