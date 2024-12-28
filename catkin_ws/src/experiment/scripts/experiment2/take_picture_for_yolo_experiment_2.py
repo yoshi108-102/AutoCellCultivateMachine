@@ -19,7 +19,7 @@ from visualization_msgs.msg import MarkerArray
 pkg_path = roslib.packages.get_pkg_dir("experiment")
 
 HOME_DIR = os.path.expanduser("~")
-YAML_PATH = os.path.join(pkg_path,"analysis","experiment2_hoge.yaml")
+YAML_PATH = os.path.join(pkg_path,"analysis","experiment2_2_pipette.yaml")
 YOLO_PATH = os.path.join(HOME_DIR,"yolo_dataset","runs","labs","all","train","weights","best.pt")
 class PictureTaker:
     def __init__(self):
@@ -118,7 +118,12 @@ class PictureTaker:
                     int(center[0] + radius * math.cos(radian)),
                     int(center[1] + radius * math.sin(radian))
                 )
+                if angle == 360 - 15 or angle == 360 - 150:
+                    color = (0,0,255)
+                else:
+                    color = (0,255,0)
                 cv2.line(color_image,start_point,end_point,color,thickness)
+            color = (0,255,0)
             cv2.circle(color_image,center,radius,color,thickness)
     def pipetteChecker(self, color_image, depth_frame):
         x, y = self.estimatePipettePose(color_image)
@@ -126,12 +131,15 @@ class PictureTaker:
         self.displayPipettePose(color_image)
         
     def mouseEvent(self,event, x, y, flags, param):
-        distances:list = [50*i for i in range(1,6)]
-        angles:list = [15,30,45,60,75,90,105,120,135,150]
+        distances:list = [50*i for i in range(3,6)]
+        angles:list = [90,105,120,135,150]
         take_num = 5
         id = self.take_cnt//(take_num * len(angles))
         angle_id = (self.take_cnt % (take_num * len(angles))) // take_num
-        dir_path = os.path.join(pkg_path,"dataset","experiment2","pipette",str(distances[id]) + "pixel",str(angles[angle_id])+"degree")
+        dir_path = os.path.join(pkg_path,"dataset","experiment2_2","pipette",str(distances[id]) + "pixel",str(angles[angle_id])+"degree")
+        with open(YAML_PATH,"r") as f:
+            self.yamlData = yaml.safe_load(f)
+        f.close()
         if os.path.exists(dir_path) == False:
             os.makedirs(dir_path)
         if event == cv2.EVENT_LBUTTONDOWN:
@@ -181,3 +189,4 @@ if __name__ == "__main__":
     main()
 
     
+e

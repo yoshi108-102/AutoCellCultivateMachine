@@ -6,7 +6,7 @@ import yaml
 
 PKG_PATH = roslib.packages.get_pkg_dir("experiment")
 def main():
-    data = os.path.join(PKG_PATH,"analysis","experiment2_dish.yaml")
+    data = os.path.join(PKG_PATH,"analysis","experiment2_pipette.yaml")
     real = os.path.join(PKG_PATH,"analysis","experiment2_real_data.yaml")
     with open(data,'r') as f:
         data = yaml.safe_load(f)
@@ -33,10 +33,10 @@ def main():
                 if data_points_ave[1] < -1:
                     continue
                 data_points = data_points_ave
-                real_points = real[dist][angle]["points"]
+                real_points = real[dist][angle + 15]["points"]
                 real_points = [x/100 for x in real_points]
-                """ plt.scatter(-data_points[0],-data_points[1],color="blue")
-                plt.scatter(real_points[0] - base[0],real_points[1] - base[1],color="red") """
+                plt.scatter(-data_points[0],-data_points[1],color="blue")
+                plt.scatter(real_points[0] - base[0],real_points[1] - base[1],color="red")
                 print("data:",data_points)
                 print("real:",[real_points[i] - base[i] for i in range(3)])
                 data_points[0] = -data_points[0]
@@ -50,10 +50,10 @@ def main():
                 print(e)
                 continue
         diffs.append(diff_dist/cnt)
-    plt.plot(distance,diffs)
+    """ plt.plot(distance,diffs)
     plt.xlabel("dist")
     plt.ylabel("average diff")
-    plt.title("mapping of dish pose")
-    plt.savefig(os.path.join(PKG_PATH,"analysis","experiment2_dish.png"))
+    plt.title("mapping of dish pose") """
+    plt.savefig(os.path.join(PKG_PATH,"analysis","experiment2_pipetteandreal.png"))
 if __name__ == "__main__":
     main()
