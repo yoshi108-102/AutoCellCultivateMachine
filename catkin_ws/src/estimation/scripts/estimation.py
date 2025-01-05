@@ -7,12 +7,12 @@ import numpy as np
 import pyrealsense2 as rs
 import roslib.packages
 import rospy
-from geometry_msgs.msg import Pose, PoseArray, PoseStamped,Quaternion
+from geometry_msgs.msg import Pose, PoseArray, PoseStamped, Quaternion
+from hand_detector import HandDetector
 from openpose import pyopenpose as op
 from screeninfo import get_monitors
 from sensor_msgs.msg import Image
 from ultralytics import YOLO
-from visualization_msgs.msg import MarkerArray
 
 pkg_path = roslib.packages.get_pkg_dir("mycobot_320_moveit")
 
@@ -24,17 +24,13 @@ class CVEstimator:
         self.camera_init()
         self.yolo_init()
         self.pipettePose = PoseStamped()
-        self.armPose = PoseArray()
         self.pipettePosePublisher = rospy.Publisher(
             "target_estimation", PoseStamped, queue_size=10
-        )
-        self.armPosePublisher = rospy.Publisher(
-            "arm_estimation", PoseArray, queue_size=10
         )
         self.imageRawPublisher = rospy.Publisher(
             "camera/color/image_raw", Image, queue_size=10
         )
-
+        self.handDetertor = HandDetector()
     def yolo_init(self):
         self.pipetteModel = YOLO(
             HOME_DIR + "/yolo_dataset/runs/labs/all/train/weights/best.pt"
@@ -176,12 +172,34 @@ class CVEstimator:
         self.publishPipettePose(depth_frame, points)
         self.displayPipettePose(color_image)
 
-    def estimationHumanPose(self, color_image):
-        self.datum = op.Datum()
-        self.datum.cvInputData = color_image
-        self.opWrapper.emplaceAndPop(op.VectorDatum([self.datum]))
-        return self.datum.poseKeypoints
-
+    def estimationHumanPose(self, color_image,depth_frame):
+        detect_result = self.handDetertor.detect(color_image)
+        w,h = 640,480
+        pose_array = PoseArray()
+        for i in range(2):
+            try:
+                conf = detect_result.handedness[i][0].score
+                if conf < 0.8:
+                    rospy.logwarn("Confidence is low")
+                    continue
+            except IndexError:
+                rospy.logwarn("No hand detected")
+                continue
+            for j in range(21):
+                landmark = detect_result.hand_landmarks[i][j]
+                pose = Pose()
+                x = int(landmark.x * w)
+                y = int(landmark.y * h)
+                z = depth_frame.get_distance(x,y)
+                points = rs.rs2_deproject_pixel_to_point(self.color_intr, (x, y), z)
+                pose.position.x = points[0]
+                pose.position.y = points[1]
+                pose.position.z = points[2]
+                pose.orientation = Quaternion(0,0,0,1)
+                pose_array.poses.append(pose)
+            rospy.loginfo(f"pose_array: {pose_array}")
+            rospy.Publisher("hand_estimation",PoseArray,queue_size=10).publish(pose_array)
+        return
     # 手首、肘、肩の位置情報だけ抽出する
     # とりあえず右手だけ
     def extractArmData(self, poseKeypoints, conf=0.2):
@@ -251,7 +269,7 @@ def main():
         estimator.imageRawPublisher.publish(image)
         try:
             estimator.pipetteChecker(color_image, depth_frame)
-            estimator.armChecker(color_image, depth_frame)
+            estimator.estimationHumanPose(color_image,depth_frame)
         except Exception as e:
             rospy.logwarn(e)
         cv2.imshow("color", color_image)

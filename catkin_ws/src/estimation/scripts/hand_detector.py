@@ -5,7 +5,6 @@ from mediapipe.tasks.python import vision
 import cv2
 import rospy
 import roslib.packages
-from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 PKG_PATH = roslib.packages.get_pkg_dir("estimation")
 # STEP 2: Create an HandLandmarker object.
@@ -16,14 +15,13 @@ class HandDetector:
                                                     min_tracking_confidence=0.7,
                                        num_hands=2)
         self.detector = vision.HandLandmarker.create_from_options(self.options)
-        self.imgSubscriber = rospy.Subscriber("camera/color/image_raw", Image, self.callback)
-    def callback(self, data):
-        bridge = CvBridge()
-        data = bridge.imgmsg_to_cv2(data, "bgr8")
-        mediapipe_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=data)
+    def detect(self,cv_image: cv2.VideoCapture):
+        mediapipe_image = mp.Image(image_format=mp.ImageFormat.SRGB, data=cv_image)
         results = self.detector.detect(mediapipe_image)
         rospy.loginfo(results)
-
+        
+        return results
+    
 
 
 if __name__ == "__main__":
