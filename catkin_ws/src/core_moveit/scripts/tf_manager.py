@@ -2,9 +2,11 @@
 import rospy
 import tf2_geometry_msgs
 import tf2_ros
-import yaml
-from geometry_msgs.msg import PoseStamped, TransformStamped
+from geometry_msgs.msg import (Pose, PoseArray, PoseStamped, Quaternion,
+                               TransformStamped)
 from tf.transformations import quaternion_from_euler
+
+import yaml
 
 
 class TfBroadCaster:
@@ -13,6 +15,7 @@ class TfBroadCaster:
         self.staticBroadcaster = tf2_ros.StaticTransformBroadcaster()
         self.objectTfSetter = rospy.Subscriber('target_estimation', PoseStamped, self.set_object_tf)
         self.camera_trans = None
+        self.handTfSetter = rospy.Subscriber('hand_estimation', PoseArray, self.set_hand_tf)
         self.buffer = tf2_ros.Buffer()
         self.listener = tf2_ros.TransformListener(self.buffer)
     def broadcast(self, frame_id, child_frame_id, position, orientation, is_static):
@@ -48,7 +51,23 @@ class TfBroadCaster:
         new_pos.header = msg.header
         new_pos.header.stamp = rospy.Time.now()
         rospy.Publisher('object_pose', PoseStamped, queue_size=10).publish(new_pos)
-        
+    def set_hand_tf(self, msg:PoseArray):
+        if self.camera_trans is None:
+            self.get_camera_trans()
+        new_poses = PoseArray()
+        new_poses.header = msg.header
+        new_poses.header.stamp = rospy.Time.now()
+        for pose in msg.poses:
+            if pose.orientation == Quaternion(0,0,0,0):
+                new_poses.poses.append(pose)
+                continue
+            else:
+                pose_stamped = PoseStamped()
+                pose_stamped.pose = pose
+                pose_stamped.header = msg.header
+                pose = tf2_geometry_msgs.do_transform_pose(pose_stamped, self.camera_trans)
+                new_poses.poses.append(pose.pose)
+        rospy.Publisher('hand_pose', PoseArray, queue_size=10).publish(new_poses)
 
 def main():
     rospy.init_node('tf_manager')
