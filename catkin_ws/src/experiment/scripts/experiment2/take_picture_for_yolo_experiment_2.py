@@ -131,8 +131,8 @@ class PictureTaker:
         self.displayPipettePose(color_image)
         
     def mouseEvent(self,event, x, y, flags, param):
-        distances:list = [50*i for i in range(3,6)]
-        angles:list = [90,105,120,135,150]
+        distances:list = [50*i for i in range(4,6)]
+        angles:list = [15,30,45,60,75,90,105,120,135,150]
         take_num = 5
         id = self.take_cnt//(take_num * len(angles))
         angle_id = (self.take_cnt % (take_num * len(angles))) // take_num

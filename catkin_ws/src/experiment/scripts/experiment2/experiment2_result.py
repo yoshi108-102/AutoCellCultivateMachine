@@ -6,14 +6,15 @@ import yaml
 
 PKG_PATH = roslib.packages.get_pkg_dir("experiment")
 def main():
-    data = os.path.join(PKG_PATH,"analysis","experiment2_pipette.yaml")
+    data = os.path.join(PKG_PATH,"analysis","experiment2_2_pipette.yaml")
     real = os.path.join(PKG_PATH,"analysis","experiment2_real_data.yaml")
     with open(data,'r') as f:
         data = yaml.safe_load(f)
     with open(real,'r') as f:
         real = yaml.safe_load(f)
-    distance = [50,100,150,200,250]
+    distance = [50,100,150,200]
     angles = [15,30,45,60,75,90,105,120,135,150]
+    excepts = [(50,15),(50,30),(200,75),(200,90),(200,105)]
     base = real["base"]["points"]
     plt.scatter(0,0,color="black")
     diffs = list()
@@ -22,6 +23,8 @@ def main():
         diff_dist = 0
         cnt = 0
         for angle in angles:
+            if (dist,angle) in excepts:
+                continue
             try:
                 data_points = data[dist][angle]["points"]
                 data_points_ave = [0.0,0.0,0.0]
@@ -33,10 +36,10 @@ def main():
                 if data_points_ave[1] < -1:
                     continue
                 data_points = data_points_ave
-                real_points = real[dist][angle + 15]["points"]
+                real_points = real[dist][angle]["points"]
                 real_points = [x/100 for x in real_points]
                 plt.scatter(-data_points[0],-data_points[1],color="blue")
-                plt.scatter(real_points[0] - base[0],real_points[1] - base[1],color="red")
+                #plt.scatter(real_points[0] - base[0],real_points[1] - base[1],color="red")
                 print("data:",data_points)
                 print("real:",[real_points[i] - base[i] for i in range(3)])
                 data_points[0] = -data_points[0]
@@ -54,6 +57,6 @@ def main():
     plt.xlabel("dist")
     plt.ylabel("average diff")
     plt.title("mapping of dish pose") """
-    plt.savefig(os.path.join(PKG_PATH,"analysis","experiment2_pipetteandreal.png"))
+    plt.savefig(os.path.join(PKG_PATH,"analysis","experiment2_pipette.png"))
 if __name__ == "__main__":
     main()
