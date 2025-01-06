@@ -38,6 +38,8 @@ class Operater:
             'joint_5',
             'joint_6'
         ]
+        self.pre_hand = PoseStamped()
+        self.pre_wrist = PoseStamped()
         self.cobAvoidTimer = rospy.Timer(rospy.Duration(0.1),self.cob_avoid)
     def cb(self,msg: PoseStamped):
         self.target = msg
@@ -85,8 +87,8 @@ class Operater:
             rospy.logwarn(e)
             exit(1)
     def cob_avoid(self,event):
-        objects = ["hand","wrist"]
-        border = 0.1
+        objects = ["hand","arm_end"]
+        border = 0.20
         end_pose = self.cob_group.get_current_pose()
         #各オブジェクトの位置を取得
         try:
@@ -99,7 +101,7 @@ class Operater:
             rospy.loginfo("hand is None")
             return
         try:
-            wrist_pose = self.scene.get_object_poses([objects[1]])['wrist']
+            wrist_pose = self.scene.get_object_poses([objects[1]])['arm_end']
             tmp = PoseStamped()
             tmp.pose = wrist_pose
             wrist_pose = tmp
@@ -107,9 +109,21 @@ class Operater:
             rospy.loginfo("wrist is None")
             return
         hand_distance = self.calc_distance(end_pose,hand_pose)
-        arm_distance = self.calc_arm_distance(hand_pose,wrist_pose)
-        if min(hand_distance,arm_distance) < 1.0:
-            rospy.logwarn("avoid!!!!!!!!!!!")
+        arm_distance,t = self.calc_arm_distance(hand_pose,wrist_pose)
+        if hand_distance < border:
+            rospy.loginfo("hand is too close")
+            target = PoseStamped()
+            target.pose.position.x = end_pose.pose.position.x + (end_pose.pose.position.x - hand_pose.pose.position.x) * 0.1
+            target.pose.position.y = end_pose.pose.position.y + (end_pose.pose.position.y - hand_pose.pose.position.y) * 0.1
+            target.pose.position.z = end_pose.pose.position.z + (end_pose.pose.position.z - hand_pose.pose.position.z) * 0.1
+            self.cob_move_to(target)
+        elif arm_distance < border:
+            rospy.loginfo("arm is too close")
+            target = PoseStamped()
+            target.pose.position.x = end_pose.pose.position.x + (end_pose.pose.position.x - wrist_pose.pose.position.x) * 0.1
+            target.pose.position.y = end_pose.pose.position.y + (end_pose.pose.position.y - wrist_pose.pose.position.y) * 0.1
+            target.pose.position.z = end_pose.pose.position.z + (end_pose.pose.position.z - wrist_pose.pose.position.z) * 0.1
+            self.cob_move_to(target)
         rospy.loginfo((hand_distance,arm_distance))
         #腕とエンドエフェクタの距離を計算
     def calc_arm_distance(self,p1,p2):
@@ -126,7 +140,7 @@ class Operater:
                 right = mid2
             else:
                 left = mid1
-        return self.calc_distance(self.calc_inter_point(p1,p2,(left+right)/2),end_pose)
+        return (self.calc_distance(self.calc_inter_point(p1,p2,(left+right)/2),end_pose), left+right/2)
     def calc_distance(self,p1:PoseStamped,p2:PoseStamped) -> float:
         return math.sqrt((p1.pose.position.x - p2.pose.position.x)**2 + (p1.pose.position.y - p2.pose.position.y)**2 + (p1.pose.position.z - p2.pose.position.z)**2)
     def calc_inter_point(self,p1,p2,t):

@@ -1,8 +1,8 @@
 camera_pos:
   parent: mycobot_base_link
-  pos: [0.1825,-0.244,0.22]
+  pos: [0.0,0.124,0.53]
   rpy: [0.0,0.0,0.0]
 camera_link:
   parent: camera_pos
   pos: [0.0,0.0,0.0]
-  rpy: [1.5708,0.0,1.578]
+  rpy: [-3.14,0.0,-1.508]
