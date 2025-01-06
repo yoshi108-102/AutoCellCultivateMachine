@@ -88,7 +88,7 @@ class Operater:
             exit(1)
     def cob_avoid(self,event):
         objects = ["hand","arm_end"]
-        border = 0.20
+        border = 0.400
         end_pose = self.cob_group.get_current_pose()
         #各オブジェクトの位置を取得
         try:
@@ -110,6 +110,11 @@ class Operater:
             return
         hand_distance = self.calc_distance(end_pose,hand_pose)
         arm_distance,t = self.calc_arm_distance(hand_pose,wrist_pose)
+        """ if hand_distance < border or arm_distance < border:
+            self.cob_group.set_random_target()
+            self.cob_group.plan()
+            self.cob_group.go(wait=True)
+            rospy.loginfo("hand is too close") """
         if hand_distance < border:
             rospy.loginfo("hand is too close")
             target = PoseStamped()

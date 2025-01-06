@@ -268,8 +268,8 @@ def main():
         image = cv_bridge.CvBridge().cv2_to_imgmsg(color_image, "bgr8")
         estimator.imageRawPublisher.publish(image)
         try:
-            estimator.pipetteChecker(color_image, depth_frame)
             estimator.estimationHumanPose(color_image,depth_frame)
+            estimator.pipetteChecker(color_image,depth_frame)
         except Exception as e:
             rospy.logwarn(e)
         cv2.imshow("color", color_image)

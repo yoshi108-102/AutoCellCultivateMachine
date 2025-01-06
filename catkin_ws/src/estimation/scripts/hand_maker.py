@@ -5,9 +5,10 @@ import sys
 import moveit_commander
 import rospy
 import tf
-from geometry_msgs.msg import PoseArray, PoseStamped, Quaternion, Pose
+from geometry_msgs.msg import Pose, PoseArray, PoseStamped, Quaternion
 from shape_msgs.msg import SolidPrimitive
 from tf.transformations import quaternion_from_matrix
+
 
 def arm_maker(data:PoseArray,scene:moveit_commander.PlanningSceneInterface):
     pre_arm = scene.get_known_object_names()
@@ -25,15 +26,24 @@ def arm_maker(data:PoseArray,scene:moveit_commander.PlanningSceneInterface):
     center.pose.position.x /= len(data.poses)
     center.pose.position.y /= len(data.poses)
     center.pose.position.z /= len(data.poses)
-    hand_radius = 0.04
+    center.pose.orientation.w = 1.0
+    hand_radius = 0.06
     wrist = PoseStamped()
     wrist.header.frame_id = "mycobot_base_link"
     wrist.header.stamp = rospy.Time.now()
     wrist.pose = data.poses[0]
-    arm_radius = 0.02
+    arm_radius = 0.04
     add_sphere(scene,center,radius=hand_radius,name="hand")
     add_sphere(scene,wrist,radius=hand_radius/2,name="wrist")
-    cur = data.poses[0]
+    arm_end = PoseStamped()
+    size = 3.0
+    arm_end.header = center.header
+    arm_end.pose.position.x = center.pose.position.x + (wrist.pose.position.x - center.pose.position.x)*size
+    arm_end.pose.position.y = center.pose.position.y + (wrist.pose.position.y - center.pose.position.y)*size
+    arm_end.pose.position.z = center.pose.position.z + (wrist.pose.position.z - center.pose.position.z)*size
+    arm_end.pose.orientation.w = 1.0
+    add_sphere(scene,arm_end,radius=hand_radius,name="arm_end")
+    cur = arm_end.pose
     add_cylinder_between_points(scene,[center.pose.position.x,center.pose.position.y,center.pose.position.z],[cur.position.x,cur.position.y,cur.position.z],arm_radius,i)
     rospy.loginfo(scene.get_known_object_names())
 def add_sphere(scene:moveit_commander.PlanningSceneInterface,pose:PoseStamped,radius:float,name):
@@ -71,18 +81,21 @@ def add_cylinder_between_points(planning_scene_interface, point1, point2, radius
         z_axis[2] * axis_x - z_axis[0] * axis_z,
         z_axis[0] * axis_y - z_axis[1] * axis_x
     ]
-
+    quaternion = []
     # 回転行列を四元数に変換
     rotation_angle = math.acos(dot_product)
     if math.isclose(rotation_angle, 0):
         quaternion = [0, 0, 0, 1]  # 回転なし
+    elif math.isclose(rotation_angle,math.pi):
+        quaternion = [1,0,0,0]
     else:
-        quaternion = quaternion_from_matrix([
-            [0, -cross_product[2], cross_product[1], axis_x],
-            [cross_product[2], 0, -cross_product[0], axis_y],
-            [-cross_product[1], cross_product[0], 0, axis_z],
-            [0, 0, 0, 1]
-        ]) 
+        cross_len = math.sqrt(sum([x*x for x in cross_product]))
+        cross_product = [x/cross_len for x in cross_product]
+        half_theta = rotation_angle/2
+        w = math.cos(half_theta)
+        s = math.sin(half_theta)
+        ux,uy,uz = cross_product[0],cross_product[1],cross_product[2]
+        quaternion = [ux*s,uy*s,uz*s,w]
     # 円柱のポーズ
     pose = Pose()
     pose.position.x = center_x
