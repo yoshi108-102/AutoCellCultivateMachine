@@ -21,6 +21,7 @@ class Operater:
         self.cob_group = moveit_commander.MoveGroupCommander("arm")
         self.cob_group.set_max_velocity_scaling_factor(0.8)
         self.target = None
+        self.is_cob_active = False
         self.sub = rospy.Subscriber("/object_pose",PoseStamped,self.cb)
         self.mc_joints=[
             'mycobot_arm_joint_0',
@@ -80,15 +81,19 @@ class Operater:
         self.cob_group.set_pose_target(target)
         try:
             plan = self.cob_group.plan()
-            rospy.loginfo(plan)
+            #rospy.loginfo(plan)
+            self.is_cob_active = True
             self.cob_group.go(wait=True)
+            self.cob_group.stop()
+            self.is_cob_active = False
             return True
         except Exception as e:
             rospy.logwarn(e)
+            self.is_cob_active = False
             exit(1)
     def cob_avoid(self,event):
         objects = ["hand","arm_end"]
-        border = 0.400
+        border = 0.200
         end_pose = self.cob_group.get_current_pose()
         #各オブジェクトの位置を取得
         try:
@@ -121,14 +126,16 @@ class Operater:
             target.pose.position.x = end_pose.pose.position.x + (end_pose.pose.position.x - hand_pose.pose.position.x) * 0.1
             target.pose.position.y = end_pose.pose.position.y + (end_pose.pose.position.y - hand_pose.pose.position.y) * 0.1
             target.pose.position.z = end_pose.pose.position.z + (end_pose.pose.position.z - hand_pose.pose.position.z) * 0.1
-            self.cob_move_to(target)
+            if not self.is_cob_active:
+                self.cob_move_to(target)
         elif arm_distance < border:
             rospy.loginfo("arm is too close")
             target = PoseStamped()
             target.pose.position.x = end_pose.pose.position.x + (end_pose.pose.position.x - wrist_pose.pose.position.x) * 0.1
             target.pose.position.y = end_pose.pose.position.y + (end_pose.pose.position.y - wrist_pose.pose.position.y) * 0.1
             target.pose.position.z = end_pose.pose.position.z + (end_pose.pose.position.z - wrist_pose.pose.position.z) * 0.1
-            self.cob_move_to(target)
+            if not self.is_cob_active:
+                self.cob_move_to(target)
         rospy.loginfo((hand_distance,arm_distance))
         #腕とエンドエフェクタの距離を計算
     def calc_arm_distance(self,p1,p2):
