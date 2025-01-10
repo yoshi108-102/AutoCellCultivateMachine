@@ -22,7 +22,9 @@ class MycobotOperator:
             "visualization_marker", MarkerArray, queue_size=10
         )
         self.target_sub = rospy.Subscriber(
-            rospy.get_param("target_topic_name","target_estimation"), PoseStamped, self.end_effector_pose
+            rospy.get_param("target_topic_name", "target_estimation"),
+            PoseStamped,
+            self.end_effector_pose,
         )
         self.move_group = moveit_commander.MoveGroupCommander("arm_group")
         self.move_group.set_planning_time(0.1)

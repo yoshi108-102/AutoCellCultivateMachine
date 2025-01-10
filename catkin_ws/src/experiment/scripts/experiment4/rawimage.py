@@ -124,10 +124,6 @@ class PictureTaker:
                     int(center[0] + radius * math.cos(radian)),
                     int(center[1] + radius * math.sin(radian)),
                 )
-                if angle == 360 - 15 or angle == 360 - 150:
-                    color = (0, 0, 255)
-                else:
-                    color = (0, 255, 0)
                 cv2.line(color_image, start_point, end_point, color, thickness)
             color = (0, 255, 0)
             cv2.circle(color_image, center, radius, color, thickness)
@@ -193,7 +189,7 @@ def main():
     pTaker = PictureTaker()
     cv2.namedWindow("color_image", cv2.WINDOW_NORMAL)
 
-    cv2.setMouseCallback("color_image", pTaker.mouseEvent)
+   # cv2.setMouseCallback("color_image", pTaker.mouseEvent)
     while not rospy.is_shutdown():
         color_image, depth_frame = pTaker.getRSImages()
         image = cv_bridge.CvBridge().cv2_to_imgmsg(color_image, "bgr8")
@@ -209,6 +205,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-
-e

@@ -34,6 +34,9 @@ def callback(event):
     if filename == "":
         print("decide file name")
         return
+    path = os.path.join(os.getcwd(),f"{filename}_datasets","original_data")
+    if not os.path.exists(path):
+        os.makedirs(path)
     cv2.imwrite(f"./{filename}_datasets/original_data/{filename}_{count}.png", cv_image)
     rospy.loginfo(f"save {filename}_{count}.png")
     rospy.sleep(1)
@@ -56,7 +59,7 @@ def main():
     r = input("Do you want to take pictures? (y/n): ")
     rospy.Subscriber("/camera/color/image_raw", Image, image_callback)
     if r == "y":
-        global filename,count
+        global filename, count
         filename = input("file name :")
         count = count_files(filename)
         rospy.Timer(rospy.Duration(0.3), callback)

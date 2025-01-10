@@ -48,6 +48,7 @@ class MycobotOperator:
         self.camera_world_name = "camera_link"
         # self.arm_sub = rospy.Subscriber("arm_estimation",PoseArray,self.armdata_cb)
         self.mycobot_init(port, baud)
+
     def mycobot_init(self, port, baud):
         try:
             self.mc = MyCobot(port, baud)
@@ -108,6 +109,8 @@ def main():
     rospy.loginfo(mcOperator.scene.get_known_object_names())
     while not rospy.is_shutdown():
         mcOperator.joint_state_pub.publish(mcOperator.joint_state)
-        mcOperator.joint_state.header.stamp=rospy.Time.now()
+        mcOperator.joint_state.header.stamp = rospy.Time.now()
+
+
 if __name__ == "__main__":
     main()

@@ -20,6 +20,7 @@ pkg_path = roslib.packages.get_pkg_dir("mycobot_320_moveit")
 
 HOME_DIR = os.path.expanduser("~")
 
+
 class PictureTaker:
     def __init__(self):
         self.openpose_init()
@@ -177,12 +178,11 @@ def main():
     pTaker = PictureTaker()
     cv2.setMouseCallback("color_image", pTaker.mouseEvent)
     while not rospy.is_shutdown():
-        color_image,_ = pTaker.getRSImages()
+        color_image, _ = pTaker.getRSImages()
         cv2.imshow("color_image", color_image)
         cv2.waitKey(1)
     cv2.destroyAllWindows()
-        
+
+
 if __name__ == "__main__":
     main()
-
-    

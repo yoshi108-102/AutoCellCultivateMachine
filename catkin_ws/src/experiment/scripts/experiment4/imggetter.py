@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import math
 import os
 
 import cv2
@@ -8,15 +9,54 @@ import pyrealsense2 as rs
 import roslib.packages
 import rospy
 from geometry_msgs.msg import Pose, PoseArray, PoseStamped, Quaternion
-from hand_detector import HandDetector
+from hand_data import HandDetector
 from openpose import pyopenpose as op
 from screeninfo import get_monitors
 from sensor_msgs.msg import Image
 from ultralytics import YOLO
 
-pkg_path = roslib.packages.get_pkg_dir("mycobot_320_moveit")
+pkg_path = roslib.packages.get_pkg_dir("experiment")
 
 HOME_DIR = os.path.expanduser("~")
+
+
+class UnionFind:
+    def __init__(self, n):
+        self.parent = [i for i in range(n)]
+        self.rank = [n] * n
+        self.size = [1] * n
+
+    def find(self, x):
+        if self.parent[x] == x:
+            return x
+        else:
+            self.parent[x] = self.find(self.parent[x])
+            return self.parent[x]
+
+    def enqiv(self, x, y):
+        return self.find(x) == self.find(y)
+
+    def union(self, x, y):
+        rx = self.find(x)
+        ry = self.find(y)
+        if rx == ry:
+            return
+        rank_x = self.rank[rx]
+        rank_y = self.rank[ry]
+        if rank_x <= rank_y:
+            self.rank[rx] = ry
+            self.parent[rx] = ry
+            self.size[ry] += self.size[rx]
+            if rank_x == rank_y:
+                self.rank[ry] += 1
+        else:
+            self.rank[ry] = rx
+            self.parent[ry] = rx
+            self.size[rx] += self.size[ry]
+
+    def get_size(self, x):
+        rx = self.find(x)
+        return self.size[rx]
 
 
 class CVEstimator:
@@ -32,6 +72,12 @@ class CVEstimator:
             "camera/color/image_raw", Image, queue_size=10
         )
         self.handDetertor = HandDetector()
+        self.take_cnt = 0
+        path = os.path.join(pkg_path,"dataset","experiment4")
+        for _,_,files in os.walk(path):
+            self.take_cnt += len(files)
+        self.take_cnt //=2
+        print(self.take_cnt)
 
     def yolo_init(self):
         self.pipetteModel = YOLO(
@@ -144,28 +190,22 @@ class CVEstimator:
         self.pipettePosePublisher.publish(self.pipettePose)
 
     def displayPipettePose(self, color_image):
-        txt = "PipetteHead"
-        x, y, z = (
-            self.pipettePose.pose.position.x,
-            self.pipettePose.pose.position.y,
-            self.pipettePose.pose.position.z,
-        )
-        x, y, z = map(lambda w: str(round(w, 3)), [x, y, z])
-        cv2.putText(
-            color_image, txt, (0, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2
-        )
-        txt = "X [m]: " + x
-        cv2.putText(
-            color_image, txt, (0, 80), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2
-        )
-        txt = "Y [m]: " + y
-        cv2.putText(
-            color_image, txt, (0, 110), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2
-        )
-        txt = "Z [m]: " + z
-        cv2.putText(
-            color_image, txt, (0, 140), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2
-        )
+        center = (320, 240)
+        for radius in range(50, 300, 50):
+            radius = int(radius)
+            color = (0, 255, 0)
+            thickness = 1
+            for angle in range(0, 360, 15):
+                radian = math.radians(angle)
+                start_point = center
+                end_point = (
+                    int(center[0] + radius * math.cos(radian)),
+                    int(center[1] + radius * math.sin(radian)),
+                )
+                cv2.line(color_image, start_point, end_point, color, thickness)
+            color = (0, 255, 0)
+            cv2.circle(color_image, center, radius, color, thickness)
+        return color_image
 
     # pipetteを検出し、位置を推定するe
     def pipetteChecker(self, color_image, depth_frame):
@@ -264,21 +304,105 @@ class CVEstimator:
         self.displayArmPose(color_image, armData)
         self.publishArmPose(depth_frame, armData)
 
+    def height_filter(self, color_img, depth_frame,id,angle_id):
+        color_image = color_img.copy()
+        w, h = 640, 480
+        border = 0.5
+        for x in range(w):
+            for y in range(h):
+                points = self.calcWorldPose(depth_frame, x, y)
+                # rospy.loginfo(z)
+                if points is None:
+                    color_image[y][x] = [0, 0, 0]
+                elif points[2] > border:
+                    color_image[y][x] = [0, 0, 0]
+        """  uf = UnionFind(640 * 480)
+            for x in range(640):
+                for y in range(480):
+                    dx = [0, 0, 1, -1]
+                    dy = [1, -1, 0, 0]
+                    for i in range(4):
+                        nx = x + dx[i]
+                        ny = y + dy[i]
+                        if nx < 0 or nx >= 640 or ny < 0 or ny >= 480:
+                            continue
+                        id = x * 480 + y
+                        nid = nx * 480 + ny
+                        if not np.array_equal(
+                            color_image[y][x], [0, 0, 0]
+                        ) and not np.array_equal(color_image[ny][nx], [0, 0, 0]):
+                            uf.union(id, nid)
+            max_size = 0
+            max_parent = 0
+            for x in range(640):
+                for y in range(480):
+                    if max_size < uf.get_size(x * 480 + y):
+                        max_size = uf.get_size(x * 480 + y)
+                        max_parent = uf.find(x * 480 + y)
+            rospy.loginfo(max_size)
+            if max_size < 40000:
+                return (False,-1)
+            for x in range(640):
+                for y in range(480):
+                    if uf.find(x * 480 + y) != max_parent:
+                        color_image[y][x] = [0, 0, 0] """
+        #黒くないところは全て白にする
+        color_image = cv2.inRange(color_image,np.array([70,0,0]),np.array([255,255,255]))
+        #cv2.imshow("filter",color_image)
+        file_path = os.path.join(pkg_path, "dataset", "experiment4", "real_hand",str(id),str(angle_id))
+        if not os.path.exists(file_path):
+            os.makedirs(file_path)
+        length = len(os.listdir(file_path))
+        cv2.imwrite(os.path.join(file_path, str(length) + ".jpg"), color_image)
+        return (True,length)
+    def cycle(self,color_image, depth_frame,id,angle_id):
+        result,length = self.height_filter(color_image,depth_frame,id,angle_id)
+        if result:
+            result = self.handDetertor.make_hand_contor(color_image,depth_frame,self.color_intr,length,id,angle_id)
+            return result
+        else:
+            return False
+        
+    def mouseEvent(self, event, x, y, flags, param):
+        distances: list = [50 * i for i in range(1,5)]
+        angles: list = [15, 30, 45, 60, 75, 90, 105, 120, 135, 150]
+        take_num = 5
+        id = self.take_cnt // (take_num * len(angles))
+        angle_id = (self.take_cnt % (take_num * len(angles))) // take_num
+        if event == cv2.EVENT_LBUTTONDOWN:
+            print((self.take_cnt,id,angle_id))
+            color_image, depth_frame = self.getRSImages()
+            result =  self.cycle(color_image,depth_frame,id,angle_id)
+            if result:
+                self.take_cnt += 1
+        elif event == cv2.EVENT_RBUTTONDOWN:
+            exit()
+        
+        
 
 def main():
-    rospy.init_node("target_estimation", anonymous=True)
+    cv2.namedWindow("color_image", cv2.WINDOW_NORMAL)
     estimator = CVEstimator()
+    cv2.setMouseCallback("color_image", estimator.mouseEvent)
     while not rospy.is_shutdown():
         color_image, depth_frame = estimator.getRSImages()
+        _,color_image = estimator.handDetertor.detect(color_image)
         image = cv_bridge.CvBridge().cv2_to_imgmsg(color_image, "bgr8")
-        estimator.imageRawPublisher.publish(image)
-        try:
-            estimator.estimationHumanPose(color_image, depth_frame)
-            estimator.pipetteChecker(color_image, depth_frame)
-        except Exception as e:
-            rospy.logwarn(e)
-        cv2.imshow("color", color_image)
+        color_image = estimator.displayPipettePose(color_image)
+        color_image = cv2.resize(color_image, (1280, 960))
+        color_image = cv2.cvtColor(color_image,cv2.COLOR_RGB2BGR)
+        cv2.imshow("color_image", color_image)
         cv2.waitKey(1)
+    cv2.destroyAllWindows()
+
+
+def main2():
+    uf = UnionFind(10)
+    for i in range(10):
+        x, y = map(int, input().split(" "))
+        uf.union(x - 1, y - 1)
+        print([uf.find(x) for x in range(10)])
+        print([uf.get_size(x) for x in range(10)])
 
 
 if __name__ == "__main__":

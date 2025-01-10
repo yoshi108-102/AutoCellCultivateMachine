@@ -17,47 +17,44 @@ class MyCobotROSRobotInterface(ROSRobotInterfaceBase):
     @property
     def rarm_controller(self):
         return dict(
-            controller_type='arm_a_controller',
-            controller_action='arm_a_controller/follow_joint_trajectory',
-            controller_state='arm_a_controller/state',
+            controller_type="arm_a_controller",
+            controller_action="arm_a_controller/follow_joint_trajectory",
+            controller_state="arm_a_controller/state",
             action_type=control_msgs.msg.FollowJointTrajectoryAction,
             joint_names=[
-                'arm_a_arm_joint_0',
-                'arm_a_arm_joint_1',
-                'arm_a_arm_joint_2',
-                'arm_a_arm_joint_3',
-                'arm_a_arm_joint_4',
-                'arm_a_arm_joint_5',
+                "arm_a_arm_joint_0",
+                "arm_a_arm_joint_1",
+                "arm_a_arm_joint_2",
+                "arm_a_arm_joint_3",
+                "arm_a_arm_joint_4",
+                "arm_a_arm_joint_5",
             ],
         )
 
     @property
     def larm_controller(self):
         return dict(
-            controller_type='arm_b_controller',
-            controller_action='arm_b_controller/follow_joint_trajectory',
-            controller_state='arm_b_controller/state',
+            controller_type="arm_b_controller",
+            controller_action="arm_b_controller/follow_joint_trajectory",
+            controller_state="arm_b_controller/state",
             action_type=control_msgs.msg.FollowJointTrajectoryAction,
             joint_names=[
-                'arm_b_arm_joint_0',
-                'arm_b_arm_joint_1',
-                'arm_b_arm_joint_2',
-                'arm_b_arm_joint_3',
-                'arm_b_arm_joint_4',
-                'arm_b_arm_joint_5',
+                "arm_b_arm_joint_0",
+                "arm_b_arm_joint_1",
+                "arm_b_arm_joint_2",
+                "arm_b_arm_joint_3",
+                "arm_b_arm_joint_4",
+                "arm_b_arm_joint_5",
             ],
         )
 
     def default_controller(self):
-        return [self.rarm_controller,
-                self.larm_controller]
+        return [self.rarm_controller, self.larm_controller]
 
 
-rospy.init_node('manipulate_two_robot')
+rospy.init_node("manipulate_two_robot")
 robot_model = RobotModel()
-robot_model.load_urdf_from_robot_description(
-    "/robot_description"
-)
+robot_model.load_urdf_from_robot_description("/robot_description")
 ri = MyCobotROSRobotInterface(robot_model)
 
 

@@ -10,8 +10,9 @@ from task.catch_pipettte import catch_pipette
 from task.change_mode import changeMode
 from task.pipetthing import pipetthing
 
+
 def main():
-    rospy.init_node('main_move')
+    rospy.init_node("main_move")
     moveit_commander.roscpp_initialize(sys.argv)
     op = Operater()
     arm = Arm()
@@ -19,10 +20,11 @@ def main():
     arm.controller_connect()
     arm.add_k3hand()
     changeMode(514)
-    pos = rospy.wait_for_message('object_pose',PoseStamped)
-    catch_pipette(pos,op,arm)
-    pipetthing(arm,5)
+    pos = rospy.wait_for_message("object_pose", PoseStamped)
+    catch_pipette(pos, op, arm)
+    pipetthing(arm, 5)
     rospy.spin()
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()
