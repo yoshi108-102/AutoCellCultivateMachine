@@ -10,39 +10,47 @@ from geometry_msgs.msg import PoseStamped
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 import rospy
-from cobotta.cobotta_arm import CobottaArmBcapInterface as Arm
 from cobotta.constants import MODE
 from geometry_msgs.msg import Quaternion
+from mycobot.mycobot_k3hand import K3HandinMyCobot as K3Hand
 from operater import Operater
 from std_msgs.msg import Int32
-
-from .change_mode import changeMode
 
 DISH_OFFSET = 0.1
 
 
-def open_dish(pos: PoseStamped, op: Operater, arm: Arm):
+def open_dish(pos: PoseStamped, op: Operater, k3hand:K3Hand):
     # ディッシュのちょっと上まで移動
     is_succeed: bool = False
     pos.pose.position.z += DISH_OFFSET
-    pos.pose.orientation = Quaternion(0, 0, 1, 0)
+    pos.pose.orientation = Quaternion(1,0,0,0)
     while not is_succeed:
-        is_succeed = op.cob_move_to(pos)
+        is_succeed = op.mc_move_to(pos)
     # 手を開く
-    changeMode(mode=MODE.NORMAL)
-    arm.k3Hand.movej(10)
-    changeMode(mode=MODE.SLAVE)
+    k3hand.movej(25)
+    rospy.sleep(1)
     is_succeed = False
     # ディッシュの位置まで移動
-    pos.pose.position.z -= DISH_OFFSET
+    pos.pose.position.z -= DISH_OFFSET/5
     while not is_succeed:
-        is_succeed = op.cob_move_to(pos)
+        is_succeed = op.mc_move_to(pos)
     # 手を閉じてディッシュを持ち上げる
-    changeMode(mode=MODE.NORMAL)
-    arm.k3Hand.movej(11)
-    changeMode(mode=MODE.SLAVE)
-    pos.pose.position.z += DISH_OFFSET
-    is_succeed = False
-    while not is_succeed:
-        is_succeed = op.cob_move_to(pos)
+    k3hand.movej(11)
+    rospy.sleep(3)
+    op.mc_send_angles([0.1]*6)
     return True
+
+def main():
+    rospy.init_node("pipetthing")
+    moveit_commander.roscpp_initialize(sys.argv)
+    k3hand = K3Hand()
+    op = Operater()
+    pos = rospy.wait_for_message("object_pose", PoseStamped)
+    rospy.loginfo(pos)
+    open_dish(pos,op,k3hand)
+    rospy.spin()
+
+
+if __name__ == "__main__":
+    main()
+    

@@ -9,14 +9,14 @@ import numpy as np
 import pyrealsense2 as rs
 import roslib.packages
 import rospy
+import yaml
 from geometry_msgs.msg import Pose, PoseArray, PoseStamped, Quaternion
+from hand_data import HandDetector
 from openpose import pyopenpose as op
 from screeninfo import get_monitors
 from sensor_msgs.msg import Image
 from std_msgs.msg import String
 from ultralytics import YOLO
-
-from hand_data import HandDetector
 
 pkg_path = roslib.packages.get_pkg_dir("experiment")
 
@@ -35,14 +35,20 @@ class CVEstimator:
         )
         self.handDetertor = HandDetector()
         self.take_cnt = 0
-        path = os.path.join(pkg_path,"dataset","experiment4")
+        path = os.path.join(pkg_path,"analysis","experiment5")
+        if not os.path.exists(path):
+            os.makedirs(path)
         for _,_,files in os.walk(path):
             self.take_cnt += len(files)
         self.take_cnt //=2
         print(self.take_cnt)
         self.start_time = 0
         self.hand_points = []
-
+        self.yamlData = {"data":[]}
+        with open(os.path.join(path,"speed2.yaml"),"r") as f:
+                   self.yamlData= yaml.safe_load(f)
+        print(self.yamlData)
+        f.close()
     def yolo_init(self):
         self.pipetteModel = YOLO(
             HOME_DIR + "/yolo_dataset/runs/labs/all/train/weights/best.pt"
@@ -179,17 +185,13 @@ class CVEstimator:
         self.displayPipettePose(color_image)
 
     def estimationHumanPose(self, color_image, depth_frame):
-        detect_result = self.handDetertor.detect(color_image)
+        detect_result,_ = self.handDetertor.detect(color_image)
         w, h = 640, 480
         pose_array = PoseArray()
         for i in range(2):
             try:
                 conf = detect_result.handedness[i][0].score
-                if conf < 0.8:
-                    rospy.logwarn("Confidence is low")
-                    continue
             except IndexError:
-                rospy.logwarn("No hand detected")
                 continue
             for j in range(21):
                 landmark = detect_result.hand_landmarks[i][j]
@@ -272,74 +274,55 @@ class CVEstimator:
     def mouseEvent(self, event, x, y, flags, param):
         angles = [15, 30, 45, 60, 75, 90, 105, 120, 135, 150]
         take_num = 5
-        rospy.loginfo(f"take_cnt: {self.take_cnt}")
         id = self.take_cnt // (take_num * len(angles))
         if event == cv2.EVENT_LBUTTONDOWN:
             #　手の現在位置を記録
-            color_image, depth_frame = self.getRSImages()
-            result,_ = self.handDetertor.detect(color_image)
-            while len(result.handedness) == 0:
-                result , _= self.handDetertor.detect(color_image)
-                rospy.loginfo(result)
-            #手の中心座標を取得
-            hand_average = [0, 0, 0]
-            for landmark in result.hand_landmarks[0]:
-                hand_average[0] += landmark.x * 640
-                hand_average[1] += landmark.y * 480
-                hand_average[2] += landmark.z
-            hand_average = [int(x) // len(result.hand_landmarks[0]) for x in hand_average]
-            hand_z = depth_frame.get_distance(hand_average[0], hand_average[1])
-            hand_points = rs.rs2_deproject_pixel_to_point(
-                self.color_intr, [hand_average[0], hand_average[1]], hand_z
-            )
-            cv2.circle(
-                color_image,
-                (hand_average[0], hand_average[1]),
-                5,
-                (255, 255, 255),
-                -1,
-            )
-            rospy.loginfo(f"hand_points: {hand_points}")
-            ntime = time.time()
-            self.start_time = ntime
-            self.hand_points = hand_points
-        elif event == cv2.EVENT_RBUTTONDOWN:
-            # 手の移動が終了
-            finish_time = time.time()
-            time_diff = finish_time - self.start_time
-            rospy.loginfo(f"Time: {time_diff}")
-            color_image, depth_frame = self.getRSImages()
-            result,_ = self.handDetertor.detect(color_image)
-            while len(result.handedness) == 0:
-                result , _= self.handDetertor.detect(color_image)
-            hand_average = [0, 0, 0]
-            for landmark in result.hand_landmarks[0]:
-                hand_average[0] += landmark.x * 640
-                hand_average[1] += landmark.y * 480
-                hand_average[2] += landmark.z
-            hand_average = [int(x) // len(result.hand_landmarks[0]) for x in hand_average]
-            hand_z = depth_frame.get_distance(hand_average[0], hand_average[1])
-            hand_points = rs.rs2_deproject_pixel_to_point(
-                self.color_intr, [hand_average[0], hand_average[1]], hand_z
-            )
-            rospy.loginfo(f"hand_points: {hand_points}")
-            rospy.loginfo(f"hand_diff: {hand_points[0] - self.hand_points[0], hand_points[1] - self.hand_points[1], hand_points[2] - self.hand_points[2]}")
-            rospy.loginfo(f"speed: {math.sqrt((hand_points[0] - self.hand_points[0])**2 + (hand_points[1] - self.hand_points[1])**2 + (hand_points[2] - self.hand_points[2])**2) / time_diff}")
+            path = os.path.join(pkg_path,"dataset","experiment5")
+            if not os.path.exists(path):
+                os.makedirs(path)
+            size = 0
+            tmp = 0
+            for _,_,files in os.walk(path):
+                size += len(files)
+                tmp += len(files)
+            size //= 2
+            rospy.loginfo(tmp)
+            if tmp % 2 != 0:
+                color_image, depth_frame = self.getRSImages()
+                ntime = time.time()
+                self.start_time = ntime
+                cv2.imwrite(os.path.join(path,f"mycobot_start_{size}.png"),color_image)
+            else:
+                # 手の移動が終了
+                finish_time = time.time()
+                time_diff = finish_time - self.start_time
+                color_image, depth_frame = self.getRSImages()
+                self.yamlData["mycobot"].append(time_diff)
+                cv2.imwrite(os.path.join(path,f"mycobot_finish_{size}.png"),color_image)
+                with open(os.path.join(os.path.join(pkg_path,"analysis","experiment5"),"speed2.yaml"),"w") as f:
+                    yaml.dump(self.yamlData,f)
+                f.close()
 def main():
-    rospy.init_node("hand_image_taker")
+    rospy.init_node("target_estimation", anonymous=True)
     cv2.namedWindow("color_image", cv2.WINDOW_NORMAL)
     estimator = CVEstimator()
     rospy.loginfo("start")
     cv2.setMouseCallback("color_image", estimator.mouseEvent)
     while not rospy.is_shutdown():
         color_image, depth_frame = estimator.getRSImages()
-        _,color_image = estimator.handDetertor.detect(color_image)
         image = cv_bridge.CvBridge().cv2_to_imgmsg(color_image, "bgr8")
+        estimator.imageRawPublisher.publish(image)
+        try:
+            estimator.estimationHumanPose(color_image, depth_frame)
+            #estimator.pipetteChecker(color_image, depth_frame)
+        except Exception as e:
+            rospy.logwarn(e)
         color_image = estimator.displayPipettePose(color_image)
         color_image = cv2.resize(color_image, (1280, 960))
         color_image = cv2.cvtColor(color_image,cv2.COLOR_RGB2BGR)
         cv2.imshow("color_image", color_image)
         cv2.waitKey(1)
+    
     cv2.destroyAllWindows()
             
         

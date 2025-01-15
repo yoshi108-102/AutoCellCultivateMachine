@@ -56,10 +56,16 @@ class TfBroadCaster:
         if self.camera_trans is None:
             self.get_camera_trans()
         # self.camera_trans.header.stamp = rospy.Time.now()
-        new_pos = tf2_geometry_msgs.do_transform_pose(msg, self.camera_trans)
-        new_pos.header = msg.header
-        new_pos.header.stamp = rospy.Time.now()
-        rospy.Publisher("object_pose", PoseStamped, queue_size=10).publish(new_pos)
+        if "medium" in msg.header.frame_id:
+            new_pos = tf2_geometry_msgs.do_transform_pose(msg, self.camera_trans)
+            new_pos.header = msg.header
+            new_pos.header.stamp = rospy.Time.now()
+            rospy.Publisher(f"object_pose_{msg.header.frame_id}", PoseStamped, queue_size=10).publish(new_pos)
+        else:
+            new_pos = tf2_geometry_msgs.do_transform_pose(msg, self.camera_trans)
+            new_pos.header = msg.header
+            new_pos.header.stamp = rospy.Time.now()
+            rospy.Publisher("object_pose", PoseStamped, queue_size=10).publish(new_pos)
 
     def set_hand_tf(self, msg: PoseArray):
         if self.camera_trans is None:

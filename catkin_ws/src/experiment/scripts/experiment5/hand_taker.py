@@ -15,8 +15,9 @@ from hand_data import HandDetector
 from openpose import pyopenpose as op
 from screeninfo import get_monitors
 from sensor_msgs.msg import Image
-from ultralytics import YOLO
 from std_msgs.msg import String
+from ultralytics import YOLO
+
 pkg_path = roslib.packages.get_pkg_dir("experiment")
 
 HOME_DIR = os.path.expanduser("~")
@@ -337,27 +338,6 @@ class CVEstimator:
                 self.yaml_data["success"].append(1)
             else:
                 self.yaml_data["success"].append(0)
-def main():
-    cv2.namedWindow("color_image", cv2.WINDOW_NORMAL)
-    estimator = CVEstimator()
-    cv2.setMouseCallback("color_image", estimator.mouseEvent)
-    while not rospy.is_shutdown():
-        color_image, depth_frame = estimator.getRSImages()
-        _,color_image = estimator.handDetertor.detect(color_image)
-        image = cv_bridge.CvBridge().cv2_to_imgmsg(color_image, "bgr8")
-        color_image = estimator.displayPipettePose(color_image)
-        color_image = cv2.resize(color_image, (1280, 960))
-        color_image = cv2.cvtColor(color_image,cv2.COLOR_RGB2BGR)
-        cv2.imshow("color_image", color_image)
-        cv2.waitKey(1)
-    cv2.destroyAllWindows()
-            
-        
-            
-                    
-                
-            
-            
                     
             
             
@@ -375,7 +355,7 @@ def main():
         color_image = cv2.cvtColor(color_image,cv2.COLOR_RGB2BGR)
         cv2.imshow("color_image", color_image)
         cv2.waitKey(1)
-    target_yaml = os.path.join(pkg_path,"dataset","experiment4","speed.yaml")
+    target_yaml = os.path.join(pkg_path,"dataset","experiment5","speed.yaml")
     with open(target_yaml,"w") as f:
         yaml.dump(estimator.yaml_data,f)
     cv2.destroyAllWindows()

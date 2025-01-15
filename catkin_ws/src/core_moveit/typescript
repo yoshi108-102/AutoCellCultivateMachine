@@ -1,0 +1,43 @@
+Script started on 2025-01-10 21:40:12+09:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="80" LINES="24"]
+]0;tw017@tw017-B650M-PG-Riptide-WiFi: ~/Desktop/PipetteDetect/catkin_ws/src/core_moveit[01;32mtw017@tw017-B650M-PG-Riptide-WiFi[00m:[01;34m~/Desktop/PipetteDetect/catkin_ws/src/core_moveit[00m$ ^C
+]0;tw017@tw017-B650M-PG-Riptide-WiFi: ~/Desktop/PipetteDetect/catkin_ws/src/core_moveit[01;32mtw017@tw017-B650M-PG-Riptide-WiFi[00m:[01;34m~/Desktop/PipetteDetect/catkin_ws/src/core_moveit[00m$ cd scripts/
+]0;tw017@tw017-B650M-PG-Riptide-WiFi: ~/Desktop/PipetteDetect/catkin_ws/src/core_moveit/scripts[01;32mtw017@tw017-B650M-PG-Riptide-WiFi[00m:[01;34m~/Desktop/PipetteDetect/catkin_ws/src/core_moveit/scripts[00m$ cd task/
+]0;tw017@tw017-B650M-PG-Riptide-WiFi: ~/Desktop/PipetteDetect/catkin_ws/src/core_moveit/scripts/task[01;32mtw017@tw017-B650M-PG-Riptide-WiFi[00m:[01;34m~/Desktop/PipetteDetect/catkin_ws/src/core_moveit/scripts/task[00m$ ls
+[0m[01;32m__init__.py[0m  [01;32mcatch_pipettte.py[0m  open_dish.py
+[01;34m__pycache__[0m  [01;32mchange_mode.py[0m     [01;32mpipetthing.py[0m
+]0;tw017@tw017-B650M-PG-Riptide-WiFi: ~/Desktop/PipetteDetect/catkin_ws/src/core_moveit/scripts/task[01;32mtw017@tw017-B650M-PG-Riptide-WiFi[00m:[01;34m~/Desktop/PipetteDetect/catkin_ws/src/core_moveit/scripts/task[00m$ chmod +x ./*
+]0;tw017@tw017-B650M-PG-Riptide-WiFi: ~/Desktop/PipetteDetect/catkin_ws/src/core_moveit/scripts/task[01;32mtw017@tw017-B650M-PG-Riptide-WiFi[00m:[01;34m~/Desktop/PipetteDetect/catkin_ws/src/core_moveit/scripts/task[00m$ python[K[K[K[K[K[Krosrun core_movet[Kit open_dish.py 
+Traceback (most recent call last):
+  File "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/core_moveit/scripts/task/open_dish.py", line 19, in <module>
+    from .change_mode import changeMode
+ImportError: attempted relative import with no known parent package
+]0;tw017@tw017-B650M-PG-Riptide-WiFi: ~/Desktop/PipetteDetect/catkin_ws/src/core_moveit/scripts/task[01;32mtw017@tw017-B650M-PG-Riptide-WiFi[00m:[01;34m~/Desktop/PipetteDetect/catkin_ws/src/core_moveit/scripts/task[00m$ rosrun core_moveit open_dish.py 
+Traceback (most recent call last):
+  File "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/core_moveit/scripts/task/open_dish.py", line 54, in <module>
+    main()
+  File "/home/tw017/Desktop/PipetteDetect/catkin_ws/src/core_moveit/scripts/task/open_dish.py", line 49, in main
+    open_dish(pos,op,k3hand)
+NameError: name 'op' is not defined
+]0;tw017@tw017-B650M-PG-Riptide-WiFi: ~/Desktop/PipetteDetect/catkin_ws/src/core_moveit/scripts/task[01;32mtw017@tw017-B650M-PG-Riptide-WiFi[00m:[01;34m~/Desktop/PipetteDetect/catkin_ws/src/core_moveit/scripts/task[00m$ rosrun core_moveit open_dish.py 
+[0m[ INFO] [1736512950.539768922]: Loading robot model 'dual_arm_robot'...[0m
+[0m[ INFO] [1736512950.540179794]: No root/virtual joint specified in SRDF. Assuming fixed joint[0m
+[33m[ WARN] [1736512950.577322573]: Could not identify parent group for end-effector 'mycobot_link6'[0m
+[0m[ INFO] [1736512951.720790700]: Ready to take commands for planning group arm_group.[0m
+[0m[ INFO] [1736512951.976751226]: Ready to take commands for planning group arm.[0m
+[33m[ WARN] [1736512957.029800215]: Fail: ABORTED: TIMED_OUT[0m
+[33m[WARN] [1736512957.030009]: 'hand'
+[0m[INFO] [1736512957.056269]: hand is None
+[33m[WARN] [1736512957.058993]: 'hand'
+[0m[INFO] [1736512957.060033]: hand is None
+[33m[WARN] [1736512957.135459]: Failed
+[0m[33m[ WARN] [1736512962.162943638]: Fail: ABORTED: TIMED_OUT[0m
+[33m[WARN] [1736512962.167113]: 'hand'
+[0m[INFO] [1736512962.178654]: hand is None
+[33m[WARN] [1736512962.185902]: Failed
+[0m[33m[WARN] [1736512962.187311]: 'hand'
+[0m[INFO] [1736512962.188947]: hand is None
+^C[33m[ WARN] [1736512967.225916468]: Fail: ABORTED: TIMED_OUT[0m
+[33m[WARN] [1736512967.226968]: 'hand'
+[0m[INFO] [1736512967.241582]: hand is None
+[33m[WARN] [1736512967.258938]: 'hand'
+[0m[INFO] [1736512967.263536]: hand is None

@@ -1,0 +1,7 @@
+<launch>
+    <arg name="rviz" default="false" />
+    <node name="solid_markers" pkg="estimation" type="solid_marker.py" output="screen" />
+    <group if = "$(eval rviz)">
+        <node name="rviz" pkg="rviz" type="rviz" args="-d $(find mycobot_320_moveit)/config/moveit_rviz.rviz" />
+    </group>
+</launch>

@@ -46,6 +46,8 @@ rospy.init_node("marker_display", anonymous=True)
 pub = rospy.Publisher("visualization_marker", Marker, queue_size=20)
 
 rospy.Subscriber("object_pose", PoseStamped, partial(callback, pub))
+rospy.Subscriber("object_pose_medium0", PoseStamped, partial(callback, pub))
+rospy.Subscriber("object_pose_medium1", PoseStamped, partial(callback, pub))
 
 while not rospy.is_shutdown():
     rospy.spin()

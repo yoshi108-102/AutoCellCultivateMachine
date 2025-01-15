@@ -16,6 +16,7 @@ class K3HandinMyCobot:
         yaml_path = os.path.join(PKG_PATH,"yaml","k3hand_points.yaml")
         with open(yaml_path,"r") as f:
             self.point_data = yaml.safe_load(f)
+        self.hand.send_speeds([30]*8)
     def movej(self,id:int):
         try:
             angles = self.point_data[f"p{id}"][0]

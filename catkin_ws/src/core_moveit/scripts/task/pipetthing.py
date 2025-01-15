@@ -10,12 +10,11 @@ from geometry_msgs.msg import PoseStamped
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 import rospy
+from change_mode import changeMode
 from cobotta.cobotta_arm import CobottaArmBcapInterface as Arm
 from geometry_msgs.msg import Quaternion
 from operater import Operater
 from std_msgs.msg import Int32
-
-from .change_mode import changeMode
 
 
 def pipetthing(arm: Arm, num: int):

@@ -9,8 +9,12 @@ import tf2_ros
 from control_msgs.msg import (FollowJointTrajectoryAction,
                               FollowJointTrajectoryActionGoal)
 from geometry_msgs.msg import PoseStamped
-from trajectory_msgs.msg import JointTrajectory
+from moveit_msgs.msg import (Constraints, JointConstraint, JointLimits,
+                             OrientationConstraint, RobotTrajectory)
+from sensor_msgs.msg import JointState
 from std_msgs.msg import String
+from trajectory_msgs.msg import JointTrajectory
+
 
 class Operater:
     def __init__(self):
@@ -19,9 +23,13 @@ class Operater:
         self.mc_group = moveit_commander.MoveGroupCommander("arm_group")
         self.scene = moveit_commander.PlanningSceneInterface()
         self.cob_group = moveit_commander.MoveGroupCommander("arm")
+        self.mc_joint_pub = rospy.Publisher("/joint_command",JointState,queue_size=1)
         self.cob_group.set_max_velocity_scaling_factor(0.8)
+        self.cob_group.set_goal_orientation_tolerance(0.03)
+        self.cob_group.set_goal_position_tolerance(0.01)
         self.target = None
         self.is_cob_active = False
+        self.is_mc_active = False
         self.sub = rospy.Subscriber("/object_pose", PoseStamped, self.cb)
         self.mc_joints = [
             "mycobot_arm_joint_0",
@@ -39,9 +47,11 @@ class Operater:
             "joint_5",
             "joint_6",
         ]
+        self.cob_group.set_workspace([-0.2,-0.1,0.0,0.4,0.3,0.56])
+        self.mc_group.set_workspace([-0.2,-0.1,0.0,0.4,0.3,0.5])
         self.pre_hand = PoseStamped()
         self.pre_wrist = PoseStamped()
-        self.cobAvoidTimer = rospy.Timer(rospy.Duration(0.1), self.mc_avoid)
+        #self.cobAvoidTimer = rospy.Timer(rospy.Duration(0.4), self.mc_avoid)
     def cb(self, msg: PoseStamped):
         self.target = msg
 
@@ -55,7 +65,7 @@ class Operater:
         if target is None:
             return False
         pos = target.pose.position
-        self.mc_group.set_pose_target(target)
+        self.mc_group.set_pose_target(pose)
         try:
             plan = self.mc_group.plan()
         except Exception as e:
@@ -63,7 +73,8 @@ class Operater:
             return
         goal = FollowJointTrajectoryActionGoal()
         goal.goal.trajectory = plan[1].joint_trajectory
-
+        #goal.goal.trajectory.points = goal.goal.trajectory.points[:3]
+        rospy.loginfo(goal)
         client = actionlib.SimpleActionClient(
             "mycobot_arm_controller/follow_joint_trajectory",
             FollowJointTrajectoryAction,
@@ -79,15 +90,49 @@ class Operater:
         else:
             rospy.logwarn("Failed")
             return False
-
+    def mc_send_angles(self,joint_list):
+        joint_state = JointState()
+        joint_state.position = joint_list
+        joint_state.name = [f"joint_{i}" for i in range(6)]
+        rospy.loginfo(joint_state)
+        self.mc_joint_pub.publish(joint_state)
     def cob_move_to(self, pose: PoseStamped) -> bool:
+        current_pose = self.cob_group.get_current_joint_values()
+        print(current_pose)
+        joint_const = JointConstraint()
+        joint_const.joint_name = "joint_6"
+        joint_const.position = current_pose[5]
+        joint_const.tolerance_above = 2.2
+        joint_const.tolerance_below = 2.2
+        joint_const.weight = 1.0
+        constraints = Constraints()
+        constraints.joint_constraints.append(joint_const)
+        self.cob_group.set_path_constraints(constraints)
         target = pose
         if target is None:
             return False
         self.cob_group.set_pose_target(target)
         try:
             plan = self.cob_group.plan()
-            # rospy.loginfo(plan)
+            rospy.loginfo(plan)
+            self.is_cob_active = True
+            self.cob_group.go(wait=True)
+            self.cob_group.stop()
+            self.is_cob_active = False
+            return True
+        except Exception as e:
+            rospy.logwarn(e)
+            self.is_cob_active = False
+            exit(1)
+        self.cob_group.clear_path_constraints()
+    def cob_cartesian_path(self,pose):
+        target = pose
+        if target is None:
+            return False
+        try:
+            plan,_ = self.cob_group.compute_cartesian_path([target.pose],0.01)
+
+            rospy.loginfo(plan)
             self.is_cob_active = True
             self.cob_group.go(wait=True)
             self.cob_group.stop()
@@ -98,6 +143,9 @@ class Operater:
             self.is_cob_active = False
             exit(1)
     def mc_avoid(self,event):
+        if self.is_mc_active:
+            return
+        
         objects = ["hand", "arm_end"]
         border = 0.200
         end_pose = self.cob_group.get_current_pose()
@@ -119,6 +167,7 @@ class Operater:
         except Exception as e:
             rospy.loginfo("wrist is None")
             return
+        self.is_mc_active = True
         hand_distance = self.calc_distance(end_pose, hand_pose)
         arm_distance, t = self.calc_arm_distance(hand_pose, wrist_pose)
         """ if hand_distance < border or arm_distance < border:
@@ -131,15 +180,15 @@ class Operater:
             target = PoseStamped()
             target.pose.position.x = (
                 end_pose.pose.position.x
-                + (end_pose.pose.position.x - hand_pose.pose.position.x) * 0.1
+                + (end_pose.pose.position.x - hand_pose.pose.position.x) * 0.05
             )
             target.pose.position.y = (
                 end_pose.pose.position.y
-                + (end_pose.pose.position.y - hand_pose.pose.position.y) * 0.1
+                + (end_pose.pose.position.y - hand_pose.pose.position.y) * 0.05
             )
             target.pose.position.z = (
                 end_pose.pose.position.z
-                + (end_pose.pose.position.z - hand_pose.pose.position.z) * 0.1
+                + (end_pose.pose.position.z - hand_pose.pose.position.z) * 0.05
             )
             if not self.is_cob_active:
                 self.mc_move_to(target)
@@ -148,20 +197,22 @@ class Operater:
             target = PoseStamped()
             target.pose.position.x = (
                 end_pose.pose.position.x
-                + (end_pose.pose.position.x - wrist_pose.pose.position.x) * 0.1
+                + (end_pose.pose.position.x - wrist_pose.pose.position.x) * 0.02
             )
             target.pose.position.y = (
                 end_pose.pose.position.y
-                + (end_pose.pose.position.y - wrist_pose.pose.position.y) * 0.1
+                + (end_pose.pose.position.y - wrist_pose.pose.position.y) * 0.02
             )
             target.pose.position.z = (
                 end_pose.pose.position.z
-                + (end_pose.pose.position.z - wrist_pose.pose.position.z) * 0.1
+                + (end_pose.pose.position.z - wrist_pose.pose.position.z) * 0.02
             )
             if not self.is_cob_active:
                 self.mc_move_to(target)
         rospy.loginfo((hand_distance, arm_distance))
         rospy.Publisher("/signal", String, queue_size=1).publish("mc_avoid")
+        rospy.sleep(2)
+        self.is_mc_active = False
     def cob_avoid(self, event):
         objects = ["hand", "arm_end"]
         border = 0.200
@@ -196,15 +247,15 @@ class Operater:
             target = PoseStamped()
             target.pose.position.x = (
                 end_pose.pose.position.x
-                + (end_pose.pose.position.x - hand_pose.pose.position.x) * 0.1
+                + (end_pose.pose.position.x - hand_pose.pose.position.x) * 0.05
             )
             target.pose.position.y = (
                 end_pose.pose.position.y
-                + (end_pose.pose.position.y - hand_pose.pose.position.y) * 0.1
+                + (end_pose.pose.position.y - hand_pose.pose.position.y) * 0.05
             )
             target.pose.position.z = (
                 end_pose.pose.position.z
-                + (end_pose.pose.position.z - hand_pose.pose.position.z) * 0.1
+                + (end_pose.pose.position.z - hand_pose.pose.position.z) * 0.05
             )
             if not self.is_cob_active:
                 self.cob_move_to(target)
@@ -213,15 +264,15 @@ class Operater:
             target = PoseStamped()
             target.pose.position.x = (
                 end_pose.pose.position.x
-                + (end_pose.pose.position.x - wrist_pose.pose.position.x) * 0.1
+                + (end_pose.pose.position.x - wrist_pose.pose.position.x) * 0.05
             )
             target.pose.position.y = (
                 end_pose.pose.position.y
-                + (end_pose.pose.position.y - wrist_pose.pose.position.y) * 0.1
+                + (end_pose.pose.position.y - wrist_pose.pose.position.y) * 0.05
             )
             target.pose.position.z = (
                 end_pose.pose.position.z
-                + (end_pose.pose.position.z - wrist_pose.pose.position.z) * 0.1
+                + (end_pose.pose.position.z - wrist_pose.pose.position.z) * 0.05
             )
             if not self.is_cob_active:
                 self.cob_move_to(target)
@@ -275,6 +326,7 @@ class Operater:
 def main():
     rospy.init_node("operater")
     op = Operater()
+    rospy.loginfo("hand is None")
     rospy.spin()
 
 

@@ -11,7 +11,7 @@ from ultralytics import YOLO
 def main(argv):
     model = YOLO("yolov8n.pt")
     # runsはパッケージ直下に作成
-    model.train(data=f"./labs/data.yaml", epochs=400, project="./runs/labs/all")
+    model.train(data=f"./labs/data.yaml", epochs=400, project="./runs/labs/1000")
     metrics = model.val()
     print(metrics)
 

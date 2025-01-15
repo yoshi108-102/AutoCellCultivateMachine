@@ -10,12 +10,11 @@ from geometry_msgs.msg import PoseStamped
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 import rospy
+from change_mode import changeMode
 from cobotta.cobotta_arm import CobottaArmBcapInterface as Arm
 from geometry_msgs.msg import Quaternion
 from operater import Operater
 from std_msgs.msg import Int32
-
-from .change_mode import changeMode
 
 """
 1. ピペットにアームを十分に近づける
@@ -26,7 +25,7 @@ from .change_mode import changeMode
 
 def catch_pipette(pos: PoseStamped, op: Operater, arm: Arm):
     is_success = False
-    x, y, z, w = tf.transformations.quaternion_from_euler(-math.pi / 2, 0, 0)
+    x, y, z, w = tf.transformations.quaternion_from_euler(math.pi / 2, math.pi, 0)
     pos.pose.orientation = Quaternion(x, y, z, w)
     while not is_success:
         is_success = op.cob_move_to(pos)

@@ -22,6 +22,7 @@ def main():
     changeMode(514)
     pos = rospy.wait_for_message("object_pose", PoseStamped)
     catch_pipette(pos, op, arm)
+    
     pipetthing(arm, 5)
     rospy.spin()
 

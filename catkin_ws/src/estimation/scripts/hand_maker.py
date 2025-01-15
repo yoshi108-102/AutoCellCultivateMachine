@@ -18,9 +18,6 @@ def arm_maker(data: PoseArray, scene: moveit_commander.PlanningSceneInterface):
     if pre_arm:
         for object in pre_arm:
             scene.remove_world_object(object)
-    color = ObjectColor()
-    color.id = "mycobot_base_link"
-    color.color = ColorRGBA((227/255,191/255,169/255,1.0))
     center = PoseStamped()
     center.header.frame_id = "mycobot_base_link"
     center.header.stamp = rospy.Time.now()
@@ -32,12 +29,13 @@ def arm_maker(data: PoseArray, scene: moveit_commander.PlanningSceneInterface):
     center.pose.position.y /= len(data.poses)
     center.pose.position.z /= len(data.poses)
     center.pose.orientation.w = 1.0
-    hand_radius = 0.06
     wrist = PoseStamped()
     wrist.header.frame_id = "mycobot_base_link"
     wrist.header.stamp = rospy.Time.now()
     wrist.pose = data.poses[0]
-    arm_radius = 0.04
+    hand_radius = math.sqrt((center.pose.position.x - wrist.pose.position.x)**2 + (center.pose.position.y - wrist.pose.position.y)**2)
+    hand_radius = hand_radius * 2.0 / 3.0
+    arm_radius = hand_radius
     add_sphere(scene, center, radius=hand_radius, name="hand")
     add_sphere(scene, wrist, radius=hand_radius / 5, name="wrist")
     arm_end = PoseStamped()
@@ -57,7 +55,7 @@ def arm_maker(data: PoseArray, scene: moveit_commander.PlanningSceneInterface):
     cur = arm_end.pose
     add_cylinder_between_points(
         scene,
-        [center.pose.position.x, center.pose.position.y, center.pose.position.z],
+        [wrist.pose.position.x, wrist.pose.position.y, wrist.pose.position.z],
         [cur.position.x, cur.position.y, cur.position.z],
         arm_radius,
         i,
@@ -138,8 +136,14 @@ def add_cylinder_between_points(
     # シーンに円柱を追加
     collision_object_id = "cylinder"
     planning_scene_interface.add_cylinder(
-        collision_object_id, pose_stamped, height=length, radius=radius
-    )
+        collision_object_id, pose_stamped, height=length, radius=radius    )
+def cb(_):
+    scene = moveit_commander.PlanningSceneInterface()
+    pre_arm = scene.get_known_object_names()
+    rospy.loginfo(pre_arm)
+    if pre_arm:
+        for object in pre_arm:
+            scene.remove_world_object(object)
 
 
 def main():
@@ -147,6 +151,7 @@ def main():
     moveit_commander.roscpp_initialize(sys.argv)
     scene = moveit_commander.PlanningSceneInterface()
     rospy.Subscriber("hand_pose", PoseArray, arm_maker, scene)
+    rospy.Timer(rospy.Duration(0.3),cb,scene)
     rospy.spin()
 
 

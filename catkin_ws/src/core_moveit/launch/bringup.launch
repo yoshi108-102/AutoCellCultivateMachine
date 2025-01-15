@@ -34,6 +34,7 @@
   </include>
   <group if="$(arg tmp_marker)">
     <include file="$(find estimation)/launch/tentative_markers.launch" />
+    <include file="$(find estimation)/launch/solid_markers.launch" />
   </group>
   <group unless="$(arg tmp_marker)" >
     <include file="$(find estimation)/launch/estimation.launch" />
