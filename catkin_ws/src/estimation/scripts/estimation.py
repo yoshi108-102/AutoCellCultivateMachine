@@ -78,59 +78,60 @@ class CVEstimator:
 
     # 対象物体はバウンディングボックスの中心にいるものとする
     # x,yのピクセル値を返す
-    def estimatePipettePose(self, img):
-        names = {"Head": 0, "Pipette": 1}
+    def estimatePipettePose(self, img,depth_frame):
+        labels = ["Pipette", "Dish"]
         try:
             results = self.pipetteModel.predict(img, verbose=False, conf=0.6)
             conf = 0
             target = None
-            for box in results[0].boxes:
-                this_conf = box.conf.cpu().numpy()[0]
-                this_label = int(box.cls[0].item())
-                if this_label == names["Pipette"] and this_conf > conf:
-                    target = box
-                    conf = this_conf
-            if target is None:
-                return 0, 0
-            xmin, ymin, xmax, ymax = target.xyxy[0].cpu().numpy()
-            # わかりやすさのため、cv_imageにもボックスを表示させておく
-            xmin, ymin, xmax, ymax = int(xmin), int(ymin), int(xmax), int(ymax)
-            cv2.rectangle(img, (xmin, ymin), (xmax, ymax), (0, 255, 0), 2)
+            for result in results:
+                for box in result.boxes:
+                    if box is None:
+                        continue
+                    this_conf = box.conf.cpu().numpy()[0]
+                    this_label = int(box.cls[0].item())
+                    xmin, ymin, xmax, ymax = box.xyxy[0].cpu().numpy()
+                    # わかりやすさのため、cv_imageにもボックスを表示させておく
+                    xmin, ymin, xmax, ymax = int(xmin), int(ymin), int(xmax), int(ymax)
+                    cv2.rectangle(img, (xmin, ymin), (xmax, ymax), (0, 255, 0), 2)
 
-            label = "Pipette"
-            conf = target.conf.cpu().numpy()[0]
-            y = ymin - 15 if ymin - 15 > 15 else ymin + 15
-            cv2.putText(
-                img, label, (xmin, y), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 0), 2
-            )
-            cv2.putText(
-                img,
-                str(conf),
-                (xmin, y + 25),
-                cv2.FONT_HERSHEY_SIMPLEX,
-                1,
-                (0, 255, 0),
-                2,
-            )
-            xg = (xmin + xmax) // 2
-            yg = (ymin + ymax) // 2
-            return xg, yg
+                    label = labels[this_label]
+                    conf = box.conf.cpu().numpy()[0]
+                    y = ymin - 15 if ymin - 15 > 15 else ymin + 15
+                    cv2.putText(
+                        img, label, (xmin, y), cv2.FONT_HERSHEY_SIMPLEX, 2, (0, 255, 0), 2
+                    )
+                    cv2.putText(
+                        img,
+                        str(conf),
+                        (xmin, y + 25),
+                        cv2.FONT_HERSHEY_SIMPLEX,
+                        1,
+                        (0, 255, 0),
+                        2,
+                    )
+                    xg = (xmin + xmax) // 2
+                    yg = (ymin + ymax) // 2
+                    points = self.calcWorldPose(depth_frame, xg, yg)
+                    self.publishPipettePose(depth_frame, points,this_label)
+                    #self.displayPipettePose(img,this_label)
         except IndexError as e:
             return 0, 0
 
     def calcWorldPose(self, depth_frame, x, y):
         if x == 0 and y == 0:
             return None
-        z = depth_frame.get_distance(x, y) + self.PIPETTE_HEAD_RADIUS
+        z = depth_frame.get_distance(x, y)
         points = rs.rs2_deproject_pixel_to_point(self.color_intr, (x, y), z)
         if abs(points[0]) < 0.01 and abs(points[1]) < 0.01 and abs(points[2]) < 0.01:
             return None
         return points
 
-    def publishPipettePose(self, depth_frame, points):
+    def publishPipettePose(self, depth_frame, points,label):
         if points is None:
             return
-        self.pipettePose.header.frame_id = "PipetteHead"
+        labels = ["pipette", "dish"]
+        self.pipettePose.header.frame_id = labels[label]
         self.pipettePose.header.stamp = rospy.Time.now()
         self.pipettePose.pose.position.x = points[0]
         self.pipettePose.pose.position.y = points[1]
@@ -143,8 +144,9 @@ class CVEstimator:
 
         self.pipettePosePublisher.publish(self.pipettePose)
 
-    def displayPipettePose(self, color_image):
-        txt = "PipetteHead"
+    def displayPipettePose(self, color_image,label):
+        labels = ["Pipette", "Dish"]
+        txt = labels[label]
         x, y, z = (
             self.pipettePose.pose.position.x,
             self.pipettePose.pose.position.y,
@@ -167,13 +169,6 @@ class CVEstimator:
             color_image, txt, (0, 140), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2
         )
 
-    # pipetteを検出し、位置を推定するe
-    def pipetteChecker(self, color_image, depth_frame):
-        x, y = self.estimatePipettePose(color_image)
-        points = self.calcWorldPose(depth_frame, x, y)
-        self.publishPipettePose(depth_frame, points)
-        self.displayPipettePose(color_image)
-
     def estimationHumanPose(self, color_image, depth_frame):
         detect_result = self.handDetertor.detect(color_image)
         w, h = 640, 480
@@ -185,7 +180,6 @@ class CVEstimator:
                     rospy.logwarn("Confidence is low")
                     continue
             except IndexError:
-                rospy.logwarn("No hand detected")
                 continue
             for j in range(21):
                 landmark = detect_result.hand_landmarks[i][j]
@@ -274,7 +268,7 @@ def main():
         estimator.imageRawPublisher.publish(image)
         try:
             estimator.estimationHumanPose(color_image, depth_frame)
-            estimator.pipetteChecker(color_image, depth_frame)
+            estimator.estimatePipettePose(color_image, depth_frame)
         except Exception as e:
             rospy.logwarn(e)
         cv2.imshow("color", color_image)

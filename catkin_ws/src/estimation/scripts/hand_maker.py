@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 import math
 import sys
+from functools import partial
 
 import moveit_commander
 import rospy
@@ -14,6 +15,8 @@ from tf.transformations import quaternion_from_matrix
 
 def arm_maker(data: PoseArray, scene: moveit_commander.PlanningSceneInterface):
     pre_arm = scene.get_known_object_names()
+    if "collision" in pre_arm:
+        pre_arm.remove("collision")
     rospy.loginfo(pre_arm)
     if pre_arm:
         for object in pre_arm:
@@ -137,21 +140,28 @@ def add_cylinder_between_points(
     collision_object_id = "cylinder"
     planning_scene_interface.add_cylinder(
         collision_object_id, pose_stamped, height=length, radius=radius    )
-def cb(_):
-    scene = moveit_commander.PlanningSceneInterface()
-    pre_arm = scene.get_known_object_names()
-    rospy.loginfo(pre_arm)
-    if pre_arm:
-        for object in pre_arm:
-            scene.remove_world_object(object)
+def cb(scene,_):
+    try:
+        posearray = rospy.wait_for_message("hand_pose",PoseArray,timeout=0.1)
+        arm_maker(posearray,scene)
+    except Exception as e:
+        rospy.loginfo(e)
+        pre_arm = scene.get_known_object_names()
+        if "collision" in pre_arm:
+            pre_arm.remove("collision")
+        rospy.loginfo(pre_arm)
+        if pre_arm:
+            for object in pre_arm:
+                scene.remove_world_object(object)
+        
 
 
 def main():
     rospy.init_node("hand_maker", anonymous=True)
     moveit_commander.roscpp_initialize(sys.argv)
     scene = moveit_commander.PlanningSceneInterface()
-    rospy.Subscriber("hand_pose", PoseArray, arm_maker, scene)
-    rospy.Timer(rospy.Duration(0.3),cb,scene)
+    #rospy.Subscriber("hand_pose", PoseArray, arm_maker, scene)
+    rospy.Timer(rospy.Duration(0.1),partial(cb,scene))
     rospy.spin()
 
 

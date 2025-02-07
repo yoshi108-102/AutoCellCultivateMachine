@@ -26,6 +26,6 @@ class K3HandinMyCobot:
             return
 def main():
     k3hand = K3HandinMyCobot()
-    k3hand.movej(0)
+    k3hand.movej(25)
 if __name__ == "__main__":
     main()

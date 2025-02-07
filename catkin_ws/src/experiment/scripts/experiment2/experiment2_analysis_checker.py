@@ -32,7 +32,5 @@ def main():
     plt.ylabel("y")
     plt.title("mapping of pipette pose")
     plt.savefig(os.path.join(PKG_PATH, "analysis", "experiment2_real_data.png"))
-
-
 if __name__ == "__main__":
     main()

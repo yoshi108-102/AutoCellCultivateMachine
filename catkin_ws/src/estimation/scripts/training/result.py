@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-
 import os
+import rospy
+import roslib.packages
 
 import cv2
 import matplotlib.pyplot as plt
-import numpy as np
-import roslib.packages
-import rospy
 from ultralytics import YOLO
+import numpy as np
 
 PKG_PATH = roslib.packages.get_pkg_dir("experiment")
 
@@ -19,8 +18,7 @@ def main():
     for data_size in train_data_size:
         yolo_path = os.path.join(os.path.expanduser("~"), "yolo_dataset", "runs","labs", f"{data_size}","train","weights","best.pt")
         yolo = YOLO(yolo_path)
-        res =yolo.val()
-        print(res)
+        res = yolo.val()
 if __name__ == "__main__":
     main()
     

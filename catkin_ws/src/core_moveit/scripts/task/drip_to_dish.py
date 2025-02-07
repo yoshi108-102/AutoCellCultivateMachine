@@ -25,41 +25,38 @@ else:
 2. 適切にアームを回転させる
 3. ピペットを把持する
 """
+DISH_OFFSET = 0.04
 
-def move_to_pose(pos: PoseStamped, op: Operater, arm: Arm):
+def drip_to_dish(op: Operater, arm: Arm):
+    pos = rospy.wait_for_message("object_pose_dish", PoseStamped)
     is_success = False
     pos.pose.position.y += 0.04
-    pos.pose.position.z += 0.02
+    pos.pose.position.z = 0.24
     x, y, z, w = tf.transformations.quaternion_from_euler(math.pi / 2, math.pi, 0)
-    rospy.loginfo((x,y,z,w))
     pos.pose.orientation = Quaternion(x, y, z, w)
-    is_success = op.cob_move_to(pose=pos,having_constraint=False)
-    return is_success
+    while not is_success:
+        is_success = op.cob_move_to(pos,having_constraint=False)
     """
-    TODO:
+    TODO:arm.k3Hand.movej(6)
+    arm.k3Hand.movej(5)
     掴みやすいようになんかいい感じに回転
     """
-def catch_pipette(op: Operater, arm: Arm):
     changeMode(0)
     arm.k3Hand.movej(3)
-    rospy.sleep(3)
-    arm.k3Hand.movej(0)
-    changeMode(514)
-    pos = rospy.wait_for_message("object_pose_pipette", PoseStamped)
-    while True:
-        is_success = move_to_pose(pos=pos,op=op,arm=arm)
-        if is_success:
-            break
-    changeMode(0)
-    arm.k3Hand.movej(0)
-    arm.k3Hand.movej(1)
-    arm.k3Hand.movej(2)
-    arm.k3Hand.movej(3)
+    # 1.ピペットの先端にアームの指先を移動
+    arm.k3Hand.movej(4)
+    arm.k3Hand.movej(8)
+    arm.k3Hand.movej(7)
+    arm.k3Hand.movej(6)
+    for i in range(2):
+        arm.k3Hand.movej(5)
+        arm.k3Hand.movej(6)
     changeMode(514)
 
 
 def main():
     import rospy
+
     rospy.init_node("catch_pipette")
     moveit_commander.roscpp_initialize(sys.argv)
     op = Operater()
@@ -69,7 +66,12 @@ def main():
     arm.add_k3hand()
     arm.clear_error()
     changeMode(514)
-    catch_pipette(op, arm)
+    drip_to_dish(op, arm)
+    changeMode(0)
+    arm.k3Hand.movej(7)
+    arm.k3Hand.movej(8)
+    arm.k3Hand.movej(3)
+    changeMode(514)
     rospy.spin()
 
 

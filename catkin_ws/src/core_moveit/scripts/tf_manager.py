@@ -61,6 +61,16 @@ class TfBroadCaster:
             new_pos.header = msg.header
             new_pos.header.stamp = rospy.Time.now()
             rospy.Publisher(f"object_pose_{msg.header.frame_id}", PoseStamped, queue_size=10).publish(new_pos)
+        elif "pipette" in msg.header.frame_id:
+            new_pos = tf2_geometry_msgs.do_transform_pose(msg, self.camera_trans)
+            new_pos.header = msg.header
+            new_pos.header.stamp = rospy.Time.now()
+            rospy.Publisher(f"object_pose_{msg.header.frame_id}", PoseStamped, queue_size=10).publish(new_pos)
+        elif "dish" in msg.header.frame_id:
+            new_pos = tf2_geometry_msgs.do_transform_pose(msg, self.camera_trans)
+            new_pos.header = msg.header
+            new_pos.header.stamp = rospy.Time.now()
+            rospy.Publisher(f"object_pose_{msg.header.frame_id}", PoseStamped, queue_size=10).publish(new_pos)
         else:
             new_pos = tf2_geometry_msgs.do_transform_pose(msg, self.camera_trans)
             new_pos.header = msg.header
@@ -102,7 +112,7 @@ def main():
             rpy = data["rpy"]
             tf_broadcaster.broadcast(parent, k, pos, rpy, False)
             rospy.sleep(0.01)
-
+    
 
 if __name__ == "__main__":
     main()

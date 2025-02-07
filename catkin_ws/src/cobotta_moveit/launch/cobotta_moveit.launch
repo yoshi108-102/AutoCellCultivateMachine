@@ -31,12 +31,6 @@
   <!-- run the "real robot" interface nodes -->
   <!--   - this typically includes: robot_state, motion_interface, and joint_trajectory_action nodes -->
   <!--   - replace these calls with appropriate robot-specific calls or launch files -->
-  <group if="$(arg sim)">
-    <include file="$(find denso_robot_gazebo)/launch/denso_robot_gazebo.launch">
-      <arg name="robot_name" value="$(arg robot_name)" />
-    </include>
-  </group>
-
   <group unless="$(arg sim)">
     <include file="$(find denso_robot_control)/launch/denso_robot_control.launch">
       <arg name="robot_name" value="$(arg robot_name)" />

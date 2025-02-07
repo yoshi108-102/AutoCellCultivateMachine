@@ -7,8 +7,8 @@ from geometry_msgs.msg import PoseStamped, Quaternion
 
 def medium_marker(num) -> PoseStamped:
     pose_list = [
-        [-0.08,0,0.16],
-        [-0.08,0,0.30]
+        [-0.10,-0.05,0.16],
+        [-0.10,-0.05,0.30]
     ]
     pose = PoseStamped()
     pose.header.frame_id = f"medium{num}"
