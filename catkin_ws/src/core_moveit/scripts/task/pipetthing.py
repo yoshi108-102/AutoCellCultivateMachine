@@ -18,7 +18,7 @@ from std_msgs.msg import Int32
 if __name__ == "__main__":
     from change_mode import changeMode
 else:
-    from change_mode import changeMode
+    from .change_mode import changeMode
 
 
 def pipetthing(arm: Arm, num: int):

@@ -29,8 +29,8 @@ def main():
     rospy.init_node("target_estimation", anonymous=True)
     pub = rospy.Publisher("target_estimation", PoseStamped, queue_size=10)
     while not rospy.is_shutdown():
-        #pub.publish(pipette_marker())
-        #pub.publish(dish_marker())
+        pub.publish(pipette_marker())
+        pub.publish(dish_marker())
         pass
 
 

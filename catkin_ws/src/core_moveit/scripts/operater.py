@@ -20,23 +20,23 @@ class Operater:
     def __init__(self):
         self.buffer = tf2_ros.Buffer()
         self.listener = tf2_ros.TransformListener(self.buffer)
-        self.mc_group = moveit_commander.MoveGroupCommander("arm_group")
+        """ self.mc_group = moveit_commander.MoveGroupCommander("arm_group") """
         self.scene = moveit_commander.PlanningSceneInterface()
         self.cob_group = moveit_commander.MoveGroupCommander("arm")
-        self.mc_joint_pub = rospy.Publisher("/joint_command",JointState,queue_size=1)
-        self.cob_group.set_max_velocity_scaling_factor(1.0)
-        self.cob_group.set_goal_orientation_tolerance(0.01)
-        self.cob_group.set_goal_position_tolerance(0.01)
-        self.mc_group.set_max_velocity_scaling_factor(0.8)
+        """ self.mc_joint_pub = rospy.Publisher("/joint_command",JointState,queue_size=1) """
+        self.cob_group.set_max_velocity_scaling_factor(0.8)
+        self.cob_group.set_goal_orientation_tolerance(0.05)
+        self.cob_group.set_goal_position_tolerance(0.05)
+        """  self.mc_group.set_max_velocity_scaling_factor(0.8)
         self.mc_group.set_goal_orientation_tolerance(0.01)
-        self.mc_group.set_goal_position_tolerance(0.01)
-        box_pose = PoseStamped()
+        self.mc_group.set_goal_position_tolerance(0.01) """
+        """ box_pose = PoseStamped()
         box_pose.header.frame_id = "world"
         box_pose.pose.position.x = -0.2
         box_pose.pose.position.y = 0.2
         box_pose.pose.position.z = 0.3
         box_pose.pose.orientation = Quaternion(0,0,0,1)
-        self.scene.add_box("collision",box_pose,size = (0.2,1.0,0.5))
+        self.scene.add_box("collision",box_pose,size = (0.2,1.0,0.5)) """
         rospy.sleep(1)
         rospy.loginfo(self.scene.get_objects())
         self.is_cob_active = False
@@ -58,10 +58,10 @@ class Operater:
             "joint_6",
         ]
         self.cob_group.set_workspace([-0.2,-0.1,0.0,0.4,0.3,0.56])
-        self.mc_group.set_workspace([-0.2,-0.1,0.0,0.4,0.3,0.5])
+        """ self.mc_group.set_workspace([-0.2,-0.1,0.0,0.4,0.3,0.5]) """
         self.pre_hand = PoseStamped()
         self.pre_wrist = PoseStamped()
-        self.cobAvoidTimer = rospy.Timer(rospy.Duration(0.4), self.cob_avoid)
+        #self.cobAvoidTimer = rospy.Timer(rospy.Duration(0.4), self.cob_avoid)
     def is_new_topic(self, target):
         if rospy.Time.now() - target.header.stamp > rospy.Duration(0.1):
             return False
@@ -155,20 +155,8 @@ class Operater:
         self.cob_group.clear_path_constraints()
     def cob_joint_targets(self,joint_list):
         target = joint_list
-        """ current_pose = self.cob_group.get_current_joint_values()
-        print(current_pose)
-        joint_const = JointConstraint()
-        joint_const.joint_name = "joint_5"
-        joint_const.position = current_pose[4]
-        joint_const.tolerance_above = 1.0
-        joint_const.tolerance_below = 1.0
-        joint_const.weight = 1.0
-        constraints = Constraints()
-        constraints.joint_constraints.append(joint_const)
-        self.cob_group.set_path_constraints(constraints) """
         try:
             self.cob_group.go(target,wait=True)
-            self.cob_group.stop()
             self.is_cob_active = False
             return True
         except Exception as e:
